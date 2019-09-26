@@ -13,10 +13,10 @@
   },
   "Piruru:ScoutAttacks": {
     "NAME": "CIRCLE",
-    "DESCRIPTION": "$draw. NL Discard all cards drawn this way that are not Attacks."
+    "DESCRIPTION": "$draw NL Discard all cards drawn this way that are not Attacks."
   },
   "Piruru:DamangeAndFreeze": {
     "NAME": "Code Art SML",
-    "DESCRIPTION": "$damage. NL $cold"
+    "DESCRIPTION": "$damage NL $cold"
   }
 }

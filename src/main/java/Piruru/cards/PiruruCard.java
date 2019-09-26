@@ -20,8 +20,6 @@ public abstract class PiruruCard extends CustomCard {
     private int upgradeMagic;
     private int upgradeCost;
 
-
-
     public PiruruCard(CardStrings strings, int cost, CardType type, CardRarity rarity, CardTarget target, int upgradeDamage,
                       int upgradeBlock, int upgradeMagic, int upgradeCost) {
         super(null, strings.NAME, (String)null, cost, strings.DESCRIPTION, type, PiruruChar.Enums.PIRURU_ICE, rarity, target);
