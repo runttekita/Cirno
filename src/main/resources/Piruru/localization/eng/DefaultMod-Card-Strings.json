@@ -13,6 +13,6 @@
   },
   "Piruru:ScoutAttacks": {
     "NAME": "CIRCLE",
-    "DESCRIPTION": "From the top !M! cards of your draw pile, add all attacks to your hand and discard the rest."
+    "DESCRIPTION": "Draw !M! cards. Discard all cards drawn this way that are not Attacks."
   }
 }
