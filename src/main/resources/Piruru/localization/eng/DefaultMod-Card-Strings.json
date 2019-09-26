@@ -14,5 +14,9 @@
   "Piruru:ScoutAttacks": {
     "NAME": "CIRCLE",
     "DESCRIPTION": "Draw !M! cards. Discard all cards drawn this way that are not Attacks."
+  },
+  "Piruru:DamangeAndFreeze": {
+    "NAME": "Code Art SML",
+    "DESCRIPTION": "Deal !D! damage. NL Apply 2 Freeze."
   }
 }
