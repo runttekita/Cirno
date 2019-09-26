@@ -37,6 +37,7 @@ public class StarterRelic extends PiruruRelic implements ClickableRelic {
             } else {
                 setCounter(-1);
             }
+            initializeTips();
         }
     }
 
