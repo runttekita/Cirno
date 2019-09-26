@@ -21,7 +21,7 @@ public class StarterRelic extends PiruruRelic implements ClickableRelic {
 
     @Override
     public void atBattleStartPreDraw() {
-        act(new PeepingAnalyzeAction(cost));
+        act(new PeepingAnalyzeAction(counter));
     }
 
     @Override
