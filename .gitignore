@@ -77,3 +77,10 @@ $RECYCLE.BIN/
 
 # Spriter files
 *.autosave.scml
+
+.factorypath
+info.displayconfig
+preferences/
+saves/
+sendToDevs/
+twitchconfig.txt/  
