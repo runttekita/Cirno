@@ -33,19 +33,19 @@ public abstract class PiruruCard extends CustomCard {
         return Piruru.makeID(this.getClass().getSimpleName());
     }
 
-    protected void act(AbstractGameAction a) {
+    private void act(AbstractGameAction a) {
         AbstractDungeon.actionManager.addToBottom(a);
     }
 
-    protected DamageInfo dmgInfo() {
+    private DamageInfo dmgInfo() {
         return new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.NORMAL);
     }
 
-    protected void damage(AbstractCreature m) {
+    void damage(AbstractCreature m) {
         act(new DamageAction(m, dmgInfo()));
     }
 
-    protected void block() {
+    void block() {
         act(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
     }
 }
