@@ -64,8 +64,8 @@ public class PiruruChar extends CustomPlayer {
     private static final String ID = makeID("Piruru");
     private static final CharacterStrings characterStrings =
      CardCrawlGame.languagePack.getCharacterString(ID);
-    private static final String[] NAMES = {"dab", "dab", "dab", "dab", "dab"};
-    private static final String[] TEXT = {"dab", "dab", "dab", "dab", "dab"};
+    private static final String[] NAMES = {"Pirulu", "Pirulu", "Pirulu", "Pirulu", "Pirulu"};
+    private static final String[] TEXT = {"Pirulu", "Pirulu", "Pirulu", "Pirulu", "Pirulu"};
 
     public static final String[] orbTextures = {
             "Piruru/images/char/defaultCharacter/orb/layer1.png",
@@ -108,7 +108,7 @@ public class PiruruChar extends CustomPlayer {
 
     @Override
     public CharSelectInfo getLoadout() {
-        return new CharSelectInfo("DAB", "DAB",
+        return new CharSelectInfo("Piruru", "Piruru",
                 STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW,
                 this, getStartingRelics(),
                 getStartingDeck(), false);
@@ -168,7 +168,7 @@ public class PiruruChar extends CustomPlayer {
 
     @Override
     public String getLocalizedCharacterName() {
-        return "dab";
+        return "Pirulu";
     }
 
     @Override
@@ -178,7 +178,7 @@ public class PiruruChar extends CustomPlayer {
 
     @Override
     public String getTitle(AbstractPlayer.PlayerClass playerClass) {
-        return "dab";
+        return "Pirulu";
     }
 
     @Override
@@ -206,11 +206,11 @@ public class PiruruChar extends CustomPlayer {
 
     @Override
     public String getSpireHeartText() {
-        return "dab";
+        return "Pirulu";
     }
 
     @Override
     public String getVampireText() {
-        return "dab";
+        return "Pirulu";
     }
 }

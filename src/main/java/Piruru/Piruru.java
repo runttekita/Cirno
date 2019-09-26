@@ -43,17 +43,17 @@ public class Piruru implements
         private static String modID;
         public static final Color PIRURU_ICE = CardHelper.getColor(64.0f, 70.0f, 70.0f);
 
-        private static final String ATTACK_PIRURU_ICE = "Piruru/images/512/bg_attack_PIRURU_ICE.png";
-        private static final String SKILL_PIRURU_ICE = "Piruru/images/512/bg_skill_PIRURU_ICE.png";
-        private static final String POWER_PIRURU_ICE = "Piruru/images/512/bg_power_PIRURU_ICE.png";
+        private static final String ATTACK_PIRURU_ICE = "Piruru/images/512/bg_attack_default_gray.png";
+        private static final String SKILL_PIRURU_ICE = "Piruru/images/512/bg_skill_default_gray.png";
+        private static final String POWER_PIRURU_ICE = "Piruru/images/512/bg_power_default_gray.png";
 
-        private static final String ENERGY_ORB_PIRURU_ICE = "Piruru/images/512/card_PIRURU_ICE_orb.png";
+        private static final String ENERGY_ORB_PIRURU_ICE = "Piruru/images/512/card_default_gray_orb.png";
         private static final String CARD_ENERGY_ORB = "Piruru/images/512/card_small_orb.png";
 
-        private static final String ATTACK_PIRURU_ICE_PORTRAIT = "Piruru/images/1024/bg_attack_PIRURU_ICE.png";
-        private static final String SKILL_PIRURU_ICE_PORTRAIT = "Piruru/images/1024/bg_skill_PIRURU_ICE.png";
-        private static final String POWER_PIRURU_ICE_PORTRAIT = "Piruru/images/1024/bg_power_PIRURU_ICE.png";
-        private static final String ENERGY_ORB_PIRURU_ICE_PORTRAIT = "Piruru/images/1024/card_PIRURU_ICE_orb.png";
+        private static final String ATTACK_PIRURU_ICE_PORTRAIT = "Piruru/images/1024/bg_attack_default_gray.png";
+        private static final String SKILL_PIRURU_ICE_PORTRAIT = "Piruru/images/1024/bg_skill_default_gray.png";
+        private static final String POWER_PIRURU_ICE_PORTRAIT = "Piruru/images/1024/bg_power_default_gray.png";
+        private static final String ENERGY_ORB_PIRURU_ICE_PORTRAIT = "Piruru/images/1024/card_default_gray_orb.png";
 
         private static final String PIRURU_BUTTON = "Piruru/images/charSelect/DefaultCharacterButton.png";
         private static final String PIRURU_PORTRAIT = "Piruru/images/charSelect/DefaultCharacterPortraitBG.png";
