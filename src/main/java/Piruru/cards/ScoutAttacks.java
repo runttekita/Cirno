@@ -2,6 +2,7 @@ package Piruru.cards;
 
 import Piruru.Piruru;
 import Piruru.actions.ScoutCardsAction;
+import Piruru.actions.ScoutFollowUpAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -29,6 +30,6 @@ public class ScoutAttacks extends PiruruCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         act(new ScoutCardsAction(p, magicNumber));
         act(new WaitAction(0.4F));
-
+        act(new ScoutFollowUpAction());
     }
 }
