@@ -20,6 +20,7 @@ public class ScoutAttacks extends PiruruCard {
 
     public ScoutAttacks() {
         super(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, SCOUT_NUM_UP, COST);
+        baseMagicNumber = magicNumber = SCOUT_NUM;
     }
 
     @Override

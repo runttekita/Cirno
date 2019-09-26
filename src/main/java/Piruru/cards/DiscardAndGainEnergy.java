@@ -22,6 +22,7 @@ public class DiscardAndGainEnergy extends PiruruCard {
 
     public DiscardAndGainEnergy() {
         super(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, NRG_UP, COST);
+        baseMagicNumber = magicNumber = ENERGY;
     }
 
     @Override
