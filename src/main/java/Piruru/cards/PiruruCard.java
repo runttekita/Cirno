@@ -14,14 +14,24 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 
 public abstract class PiruruCard extends CustomCard {
     protected CardStrings cardStrings;
+    private int upgradeDamage;
+    private int upgradeBlock;
+    private int upgradeMagic;
+    private int upgradeCost;
 
 
-    public PiruruCard(int cost, CardType type, CardRarity rarity, CardTarget target) {
+
+    public PiruruCard(int cost, CardType type, CardRarity rarity, CardTarget target, int upgradeDamage,
+                      int upgradeBlock, int upgradeMagic, int upgradeCost) {
         super(null, null, (String)null, cost, null, type, PiruruChar.Enums.PIRURU_ICE, rarity, target);
         cardID = this.getClass().getSimpleName();
         cardStrings =  CardCrawlGame.languagePack.getCardStrings(cardID);;
         name = cardStrings.NAME;
         rawDescription = cardStrings.DESCRIPTION;
+        this.upgradeDamage = upgradeDamage;
+        this.upgradeBlock = upgradeBlock;
+        this.upgradeMagic = upgradeMagic;
+        this.upgradeCost = upgradeCost;
     }
 
     private static String getImg(String id) {
@@ -48,4 +58,51 @@ public abstract class PiruruCard extends CustomCard {
     void block() {
         act(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
     }
+
+    @Override
+    public void upgrade() {
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage();
+            upgradeBlock();
+            upgradeMagic();
+            upgradeCost();
+        }
+    }
+
+    private void upgradeDamage() {
+        if (upgradeDamage != 0) {
+            baseDamage += upgradeDamage;
+            upgradedDamage = true;
+        }
+    }
+
+    private void upgradeBlock() {
+        if (upgradeBlock != 0) {
+            baseBlock += upgradeBlock;
+            upgradedBlock = true;
+        }
+    }
+
+    private void upgradeMagic() {
+        if (upgradeMagic != 0) {
+            baseMagicNumber += upgradeMagic;
+            upgradedMagicNumber = true;
+        }
+    }
+    private void upgradeCost() {
+        if (upgradeCost != cost) {
+            int diff = costForTurn - cost;
+            cost = upgradeCost;
+            if (costForTurn > 0) {
+                costForTurn = cost + diff;
+            }
+
+            if (costForTurn < 0) {
+                costForTurn = 0;
+            }
+            upgradedCost = true;
+        }
+    }
+    
 }

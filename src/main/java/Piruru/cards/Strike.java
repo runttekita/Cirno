@@ -15,13 +15,8 @@ public class Strike extends PiruruCard {
     private static final int DAMAGE_UP = 3;
 
     public Strike() {
-        super(COST, TYPE, RARITY, TARGET);
+        super(COST, TYPE, RARITY, TARGET, DAMAGE_UP, 0, 0, COST);
         baseDamage = damage = DAMAGE;
-    }
-
-    @Override
-    public void upgrade() {
-        upgradeDamage(DAMAGE_UP);
     }
 
     @Override
