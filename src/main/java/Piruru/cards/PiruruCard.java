@@ -12,8 +12,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 
+import static Piruru.Piruru.makeID;
+
 public abstract class PiruruCard extends CustomCard {
-    protected CardStrings cardStrings;
     private int upgradeDamage;
     private int upgradeBlock;
     private int upgradeMagic;
@@ -21,13 +22,10 @@ public abstract class PiruruCard extends CustomCard {
 
 
 
-    public PiruruCard(int cost, CardType type, CardRarity rarity, CardTarget target, int upgradeDamage,
+    public PiruruCard(CardStrings strings, int cost, CardType type, CardRarity rarity, CardTarget target, int upgradeDamage,
                       int upgradeBlock, int upgradeMagic, int upgradeCost) {
-        super(null, null, (String)null, cost, null, type, PiruruChar.Enums.PIRURU_ICE, rarity, target);
+        super(null, strings.NAME, (String)null, cost, strings.DESCRIPTION, type, PiruruChar.Enums.PIRURU_ICE, rarity, target);
         cardID = this.getClass().getSimpleName();
-        cardStrings =  CardCrawlGame.languagePack.getCardStrings(cardID);;
-        name = cardStrings.NAME;
-        rawDescription = cardStrings.DESCRIPTION;
         this.upgradeDamage = upgradeDamage;
         this.upgradeBlock = upgradeBlock;
         this.upgradeMagic = upgradeMagic;
