@@ -26,6 +26,6 @@ public class Strike extends PiruruCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new DamageAction(m, dmgInfo()));
+        damage(m);
     }
 }

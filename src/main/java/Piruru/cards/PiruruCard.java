@@ -4,6 +4,7 @@ import Piruru.Piruru;
 import Piruru.characters.PiruruChar;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -38,4 +39,9 @@ public abstract class PiruruCard extends CustomCard {
     protected DamageInfo dmgInfo() {
         return new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.NORMAL);
     }
+
+    protected void damage(AbstractCreature m) {
+        act(new DamageAction(m, dmgInfo()));
+    }
+
 }
