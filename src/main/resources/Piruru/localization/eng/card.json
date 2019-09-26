@@ -1,22 +1,22 @@
 {
-  "Piruru:Strike": {
+  "Strike": {
     "NAME": "Strike",
     "DESCRIPTION": "$damage"
   },
-  "Piruru:Defend": {
+  "Defend": {
     "NAME": "Defend",
     "DESCRIPTION": "$block"
   },
-  "Piruru:DiscardAndGainEnergy": {
+  "DiscardAndGainEnergy": {
     "NAME": "C R Y S T A L SEAL",
     "DESCRIPTION": "$discardOne NL $energy ."
   },
-  "Piruru:ScoutAttacks": {
+  "ScoutAttacks": {
     "NAME": "CIRCLE",
     "DESCRIPTION": "$draw NL Discard all cards drawn this way that are not Attacks."
   },
-  "Piruru:DamageAndFreeze": {
+  "DamageAndFreeze": {
     "NAME": "Code Art SML",
-    "DESCRIPTION": "$damage NL $cold dab"
+    "DESCRIPTION": "$damage NL $cold"
   }
 }

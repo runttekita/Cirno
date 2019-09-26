@@ -3,6 +3,7 @@
 TARGET=./src/main/resources/Piruru/localization/eng/prodStrings/
 SOURCE=./src/main/resources/Piruru/localization/eng/
 
+# LOCALIZERS CHANGE THIS
 DAMAGE="Deal !D! Damage."
 BLOCK="Gain !B! Block."
 DISCARD_ONE="Discard 1 card."
