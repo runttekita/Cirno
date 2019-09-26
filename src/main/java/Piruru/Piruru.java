@@ -1,10 +1,12 @@
 package Piruru;
 
+import Piruru.relics.StarterRelic;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import basemod.patches.com.megacrit.cardcrawl.helpers.RelicLibrary.EditRelicsPatch;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
@@ -32,7 +34,8 @@ import Piruru.characters.PiruruChar;
 public class Piruru implements
         EditCardsSubscriber,
         EditCharactersSubscriber,
-        EditStringsSubscriber
+        EditStringsSubscriber,
+        EditRelicsSubscriber
     {
 
         private static String modID;
@@ -126,5 +129,10 @@ public class Piruru implements
         @Override
         public void receiveEditStrings() {
             BaseMod.loadCustomStringsFile(RelicStrings.class, "Piruru/localization/eng/DefaultMod-Relic-Strings.json");
+        }
+
+        @Override
+        public void receiveEditRelics() {
+            BaseMod.addRelicToCustomPool(new StarterRelic(), PiruruChar.Enums.PIRURU_ICE);
         }
     }

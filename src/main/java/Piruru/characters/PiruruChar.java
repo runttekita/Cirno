@@ -1,5 +1,6 @@
 package Piruru.characters;
 
+import Piruru.relics.StarterRelic;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
@@ -119,6 +120,7 @@ public class PiruruChar extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add(PrismaticShard.ID);
+        retVal.add(StarterRelic.ID);
         return retVal;
     }
 

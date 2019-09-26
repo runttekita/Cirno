@@ -14,7 +14,7 @@ public class PiruruRelic extends CustomRelic {
     }
 
     private static Texture getTexture(String id) {
-        String imgName = id.substring((id.indexOf(":"+1))).trim();
+        String imgName = id.substring((id.indexOf(":") + 1)).trim();
         return TextureLoader.getTexture(imgName);
     }
 
