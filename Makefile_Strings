@@ -10,17 +10,16 @@ ENERGY="Gain !M! [E] ."
 DRAW="Draw !M! cards."
 COLD="Apply !M! Piruru:Cold."
 
-find ${SOURCE} -type f -name '*card.json' -exec cp -n {} ${TARGET} \;
-PROD_JSON=./src/main/resources/Piruru/localization/eng/prodStrings/card.json
+cp ${SOURCE}card.json ${TARGET}card.json
+
+PROD_JSON=${TARGET}card.json
 sed -i s/\$damage/"${DAMAGE}"/g ${PROD_JSON}
 sed -i s/\$block/"${BLOCK}"/g ${PROD_JSON}
 sed -i s/\$discardOne/"${DISCARD_ONE}"/g ${PROD_JSON}
 sed -i s/\$energy/"${ENERGY}"/g ${PROD_JSON}
 sed -i s/\$draw/"${DRAW}"/g ${PROD_JSON}
 sed -i s/\$cold/"${COLD}"/g ${PROD_JSON}
-
-
-
+sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 
 

@@ -15,8 +15,8 @@
     "NAME": "CIRCLE",
     "DESCRIPTION": "$draw NL Discard all cards drawn this way that are not Attacks."
   },
-  "Piruru:DamangeAndFreeze": {
+  "Piruru:DamageAndFreeze": {
     "NAME": "Code Art SML",
-    "DESCRIPTION": "$damage NL $cold"
+    "DESCRIPTION": "$damage NL $cold dab"
   }
 }
