@@ -1,6 +1,7 @@
 package Piruru.characters;
 
 import Piruru.cards.Defend;
+import Piruru.cards.ScoutAttacks;
 import Piruru.cards.Strike;
 import Piruru.relics.StarterRelic;
 import basemod.abstracts.CustomPlayer;
@@ -123,6 +124,7 @@ public class PiruruChar extends CustomPlayer {
         for (int i = 0; i < 5; i++) {
             retVal.add(makeID(Defend.class.getSimpleName()));
         }
+        retVal.add(makeID(ScoutAttacks.class.getSimpleName()));
         return retVal;
     }
 
