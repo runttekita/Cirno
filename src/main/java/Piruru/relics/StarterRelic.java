@@ -39,4 +39,9 @@ public class StarterRelic extends PiruruRelic implements ClickableRelic {
             }
         }
     }
+
+    @Override
+    public String getUpdatedDescription() {
+        return DESCRIPTIONS[0] + cost + DESCRIPTIONS[1];
+    }
 }
