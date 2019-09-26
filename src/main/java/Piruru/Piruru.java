@@ -1,5 +1,7 @@
 package Piruru;
 
+import Piruru.cards.Defend;
+import Piruru.cards.Strike;
 import Piruru.relics.StarterRelic;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
@@ -120,6 +122,8 @@ public class Piruru implements
 
         @Override
         public void receiveEditCards() {
+            BaseMod.addCard(new Strike());
+            BaseMod.addCard(new Defend());
         }
 
         public static String makeID(String idText) {

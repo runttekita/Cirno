@@ -1,5 +1,7 @@
 package Piruru.characters;
 
+import Piruru.cards.Defend;
+import Piruru.cards.Strike;
 import Piruru.relics.StarterRelic;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
@@ -39,6 +41,8 @@ import com.megacrit.cardcrawl.relics.PrismaticShard;
 import Piruru.Piruru;
 import com.megacrit.cardcrawl.cards.blue.Strike_Blue;
 
+import static Piruru.Piruru.makeID;
+
 public class PiruruChar extends CustomPlayer {
 
     public static class Enums {
@@ -57,7 +61,7 @@ public class PiruruChar extends CustomPlayer {
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 3;
 
-    private static final String ID = Piruru.makeID("Piruru");
+    private static final String ID = makeID("Piruru");
     private static final CharacterStrings characterStrings =
      CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = {"dab", "dab", "dab", "dab", "dab"};
@@ -113,7 +117,12 @@ public class PiruruChar extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(Strike_Blue.ID);
+        for (int i = 0; i < 5; i++) {
+            retVal.add(makeID(Strike.class.getSimpleName()));
+        }
+        for (int i = 0; i < 5; i++) {
+            retVal.add(makeID(Defend.class.getSimpleName()));
+        }
         return retVal;
     }
 
