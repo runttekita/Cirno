@@ -15,7 +15,7 @@
     "NAME": "CIRCLE",
     "DESCRIPTION": "$draw NL Discard all cards drawn this way that are not Attacks."
   },
-  "DamageAndFreeze": {
+  "DamageAndCold": {
     "NAME": "Code Art SML",
     "DESCRIPTION": "$damage NL $cold"
   }
