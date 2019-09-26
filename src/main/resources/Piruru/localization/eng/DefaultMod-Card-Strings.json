@@ -6,5 +6,9 @@
   "Piruru:Defend": {
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
+  },
+  "Piruru:DiscardAndGainEnergy": {
+    "NAME": "C R Y S T A L SEAL",
+    "DESCRIPTION": "Discard 1 card. Gain 1M1 [E] ."
   }
 }
