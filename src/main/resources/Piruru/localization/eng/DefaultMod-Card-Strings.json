@@ -10,5 +10,9 @@
   "Piruru:DiscardAndGainEnergy": {
     "NAME": "C R Y S T A L SEAL",
     "DESCRIPTION": "Discard 1 card. Gain 1M1 [E] ."
+  },
+  "Piruru:ScoutAttacks": {
+    "NAME": "CIRCLE",
+    "DESCRIPTION": "From the top !M! cards of your draw pile, add all attacks to your hand and discard the rest."
   }
 }
