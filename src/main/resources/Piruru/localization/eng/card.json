@@ -1,7 +1,7 @@
 {
   "Piruru:Strike": {
     "NAME": "Strike",
-    "DESCRIPand TION": "$damage"
+    "DESCRIPTION": "$damage"
   },
   "Piruru:Defend": {
     "NAME": "Defend",

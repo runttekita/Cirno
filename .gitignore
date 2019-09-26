@@ -84,4 +84,4 @@ preferences/
 saves/
 sendToDevs/
 twitchconfig.txt
-src/main/Piruru/localization/eng/prodStrings/card.json
+src/main/resources/Piruru/localization/eng/prodStrings/card.json
