@@ -6,32 +6,12 @@ import Piruru.cards.ScoutAttacks;
 import Piruru.cards.Strike;
 import Piruru.relics.StarterRelic;
 import basemod.BaseMod;
-import basemod.ModLabeledToggleButton;
-import basemod.ModPanel;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
-import basemod.patches.com.megacrit.cardcrawl.helpers.RelicLibrary.EditRelicsPatch;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
-import com.evacipated.cardcrawl.mod.stslib.Keyword;
-import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.google.gson.Gson;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.Properties;
 import Piruru.characters.PiruruChar;
 
 @SpireInitializer
@@ -136,8 +116,8 @@ public class Piruru implements
 
         @Override
         public void receiveEditStrings() {
-            BaseMod.loadCustomStringsFile(RelicStrings.class, "Piruru/localization/eng/DefaultMod-Relic-Strings.json");
-            BaseMod.loadCustomStringsFile(CardStrings.class, "Piruru/localization/eng/DefaultMod-Card-Strings.json");
+            BaseMod.loadCustomStringsFile(RelicStrings.class, "Piruru/localization/eng/pirurelic.json");
+            BaseMod.loadCustomStringsFile(CardStrings.class, "Piruru/localization/eng/card.json");
         }
 
 

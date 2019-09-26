@@ -1,0 +1,19 @@
+#!/bin/bash
+
+TARGET=./src/main/resources/Piruru/localization/eng/prodStrings/
+SOURCE=./src/main/resources/Piruru/localization/eng/
+
+find ${SOURCE} -type f -name '*card.json' -exec cp -n {} ${TARGET} \;
+PROD_JSON=./src/main/resources/Piruru/localization/eng/prodStrings/card.json
+sed -i s/\$damage/"Deal !D! Damage."/g ${PROD_JSON}
+sed -i s/\$block/"Gain !B! Block."/g ${PROD_JSON}
+sed -i s/\$discardOne/"Discard 1 card."/g ${PROD_JSON}
+sed -i s/\$energy/"Gain !M! [E]."/g ${PROD_JSON}
+sed -i s/\$draw/"Draw !M! cards."/g ${PROD_JSON}
+sed -i s/\$cold/"Apply !M! Piruru:Cold."/g ${PROD_JSON}
+
+
+
+
+
+
