@@ -25,6 +25,6 @@ public class Defend extends PiruruCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-
+        block();
     }
 }

@@ -5,18 +5,18 @@ import Piruru.actions.PeepingAnalyzeAction;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class StarterRelic extends PiruruRelic implements ClickableRelic {
     public static final String ID = Piruru.makeID(StarterRelic.class.getSimpleName());
     private static final RelicTier TIER = RelicTier.STARTER;
     public static final LandingSound SFX = LandingSound.FLAT;
-    private int cost = 0;
 
 
     public StarterRelic() {
         super(ID, TIER, SFX);
-        setCounter(cost);
+        setCounter(0);
     }
 
     @Override
@@ -27,22 +27,29 @@ public class StarterRelic extends PiruruRelic implements ClickableRelic {
     @Override
     public void onRightClick() {
         if (!AbstractDungeon.actionManager.turnHasEnded) {
-            if (cost < 4) {
-                cost++;
+            if (counter < 3) {
+                counter++;
             } else {
-                cost = 0;
+                counter = -1;
             }
-            if (cost < 4) {
-                setCounter(cost);
-            } else {
-                setCounter(-1);
-            }
-            initializeTips();
         }
     }
 
     @Override
+    public void update() {
+        super.update();
+        tips.clear();
+        description = getUpdatedDescription();
+        tips.add(new PowerTip(name, description));
+        initializeTips();
+    }
+
+    @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + cost + DESCRIPTIONS[1];
+        if (counter >= 0) {
+            return DESCRIPTIONS[0] + counter + DESCRIPTIONS[1];
+        } else {
+            return DESCRIPTIONS[0] + "X" + DESCRIPTIONS[1];
+        }
     }
 }

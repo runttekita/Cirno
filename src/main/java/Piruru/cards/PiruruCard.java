@@ -42,7 +42,7 @@ public abstract class PiruruCard extends CustomCard {
         return Piruru.makeID(this.getClass().getSimpleName());
     }
 
-    private void act(AbstractGameAction a) {
+    void act(AbstractGameAction a) {
         AbstractDungeon.actionManager.addToBottom(a);
     }
 
