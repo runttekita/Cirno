@@ -14,7 +14,7 @@ public class TextureLoader {
 
     /**
      * @param textureString - String path to the texture you want to load relative to resources,
-     *                      Example: "img/ui/missingtexture.png"
+     *                      Example: "img/ui.json/missingtexture.png"
      * @return <b>com.badlogic.gdx.graphics.Texture</b> - The texture from the path provided
      */
     public static Texture getTexture(final String textureString) {
@@ -45,7 +45,7 @@ public class TextureLoader {
      * Creates and instance of the texture, applies a linear filter to it, and places it in the HashMap
      *
      * @param textureString - String path to the texture you want to load relative to resources,
-     *                      Example: "img/ui/missingtexture.png"
+     *                      Example: "img/ui.json/missingtexture.png"
      * @throws GdxRuntimeException
      */
     private static void loadTexture(final String textureString) throws GdxRuntimeException {
