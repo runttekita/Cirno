@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.exordium.Hexaghost;
 import javassist.CtBehavior;
 
 import java.util.Arrays;
@@ -69,9 +70,9 @@ public class FrozenIntent {
     )
     public static class FrozenIntentShading {
         private static ShaderProgram shader = new ShaderProgram(
-                Gdx.files.internal("Piruru/shaders/frozen/fragShader.fs"),
-                Gdx.files.internal("Piruru/shaders/frozen/vertexShader.vs")
-        );
+                Gdx.files.internal("Piruru/shaders/frozen/vertexShader.vs"),
+                Gdx.files.internal("Piruru/shaders/frozen/fragShader.fs")
+                );
 
 
         @SpireInsertPatch(
@@ -79,7 +80,7 @@ public class FrozenIntent {
                 localvars = {"atlas"}
         )
         public static void InsertImageStart(AbstractMonster __instance, SpriteBatch sb, TextureAtlas atlas) {
-            if (atlas == null) {
+            if (atlas == null && !(__instance instanceof Hexaghost)) {
                 Frozen frozen = (Frozen) __instance.getPower(Frozen.POWER_ID);
                 if (frozen != null) {
                     shader.begin();
@@ -96,7 +97,7 @@ public class FrozenIntent {
         )
         public static void InsertImageEnd(AbstractMonster __instance, SpriteBatch sb, TextureAtlas atlas)
         {
-            if (atlas == null && __instance.hasPower(Frozen.POWER_ID)) {
+            if (atlas == null && __instance.hasPower(Frozen.POWER_ID) && !(__instance instanceof Hexaghost)) {
                 sb.setShader(null);
                 shader.end();
             }
@@ -108,7 +109,7 @@ public class FrozenIntent {
         public static void InsertSkeletonStart(AbstractMonster __instance, SpriteBatch sb)
         {
             Frozen frozen = (Frozen) __instance.getPower(Frozen.POWER_ID);
-            if (frozen != null) {
+            if (frozen != null && !(__instance instanceof Hexaghost)) {
                 shader.begin();
                 shader.setUniformf("shadeTimer", frozen.shaderTimer);
                 CardCrawlGame.psb.setShader(shader);
@@ -120,7 +121,7 @@ public class FrozenIntent {
         )
         public static void InsertSkeletonEnd(AbstractMonster __instance, SpriteBatch sb)
         {
-            if (__instance.hasPower(Frozen.POWER_ID)) {
+            if (__instance.hasPower(Frozen.POWER_ID) && !(__instance instanceof Hexaghost)) {
                 CardCrawlGame.psb.setShader(null);
                 shader.end();
             }

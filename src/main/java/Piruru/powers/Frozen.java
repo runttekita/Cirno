@@ -61,6 +61,10 @@ public class Frozen extends PiruruPower implements
                 shaderTimer = 1.0f;
             }
         }
+
+        if (owner instanceof AbstractMonster && ((AbstractMonster)owner).state != null) {
+            ((AbstractMonster)owner).state.setTimeScale(0);
+        }
     }
 
     @Override
