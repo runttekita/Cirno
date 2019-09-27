@@ -13,6 +13,7 @@ import com.esotericsoftware.spine.SkeletonMeshRenderer;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -23,6 +24,11 @@ import java.util.Arrays;
 
 import static Piruru.Piruru.textureLoader;
 
+// *************************
+// Shader logic stolen and modified from:
+// https://github.com/kiooeht/Hubris/blob/29d2f37cfc4035e29e3567671fbde158833004b2/src/main/java/com/evacipated/cardcrawl/mod/hubris/patches/UndeadRenderPatch.java
+// Thank you papa Kio!
+// *************************
 public class FrozenIntent {
     @SpireEnum
     public static AbstractMonster.Intent FROZEN;
@@ -119,7 +125,9 @@ public class FrozenIntent {
                 CardCrawlGame.psb.setShader(shader);
                 renderer.begin(ShapeRenderer.ShapeType.Filled);
                 renderer.setColor(Color.BLUE);
-                renderer.rect(__instance.drawX * Settings.scale, __instance.drawY * Settings.scale, __instance.hb_w, __instance.hb_h);
+                float x = __instance.drawX;
+                float y = __instance.drawY;
+                renderer.rect(x, y, __instance.hb_w, __instance.hb_h);
             }
         }
 
