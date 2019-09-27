@@ -11,5 +11,12 @@
       "Once the enemy has reached #b",
       " #yCold, #yFreeze them."
     ]
+  },
+  "FlameBarrierButCold": {
+    "NAME": "Flame Barrier But Cold",
+    "DESCRIPTIONS": [
+      "When you are attacked, apply #b1",
+      " #yCold to the attacker."
+    ]
   }
 }
