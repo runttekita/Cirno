@@ -3,14 +3,16 @@ package Piruru.intents;
 import Piruru.powers.Frozen;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.esotericsoftware.spine.SkeletonMeshRenderer;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -74,6 +76,8 @@ public class FrozenIntent {
                 Gdx.files.internal("Piruru/shaders/frozen/fragShader.fs")
                 );
 
+       private static ShapeRenderer renderer = new ShapeRenderer();
+
 
         @SpireInsertPatch(
                 locator = LocatorImageStart.class,
@@ -113,6 +117,9 @@ public class FrozenIntent {
                 shader.begin();
                 shader.setUniformf("shadeTimer", frozen.shaderTimer);
                 CardCrawlGame.psb.setShader(shader);
+                renderer.begin(ShapeRenderer.ShapeType.Filled);
+                renderer.setColor(Color.BLUE);
+                renderer.rect(__instance.drawX, __instance.drawY, __instance.hb_w, __instance.hb_h);
             }
         }
 
@@ -124,6 +131,7 @@ public class FrozenIntent {
             if (__instance.hasPower(Frozen.POWER_ID) && !(__instance instanceof Hexaghost)) {
                 CardCrawlGame.psb.setShader(null);
                 shader.end();
+                renderer.end();
             }
         }
 
