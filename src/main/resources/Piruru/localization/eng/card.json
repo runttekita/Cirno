@@ -31,5 +31,9 @@
     "NAME": "shrug",
     "DESCRIPTION": "Put all Skills from your discard pile into your hand. NL $ethereal",
     "UPGRADE_DESCRIPTION": "Put all Skills from your discard pile into your hand. NL $exhaust"
+  },
+  "SpreadCold": {
+    "NAME": "Achoo",
+    "DESCRIPTION": "$damage NL Apply !M! Piruru:Cold to adjacent enemies."
   }
 }

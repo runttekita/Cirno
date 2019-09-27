@@ -28,6 +28,8 @@ public class AllForOneButSkills extends PiruruCard {
             upgradeName();
             isEthereal = false;
             exhaust = true;
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 
