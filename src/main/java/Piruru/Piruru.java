@@ -104,6 +104,10 @@ public class Piruru implements
                 PIRURU_BUTTON, PIRURU_PORTRAIT, PiruruChar.Enums.PIRURU);
     }
 
+    //***************
+    // But Reina, I can hear you ask, why aren't you using autoAddCards? Well the answer is simple
+    // I'm too lazy to copy paste all that stuff and make like 90 classes and I can just add them manually jesus.
+    //***************
     @Override
     public void receiveEditCards() {
         BaseMod.addCard(new Strike());
@@ -126,6 +130,10 @@ public class Piruru implements
     }
 
 
+    //***************
+    // But Reina, I can hear you ask, why aren't you using autoAddRelics? Well the answer is simple
+    // I'm too lazy to copy paste all that stuff and make like 90 classes and I can just add them manually jesus.
+    //***************
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelicToCustomPool(new StarterRelic(), PiruruChar.Enums.PIRURU_ICE);
