@@ -27,7 +27,7 @@
     "NAME": "Who gives a fuck",
     "DESCRIPTION": "$damage NL $mill"
   },
-  "AllForOneButForSkills": {
+  "AllForOneButSkills": {
     "NAME": "shrug",
     "DESCRIPTION": "Put all Skills from your discard pile into your hand. NL $ethereal",
     "UPGRADE_DESCRIPTION": "Put all Skills from your discard pile into your hand. NL $exhaust"
@@ -35,5 +35,9 @@
   "SpreadCold": {
     "NAME": "Achoo",
     "DESCRIPTION": "$damage NL Apply !M! Piruru:Cold to adjacent enemies."
+  },
+  "FlameBarrierButCold": {
+    "NAME": "cold",
+    "DESCRIPTION": "$block NL Whenever you are attacked this turn, apply Piruru:Cold back."
   }
 }

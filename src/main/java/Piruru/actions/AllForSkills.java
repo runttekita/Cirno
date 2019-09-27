@@ -9,6 +9,7 @@ public class AllForSkills extends AbstractGameAction {
     public AllForSkills() {
 
     }
+
     @Override
     public void update() {
         if (AbstractDungeon.player.discardPile.size() > 0) {

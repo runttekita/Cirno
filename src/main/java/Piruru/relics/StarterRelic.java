@@ -2,15 +2,18 @@ package Piruru.relics;
 
 import Piruru.Piruru;
 import Piruru.actions.PeepingAnalyzeAction;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 
 public class StarterRelic extends PiruruRelic implements ClickableRelic {
     public static final String ID = Piruru.makeID(StarterRelic.class.getSimpleName());
     private static final RelicTier TIER = RelicTier.STARTER;
     public static final LandingSound SFX = LandingSound.FLAT;
-
 
     public StarterRelic() {
         super(ID, TIER, SFX);
@@ -40,6 +43,18 @@ public class StarterRelic extends PiruruRelic implements ClickableRelic {
         description = getUpdatedDescription();
         tips.add(new PowerTip(name, description));
         initializeTips();
+    }
+
+    @Override
+    public void renderCounter(SpriteBatch sb, boolean inTopPanel) {
+        super.renderCounter(sb, inTopPanel);
+        if (counter == -1) {
+            if (inTopPanel) {
+                FontHelper.renderFontRightTopAligned(sb, FontHelper.topPanelInfoFont, "X", this.currentX + 30.0F * Settings.scale, this.currentY - 7.0F * Settings.scale, Color.WHITE);
+            } else {
+                FontHelper.renderFontRightTopAligned(sb, FontHelper.topPanelInfoFont, "X", this.currentX + 30.0F * Settings.scale, this.currentY - 7.0F * Settings.scale, Color.WHITE);
+            }
+        }
     }
 
     @Override

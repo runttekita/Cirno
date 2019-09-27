@@ -9,9 +9,9 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class FlameBarrierButCold extends PiruruPower implements CloneablePowerInterface {
+public class FlameBarrierButColdP extends PiruruPower implements CloneablePowerInterface {
 
-    public FlameBarrierButCold(AbstractCreature owner, int amount) {
+    public FlameBarrierButColdP(AbstractCreature owner, int amount) {
         this.owner = owner;
         this.amount = amount;
     }
@@ -41,6 +41,6 @@ public class FlameBarrierButCold extends PiruruPower implements CloneablePowerIn
 
     @Override
     public AbstractPower makeCopy() {
-        return new FlameBarrierButCold(owner, amount);
+        return new FlameBarrierButColdP(owner, amount);
     }
 }

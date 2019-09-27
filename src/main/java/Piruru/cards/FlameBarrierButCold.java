@@ -1,6 +1,6 @@
 package Piruru.cards;
 
-import Piruru.Piruru;
+import Piruru.powers.FlameBarrierButColdP;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -28,6 +28,6 @@ public class FlameBarrierButCold extends PiruruCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         block();
-        act(power(p, p, new Piruru.powers.FlameBarrierButCold(p, magicNumber), magicNumber));
+        act(power(p, p, new FlameBarrierButColdP(p, magicNumber), magicNumber));
     }
 }
