@@ -117,6 +117,7 @@ public class Piruru implements
         BaseMod.addCard(new DamageAndCold());
         BaseMod.addCard(new FreezeEnemy());
         BaseMod.addCard(new FlameBarrierButCold());
+        BaseMod.addCard(new AttackAndMill());
     }
 
     public static String makeID(String idText) {

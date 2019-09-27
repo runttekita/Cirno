@@ -22,5 +22,9 @@
   "FreezeEnemy": {
     "NAME": "Snow Halation",
     "DESCRIPTION": "$freeze"
+  },
+  "AttackAndMill": {
+    "NAME": "Who gives a fuck",
+    "DESCRIPTION": "$damage NL $mill"
   }
 }
