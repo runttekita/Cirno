@@ -10,14 +10,14 @@ import static Piruru.Piruru.makePowerPath;
 public class FrozenPower extends AbstractPower implements CloneablePowerInterface {
 
 
-    public FrozenPower(AbstractCreature owner, int amount) {
+    public FrozenPower(AbstractCreature owner) {
         this.owner = owner;
-        this.amount = amount;
+        this.amount = 1;
         img = TextureLoader.getTexture(makePowerPath(FrozenPower.class.getSimpleName()));
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new FrozenPower(owner, amount);
+        return new FrozenPower(owner);
     }
 }
