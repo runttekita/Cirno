@@ -114,8 +114,10 @@ public class Piruru implements
 
         @Override
         public void receiveEditStrings() {
-            BaseMod.loadCustomStringsFile(RelicStrings.class, "Piruru/localization/eng/pirurelic.json");
+            BaseMod.loadCustomStringsFile(RelicStrings.class, "Piruru/localization/eng/prodStrings/pirurelic.json");
             BaseMod.loadCustomStringsFile(CardStrings.class, "Piruru/localization/eng/prodStrings/card.json");
+            BaseMod.loadCustomStringsFile(UIStrings.class, "Piruru/localization/eng/prodStrings/ui.json");
+            BaseMod.loadCustomStringsFile(PowerStrings.class, "Piruru/localization/eng/prodStrings/powers.json");
         }
 
 

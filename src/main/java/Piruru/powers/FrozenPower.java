@@ -1,6 +1,7 @@
 package Piruru.powers;
 
 import Piruru.TextureLoader;
+import Piruru.intents.FrozenIntent;
 import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -65,7 +66,7 @@ public class FrozenPower extends PiruruPower implements
                         Field f = AbstractMonster.class.getDeclaredField("move");
                         f.setAccessible(true);
                         move = (EnemyMoveInfo) f.get(owner);
-                        move.intent = AbstractMonster.Intent.STUN;
+                        move.intent = FrozenIntent.FROZEN;
                         ((AbstractMonster) owner).createIntent();
                     } catch (IllegalAccessException | NoSuchFieldException e) {
                         e.printStackTrace();

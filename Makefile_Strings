@@ -12,6 +12,9 @@ DRAW="Draw !M! cards."
 COLD="Apply !M! Piruru:Cold."
 
 cp ${SOURCE}card.json ${TARGET}card.json
+cp ${SOURCE}powers.json ${TARGET}powers.json
+cp ${SOURCE}ui.json ${TARGET}ui.json
+cp ${SOURCE}pirurelic.json ${TARGET}pirurelic.json
 
 PROD_JSON=${TARGET}card.json
 sed -i s/\$damage/"${DAMAGE}"/g ${PROD_JSON}
@@ -22,6 +25,13 @@ sed -i s/\$draw/"${DRAW}"/g ${PROD_JSON}
 sed -i s/\$cold/"${COLD}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
+PROD_JSON=${TARGET}powers.json
+sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
+PROD_JSON=${TARGET}ui.json
+sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
+
+PROD_JSON=${TARGET}pirurelic.json
+sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 

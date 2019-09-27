@@ -1,0 +1,15 @@
+{
+  "Frozen": {
+    "NAME": "FROZEN",
+    "DESCRIPTIONS": [
+      "This enemy cannot act this turn."
+    ]
+  },
+  "Cold": {
+    "NAME": "Cold",
+    "DESCRIPTIONS": [
+      "Once the enemy has reached #b",
+      " #yCold, #yFreeze them."
+    ]
+  }
+}

@@ -13,7 +13,7 @@ public abstract class PiruruPower extends AbstractPower {
     public static String POWER_ID;
     private static PowerStrings powerStrings;
     public static String NAME;
-    public static String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public static String[] DESCRIPTIONS;
 
 
     public PiruruPower() {

@@ -25,7 +25,7 @@ public class FrozenPowerPatch {
             {
                 if (m.getClassName().equals(AbstractMonster.class.getName())
                         && m.getMethodName().equals("takeTurn")) {
-                    m.replace("if (!m.hasPower(" + FrozenPower.class.getName() +") {" +
+                    m.replace("if (!m.hasPower(" + FrozenPower.class.getName() + ".POWER_ID)) {" +
                             "$_ = $proceed($$);" +
                             "}");
                 }
