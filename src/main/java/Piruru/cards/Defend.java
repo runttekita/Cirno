@@ -1,6 +1,7 @@
 package Piruru.cards;
 
 import Piruru.Piruru;
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -21,6 +22,7 @@ public class Defend extends PiruruCard {
     public Defend() {
         super(cardStrings, COST, TYPE, RARITY, TARGET, 0, BLOCK_UP, 0, COST);
         baseBlock = block = BLOCK;
+        tags.add(BaseModCardTags.BASIC_DEFEND);
     }
 
     @Override
