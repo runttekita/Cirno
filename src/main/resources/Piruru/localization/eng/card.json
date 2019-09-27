@@ -26,5 +26,10 @@
   "AttackAndMill": {
     "NAME": "Who gives a fuck",
     "DESCRIPTION": "$damage NL $mill"
+  },
+  "AllForOneButForSkills": {
+    "NAME": "shrug",
+    "DESCRIPTION": "Put all Skills from your discard pile into your hand. NL $ethereal",
+    "UPGRADE_DESCRIPTION": "Put all Skills from your discard pile into your hand. NL $exhaust"
   }
 }
