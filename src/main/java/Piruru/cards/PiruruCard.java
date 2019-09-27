@@ -4,6 +4,7 @@ import Piruru.Piruru;
 import Piruru.characters.PiruruChar;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static Piruru.Piruru.makeID;
 
@@ -54,6 +56,10 @@ public abstract class PiruruCard extends CustomCard {
 
     void block() {
         act(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
+    }
+
+    ApplyPowerAction power(AbstractCreature target, AbstractCreature source, AbstractPower p, int amount) {
+        return new ApplyPowerAction(target, source, p, amount);
     }
 
     @Override

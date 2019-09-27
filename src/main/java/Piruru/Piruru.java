@@ -1,9 +1,6 @@
 package Piruru;
 
-import Piruru.cards.Defend;
-import Piruru.cards.DiscardAndGainEnergy;
-import Piruru.cards.ScoutAttacks;
-import Piruru.cards.Strike;
+import Piruru.cards.*;
 import Piruru.relics.StarterRelic;
 import basemod.BaseMod;
 import basemod.interfaces.*;
@@ -108,6 +105,7 @@ public class Piruru implements
             BaseMod.addCard(new Defend());
             BaseMod.addCard(new ScoutAttacks());
             BaseMod.addCard(new DiscardAndGainEnergy());
+            BaseMod.addCard(new DamageAndCold());
         }
 
         public static String makeID(String idText) {

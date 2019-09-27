@@ -1,5 +1,6 @@
 package Piruru.characters;
 
+import Piruru.cards.DamageAndCold;
 import Piruru.cards.Defend;
 import Piruru.cards.ScoutAttacks;
 import Piruru.cards.Strike;
@@ -125,6 +126,7 @@ public class PiruruChar extends CustomPlayer {
             retVal.add(makeID(Defend.class.getSimpleName()));
         }
         retVal.add(makeID(ScoutAttacks.class.getSimpleName()));
+        retVal.add(makeID(DamageAndCold.class.getSimpleName()));
         return retVal;
     }
 
