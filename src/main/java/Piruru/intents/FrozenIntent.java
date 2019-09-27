@@ -119,7 +119,7 @@ public class FrozenIntent {
                 CardCrawlGame.psb.setShader(shader);
                 renderer.begin(ShapeRenderer.ShapeType.Filled);
                 renderer.setColor(Color.BLUE);
-                renderer.rect(__instance.drawX, __instance.drawY, __instance.hb_w, __instance.hb_h);
+                renderer.rect(__instance.drawX * Settings.scale, __instance.drawY * Settings.scale, __instance.hb_w, __instance.hb_h);
             }
         }
 
