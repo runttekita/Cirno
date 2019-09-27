@@ -1,6 +1,7 @@
 package Piruru.cards;
 
 import Piruru.Piruru;
+import Piruru.actions.MillAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -29,5 +30,6 @@ public class AttackAndMill extends PiruruCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         damage(m);
+        act(new MillAction(magicNumber));
     }
 }
