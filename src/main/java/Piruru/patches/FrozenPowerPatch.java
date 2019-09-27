@@ -1,6 +1,6 @@
 package Piruru.patches;
 
-import Piruru.powers.FrozenPower;
+import Piruru.powers.Frozen;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -25,7 +25,7 @@ public class FrozenPowerPatch {
             {
                 if (m.getClassName().equals(AbstractMonster.class.getName())
                         && m.getMethodName().equals("takeTurn")) {
-                    m.replace("if (!m.hasPower(" + FrozenPower.class.getName() + ".POWER_ID)) {" +
+                    m.replace("if (!m.hasPower(" + Frozen.class.getName() + ".POWER_ID)) {" +
                             "$_ = $proceed($$);" +
                             "}");
                 }

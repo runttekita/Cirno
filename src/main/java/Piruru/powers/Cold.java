@@ -1,6 +1,5 @@
 package Piruru.powers;
 
-import Piruru.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -8,12 +7,10 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import static Piruru.Piruru.makePowerPath;
-
-public class ColdPower extends PiruruPower implements CloneablePowerInterface {
+public class Cold extends PiruruPower implements CloneablePowerInterface {
     private static final int PROC_AMOUNT = 3;
 
-    public ColdPower(AbstractCreature owner, int amount) {
+    public Cold(AbstractCreature owner, int amount) {
         super();
         this.owner = owner;
         this.amount = amount;
@@ -25,7 +22,7 @@ public class ColdPower extends PiruruPower implements CloneablePowerInterface {
             AbstractDungeon.actionManager.addToBottom(
                     new RemoveSpecificPowerAction(owner, owner, this));
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(owner, AbstractDungeon.player, new FrozenPower(owner)));
+                    new ApplyPowerAction(owner, AbstractDungeon.player, new Frozen(owner)));
         }
     }
 
@@ -37,13 +34,13 @@ public class ColdPower extends PiruruPower implements CloneablePowerInterface {
             AbstractDungeon.actionManager.addToBottom(
                     new RemoveSpecificPowerAction(owner, owner, this));
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(owner, AbstractDungeon.player, new FrozenPower(owner)));
+                    new ApplyPowerAction(owner, AbstractDungeon.player, new Frozen(owner)));
         }
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new ColdPower(owner, amount);
+        return new Cold(owner, amount);
     }
 
     @Override

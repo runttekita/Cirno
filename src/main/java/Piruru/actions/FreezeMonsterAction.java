@@ -1,6 +1,6 @@
 package Piruru.actions;
 
-import Piruru.powers.FrozenPower;
+import Piruru.powers.Frozen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -28,7 +28,7 @@ public class FreezeMonsterAction extends AbstractGameAction{
     public void update()
     {
         if (duration == Settings.ACTION_DUR_FAST) {
-            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, source, new FrozenPower((AbstractMonster) target)));
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, source, new Frozen((AbstractMonster) target)));
         }
         tickDuration();
     }

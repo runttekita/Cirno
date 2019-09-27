@@ -1,29 +1,24 @@
 package Piruru.powers;
 
-import Piruru.TextureLoader;
 import Piruru.intents.FrozenIntent;
 import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.lang.reflect.Field;
 
-import static Piruru.Piruru.makePowerPath;
-
-public class FrozenPower extends PiruruPower implements
+public class Frozen extends PiruruPower implements
         CloneablePowerInterface,
         InvisiblePower
 {
 
-    public FrozenPower(AbstractCreature owner) {
+    public Frozen(AbstractCreature owner) {
         this.owner = owner;
     }
 
@@ -31,7 +26,7 @@ public class FrozenPower extends PiruruPower implements
     private AbstractMonster.Intent moveIntent;
     private EnemyMoveInfo move;
 
-    public FrozenPower(AbstractMonster owner)
+    public Frozen(AbstractMonster owner)
     {
         super();
         this.owner = owner;
@@ -94,6 +89,6 @@ public class FrozenPower extends PiruruPower implements
 
     @Override
     public AbstractPower makeCopy() {
-        return new FrozenPower(owner);
+        return new Frozen(owner);
     }
 }
