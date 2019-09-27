@@ -2,7 +2,6 @@ package Piruru.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
-import com.megacrit.cardcrawl.actions.defect.ScrapeAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -20,8 +19,8 @@ public class ScoutFollowUpAction extends AbstractGameAction {
         if (this.duration == Settings.ACTION_DUR_FASTER) {// 17
             Iterator var1 = ScoutCardsAction.scrapedCards.iterator();// 18
 
-            while(var1.hasNext()) {
-                AbstractCard c = (AbstractCard)var1.next();
+            while (var1.hasNext()) {
+                AbstractCard c = (AbstractCard) var1.next();
                 if (c.type != AbstractCard.CardType.ATTACK) {// 19
                     AbstractDungeon.player.hand.moveToDiscardPile(c);// 20
                     c.triggerOnManualDiscard();// 21

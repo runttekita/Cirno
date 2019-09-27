@@ -1,6 +1,5 @@
 package Piruru.cards;
 
-import Piruru.Piruru;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -10,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static Piruru.Piruru.makeID;
 
 public class Defend extends PiruruCard {
-    private static final CardStrings cardStrings =  CardCrawlGame.languagePack.getCardStrings(
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(
             makeID(Defend.class.getSimpleName()));
     private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;

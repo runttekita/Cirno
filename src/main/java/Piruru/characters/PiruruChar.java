@@ -1,12 +1,12 @@
 package Piruru.characters;
 
+import Piruru.Piruru;
 import Piruru.cards.DamageAndCold;
 import Piruru.cards.Defend;
 import Piruru.cards.ScoutAttacks;
 import Piruru.cards.Strike;
 import Piruru.relics.StarterRelic;
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -14,6 +14,7 @@ import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.blue.Strike_Blue;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -22,26 +23,10 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import java.util.ArrayList;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import basemod.animations.SpriterAnimation;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.esotericsoftware.spine.AnimationState;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.EnergyManager;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.helpers.ScreenShake;
-import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import org.apache.logging.log4j.LogManager;
-import java.util.ArrayList;
 import com.megacrit.cardcrawl.relics.PrismaticShard;
-import Piruru.Piruru;
-import com.megacrit.cardcrawl.cards.blue.Strike_Blue;
+import com.megacrit.cardcrawl.screens.CharSelectInfo;
+
+import java.util.ArrayList;
 
 import static Piruru.Piruru.makeID;
 
@@ -65,7 +50,7 @@ public class PiruruChar extends CustomPlayer {
 
     private static final String ID = makeID("Piruru");
     private static final CharacterStrings characterStrings =
-     CardCrawlGame.languagePack.getCharacterString(ID);
+            CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = {"Pirulu", "Pirulu", "Pirulu", "Pirulu", "Pirulu"};
     private static final String[] TEXT = {"Pirulu", "Pirulu", "Pirulu", "Pirulu", "Pirulu"};
 
@@ -85,7 +70,7 @@ public class PiruruChar extends CustomPlayer {
     public PiruruChar(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
                 "Piruru/images/char/defaultCharacter/orb/vfx.png", null,
-                        "Piruru/images/char/defaultCharacter/piru");
+                "Piruru/images/char/defaultCharacter/piru");
 
 
         initializeClass(null,
@@ -141,7 +126,7 @@ public class PiruruChar extends CustomPlayer {
     public void doCharSelectScreenSelectEffect() {
         CardCrawlGame.sound.playA("ATTACK_DAGGER_1", 1.25f);
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW,
-        ScreenShake.ShakeDur.SHORT,
+                ScreenShake.ShakeDur.SHORT,
                 false);
     }
 

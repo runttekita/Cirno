@@ -8,15 +8,13 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class FreezeMonsterAction extends AbstractGameAction{
+public class FreezeMonsterAction extends AbstractGameAction {
 
-    public FreezeMonsterAction(AbstractMonster target, AbstractCreature source)
-    {
+    public FreezeMonsterAction(AbstractMonster target, AbstractCreature source) {
         this(target, source, 1);
     }
 
-    public FreezeMonsterAction(AbstractMonster target, AbstractCreature source, int amount)
-    {
+    public FreezeMonsterAction(AbstractMonster target, AbstractCreature source, int amount) {
         target = target;
         source = source;
         amount = amount;
@@ -25,8 +23,7 @@ public class FreezeMonsterAction extends AbstractGameAction{
     }
 
     @Override
-    public void update()
-    {
+    public void update() {
         if (duration == Settings.ACTION_DUR_FAST) {
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, source, new Frozen((AbstractMonster) target)));
         }

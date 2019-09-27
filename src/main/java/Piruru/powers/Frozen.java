@@ -1,7 +1,9 @@
 package Piruru.powers;
 
 import Piruru.intents.FrozenIntent;
+import basemod.ReflectionHacks;
 import basemod.interfaces.CloneablePowerInterface;
+import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -15,8 +17,7 @@ import java.lang.reflect.Field;
 
 public class Frozen extends PiruruPower implements
         CloneablePowerInterface,
-        InvisiblePower
-{
+        InvisiblePower {
 
     public Frozen(AbstractCreature owner) {
         this.owner = owner;
@@ -25,35 +26,49 @@ public class Frozen extends PiruruPower implements
     private byte moveByte;
     private AbstractMonster.Intent moveIntent;
     private EnemyMoveInfo move;
+    public float shaderTimer;
 
-    public Frozen(AbstractMonster owner)
-    {
+    public Frozen(AbstractMonster owner) {
         super();
         this.owner = owner;
         type = PowerType.DEBUFF;
+        shaderTimer = 0.0f;
     }
 
     @Override
-    public void updateDescription()
-    {
+    public void updateDescription() {
         description = DESCRIPTIONS[0];
     }
 
     @Override
-    public void atEndOfRound()
-    {
+    public void onDeath() {
+        ReflectionHacks.setPrivate(owner, AbstractCreature.class, "animationTimer", 0.0f);
+    }
+
+    @Override
+    public void atEndOfRound() {
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, this));
     }
 
     @Override
-    public void onInitialApplication()
+    public void update(int slot)
     {
+        super.update(slot);
+
+        if (shaderTimer < 1.0f) {
+            shaderTimer += Gdx.graphics.getDeltaTime();
+            if (shaderTimer > 1.0f) {
+                shaderTimer = 1.0f;
+            }
+        }
+    }
+
+    @Override
+    public void onInitialApplication() {
         // Dumb action to delay grabbing monster's intent until after it's actually set
-        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction()
-        {
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             @Override
-            public void update()
-            {
+            public void update() {
                 if (owner instanceof AbstractMonster) {
                     moveByte = ((AbstractMonster) owner).nextMove;
                     moveIntent = ((AbstractMonster) owner).intent;
@@ -73,10 +88,9 @@ public class Frozen extends PiruruPower implements
     }
 
     @Override
-    public void onRemove()
-    {
+    public void onRemove() {
         if (owner instanceof AbstractMonster) {
-            AbstractMonster m = (AbstractMonster)owner;
+            AbstractMonster m = (AbstractMonster) owner;
             if (move != null) {
                 m.setMove(moveByte, moveIntent, move.baseDamage, move.multiplier, move.isMultiDamage);
             } else {

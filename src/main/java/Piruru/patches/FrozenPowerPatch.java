@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
+
 // *************************
 // Stolen from:
 // https://github.com/kiooeht/StSLib/blob/master/src/main/java/com/evacipated/cardcrawl/mod/stslib/patches/StunMonsterPatch.java
@@ -17,12 +18,10 @@ import javassist.expr.MethodCall;
         method = "getNextAction"
 )
 public class FrozenPowerPatch {
-    public static ExprEditor Instrument()
-    {
+    public static ExprEditor Instrument() {
         return new ExprEditor() {
             @Override
-            public void edit(MethodCall m) throws CannotCompileException
-            {
+            public void edit(MethodCall m) throws CannotCompileException {
                 if (m.getClassName().equals(AbstractMonster.class.getName())
                         && m.getMethodName().equals("takeTurn")) {
                     m.replace("if (!m.hasPower(" + Frozen.class.getName() + ".POWER_ID)) {" +

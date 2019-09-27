@@ -1,13 +1,10 @@
 package Piruru.powers;
 
-import Piruru.Piruru;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import Piruru.TextureLoader;
 
-import static Piruru.Piruru.makeID;
-import static Piruru.Piruru.makePowerPath;
+import static Piruru.Piruru.*;
 
 public abstract class PiruruPower extends AbstractPower {
     public static String POWER_ID;
@@ -23,7 +20,7 @@ public abstract class PiruruPower extends AbstractPower {
         DESCRIPTIONS = powerStrings.DESCRIPTIONS;
         name = NAME;
         ID = POWER_ID;
-        img = TextureLoader.getTexture(makePowerPath(this.getClass().getSimpleName()));
+        img = textureLoader.getTexture(makePowerPath(this.getClass().getSimpleName()));
         updateDescription();
     }
 

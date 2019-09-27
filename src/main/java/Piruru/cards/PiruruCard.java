@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -24,7 +23,7 @@ public abstract class PiruruCard extends CustomCard {
 
     public PiruruCard(CardStrings strings, int cost, CardType type, CardRarity rarity, CardTarget target, int upgradeDamage,
                       int upgradeBlock, int upgradeMagic, int upgradeCost) {
-        super(null, strings.NAME, (String)null, cost, strings.DESCRIPTION, type, PiruruChar.Enums.PIRURU_ICE, rarity, target);
+        super(null, strings.NAME, (String) null, cost, strings.DESCRIPTION, type, PiruruChar.Enums.PIRURU_ICE, rarity, target);
         cardID = makeID(this.getClass().getSimpleName());
         this.upgradeDamage = upgradeDamage;
         this.upgradeBlock = upgradeBlock;
@@ -93,6 +92,7 @@ public abstract class PiruruCard extends CustomCard {
             upgradedMagicNumber = true;
         }
     }
+
     private void upgradeCost() {
         if (upgradeCost != cost) {
             int diff = costForTurn - cost;
@@ -107,5 +107,5 @@ public abstract class PiruruCard extends CustomCard {
             upgradedCost = true;
         }
     }
-    
+
 }

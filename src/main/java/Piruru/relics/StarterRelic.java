@@ -2,11 +2,9 @@ package Piruru.relics;
 
 import Piruru.Piruru;
 import Piruru.actions.PeepingAnalyzeAction;
-import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class StarterRelic extends PiruruRelic implements ClickableRelic {
     public static final String ID = Piruru.makeID(StarterRelic.class.getSimpleName());

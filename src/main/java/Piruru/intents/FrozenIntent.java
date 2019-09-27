@@ -1,16 +1,24 @@
 package Piruru.intents;
 
-import Piruru.TextureLoader;
-import basemod.BaseMod;
+import Piruru.powers.Frozen;
 import basemod.ReflectionHacks;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.esotericsoftware.spine.SkeletonMeshRenderer;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import javassist.CtBehavior;
+
+import java.util.Arrays;
+
+import static Piruru.Piruru.textureLoader;
 
 public class FrozenIntent {
     @SpireEnum
@@ -23,10 +31,11 @@ public class FrozenIntent {
     public static class FrozenIntentImage {
         public static SpireReturn<Texture> Prefix(AbstractMonster __instance) {
             if (__instance.intent == FROZEN) {
-                return SpireReturn.Return(TextureLoader.getTexture(
+                return SpireReturn.Return(textureLoader.getTexture(
                         "Piruru/images/intents/Frozen.png"
                 ));
-            };
+            }
+            ;
             return SpireReturn.Continue();
         }
     }
@@ -41,16 +50,119 @@ public class FrozenIntent {
                 ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentTip", getTip());
                 return SpireReturn.Return(null);
             }
-        return SpireReturn.Continue();
+            return SpireReturn.Continue();
         }
     }
 
     private static PowerTip getTip() {
         PowerTip tip = new PowerTip();
         UIStrings strings = CardCrawlGame.languagePack.getUIString("Piruru:FrozenIntent");
-        tip.header =  strings.TEXT[0];
+        tip.header = strings.TEXT[0];
         tip.body = strings.TEXT[1];
-        tip.img = TextureLoader.getTexture("Piruru/images/FrozenIntent.png");
+        tip.img = textureLoader.getTexture("Piruru/images/FrozenIntent.png");
         return tip;
+    }
+
+    @SpirePatch(
+            clz = AbstractMonster.class,
+            method = "render"
+    )
+    public static class FrozenIntentShading {
+        private static ShaderProgram shader = new ShaderProgram(
+                Gdx.files.internal("Piruru/shaders/frozen/fragShader.fs"),
+                Gdx.files.internal("Piruru/shaders/frozen/vertexShader.vs")
+        );
+
+
+        @SpireInsertPatch(
+                locator = LocatorImageStart.class,
+                localvars = {"atlas"}
+        )
+        public static void InsertImageStart(AbstractMonster __instance, SpriteBatch sb, TextureAtlas atlas) {
+            if (atlas == null) {
+                Frozen frozen = (Frozen) __instance.getPower(Frozen.POWER_ID);
+                if (frozen != null) {
+                    shader.begin();
+                    shader.setUniformf("shadeTimer", frozen.shaderTimer);
+                    sb.setShader(shader);
+                }
+            }
+        }
+
+
+        @SpireInsertPatch(
+                locator=LocatorImageEnd.class,
+                localvars={"atlas"}
+        )
+        public static void InsertImageEnd(AbstractMonster __instance, SpriteBatch sb, TextureAtlas atlas)
+        {
+            if (atlas == null && __instance.hasPower(Frozen.POWER_ID)) {
+                sb.setShader(null);
+                shader.end();
+            }
+        }
+
+        @SpireInsertPatch(
+                locator=LocatorSkeletonStart.class
+        )
+        public static void InsertSkeletonStart(AbstractMonster __instance, SpriteBatch sb)
+        {
+            Frozen frozen = (Frozen) __instance.getPower(Frozen.POWER_ID);
+            if (frozen != null) {
+                shader.begin();
+                shader.setUniformf("shadeTimer", frozen.shaderTimer);
+                CardCrawlGame.psb.setShader(shader);
+            }
+        }
+
+        @SpireInsertPatch(
+                locator=LocatorSkeletonEnd.class
+        )
+        public static void InsertSkeletonEnd(AbstractMonster __instance, SpriteBatch sb)
+        {
+            if (__instance.hasPower(Frozen.POWER_ID)) {
+                CardCrawlGame.psb.setShader(null);
+                shader.end();
+            }
+        }
+
+
+        private static class LocatorImageStart extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractMonster.class, "damageFlash");
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+            }
+        }
+
+        private static class LocatorImageEnd extends SpireInsertLocator
+        {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception
+            {
+                Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractMonster.class, "damageFlash");
+                return Arrays.copyOfRange(LineFinder.findAllInOrder(ctMethodToPatch, finalMatcher), 1, 2);
+            }
+        }
+
+        private static class LocatorSkeletonStart extends SpireInsertLocator
+        {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception
+            {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(SkeletonMeshRenderer.class, "draw");
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+            }
+        }
+
+        private static class LocatorSkeletonEnd extends SpireInsertLocator
+        {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception
+            {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(PolygonSpriteBatch.class, "end");
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+            }
+        }
     }
 }
