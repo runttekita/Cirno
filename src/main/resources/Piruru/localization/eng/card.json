@@ -18,5 +18,9 @@
   "DamageAndCold": {
     "NAME": "Code Art SML",
     "DESCRIPTION": "$damage NL $cold"
+  },
+  "FreezeEnemy": {
+    "NAME": "Snow Halation",
+    "DESCRIPTION": "$freeze"
   }
 }

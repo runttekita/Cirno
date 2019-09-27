@@ -10,6 +10,7 @@ DISCARD_ONE="Discard 1 card."
 ENERGY="Gain !M! [E] ."
 DRAW="Draw !M! cards."
 COLD="Apply !M! Piruru:Cold."
+FREEZE="Piruru:Freeze an enemy."
 
 cp ${SOURCE}card.json ${TARGET}card.json
 cp ${SOURCE}powers.json ${TARGET}powers.json
@@ -23,6 +24,7 @@ sed -i s/\$discardOne/"${DISCARD_ONE}"/g ${PROD_JSON}
 sed -i s/\$energy/"${ENERGY}"/g ${PROD_JSON}
 sed -i s/\$draw/"${DRAW}"/g ${PROD_JSON}
 sed -i s/\$cold/"${COLD}"/g ${PROD_JSON}
+sed -i s/\$freeze/"${FREEZE}"/g $PROD_JSON
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 PROD_JSON=${TARGET}powers.json
