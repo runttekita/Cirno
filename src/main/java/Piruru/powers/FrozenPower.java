@@ -2,6 +2,7 @@ package Piruru.powers;
 
 import Piruru.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -16,7 +17,10 @@ import java.lang.reflect.Field;
 
 import static Piruru.Piruru.makePowerPath;
 
-public class FrozenPower extends PiruruPower implements CloneablePowerInterface {
+public class FrozenPower extends PiruruPower implements
+        CloneablePowerInterface,
+        InvisiblePower
+{
 
     public FrozenPower(AbstractCreature owner) {
         this.owner = owner;
