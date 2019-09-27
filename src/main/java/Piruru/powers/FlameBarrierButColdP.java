@@ -6,12 +6,22 @@ import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import static Piruru.Piruru.makeID;
 
 public class FlameBarrierButColdP extends PiruruPower implements CloneablePowerInterface {
 
     public FlameBarrierButColdP(AbstractCreature owner, int amount) {
+        POWER_ID = makeID(FlameBarrierButColdP.class.getSimpleName());
+        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        NAME = powerStrings.NAME;
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+        name = NAME;
+        ID = POWER_ID;
+        updateDescription();
         this.owner = owner;
         this.amount = amount;
     }

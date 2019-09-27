@@ -4,14 +4,24 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import static Piruru.Piruru.makeID;
 
 public class Cold extends PiruruPower implements CloneablePowerInterface {
     private static final int PROC_AMOUNT = 3;
 
     public Cold(AbstractCreature owner, int amount) {
         super();
+        POWER_ID = makeID(Cold.class.getSimpleName());
+        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        NAME = powerStrings.NAME;
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+        name = NAME;
+        ID = POWER_ID;
+        updateDescription();
         this.owner = owner;
         this.amount = amount;
     }
