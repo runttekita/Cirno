@@ -1,6 +1,8 @@
 package Piruru.cards;
 
 import Piruru.Piruru;
+import basemod.BaseMod;
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -23,6 +25,8 @@ public class Strike extends PiruruCard {
     public Strike() {
         super(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 0, 0, COST);
         baseDamage = damage = DAMAGE;
+        tags.add(BaseModCardTags.BASIC_STRIKE);
+        tags.add(CardTags.STRIKE);
     }
 
     @Override
