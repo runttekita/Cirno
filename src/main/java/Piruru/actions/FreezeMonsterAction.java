@@ -28,7 +28,7 @@ public class FreezeMonsterAction extends AbstractGameAction{
     public void update()
     {
         if (duration == Settings.ACTION_DUR_FAST) {
-            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, source, new FrozenPower((AbstractMonster) target, amount), amount));
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, source, new FrozenPower((AbstractMonster) target)));
         }
         tickDuration();
     }
