@@ -1,6 +1,5 @@
 package Piruru.cards;
 
-import Piruru.Piruru;
 import Piruru.actions.FreezeMonsterAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,7 +18,7 @@ public class FreezeEnemy extends PiruruCard {
     private static final int COST_UP = 1;
 
     public FreezeEnemy() {
-        super(cardStrings, COST, TYPE, RARITY, TARGET,0, 0, 0, COST_UP);
+        super(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, 0, COST_UP);
     }
 
     @Override

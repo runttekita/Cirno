@@ -8,15 +8,12 @@ import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.lang.reflect.Field;
-
-import static Piruru.Piruru.makeID;
 
 
 // *************************
@@ -60,8 +57,7 @@ public class Frozen extends PiruruPower implements
     }
 
     @Override
-    public void update(int slot)
-    {
+    public void update(int slot) {
         super.update(slot);
 
         if (shaderTimer < 1.0f) {
@@ -71,8 +67,8 @@ public class Frozen extends PiruruPower implements
             }
         }
 
-        if (owner instanceof AbstractMonster && ((AbstractMonster)owner).state != null) {
-            ((AbstractMonster)owner).state.setTimeScale(0);
+        if (owner instanceof AbstractMonster && ((AbstractMonster) owner).state != null) {
+            ((AbstractMonster) owner).state.setTimeScale(0);
         }
     }
 

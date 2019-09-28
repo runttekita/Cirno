@@ -20,11 +20,12 @@ public class SpreadColdAction extends AbstractGameAction {
     @Override
     public void update() {
         if (target.hasPower(Cold.POWER_ID) && target instanceof AbstractMonster) {
-            int slot = AbstractDungeon.getMonsters().monsters.indexOf((AbstractMonster)target);
+            int slot = AbstractDungeon.getMonsters().monsters.indexOf((AbstractMonster) target);
             AbstractMonster left = null;
             if (slot > 0) left = AbstractDungeon.getMonsters().monsters.get(slot - 1);
             AbstractMonster right = null;
-            if (slot < AbstractDungeon.getMonsters().monsters.size() - 1) right = AbstractDungeon.getMonsters().monsters.get(slot + 1);
+            if (slot < AbstractDungeon.getMonsters().monsters.size() - 1)
+                right = AbstractDungeon.getMonsters().monsters.get(slot + 1);
             if (left != null && !left.isDeadOrEscaped()) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction
                         (left, AbstractDungeon.player, new Cold(left, amount)));

@@ -20,7 +20,7 @@ public class FlameBarrierButCold extends PiruruCard {
     private static final int COLD = 1;
 
     public FlameBarrierButCold() {
-        super(cardStrings, COST, TYPE, RARITY, TARGET,0, BLOCK_UP, 0, COST);
+        super(cardStrings, COST, TYPE, RARITY, TARGET, 0, BLOCK_UP, 0, COST);
         baseBlock = block = BLOCK;
         magicNumber = baseMagicNumber = COLD;
     }

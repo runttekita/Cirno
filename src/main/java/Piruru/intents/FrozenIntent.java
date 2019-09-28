@@ -3,7 +3,8 @@ package Piruru.intents;
 import Piruru.powers.Frozen;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -12,8 +13,6 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.esotericsoftware.spine.SkeletonMeshRenderer;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -80,9 +79,9 @@ public class FrozenIntent {
         private static ShaderProgram shader = new ShaderProgram(
                 Gdx.files.internal("Piruru/shaders/frozen/vertexShader.vs"),
                 Gdx.files.internal("Piruru/shaders/frozen/fragShader.fs")
-                );
+        );
 
-       private static ShapeRenderer renderer = new ShapeRenderer();
+        private static ShapeRenderer renderer = new ShapeRenderer();
 
 
         @SpireInsertPatch(
@@ -102,11 +101,10 @@ public class FrozenIntent {
 
 
         @SpireInsertPatch(
-                locator=LocatorImageEnd.class,
-                localvars={"atlas"}
+                locator = LocatorImageEnd.class,
+                localvars = {"atlas"}
         )
-        public static void InsertImageEnd(AbstractMonster __instance, SpriteBatch sb, TextureAtlas atlas)
-        {
+        public static void InsertImageEnd(AbstractMonster __instance, SpriteBatch sb, TextureAtlas atlas) {
             if (atlas == null && __instance.hasPower(Frozen.POWER_ID) && !(__instance instanceof Hexaghost)) {
                 sb.setShader(null);
                 shader.end();
@@ -114,10 +112,9 @@ public class FrozenIntent {
         }
 
         @SpireInsertPatch(
-                locator=LocatorSkeletonStart.class
+                locator = LocatorSkeletonStart.class
         )
-        public static void InsertSkeletonStart(AbstractMonster __instance, SpriteBatch sb)
-        {
+        public static void InsertSkeletonStart(AbstractMonster __instance, SpriteBatch sb) {
             Frozen frozen = (Frozen) __instance.getPower(Frozen.POWER_ID);
             if (frozen != null && !(__instance instanceof Hexaghost)) {
                 shader.begin();
@@ -132,10 +129,9 @@ public class FrozenIntent {
         }
 
         @SpireInsertPatch(
-                locator=LocatorSkeletonEnd.class
+                locator = LocatorSkeletonEnd.class
         )
-        public static void InsertSkeletonEnd(AbstractMonster __instance, SpriteBatch sb)
-        {
+        public static void InsertSkeletonEnd(AbstractMonster __instance, SpriteBatch sb) {
             if (__instance.hasPower(Frozen.POWER_ID) && !(__instance instanceof Hexaghost)) {
                 CardCrawlGame.psb.setShader(null);
                 shader.end();
@@ -152,31 +148,25 @@ public class FrozenIntent {
             }
         }
 
-        private static class LocatorImageEnd extends SpireInsertLocator
-        {
+        private static class LocatorImageEnd extends SpireInsertLocator {
             @Override
-            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception
-            {
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractMonster.class, "damageFlash");
                 return Arrays.copyOfRange(LineFinder.findAllInOrder(ctMethodToPatch, finalMatcher), 1, 2);
             }
         }
 
-        private static class LocatorSkeletonStart extends SpireInsertLocator
-        {
+        private static class LocatorSkeletonStart extends SpireInsertLocator {
             @Override
-            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception
-            {
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 Matcher finalMatcher = new Matcher.MethodCallMatcher(SkeletonMeshRenderer.class, "draw");
                 return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
             }
         }
 
-        private static class LocatorSkeletonEnd extends SpireInsertLocator
-        {
+        private static class LocatorSkeletonEnd extends SpireInsertLocator {
             @Override
-            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception
-            {
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 Matcher finalMatcher = new Matcher.MethodCallMatcher(PolygonSpriteBatch.class, "end");
                 return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
             }

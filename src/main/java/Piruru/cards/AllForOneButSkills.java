@@ -1,6 +1,5 @@
 package Piruru.cards;
 
-import Piruru.Piruru;
 import Piruru.actions.AllForSkills;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
