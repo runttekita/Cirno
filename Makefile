@@ -20,6 +20,7 @@ FREEZE="Piruru:Freeze an enemy."
 MILL='Piruru:Mill !M! cards.'
 ETHEREAL='Ethereal.'
 EXHAUST='Exhaust.'
+RECOVER='Put a card from your discard pile into your hand.'
 
 # Copy into production folder
 cp ${SOURCE}card.json ${TARGET}card.json
@@ -39,6 +40,7 @@ sed -i s/\$freeze/"${FREEZE}"/g ${PROD_JSON}
 sed -i s/\$mill/"${MILL}"/g ${PROD_JSON}
 sed -i s/\$ethereal/"${ETHEREAL}"/g ${PROD_JSON}
 sed -i s/\$exhaust/"${EXHAUST}"/g ${PROD_JSON}
+sed -i s/\$recover/"${RECOVER}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 PROD_JSON=${TARGET}powers.json

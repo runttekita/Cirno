@@ -39,5 +39,9 @@
   "FlameBarrierButCold": {
     "NAME": "cold",
     "DESCRIPTION": "$block NL Whenever you are attacked this turn, apply Piruru:Cold back."
+  },
+  "InfiniteScalingShit": {
+    "NAME": "skyson",
+    "DESCRIPTION": "$recover NL $exhaust NL Can be Upgraded any number of times."
   }
 }
