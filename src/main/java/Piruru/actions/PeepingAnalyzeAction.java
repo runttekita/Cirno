@@ -15,7 +15,7 @@ public class PeepingAnalyzeAction extends AbstractGameAction {
     public void update() {
         for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
             if (c.cost == cost) {
-                AbstractDungeon.actionManager.addToTop(new DrawPileToDiscardPileAction(c));
+                AbstractDungeon.actionManager.addToTop(new FastDrawPileToDiscardPileAction(c));
             }
         }
         isDone = true;
