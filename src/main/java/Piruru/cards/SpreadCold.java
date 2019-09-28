@@ -1,5 +1,6 @@
 package Piruru.cards;
 
+import Piruru.abstracts.PiruruCard;
 import Piruru.actions.SpreadColdAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;

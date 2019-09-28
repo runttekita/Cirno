@@ -1,4 +1,4 @@
-package Piruru.powers;
+package Piruru.abstracts;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;

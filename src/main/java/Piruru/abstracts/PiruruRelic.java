@@ -1,4 +1,4 @@
-package Piruru.relics;
+package Piruru.abstracts;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
@@ -18,7 +18,7 @@ public class PiruruRelic extends CustomRelic {
         return textureLoader.getTexture(imgName);
     }
 
-    void act(AbstractGameAction a) {
+    public void act(AbstractGameAction a) {
         AbstractDungeon.actionManager.addToBottom(a);
     }
 

@@ -1,6 +1,7 @@
 package Piruru.relics;
 
 import Piruru.Piruru;
+import Piruru.abstracts.PiruruRelic;
 import Piruru.actions.PeepingAnalyzeAction;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

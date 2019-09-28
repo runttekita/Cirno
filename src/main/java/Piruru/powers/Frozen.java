@@ -1,5 +1,6 @@
 package Piruru.powers;
 
+import Piruru.abstracts.PiruruPower;
 import Piruru.intents.FrozenIntent;
 import basemod.ReflectionHacks;
 import basemod.interfaces.CloneablePowerInterface;

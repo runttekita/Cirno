@@ -1,5 +1,6 @@
 package Piruru.cards;
 
+import Piruru.abstracts.PiruruCard;
 import Piruru.actions.ScoutCardsAction;
 import Piruru.actions.ScoutFollowUpAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;

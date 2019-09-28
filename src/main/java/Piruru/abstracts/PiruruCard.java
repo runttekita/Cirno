@@ -1,4 +1,4 @@
-package Piruru.cards;
+package Piruru.abstracts;
 
 import Piruru.Piruru;
 import Piruru.characters.PiruruChar;
@@ -37,11 +37,11 @@ public abstract class PiruruCard extends CustomCard {
         return null;
     }
 
-    protected String makeName() {
+    public String makeName() {
         return Piruru.makeID(this.getClass().getSimpleName());
     }
 
-    void act(AbstractGameAction a) {
+    public void act(AbstractGameAction a) {
         AbstractDungeon.actionManager.addToBottom(a);
     }
 
@@ -49,15 +49,15 @@ public abstract class PiruruCard extends CustomCard {
         return new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.NORMAL);
     }
 
-    void damage(AbstractCreature m) {
+    public void damage(AbstractCreature m) {
         act(new DamageAction(m, dmgInfo()));
     }
 
-    void block() {
+    public void block() {
         act(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
     }
 
-    ApplyPowerAction power(AbstractCreature target, AbstractCreature source, AbstractPower p, int amount) {
+    public ApplyPowerAction power(AbstractCreature target, AbstractCreature source, AbstractPower p, int amount) {
         return new ApplyPowerAction(target, source, p, amount);
     }
 

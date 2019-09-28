@@ -1,5 +1,6 @@
 package Piruru.powers;
 
+import Piruru.abstracts.PiruruPower;
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;

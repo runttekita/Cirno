@@ -109,21 +109,12 @@ public class Piruru implements
     }
 
     //***************
-    // But Reina, I can hear you ask, why aren't you using autoAddCards? Well the answer is simple
+    // But Reina, I can hear you ask, why aren't you using autoAddCards from Kio? Well the answer is simple
     // I'm too lazy to copy paste all that stuff and make like 90 classes and I can just add them manually jesus.
     //***************
     @Override
     public void receiveEditCards() {
-        BaseMod.addCard(new Strike());
-        BaseMod.addCard(new Defend());
-        BaseMod.addCard(new ScoutAttacks());
-        BaseMod.addCard(new DiscardAndGainEnergy());
-        BaseMod.addCard(new DamageAndCold());
-        BaseMod.addCard(new FreezeEnemy());
-        BaseMod.addCard(new FlameBarrierButCold());
-        BaseMod.addCard(new AttackAndMill());
-        BaseMod.addCard(new AllForOneButSkills());
-        BaseMod.addCard(new SpreadCold());
+		//autoAddCards
     }
 
     public static String makeID(String idText) {
@@ -140,11 +131,11 @@ public class Piruru implements
 
 
     //***************
-    // But Reina, I can hear you ask, why aren't you using autoAddRelics? Well the answer is simple
+    // But Reina, I can hear you ask, why aren't you using autoAddRelics from Kio? Well the answer is simple
     // I'm too lazy to copy paste all that stuff and make like 90 classes and I can just add them manually jesus.
     //***************
     @Override
     public void receiveEditRelics() {
-        BaseMod.addRelicToCustomPool(new StarterRelic(), PiruruChar.Enums.PIRURU_ICE);
+		//autoAddRelics
     }
 }
