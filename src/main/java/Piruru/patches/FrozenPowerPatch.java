@@ -8,11 +8,11 @@ import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 
-// *************************
-// Stolen from:
-// https://github.com/kiooeht/StSLib/blob/master/src/main/java/com/evacipated/cardcrawl/mod/stslib/patches/StunMonsterPatch.java
-// Thank you papa Kio!
-// *************************
+/**
+ * Straight nabbed and improved from
+ * https://github.com/oeht/StSLib/blob/master/src/main/java/com/evacipated/cardcrawl/mod/stslib/patches/StunMonsterPatch.java
+ * Ty Papa Kio!
+ */
 @SpirePatch(
         clz = GameActionManager.class,
         method = "getNextAction"

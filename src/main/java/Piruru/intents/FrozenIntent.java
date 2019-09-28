@@ -24,11 +24,11 @@ import java.util.Arrays;
 import static Piruru.Piruru.makeID;
 import static Piruru.Piruru.textureLoader;
 
-// *************************
-// Shader logic stolen and modified from:
-// https://github.com/kiooeht/Hubris/blob/29d2f37cfc4035e29e3567671fbde158833004b2/src/main/java/com/evacipated/cardcrawl/mod/hubris/patches/UndeadRenderPatch.java
-// Thank you papa Kio!
-// *************************
+/**
+ * Shader logic stolen and modified from
+ * https://github.com/kiooeht/Hubris/blob/29d2f37cfc4035e29e3567671fbde158833004b2/src/main/java/com/evacipated/cardcrawl/mod/hubris/patches/UndeadRenderPatch.java
+ * Thank you papa Kio!
+ */
 public class FrozenIntent {
     @SpireEnum
     public static AbstractMonster.Intent FROZEN;

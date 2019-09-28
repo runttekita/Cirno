@@ -16,11 +16,10 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import java.lang.reflect.Field;
 
 
-// *************************
-// Stolen from:
-// https://github.com/kiooeht/StSLib/blob/master/src/main/java/com/evacipated/cardcrawl/mod/stslib/powers/StunMonsterPower.java
-// Thank you papa Kio!
-// *************************
+/**
+ * Basically stolen from
+ * https://github.com/kiooeht/StSLib/blob/master/src/main/java/com/evacipated/cardcrawl/mod/stslib/powers/StunMonsterPower.java
+ */
 public class Frozen extends PiruruPower implements
         CloneablePowerInterface,
         InvisiblePower {
