@@ -1,10 +1,13 @@
 #!/bin/bash
-
 TARGET=./src/main/resources/Piruru/localization/eng/prodStrings/
 SOURCE=./src/main/resources/Piruru/localization/eng/
 GOD_OBJECT=./src/main/java/Piruru/Piruru.java
 CARDS=./src/main/java/Piruru/cards/*
 RELICS=./src/main/java/Piruru/relics/*
+BIG_CARD_BACK=./src/main/resources/Piruru/images/1024/*
+SMOL_CARD_BACK=./src/main/resources/Piruru/images/512/*
+BIG_CARD_BACK_PROD=./src/main/resources/Piruru/images/1024prod/
+SMOL_CARD_BACK_PROD=./src/main/resources/Piruru/images/512prod/
 
 # LOCALIZERS CHANGE THIS
 DAMAGE="Deal !D! Damage."
@@ -61,7 +64,19 @@ do
     sed -i "s|\/\/autoAddRelics|BaseMod.addRelicToCustomPool(new ${ADD}(), PiruruChar.Enums.PIRURU_ICE);\/\/delete\n\t\t\/\/autoAddRelics|g" ${GOD_OBJECT}
 done
 
+#images!
+for f in ${BIG_CARD_BACK}
+do
+    ADD=$(echo $f | rev | cut -d"/" -f1 | rev )
+    convert ${f} -fill blue -tint 50 ./src/main/resources/Piruru/images/1024prod/${ADD}
+done
 
+#images!
+for f in ${SMOL_CARD_BACK}
+do
+    ADD=$(echo $f | rev | cut -d"/" -f1 | rev )
+    convert ${f} -fill blue -tint 50 ./src/main/resources/Piruru/images/512prod/${ADD}
+done
 
 #finally do the thing
 mvn package
@@ -69,3 +84,5 @@ mvn package
 #clean up after myself
 sed -i '\/\/delete/d' ${GOD_OBJECT}
 rm ${TARGET}/[a-z]*
+rm ${BIG_CARD_BACK_PROD}/[a-z]*
+rm ${SMOL_CARD_BACK_PROD}/[a-z]*
