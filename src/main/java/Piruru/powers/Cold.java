@@ -14,6 +14,7 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
         super();
         this.owner = owner;
         this.amount = amount;
+        isTurnBased = true;
     }
 
     @Override

@@ -14,6 +14,7 @@ public class FlameBarrierButColdP extends PiruruPower implements CloneablePowerI
     public FlameBarrierButColdP(AbstractCreature owner, int amount) {
         this.owner = owner;
         this.amount = amount;
+        isTurnBased = true;
     }
 
     @Override
@@ -36,7 +37,7 @@ public class FlameBarrierButColdP extends PiruruPower implements CloneablePowerI
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
     }
 
     @Override
