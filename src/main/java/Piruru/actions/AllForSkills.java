@@ -15,7 +15,7 @@ public class AllForSkills extends AbstractGameAction {
         if (AbstractDungeon.player.discardPile.size() > 0) {
             for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
                 if (c.type == AbstractCard.CardType.SKILL) {
-                    new AbstractGameAction() {
+                    AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
                         @Override
                         public void update() {
                             if (AbstractDungeon.player.discardPile.contains(c)) {
@@ -32,7 +32,7 @@ public class AllForSkills extends AbstractGameAction {
                             AbstractDungeon.player.hand.glowCheck();
                             isDone = true;
                         }
-                    };
+                    });
                 }
             }
         }

@@ -19,6 +19,7 @@ public class AllForOneButSkills extends PiruruCard {
     public AllForOneButSkills() {
         super(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, 0, COST);
         isEthereal = true;
+        exhaust = true;
     }
 
     @Override
@@ -26,7 +27,6 @@ public class AllForOneButSkills extends PiruruCard {
         if (!upgraded) {
             upgradeName();
             isEthereal = false;
-            exhaust = true;
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
