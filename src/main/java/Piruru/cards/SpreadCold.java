@@ -17,7 +17,7 @@ public class SpreadCold extends PiruruCard {
     private static final int COST = 1;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final int DAMAGE = 7;
     private static final int DAMAGE_UP = 3;
     private static final int SPREAD_AMT = 1;
@@ -25,13 +25,12 @@ public class SpreadCold extends PiruruCard {
     public SpreadCold() {
         super(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 0, 0, COST);
         baseDamage = damage = DAMAGE;
-        isMultiDamage = true;
         baseMagicNumber = magicNumber = SPREAD_AMT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
+        damage(m);
         act(new SpreadColdAction(m, magicNumber));
     }
 }

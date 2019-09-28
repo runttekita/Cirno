@@ -34,7 +34,7 @@
   },
   "SpreadCold": {
     "NAME": "Achoo",
-    "DESCRIPTION": "$damage NL Apply !M! Piruru:Cold to adjacent enemies."
+    "DESCRIPTION": "$damage NL Apply !M! Piruru:Cold to target and to adjacent enemies."
   },
   "FlameBarrierButCold": {
     "NAME": "cold",
