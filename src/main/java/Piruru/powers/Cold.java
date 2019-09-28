@@ -32,7 +32,7 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
     public void stackPower(int amount) {
         fontScale = 8.0F;
         this.amount += amount;
-        if (amount >= PROC_AMOUNT) {
+        if (this.amount >= PROC_AMOUNT) {
             AbstractDungeon.actionManager.addToBottom(
                     new RemoveSpecificPowerAction(owner, owner, this));
             AbstractDungeon.actionManager.addToBottom(

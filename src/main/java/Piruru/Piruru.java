@@ -25,7 +25,7 @@ public class Piruru implements
     public static AssetLoader textureLoader = new AssetLoader();
 
     private static String modID;
-    public static final Color PIRURU_ICE = CardHelper.getColor(64.0f, 70.0f, 70.0f);
+    public static final Color PIRURU_ICE = CardHelper.getColor(64, 70, 70);
 
     private static final String ATTACK_PIRURU_ICE = "Piruru/images/512prod/bg_attack_default_gray.png";
     private static final String SKILL_PIRURU_ICE = "Piruru/images/512prod/bg_skill_default_gray.png";

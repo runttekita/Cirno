@@ -13,7 +13,8 @@ public class DrawPileToHandAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        AbstractDungeon.player.drawPile.moveToHand(c, AbstractDungeon.player.hand);
+        AbstractDungeon.player.drawPile.moveToHand(c,
+                AbstractDungeon.player.hand);
         isDone = true;
     }
 }
