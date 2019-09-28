@@ -12,8 +12,6 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
 
     public Cold(AbstractCreature owner, int amount) {
         super();
-        System.out.println("dab" + POWER_ID);
-        System.out.println(Frozen.class);
         this.owner = owner;
         this.amount = amount;
     }
@@ -38,6 +36,7 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
             AbstractDungeon.actionManager.addToBottom(
                     new ApplyPowerAction(owner, AbstractDungeon.player, new Frozen(owner)));
         }
+        updateDescription();
     }
 
     @Override
