@@ -30,7 +30,7 @@
   "AllForOneButSkills": {
     "NAME": "shrug",
     "DESCRIPTION": "Put all Skills from your discard pile into your hand. NL $ethereal NL $exhaust",
-    "UPGRADE_DESCRIPTION": "Put all Skills from your discard pile into your hand. NL $exhaust"
+    "UPGRADE_DESCRIPTION": "Put all Skills from your discard pile into your hand ignoring max hand size. NL $ethereal NL $exhaust"
   },
   "SpreadCold": {
     "NAME": "Achoo",

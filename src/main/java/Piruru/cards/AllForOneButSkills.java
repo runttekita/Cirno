@@ -26,7 +26,6 @@ public class AllForOneButSkills extends PiruruCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            isEthereal = false;
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
@@ -34,6 +33,6 @@ public class AllForOneButSkills extends PiruruCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new AllForSkills());
+        act(new AllForSkills(upgraded));
     }
 }
