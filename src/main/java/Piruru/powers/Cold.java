@@ -15,13 +15,7 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
 
     public Cold(AbstractCreature owner, int amount) {
         super();
-        POWER_ID = makeID(Cold.class.getSimpleName());
-        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-        NAME = powerStrings.NAME;
-        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-        name = NAME;
-        ID = POWER_ID;
-        updateDescription();
+        System.out.println("dab" + POWER_ID);
         this.owner = owner;
         this.amount = amount;
     }

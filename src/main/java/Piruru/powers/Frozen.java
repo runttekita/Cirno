@@ -39,13 +39,6 @@ public class Frozen extends PiruruPower implements
 
     public Frozen(AbstractMonster owner) {
         super();
-        POWER_ID = makeID(Frozen.class.getSimpleName());
-        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-        NAME = powerStrings.NAME;
-        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-        name = NAME;
-        ID = POWER_ID;
-        updateDescription();
         this.owner = owner;
         type = PowerType.DEBUFF;
         shaderTimer = 0.0f;

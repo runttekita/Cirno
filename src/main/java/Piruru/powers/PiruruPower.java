@@ -14,6 +14,13 @@ public abstract class PiruruPower extends AbstractPower {
 
 
     public PiruruPower() {
+        POWER_ID = makeID(this.getClass().getSimpleName());
+        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        NAME = powerStrings.NAME;
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+        name = NAME;
+        ID = POWER_ID;
+        updateDescription();
         img = textureLoader.getTexture(makePowerPath(this.getClass().getSimpleName()));
     }
 
