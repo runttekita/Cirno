@@ -7,6 +7,9 @@ import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
+/**
+ * @see com.megacrit.cardcrawl.actions.defect.AllCostToHandAction
+ */
 public class AllForSkills extends AbstractGameAction {
     private boolean upgraded;
 

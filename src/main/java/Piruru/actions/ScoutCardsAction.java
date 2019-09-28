@@ -15,7 +15,10 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
-//Shamelessly copy pasted from scrape and i dont give a fuck
+/**
+ * @see com.megacrit.cardcrawl.cards.blue.Scrape
+ * Disgustingly copied from scrape and idgaf
+ */
 public class ScoutCardsAction extends AbstractGameAction {
     private boolean shuffleCheck;
     private static final Logger logger = LogManager.getLogger(DrawCardAction.class.getName());

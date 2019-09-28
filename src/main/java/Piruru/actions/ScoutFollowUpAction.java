@@ -8,7 +8,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.Iterator;
 
-//Scrape shameless c/p shut the fuck up
+/**
+ * @see com.megacrit.cardcrawl.cards.blue.Scrape
+ * Disgustingly copied from scrape and idgaf
+ */
 public class ScoutFollowUpAction extends AbstractGameAction {
 
     public ScoutFollowUpAction() {

@@ -6,10 +6,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 
 
-/**
- * Card rendering from here
- * @see com.megacrit.cardcrawl.actions.common.PlayTopCardAction
- **/
 public class MillAction extends AbstractGameAction {
     private int amount;
 
