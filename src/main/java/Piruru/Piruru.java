@@ -110,7 +110,7 @@ public class Piruru implements
 
     //***************
     // But Reina, I can hear you ask, why aren't you using autoAddCards from Kio? Well the answer is simple
-    // I'm too lazy to copy paste all that stuff and make like 90 classes and I can just add them manually jesus.
+    // I'm too lazy to copy paste all that stuff and make like 90 classes and Makefile does this for me.
     //***************
     @Override
     public void receiveEditCards() {
@@ -132,7 +132,7 @@ public class Piruru implements
 
     //***************
     // But Reina, I can hear you ask, why aren't you using autoAddRelics from Kio? Well the answer is simple
-    // I'm too lazy to copy paste all that stuff and make like 90 classes and I can just add them manually jesus.
+    // I'm too lazy to copy paste all that stuff and make like 90 classes and Makefile does this for me.
     //***************
     @Override
     public void receiveEditRelics() {
