@@ -36,7 +36,6 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
             AbstractDungeon.actionManager.addToBottom(
                     new ApplyPowerAction(owner, AbstractDungeon.player, new Frozen(owner)));
         }
-        updateDescription();
     }
 
     @Override
@@ -46,6 +45,6 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0] + PROC_AMOUNT + DESCRIPTIONS[1];
     }
 }
