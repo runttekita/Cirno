@@ -10,7 +10,7 @@ import static Piruru.Piruru.makeID;
 
 public class DamageAndCold extends PiruruCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(
-            makeID(DamageAndCold.class.getSimpleName()));
+            makeID(DamageAndCold.class));
     private static final int COST = 2;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.BASIC;

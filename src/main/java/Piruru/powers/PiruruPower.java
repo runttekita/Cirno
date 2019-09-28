@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import static Piruru.Piruru.*;
 
 public abstract class PiruruPower extends AbstractPower {
-    public static String POWER_ID;
+    public String POWER_ID;
     static PowerStrings powerStrings;
-    public static String NAME;
-    public static String[] DESCRIPTIONS;
+    public String NAME;
+    public String[] DESCRIPTIONS;
 
 
     public PiruruPower() {

@@ -21,6 +21,7 @@ import javassist.CtBehavior;
 
 import java.util.Arrays;
 
+import static Piruru.Piruru.makeID;
 import static Piruru.Piruru.textureLoader;
 
 // *************************
@@ -90,7 +91,7 @@ public class FrozenIntent {
         )
         public static void InsertImageStart(AbstractMonster __instance, SpriteBatch sb, TextureAtlas atlas) {
             if (atlas == null && !(__instance instanceof Hexaghost)) {
-                Frozen frozen = (Frozen) __instance.getPower(Frozen.POWER_ID);
+                Frozen frozen = (Frozen) __instance.getPower(makeID(Frozen.class));
                 if (frozen != null) {
                     shader.begin();
                     shader.setUniformf("shadeTimer", frozen.shaderTimer);
@@ -105,7 +106,7 @@ public class FrozenIntent {
                 localvars = {"atlas"}
         )
         public static void InsertImageEnd(AbstractMonster __instance, SpriteBatch sb, TextureAtlas atlas) {
-            if (atlas == null && __instance.hasPower(Frozen.POWER_ID) && !(__instance instanceof Hexaghost)) {
+            if (atlas == null && __instance.hasPower(makeID(Frozen.class)) && !(__instance instanceof Hexaghost)) {
                 sb.setShader(null);
                 shader.end();
             }
@@ -115,7 +116,7 @@ public class FrozenIntent {
                 locator = LocatorSkeletonStart.class
         )
         public static void InsertSkeletonStart(AbstractMonster __instance, SpriteBatch sb) {
-            Frozen frozen = (Frozen) __instance.getPower(Frozen.POWER_ID);
+            Frozen frozen = (Frozen) __instance.getPower(makeID(Frozen.class));
             if (frozen != null && !(__instance instanceof Hexaghost)) {
                 shader.begin();
                 shader.setUniformf("shadeTimer", frozen.shaderTimer);
@@ -132,7 +133,7 @@ public class FrozenIntent {
                 locator = LocatorSkeletonEnd.class
         )
         public static void InsertSkeletonEnd(AbstractMonster __instance, SpriteBatch sb) {
-            if (__instance.hasPower(Frozen.POWER_ID) && !(__instance instanceof Hexaghost)) {
+            if (__instance.hasPower(makeID(Frozen.class)) && !(__instance instanceof Hexaghost)) {
                 CardCrawlGame.psb.setShader(null);
                 shader.end();
                 renderer.end();

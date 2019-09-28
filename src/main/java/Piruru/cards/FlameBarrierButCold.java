@@ -10,7 +10,7 @@ import static Piruru.Piruru.makeID;
 
 public class FlameBarrierButCold extends PiruruCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(
-            makeID(FlameBarrierButCold.class.getSimpleName()));
+            makeID(FlameBarrierButCold.class));
     private static final int COST = 2;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;

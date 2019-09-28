@@ -105,13 +105,13 @@ public class PiruruChar extends CustomPlayer {
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            retVal.add(makeID(Strike.class.getSimpleName()));
+            retVal.add(makeID(Strike.class));
         }
         for (int i = 0; i < 5; i++) {
-            retVal.add(makeID(Defend.class.getSimpleName()));
+            retVal.add(makeID(Defend.class));
         }
-        retVal.add(makeID(ScoutAttacks.class.getSimpleName()));
-        retVal.add(makeID(DamageAndCold.class.getSimpleName()));
+        retVal.add(makeID(ScoutAttacks.class));
+        retVal.add(makeID(DamageAndCold.class));
         return retVal;
     }
 

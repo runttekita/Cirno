@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import static Piruru.Piruru.makeID;
+
 public class SpreadColdAction extends AbstractGameAction {
     private AbstractCreature target;
     private int amount;
@@ -19,7 +21,7 @@ public class SpreadColdAction extends AbstractGameAction {
     //TODO Refactor this so it isn't ugly as sin
     @Override
     public void update() {
-        if (target.hasPower(Cold.POWER_ID) && target instanceof AbstractMonster) {
+        if (target.hasPower(makeID(Cold.class)) && target instanceof AbstractMonster) {
             int slot = AbstractDungeon.getMonsters().monsters.indexOf((AbstractMonster) target);
             AbstractMonster left = null;
             if (slot > 0) left = AbstractDungeon.getMonsters().monsters.get(slot - 1);

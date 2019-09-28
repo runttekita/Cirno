@@ -10,7 +10,7 @@ import static Piruru.Piruru.makeID;
 
 public class FreezeEnemy extends PiruruCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(
-            makeID(FreezeEnemy.class.getSimpleName()));
+            makeID(FreezeEnemy.class));
     private static final int COST = 2;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;

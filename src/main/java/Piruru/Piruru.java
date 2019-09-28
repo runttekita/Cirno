@@ -97,6 +97,10 @@ public class Piruru implements
         Piruru piruru = new Piruru();
     }
 
+    public static String makeID(Class c) {
+        return makeID(c.getSimpleName());
+    }
+
     @Override
     public void receiveEditCharacters() {
 

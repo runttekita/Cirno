@@ -13,7 +13,7 @@ import static Piruru.Piruru.makeID;
 
 public class SpreadCold extends PiruruCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(
-            makeID(SpreadCold.class.getSimpleName()));
+            makeID(SpreadCold.class));
     private static final int COST = 1;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.COMMON;

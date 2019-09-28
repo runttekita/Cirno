@@ -13,6 +13,7 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
     public Cold(AbstractCreature owner, int amount) {
         super();
         System.out.println("dab" + POWER_ID);
+        System.out.println(Frozen.class);
         this.owner = owner;
         this.amount = amount;
     }
