@@ -9,15 +9,15 @@
   },
   "DiscardAndGainEnergy": {
     "NAME": "C R Y S T A L SEAL",
-    "DESCRIPTION": "$discardOne NL $energy ."
+    "DESCRIPTION": "$discardOne $nl $energy"
   },
   "ScoutAttacks": {
     "NAME": "CIRCLE",
-    "DESCRIPTION": "$draw NL Discard all cards drawn this way that are not Attacks."
+    "DESCRIPTION": "$draw $nl $scoutattacks"
   },
   "DamageAndCold": {
     "NAME": "Code Art SML",
-    "DESCRIPTION": "$damage NL $cold"
+    "DESCRIPTION": "$damage $nl $cold"
   },
   "FreezeEnemy": {
     "NAME": "Snow Halation",
@@ -25,27 +25,27 @@
   },
   "AttackAndMill": {
     "NAME": "Who gives a fuck",
-    "DESCRIPTION": "$damage NL $mill"
+    "DESCRIPTION": "$damage $nl $mill"
   },
   "AllForOneButSkills": {
     "NAME": "shrug",
-    "DESCRIPTION": "Put all Skills from your discard pile into your hand. NL $ethereal NL $exhaust",
-    "UPGRADE_DESCRIPTION": "Put all Skills from your discard pile into your hand ignoring max hand size. NL $ethereal NL $exhaust"
+    "DESCRIPTION": "$recoverskills $nl $ethereal $nl $exhaust",
+    "UPGRADE_DESCRIPTION": "$recoverskillnohand $nl $ethereal $nl $exhaust"
   },
   "SpreadCold": {
     "NAME": "Achoo",
-    "DESCRIPTION": "$damage NL Apply !M! Piruru:Cold to target and to adjacent enemies."
+    "DESCRIPTION": "$damage $nl $spreadcold"
   },
   "FlameBarrierButCold": {
     "NAME": "cold",
-    "DESCRIPTION": "$block NL Whenever you are attacked this turn, apply Piruru:Cold back."
+    "DESCRIPTION": "$block $nl $icebarrier"
   },
   "InfiniteScalingShit": {
     "NAME": "skyson",
-    "DESCRIPTION": "$recover NL $exhaust NL Can be Upgraded any number of times."
+    "DESCRIPTION": "$recover $nl $exhaust $nl $infiniteupgrades"
   },
   "DiscardAnyAmountAndGainEnergy": {
     "NAME": "Wha",
-    "DESCRIPTION": "Discard any amount of cards and gain the same amount of [E] as discarded cards."
+    "DESCRIPTION": "$infiniteenergydiscard"
   }
 }

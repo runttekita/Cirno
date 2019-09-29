@@ -25,6 +25,14 @@ MILL='Piruru:Mill !M! cards.'
 ETHEREAL='Ethereal.'
 EXHAUST='Exhaust.'
 RECOVER='Put a card from your discard pile into your hand.'
+RECOVER_SKILLS='Put all Skills from your discard pile into your hand.'
+RECOVER_SKILLS_IGNORE_HAND='Put all Skills from your discard pile into your hand ignoring max hand size.'
+SPREAD_COLD='Apply !M! Piruru:Cold to target and to adjacent enemies.'
+ICE_BARRIER='Whenever you are attacked this turn, apply Piruru:Cold back.'
+SCOUT_ATTACKS='Discard all cards drawn this way that are not Attacks.'
+INFINITE_UPGRADES='Can be Upgraded any number of times.'
+INFINITE_ENERGY_DISCARD='Discard any amount of cards and gain the same amount of [E] as discarded cards.'
+NL='NL'
 
 # Copy into production folder
 cp ${DEV_STRINGS}card.json ${PROD_STRINGS}card.json
@@ -45,6 +53,14 @@ sed -i s/\$mill/"${MILL}"/g ${PROD_JSON}
 sed -i s/\$ethereal/"${ETHEREAL}"/g ${PROD_JSON}
 sed -i s/\$exhaust/"${EXHAUST}"/g ${PROD_JSON}
 sed -i s/\$recover/"${RECOVER}"/g ${PROD_JSON}
+sed -i s/\$recoverskill/"${RECOVER_SKILLS}"/g ${PROD_JSON}
+sed -i s/\$recoverskillnohand/"${RECOVER_SKILLS_IGNORE_HAND}"/g ${PROD_JSON}
+sed -i s/\$spreadcold/"${SPREAD_COLD}"/g ${PROD_JSON}
+sed -i s/\$icebarrier/"${ICE_BARRIER}"/g ${PROD_JSON}
+sed -i s/\$scoutattacks/"${SCOUT_ATTACKS}"/g ${PROD_JSON}
+sed -i s/\$infiniteenergydiscard/"${INFINITE_ENERGY_DISCARD}"/g ${PROD_JSON}
+sed -i s/\$infiniteupgrades/"${INFINITE_UPGRADES}"/g ${PROD_JSON}
+sed -i s/\$nl/"${NL}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}powers.json
