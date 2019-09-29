@@ -12,6 +12,7 @@ BIG_CARD_BACK_PROD=${RESOURCES}images/1024prod/
 SMOL_CARD_BACK_PROD=${RESOURCES}images/512prod/
 PATCH=""
 PATCH_CONTENTS=""
+set -e
 
 # Idiot proof
 if [ "$1" == "-p" ] || [ "$1" == "" ]
