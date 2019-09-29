@@ -14,25 +14,29 @@ PATCH=""
 PATCH_CONTENTS=""
 
 # LOCALIZERS CHANGE THIS
-DAMAGE="Deal !D! Damage."
-BLOCK="Gain !B! Block."
-DISCARD_ONE="Discard 1 card."
-ENERGY="Gain !M! [E] ."
-DRAW="Draw !M! cards."
-COLD="Apply !M! Piruru:Cold."
-FREEZE="Piruru:Freeze an enemy."
-MILL='Piruru:Mill !M! cards.'
-ETHEREAL='Ethereal.'
-EXHAUST='Exhaust.'
-RECOVER='Put a card from your discard pile into your hand.'
-RECOVER_SKILLS='Put all Skills from your discard pile into your hand.'
-RECOVER_SKILLS_IGNORE_HAND='Put all Skills from your discard pile into your hand ignoring max hand size.'
-SPREAD_COLD='Apply !M! Piruru:Cold to target and to adjacent enemies.'
-ICE_BARRIER='Whenever you are attacked this turn, apply Piruru:Cold back.'
-SCOUT_ATTACKS='Discard all cards drawn this way that are not Attacks.'
-INFINITE_UPGRADES='Can be Upgraded any number of times.'
-INFINITE_ENERGY_DISCARD='Discard any amount of cards and gain the same amount of [E] as discarded cards.'
-NL='NL'
+if [ "$1" == "--eng" ] || [ "$2" == "--eng" ]
+then
+  echo "COMPILING IN ENGLISH"
+  DAMAGE="Deal !D! Damage."
+  BLOCK="Gain !B! Block."
+  DISCARD_ONE="Discard 1 card."
+  ENERGY="Gain !M! [E] ."
+  DRAW="Draw !M! cards."
+  COLD="Apply !M! Piruru:Cold."
+  FREEZE="Piruru:Freeze an enemy."
+  MILL='Piruru:Mill !M! cards.'
+  ETHEREAL='Ethereal.'
+  EXHAUST='Exhaust.'
+  RECOVER='Put a card from your discard pile into your hand.'
+  RECOVER_SKILLS='Put all Skills from your discard pile into your hand.'
+  RECOVER_SKILLS_IGNORE_HAND='Put all Skills from your discard pile into your hand ignoring max hand size.'
+  SPREAD_COLD='Apply !M! Piruru:Cold to target and to adjacent enemies.'
+  ICE_BARRIER='Whenever you are attacked this turn, apply Piruru:Cold back.'
+  INFINITE_UPGRADES='Can be Upgraded any number of times.'
+  SCOUT_ATTACKS='Discard all cards drawn this way that are not Attacks.'
+  INFINITE_ENERGY_DISCARD='Discard any amount of cards and gain the same amount of [E] as discarded cards.'
+  NL='NL'
+fi
 
 # Copy into production folder
 cp ${DEV_STRINGS}card.json ${PROD_STRINGS}card.json
@@ -101,7 +105,7 @@ do
 done
 
 # Release mod
-if [ "$1" == "-p" ]
+if [ "$2" == "-p" ]
 then
   PATCH=${CODE}/patches/DONTLETTHISPATCHGETTOPRODUCTION.java
   PATCH_CONTENTS=$(cat ${PATCH})
@@ -116,7 +120,7 @@ sed -i '\/\/delete/d' ${GOD_OBJECT}
 rm ${PROD_STRINGS}/[a-z]*
 rm ${BIG_CARD_BACK_PROD}/[a-z]*
 rm ${SMOL_CARD_BACK_PROD}/[a-z]*
-if [ "$1" == "-p" ]
+if [ "$@" == "-p" ]
 then
   (echo "${PATCH_CONTENTS}" > ${CODE}/patches/DONTLETTHISPATCHGETTOPRODUCTION.java)
 fi
