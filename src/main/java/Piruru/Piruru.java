@@ -162,9 +162,6 @@ public class Piruru implements
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
-            System.out.println("dab");
-            System.out.println(GameDictionary.parentWord);
-            System.out.println(GameDictionary.keywords);
         }
     }
 }
