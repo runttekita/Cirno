@@ -46,6 +46,6 @@
   },
   "DiscardAnyAmountAndGainEnergy": {
     "NAME": "Wha",
-    "DESCRIPTION": "Discard any amount of cards and gain the same amount of [E] ."
+    "DESCRIPTION": "Discard any amount of cards and gain the same amount of [E] as discarded cards."
   }
 }
