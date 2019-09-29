@@ -36,7 +36,7 @@ set -e
 # LOCALIZERS CHANGE THIS
 if [ "$1" == "--eng" ] || [ "$2" == "--eng" ]
 then
-  echo "COMPILING IN ENGLISH"
+  echo "Compiling English Jar"
   DAMAGE="Deal !D! Damage."
   BLOCK="Gain !B! Block."
   DISCARD_ONE="Discard 1 card."
