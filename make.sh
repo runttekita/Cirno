@@ -58,8 +58,6 @@ then
   NL='NL'
 fi
 
-
-
 # Copy into production folder
 cp ${DEV_STRINGS}card.json ${PROD_STRINGS}card.json
 cp ${DEV_STRINGS}powers.json ${PROD_STRINGS}powers.json
@@ -148,6 +146,4 @@ then
 fi
 
 # clean up after myself
-
-
 finish "$@"
