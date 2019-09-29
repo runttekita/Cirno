@@ -13,6 +13,13 @@ SMOL_CARD_BACK_PROD=${RESOURCES}images/512prod/
 PATCH=""
 PATCH_CONTENTS=""
 
+# Idiot proof
+if [ "$1" == "-p" ] || [ "$1" == "" ]
+then
+  echo PICK LANGUAGE TO COMPILE TO
+  exit 1
+fi
+
 # LOCALIZERS CHANGE THIS
 if [ "$1" == "--eng" ] || [ "$2" == "--eng" ]
 then
@@ -90,14 +97,14 @@ do
     sed -i "s|\/\/autoAddRelics|BaseMod.addRelicToCustomPool(new ${ADD}(), PiruruChar.Enums.PIRURU_ICE);\/\/delete\n\t\t\/\/autoAddRelics|g" ${GOD_OBJECT}
 done
 
-#images!
+# images!
 for f in ${BIG_CARD_BACK}
 do
     ADD=$(echo $f | rev | cut -d"/" -f1 | rev )
     convert ${f} -fill blue -tint 50 ${RESOURCES}images/1024prod/${ADD}
 done
 
-#images!
+# images!
 for f in ${SMOL_CARD_BACK}
 do
     ADD=$(echo $f | rev | cut -d"/" -f1 | rev )
@@ -112,19 +119,25 @@ then
   rm ${PATCH}
 fi
 
-#finally do the thing
+# Release on steam
+if [ "$2" == "-p" ]
+then
+  echo TODO release on steam
+fi
+
+# Dev Stuff
 if [ "$2" != "-p" ]
 then
   mvn package
   java -jar ../.local/share/Steam/steamapps/workshop/content/646570/1605060445/ModTheSpire.jar --skip-launcher
 fi
 
-#clean up after myself
+# clean up after myself
 sed -i '\/\/delete/d' ${GOD_OBJECT}
 rm ${PROD_STRINGS}/[a-z]*
 rm ${BIG_CARD_BACK_PROD}/[a-z]*
 rm ${SMOL_CARD_BACK_PROD}/[a-z]*
-if [ "$@" == "-p" ]
+if [ "$2" == "-p" ]
 then
   (echo "${PATCH_CONTENTS}" > ${CODE}/patches/DONTLETTHISPATCHGETTOPRODUCTION.java)
 fi
