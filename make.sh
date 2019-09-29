@@ -1,14 +1,17 @@
 #!/bin/bash
-TARGET=./src/main/resources/Piruru/localization/eng/prodStrings/
-SOURCE=./src/main/resources/Piruru/localization/eng/
-GOD_OBJECT=./src/main/java/Piruru/Piruru.java
-CARDS=./src/main/java/Piruru/cards/*
-RELICS=./src/main/java/Piruru/relics/*
-BIG_CARD_BACK=./src/main/resources/Piruru/images/1024/*
-SMOL_CARD_BACK=./src/main/resources/Piruru/images/512/*
-BIG_CARD_BACK_PROD=./src/main/resources/Piruru/images/1024prod/
-SMOL_CARD_BACK_PROD=./src/main/resources/Piruru/images/512prod/
 CODE=./src/main/java/Piruru/
+RESOURCES=./src/main/resources/Piruru/
+PROD_STRINGS=${RESOURCES}localization/eng/prodStrings/
+DEV_STRINGS=${RESOURCES}localization/eng/
+GOD_OBJECT=${CODE}Piruru.java
+CARDS=${CODE}cards/*
+RELICS=${CODE}relics/*
+BIG_CARD_BACK=${RESOURCES}images/1024/*
+SMOL_CARD_BACK=${RESOURCES}images/512/*
+BIG_CARD_BACK_PROD=${RESOURCES}images/1024prod/
+SMOL_CARD_BACK_PROD=${RESOURCES}images/512prod/
+PATCH=""
+PATCH_CONTENTS=""
 
 # LOCALIZERS CHANGE THIS
 DAMAGE="Deal !D! Damage."
@@ -24,13 +27,13 @@ EXHAUST='Exhaust.'
 RECOVER='Put a card from your discard pile into your hand.'
 
 # Copy into production folder
-cp ${SOURCE}card.json ${TARGET}card.json
-cp ${SOURCE}powers.json ${TARGET}powers.json
-cp ${SOURCE}ui.json ${TARGET}ui.json
-cp ${SOURCE}pirurelic.json ${TARGET}pirurelic.json
+cp ${DEV_STRINGS}card.json ${PROD_STRINGS}card.json
+cp ${DEV_STRINGS}powers.json ${PROD_STRINGS}powers.json
+cp ${DEV_STRINGS}ui.json ${PROD_STRINGS}ui.json
+cp ${DEV_STRINGS}pirurelic.json ${PROD_STRINGS}pirurelic.json
 
 # Replace strings
-PROD_JSON=${TARGET}card.json
+PROD_JSON=${PROD_STRINGS}card.json
 sed -i s/\$damage/"${DAMAGE}"/g ${PROD_JSON}
 sed -i s/\$block/"${BLOCK}"/g ${PROD_JSON}
 sed -i s/\$discardOne/"${DISCARD_ONE}"/g ${PROD_JSON}
@@ -44,13 +47,13 @@ sed -i s/\$exhaust/"${EXHAUST}"/g ${PROD_JSON}
 sed -i s/\$recover/"${RECOVER}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
-PROD_JSON=${TARGET}powers.json
+PROD_JSON=${PROD_STRINGS}powers.json
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
-PROD_JSON=${TARGET}ui.json
+PROD_JSON=${PROD_STRINGS}ui.json
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
-PROD_JSON=${TARGET}pirurelic.json
+PROD_JSON=${PROD_STRINGS}pirurelic.json
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 # Autoadd Cards
@@ -71,18 +74,17 @@ done
 for f in ${BIG_CARD_BACK}
 do
     ADD=$(echo $f | rev | cut -d"/" -f1 | rev )
-    convert ${f} -fill blue -tint 50 ./src/main/resources/Piruru/images/1024prod/${ADD}
+    convert ${f} -fill blue -tint 50 ${RESOURCES}images/1024prod/${ADD}
 done
 
 #images!
 for f in ${SMOL_CARD_BACK}
 do
     ADD=$(echo $f | rev | cut -d"/" -f1 | rev )
-    convert ${f} -fill blue -tint 50 ./src/main/resources/Piruru/images/512prod/${ADD}
+    convert ${f} -fill blue -tint 50 ${RESOURCES}images/512prod/${ADD}
 done
 
-PATCH=""
-PATCH_CONTENTS=""
+# Release mod
 if [ "$1" == "-p" ]
 then
   PATCH=${CODE}/patches/DONTLETTHISPATCHGETTOPRODUCTION.java
@@ -95,7 +97,7 @@ mvn package
 
 #clean up after myself
 sed -i '\/\/delete/d' ${GOD_OBJECT}
-rm ${TARGET}/[a-z]*
+rm ${PROD_STRINGS}/[a-z]*
 rm ${BIG_CARD_BACK_PROD}/[a-z]*
 rm ${SMOL_CARD_BACK_PROD}/[a-z]*
 if [ "$1" == "-p" ]
