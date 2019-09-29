@@ -4,5 +4,10 @@
       "Frozen",
       "This monster is frozen and cannot act this turn."
     ]
+  },
+  "DiscardToGainEnergyAction": {
+    "TEXT": [
+      "discard."
+    ]
   }
 }

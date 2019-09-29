@@ -25,6 +25,7 @@ public class DiscardToGainEnergyAction extends AbstractGameAction {
             AbstractDungeon.handCardSelectScreen.open(TEXT[0], 999, true, true);
             AbstractDungeon.player.hand.applyPowers();
             this.tickDuration();
+            return;
         }
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             int energyToGain = 0;
