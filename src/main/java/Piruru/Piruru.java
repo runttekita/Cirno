@@ -10,13 +10,16 @@ import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -143,6 +146,9 @@ public class Piruru implements
     @Override
     public void receiveEditRelics() {
 		//autoAddRelics
+        for (AbstractCard c : CardLibrary.getCardList(PiruruChar.Enums.LIBRARY_COLOR)) {
+            UnlockTracker.unlockCard(c.cardID);
+        }
     }
 
     /**
