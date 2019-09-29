@@ -43,5 +43,9 @@
   "InfiniteScalingShit": {
     "NAME": "skyson",
     "DESCRIPTION": "$recover NL $exhaust NL Can be Upgraded any number of times."
+  },
+  "DiscardAnyAmountAndGainEnergy": {
+    "NAME": "Wha",
+    "DESCRIPTION": "Discard any amount of cards and gain the same amount of [E] ."
   }
 }
