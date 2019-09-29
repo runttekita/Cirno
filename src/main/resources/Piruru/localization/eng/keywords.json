@@ -1,0 +1,21 @@
+[
+  {
+    "NAMES": [
+      "freeze",
+      "frozen"
+    ],
+    "DESCRIPTION": "Enemies cannot act the turn they are #yFrozen"
+  },
+  {
+    "NAMES": [
+      "cold"
+    ],
+    "DESCRIPTION": "Upon reaching 3 #yCold, become #yFrozen."
+  },
+  {
+    "NAMES": [
+      "mill"
+    ],
+    "DESCRIPTION": "#yMilling a card moves the top card of your draw pile to your discard pile."
+  }
+]

@@ -4,28 +4,34 @@ import Piruru.cards.*;
 import Piruru.characters.PiruruChar;
 import Piruru.relics.StarterRelic;
 import basemod.BaseMod;
-import basemod.interfaces.EditCardsSubscriber;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
+import basemod.interfaces.*;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.google.gson.Gson;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 @SpireInitializer
 public class Piruru implements
         EditCardsSubscriber,
         EditCharactersSubscriber,
         EditStringsSubscriber,
-        EditRelicsSubscriber {
+        EditRelicsSubscriber,
+        EditKeywordsSubscriber {
     public static AssetLoader textureLoader = new AssetLoader();
 
     private static String modID;
-    public static final Color PIRURU_ICE = CardHelper.getColor(64, 70, 70);
+    public static final Color PIRURU_ICE = CardHelper.getColor(0, 190, 250);
 
     private static final String ATTACK_PIRURU_ICE = "Piruru/images/512prod/bg_attack_default_gray.png";
     private static final String SKILL_PIRURU_ICE = "Piruru/images/512prod/bg_skill_default_gray.png";
@@ -109,8 +115,8 @@ public class Piruru implements
     }
 
     /**
-     *  But Reina, I can hear you ask, why aren't you using autoAddCards from Kio? Well the answer is simple
-     *  I'm too lazy to copy paste all that stuff and make like 90 classes and make.sh does this for me.
+     * But Reina, I can hear you ask, why aren't you using autoAddCards from Kio? Well the answer is simple
+     * I'm too lazy to copy paste all that stuff and make like 90 classes and make.sh does this for me.
      */
     @Override
     public void receiveEditCards() {
@@ -131,11 +137,34 @@ public class Piruru implements
 
 
     /**
-     *  But Reina, I can hear you ask, why aren't you using autoAddRelicsg from Kio? Well the answer is simple
-     *  I'm too lazy to copy paste all that stuff and make like 90 classes and make.sh does this for me.
+     * But Reina, I can hear you ask, why aren't you using autoAddRelicsg from Kio? Well the answer is simple
+     * I'm too lazy to copy paste all that stuff and make like 90 classes and make.sh does this for me.
      */
     @Override
     public void receiveEditRelics() {
 		//autoAddRelics
+    }
+
+    /**
+     * https://github.com/kiooeht/Bard/blob/master/src/main/java/com/evacipated/cardcrawl/mod/bard/BardMod.java#L345
+     */
+    private void loadLocKeywords(Settings.GameLanguage language) {
+
+    }
+
+    @Override
+    public void receiveEditKeywords() {
+        Gson gson = new Gson();
+        String json = Gdx.files.internal("Piruru/localization/eng/prodStrings/keywords.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        Keyword[] keywords = gson.fromJson(json, Keyword[].class);
+
+        if (keywords != null) {
+            for (Keyword keyword : keywords) {
+                BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+            }
+            System.out.println("dab");
+            System.out.println(GameDictionary.parentWord);
+            System.out.println(GameDictionary.keywords);
+        }
     }
 }

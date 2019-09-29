@@ -12,6 +12,25 @@ BIG_CARD_BACK_PROD=${RESOURCES}images/1024prod/
 SMOL_CARD_BACK_PROD=${RESOURCES}images/512prod/
 PATCH=""
 PATCH_CONTENTS=""
+DAMAGE=''
+BLOCK=''
+DISCARD_ONE=''
+ENERGY=''
+DRAW=''
+COLD=''
+FREEZE=''
+MILL=''
+ETHEREAL=''
+EXHAUST=''
+RECOVER=''
+RECOVER_SKILLS=''
+RECOVER_SKILLS_IGNORE_HAND=''
+SPREAD_COLD=''
+ICE_BARRIER=''
+INFINITE_UPGRADES=''
+SCOUT_ATTACKS=''
+INFINITE_ENERGY_DISCARD=''
+NL=''
 
 function finish {
   sed -i '\/\/delete/d' ${GOD_OBJECT}
@@ -41,16 +60,16 @@ then
   DISCARD_ONE='Discard 1 card.'
   ENERGY='Gain !M! [E] .'
   DRAW='Draw !M! cards.'
-  COLD='Apply !M! Piruru:Cold.'
-  FREEZE='Piruru:Freeze an enemy.'
-  MILL='Piruru:Mill !M! cards.'
+  COLD='Apply !M! piruru:Cold.'
+  FREEZE='piruru:Freeze an enemy.'
+  MILL='piruru:Mill !M! cards.'
   ETHEREAL='Ethereal.'
   EXHAUST='Exhaust.'
   RECOVER='Put a card from your discard pile into your hand.'
   RECOVER_SKILLS='Put all Skills from your discard pile into your hand.'
   RECOVER_SKILLS_IGNORE_HAND='Put all Skills from your discard pile into your hand ignoring max hand size.'
-  SPREAD_COLD='Apply !M! Piruru:Cold to target and to adjacent enemies.'
-  ICE_BARRIER='Whenever you are attacked this turn, apply Piruru:Cold back.'
+  SPREAD_COLD='Apply !M! piruru:Cold to target and to adjacent enemies.'
+  ICE_BARRIER='Whenever you are attacked this turn, apply piruru:Cold back.'
   INFINITE_UPGRADES='Can be Upgraded any number of times.'
   SCOUT_ATTACKS='Discard all cards drawn this way that are not Attacks.'
   INFINITE_ENERGY_DISCARD='Discard any amount of cards and gain the same amount of [E] as discarded cards.'
@@ -135,6 +154,7 @@ cp ${DEV_STRINGS}card.json ${PROD_STRINGS}card.json
 cp ${DEV_STRINGS}powers.json ${PROD_STRINGS}powers.json
 cp ${DEV_STRINGS}ui.json ${PROD_STRINGS}ui.json
 cp ${DEV_STRINGS}pirurelic.json ${PROD_STRINGS}pirurelic.json
+cp ${DEV_STRINGS}keywords.json ${PROD_STRINGS}keywords.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
