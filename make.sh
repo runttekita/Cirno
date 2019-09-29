@@ -100,5 +100,5 @@ rm ${BIG_CARD_BACK_PROD}/[a-z]*
 rm ${SMOL_CARD_BACK_PROD}/[a-z]*
 if [ "$1" == "-p" ]
 then
-  (echo ${PATCH_CONTENTS} > ${CODE}/patches/DONTLETTHISPATCHGETTOPRODUCTION.java)
+  (echo "${PATCH_CONTENTS}" > ${CODE}/patches/DONTLETTHISPATCHGETTOPRODUCTION.java)
 fi
