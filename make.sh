@@ -12,15 +12,27 @@ BIG_CARD_BACK_PROD=${RESOURCES}images/1024prod/
 SMOL_CARD_BACK_PROD=${RESOURCES}images/512prod/
 PATCH=""
 PATCH_CONTENTS=""
-set -e
+
+function finish {
+  sed -i '\/\/delete/d' ${GOD_OBJECT}
+  rm ${PROD_STRINGS}/[a-z]*
+  rm ${BIG_CARD_BACK_PROD}/[a-z]*
+  rm ${SMOL_CARD_BACK_PROD}/[a-z]*
+  if [ "$2" == "-p" ]
+  then
+    (echo "${PATCH_CONTENTS}" > ${CODE}/patches/DONTLETTHISPATCHGETTOPRODUCTION.java)
+  fi
+}
 
 # Idiot proof
 if [ "$1" == "-p" ] || [ "$1" == "" ]
 then
   echo PICK LANGUAGE TO COMPILE TO
+  finish
   exit 1
 fi
 
+set -e
 # LOCALIZERS CHANGE THIS
 if [ "$1" == "--eng" ] || [ "$2" == "--eng" ]
 then
@@ -45,6 +57,8 @@ then
   INFINITE_ENERGY_DISCARD='Discard any amount of cards and gain the same amount of [E] as discarded cards.'
   NL='NL'
 fi
+
+
 
 # Copy into production folder
 cp ${DEV_STRINGS}card.json ${PROD_STRINGS}card.json
@@ -134,11 +148,6 @@ then
 fi
 
 # clean up after myself
-sed -i '\/\/delete/d' ${GOD_OBJECT}
-rm ${PROD_STRINGS}/[a-z]*
-rm ${BIG_CARD_BACK_PROD}/[a-z]*
-rm ${SMOL_CARD_BACK_PROD}/[a-z]*
-if [ "$2" == "-p" ]
-then
-  (echo "${PATCH_CONTENTS}" > ${CODE}/patches/DONTLETTHISPATCHGETTOPRODUCTION.java)
-fi
+
+
+finish "$@"
