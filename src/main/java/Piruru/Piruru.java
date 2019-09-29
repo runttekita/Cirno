@@ -108,10 +108,10 @@ public class Piruru implements
                 PIRURU_BUTTON, PIRURU_PORTRAIT, PiruruChar.Enums.PIRURU);
     }
 
-    //***************
-    // But Reina, I can hear you ask, why aren't you using autoAddCards from Kio? Well the answer is simple
-    // I'm too lazy to copy paste all that stuff and make like 90 classes and make.sh does this for me.
-    //***************
+    /**
+     *  But Reina, I can hear you ask, why aren't you using autoAddCards from Kio? Well the answer is simple
+     *  I'm too lazy to copy paste all that stuff and make like 90 classes and make.sh does this for me.
+     */
     @Override
     public void receiveEditCards() {
 		//autoAddCards
@@ -130,10 +130,10 @@ public class Piruru implements
     }
 
 
-    //***************
-    // But Reina, I can hear you ask, why aren't you using autoAddRelics from Kio? Well the answer is simple
-    // I'm too lazy to copy paste all that stuff and make like 90 classes and make.sh does this for me.
-    //***************
+    /**
+     *  But Reina, I can hear you ask, why aren't you using autoAddRelicsg from Kio? Well the answer is simple
+     *  I'm too lazy to copy paste all that stuff and make like 90 classes and make.sh does this for me.
+     */
     @Override
     public void receiveEditRelics() {
 		//autoAddRelics

@@ -16,9 +16,12 @@ public class ExhaustDiscardAndRecover extends PiruruCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
+    private static final int RECOVER_AMT = 1;
+    private static final int RECOVER_UP = 1;
 
     public ExhaustDiscardAndRecover() {
-        super(cardStrings, COST, TYPE, RARITY, TARGET);
+        super(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, RECOVER_UP, COST);
+        baseMagicNumber = magicNumber = RECOVER_AMT;
     }
 
     @Override
