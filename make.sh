@@ -33,17 +33,16 @@ then
 fi
 
 set -e
-# LOCALIZERS CHANGE THIS
 if [ "$1" == "--eng" ] || [ "$2" == "--eng" ]
 then
   echo "Compiling English Jar"
-  DAMAGE="Deal !D! Damage."
-  BLOCK="Gain !B! Block."
-  DISCARD_ONE="Discard 1 card."
-  ENERGY="Gain !M! [E] ."
-  DRAW="Draw !M! cards."
-  COLD="Apply !M! Piruru:Cold."
-  FREEZE="Piruru:Freeze an enemy."
+  DAMAGE='Deal !D! Damage.'
+  BLOCK='Gain !B! Block.'
+  DISCARD_ONE='Discard 1 card.'
+  ENERGY='Gain !M! [E] .'
+  DRAW='Draw !M! cards.'
+  COLD='Apply !M! Piruru:Cold.'
+  FREEZE='Piruru:Freeze an enemy.'
   MILL='Piruru:Mill !M! cards.'
   ETHEREAL='Ethereal.'
   EXHAUST='Exhaust.'
@@ -56,6 +55,79 @@ then
   SCOUT_ATTACKS='Discard all cards drawn this way that are not Attacks.'
   INFINITE_ENERGY_DISCARD='Discard any amount of cards and gain the same amount of [E] as discarded cards.'
   NL='NL'
+fi
+
+if [ "$1" == "--zhs" ] || [ "$2" == "--zhs" ]
+then
+  echo "Compiling ZHS Jar"
+  DAMAGE=''
+  BLOCK=''
+  DISCARD_ONE=''
+  ENERGY=''
+  DRAW=''
+  COLD=''
+  FREEZE=''
+  MILL=''
+  ETHEREAL=''
+  EXHAUST=''
+  RECOVER=''
+  RECOVER_SKILLS=''
+  RECOVER_SKILLS_IGNORE_HAND=''
+  SPREAD_COLD=''
+  ICE_BARRIER=''
+  INFINITE_UPGRADES=''
+  SCOUT_ATTACKS=''
+  INFINITE_ENERGY_DISCARD=''
+  NL=''
+fi
+
+if [ "$1" == "--zht" ] || [ "$2" == "--zht" ]
+then
+  echo "Compiling ZHT Jar"
+  DAMAGE=''
+  BLOCK=''
+  DISCARD_ONE=''
+  ENERGY=''
+  DRAW=''
+  COLD=''
+  FREEZE=''
+  MILL=''
+  ETHEREAL=''
+  EXHAUST=''
+  RECOVER=''
+  RECOVER_SKILLS=''
+  RECOVER_SKILLS_IGNORE_HAND=''
+  SPREAD_COLD=''
+  ICE_BARRIER=''
+  INFINITE_UPGRADES=''
+  SCOUT_ATTACKS=''
+  INFINITE_ENERGY_DISCARD=''
+  NL=''
+fi
+
+
+if [ "$1" == "--jpn" ] || [ "$2" == "--jpn" ]
+then
+  echo "Compiling JPN Jar"
+  DAMAGE=''
+  BLOCK=''
+  DISCARD_ONE=''
+  ENERGY=''
+  DRAW=''
+  COLD=''
+  FREEZE=''
+  MILL=''
+  ETHEREAL=''
+  EXHAUST=''
+  RECOVER=''
+  RECOVER_SKILLS=''
+  RECOVER_SKILLS_IGNORE_HAND=''
+  SPREAD_COLD=''
+  ICE_BARRIER=''
+  INFINITE_UPGRADES=''
+  SCOUT_ATTACKS=''
+  INFINITE_ENERGY_DISCARD=''
+  NL=''
 fi
 
 # Copy into production folder
