@@ -8,6 +8,7 @@ BIG_CARD_BACK=./src/main/resources/Piruru/images/1024/*
 SMOL_CARD_BACK=./src/main/resources/Piruru/images/512/*
 BIG_CARD_BACK_PROD=./src/main/resources/Piruru/images/1024prod/
 SMOL_CARD_BACK_PROD=./src/main/resources/Piruru/images/512prod/
+CODE=./src/main/java/Piruru/
 
 # LOCALIZERS CHANGE THIS
 DAMAGE="Deal !D! Damage."
@@ -80,6 +81,15 @@ do
     convert ${f} -fill blue -tint 50 ./src/main/resources/Piruru/images/512prod/${ADD}
 done
 
+PATCH=""
+PATCH_CONTENTS=""
+if [ "$1" == "-p" ]
+then
+  PATCH=${CODE}/patches/DONTLETTHISPATCHGETTOPRODUCTION.java
+  PATCH_CONTENTS=$(cat ${PATCH})
+  rm ${PATCH}
+fi
+
 #finally do the thing
 mvn package
 
@@ -88,3 +98,7 @@ sed -i '\/\/delete/d' ${GOD_OBJECT}
 rm ${TARGET}/[a-z]*
 rm ${BIG_CARD_BACK_PROD}/[a-z]*
 rm ${SMOL_CARD_BACK_PROD}/[a-z]*
+if [ "$1" == "-p" ]
+then
+  (echo ${PATCH_CONTENTS} > ${CODE}/patches/DONTLETTHISPATCHGETTOPRODUCTION.java)
+fi
