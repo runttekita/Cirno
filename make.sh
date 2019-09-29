@@ -74,6 +74,8 @@ then
   SCOUT_ATTACKS='Discard all cards drawn this way that are not Attacks.'
   INFINITE_ENERGY_DISCARD='Discard any amount of cards and gain the same amount of [E] as discarded cards.'
   NL='NL'
+  EXHAUST_DISCARD_RECOVER_ONE='Exhaust !M! card from your discard pile and piruru:Recover a card.'
+  EXHAUST_DISCARD_RECOVER='Exhaust !M! cards from your discard pile and piruru:Recover !M! cards.'
 fi
 
 if [ "$1" == "--zhs" ] || [ "$2" == "--zhs" ]
@@ -176,6 +178,8 @@ sed -i s/\$icebarrier/"${ICE_BARRIER}"/g ${PROD_JSON}
 sed -i s/\$scoutattacks/"${SCOUT_ATTACKS}"/g ${PROD_JSON}
 sed -i s/\$infiniteenergydiscard/"${INFINITE_ENERGY_DISCARD}"/g ${PROD_JSON}
 sed -i s/\$infiniteupgrades/"${INFINITE_UPGRADES}"/g ${PROD_JSON}
+sed -i s/\/$exhaustdiscardrecoverone"${EXHAUST_DISCARD_RECOVER_ONE}"/g ${PROD_JSON}
+sed -i s/\$exhaustdiscardrecover/"${EXHAUST_DISCARD_RECOVER}"/g ${PROD_JSON}
 sed -i s/\$nl/"${NL}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 

@@ -47,5 +47,10 @@
   "DiscardAnyAmountAndGainEnergy": {
     "NAME": "Wha",
     "DESCRIPTION": "$infiniteenergydiscard"
+  },
+  "ExhaustDiscardAndRecover": {
+    "NAME": "god i hate bd",
+    "DESCRIPTION": "$exhaustdiscardrecoverone",
+    "UPGRADE_DESCRIPTION": "$exhaustdiscardrecover"
   }
 }
