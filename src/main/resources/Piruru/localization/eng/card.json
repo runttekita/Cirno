@@ -51,8 +51,7 @@
   },
   "BanishThenRecover": {
     "NAME": "god i hate bd",
-    "DESCRIPTION": "$banishone $nl $recoverone",
-    "UPGRADE_DESCRIPTION": "$banishconditional $recover"
+    "DESCRIPTION": "$banishconditional $recover"
   },
   "LiterallyJustTheWordExhaust": {
     "NAME": "Apex meta is the best meta wixoss ever had",
