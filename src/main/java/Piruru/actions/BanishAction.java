@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.vfx.SpeechBubble;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -38,7 +39,8 @@ public class BanishAction extends AbstractGameAction {
                 return;
             }
             if (AbstractDungeon.player.discardPile.size() < amount) {
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(AbstractDungeon.player, uiStrings.TEXT[0]));
+                AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.5f,
+                        uiStrings.TEXT[0], true));
                 isDone = true;
                 return;
             }
