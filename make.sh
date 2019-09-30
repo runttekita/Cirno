@@ -73,7 +73,7 @@ then
   ICE_BARRIER='Whenever you are attacked this turn, apply piruru:Cold back.'
   INFINITE_UPGRADES='Can be Upgraded any number of times.'
   SCOUT_ATTACKS='Discard all cards drawn this way that are not Attacks.'
-  INFINITE_ENERGY_DISCARD='Discard any amount of cards and gain the same amount of [E] as the discarded cards.'
+  INFINITE_ENERGY_DISCARD='Discard any number of cards. NL Gain [E] equal to their costs.'
   NL='NL'
   EXHAUST_DISCARD_RECOVER_ONE='Exhaust !M! card from your discard pile and piruru:Recover !M! card.'
   EXHAUST_DISCARD_RECOVER='Exhaust !M! cards from your discard pile and piruru:Recover !M! cards.'
