@@ -59,6 +59,8 @@ public class ApexForm extends PiruruStance {
                    c.exhaust = true;
                    c.rawDescription += cardStrings.DESCRIPTION;
                    c.initializeDescription();
+                   c.cost = 0;
+                   c.costForTurn = 0;
                })));
     }
 

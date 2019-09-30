@@ -60,6 +60,7 @@ public class RecoverAction extends AbstractGameAction {
             }
 
             if (player.discardPile.size() < amount) {
+                // TODO learn why this doesnt work with the last 2 params swapped later
                 AbstractDungeon.gridSelectScreen.open(player.discardPile, player.discardPile.size(), "", false);
             }
 
