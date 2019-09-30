@@ -60,11 +60,10 @@ public class RecoverAction extends AbstractGameAction {
             }
 
             if (player.discardPile.size() < amount) {
-                AbstractDungeon.gridSelectScreen.open(player.discardPile, player.discardPile.size(), false, "");
+                AbstractDungeon.gridSelectScreen.open(player.discardPile, player.discardPile.size(), "", false);
             }
 
-            AbstractDungeon.gridSelectScreen.open(player.discardPile, amount, false, "");
-            System.out.println("asf;as;lfkas" + amount);
+            AbstractDungeon.gridSelectScreen.open(player.discardPile, amount, "", false);
             tickDuration();
             return;
         }
