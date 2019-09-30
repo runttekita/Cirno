@@ -56,10 +56,10 @@ then
   NL='NL'
   BANISH_ONE='piruru:Banish !M! card.'
   BANISH='piruru:Banish !M! cards.'
-  APEX_FORM='Enter piruru:Apex'
-  ACRO='Enter piruru:ACRO'
+  APEX_FORM='Enter piruru:Apex.'
+  ACRO='Enter piruru:ACRO.'
   EXHUME='piruru:Exhume.'
-  BANISH_CONDITIONAL='piruru:Banish !M! cards and if you do, '
+  BANISH_CONDITIONAL='piruru:Banish !M! cards. NL If you piruru:Banished !M! cards, '
 fi
 
 # Copy into production folder
