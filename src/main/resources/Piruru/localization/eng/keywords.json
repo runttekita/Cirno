@@ -30,5 +30,11 @@
       "recover"
     ],
     "DESCRIPTION": "#yRecovering a card adds it from the discard pile to the hand."
+  },
+  {
+    "NAMES": [
+      "apex"
+    ],
+    "DESCRIPTION": "At the start of your turn, #yRecover #b2 cards and make them #yExhaust."
   }
 ]

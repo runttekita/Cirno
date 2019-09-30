@@ -10,27 +10,6 @@ BIG_CARD_BACK=${RESOURCES}images/1024/*
 SMOL_CARD_BACK=${RESOURCES}images/512/*
 BIG_CARD_BACK_PROD=${RESOURCES}images/1024prod/
 SMOL_CARD_BACK_PROD=${RESOURCES}images/512prod/
-PATCH=""
-PATCH_CONTENTS=""
-DAMAGE=''
-BLOCK=''
-DISCARD_ONE=''
-ENERGY=''
-DRAW=''
-COLD=''
-FREEZE=''
-MILL=''
-ETHEREAL=''
-EXHAUST=''
-RECOVER=''
-RECOVER_SKILLS=''
-RECOVER_SKILLS_IGNORE_HAND=''
-SPREAD_COLD=''
-ICE_BARRIER=''
-INFINITE_UPGRADES=''
-SCOUT_ATTACKS=''
-INFINITE_ENERGY_DISCARD=''
-NL=''
 
 function finish {
   sed -i '\/\/delete/d' ${GOD_OBJECT}
@@ -77,79 +56,7 @@ then
   NL='NL'
   BANISH_ONE='piruru:Banish !M! card.'
   BANISH='piruru:Banish !M! cards.'
-fi
-
-if [ "$1" == "--zhs" ] || [ "$2" == "--zhs" ]
-then
-  echo "Compiling ZHS Jar"
-  DAMAGE=''
-  BLOCK=''
-  DISCARD_ONE=''
-  ENERGY=''
-  DRAW=''
-  COLD=''
-  FREEZE=''
-  MILL=''
-  ETHEREAL=''
-  EXHAUST=''
-  RECOVER=''
-  RECOVER_SKILLS=''
-  RECOVER_SKILLS_IGNORE_HAND=''
-  SPREAD_COLD=''
-  ICE_BARRIER=''
-  INFINITE_UPGRADES=''
-  SCOUT_ATTACKS=''
-  INFINITE_ENERGY_DISCARD=''
-  NL=''
-fi
-
-if [ "$1" == "--zht" ] || [ "$2" == "--zht" ]
-then
-  echo "Compiling ZHT Jar"
-  DAMAGE=''
-  BLOCK=''
-  DISCARD_ONE=''
-  ENERGY=''
-  DRAW=''
-  COLD=''
-  FREEZE=''
-  MILL=''
-  ETHEREAL=''
-  EXHAUST=''
-  RECOVER=''
-  RECOVER_SKILLS=''
-  RECOVER_SKILLS_IGNORE_HAND=''
-  SPREAD_COLD=''
-  ICE_BARRIER=''
-  INFINITE_UPGRADES=''
-  SCOUT_ATTACKS=''
-  INFINITE_ENERGY_DISCARD=''
-  NL=''
-fi
-
-
-if [ "$1" == "--jpn" ] || [ "$2" == "--jpn" ]
-then
-  echo "Compiling JPN Jar"
-  DAMAGE=''
-  BLOCK=''
-  DISCARD_ONE=''
-  ENERGY=''
-  DRAW=''
-  COLD=''
-  FREEZE=''
-  MILL=''
-  ETHEREAL=''
-  EXHAUST=''
-  RECOVER=''
-  RECOVER_SKILLS=''
-  RECOVER_SKILLS_IGNORE_HAND=''
-  SPREAD_COLD=''
-  ICE_BARRIER=''
-  INFINITE_UPGRADES=''
-  SCOUT_ATTACKS=''
-  INFINITE_ENERGY_DISCARD=''
-  NL=''
+  APEX_FORM='Enter piruru:Apex'
 fi
 
 # Copy into production folder
@@ -158,6 +65,7 @@ cp ${DEV_STRINGS}powers.json ${PROD_STRINGS}powers.json
 cp ${DEV_STRINGS}ui.json ${PROD_STRINGS}ui.json
 cp ${DEV_STRINGS}pirurelic.json ${PROD_STRINGS}pirurelic.json
 cp ${DEV_STRINGS}keywords.json ${PROD_STRINGS}keywords.json
+cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
@@ -183,6 +91,7 @@ sed -i s/\$infiniteupgrades/"${INFINITE_UPGRADES}"/g ${PROD_JSON}
 sed -i s/\$nl/"${NL}"/g ${PROD_JSON}
 sed -i s/\$banishone/"${BANISH_ONE}"/g ${PROD_JSON}
 sed -i s/\$banish/"${BANISH}"/g ${PROD_JSON}
+sed -i s/\$apex/"${APEX_FORM}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}powers.json
@@ -192,6 +101,9 @@ PROD_JSON=${PROD_STRINGS}ui.json
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}pirurelic.json
+sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
+
+PROD_JSON=${PROD_STRINGS}stances.json
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 # Autoadd Cards

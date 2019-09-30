@@ -1,9 +1,8 @@
 package Piruru.cards;
 
-import Piruru.Piruru;
 import Piruru.abstracts.PiruruCard;
 import Piruru.actions.NotShittyChangeStanceAction;
-import Piruru.powers.ApexForm;
+import Piruru.stances.ApexForm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;

@@ -1,4 +1,4 @@
-package Piruru.powers;
+package Piruru.stances;
 
 import Piruru.abstracts.PiruruStance;
 import Piruru.actions.RecoverAction;
@@ -52,8 +52,7 @@ public class ApexForm extends PiruruStance {
         }
     }
 
-    @Override
-    public void atStartOfTurn() {
+    public void atStartOfTurnPostDraw() {
        AbstractDungeon.actionManager.addToBottom(new RecoverAction(RECOVER_AMT,
                c -> c.forEach(card -> {
                    card.exhaust = true;
@@ -64,6 +63,6 @@ public class ApexForm extends PiruruStance {
 
     @Override
     public void updateDescription() {
-
+        description = stanceStrings.DESCRIPTION[0];
     }
 }

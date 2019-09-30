@@ -57,5 +57,9 @@
   "LiterallyJustTheWordExhaust": {
     "NAME": "Apex meta is the best meta wixoss ever had",
     "DESCRIPTION": " $nl $exhaust"
+  },
+  "EnterApexForm": {
+    "NAME": "Apex Form",
+    "DESCRIPTION": "$apex $nl $exhaust"
   }
 }

@@ -1,8 +1,7 @@
 package Piruru;
 
-import Piruru.cards.*;
 import Piruru.characters.PiruruChar;
-import Piruru.relics.StarterRelic;
+import Piruru.stances.ApexForm;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -12,17 +11,15 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.helpers.GameDictionary;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import Piruru.cards.*;
+import Piruru.relics.*;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 @SpireInitializer
 public class Piruru implements
@@ -30,7 +27,8 @@ public class Piruru implements
         EditCharactersSubscriber,
         EditStringsSubscriber,
         EditRelicsSubscriber,
-        EditKeywordsSubscriber {
+        EditKeywordsSubscriber
+{
     public static AssetLoader textureLoader = new AssetLoader();
 
     private static String modID;
@@ -136,6 +134,7 @@ public class Piruru implements
         BaseMod.loadCustomStringsFile(CardStrings.class, "Piruru/localization/eng/prodStrings/card.json");
         BaseMod.loadCustomStringsFile(UIStrings.class, "Piruru/localization/eng/prodStrings/ui.json");
         BaseMod.loadCustomStringsFile(PowerStrings.class, "Piruru/localization/eng/prodStrings/powers.json");
+        BaseMod.loadCustomStringsFile(StanceStrings.class, "Piruru/localization/eng/prodStrings/stances.json");
     }
 
 
