@@ -16,6 +16,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.lang.reflect.Field;
 
+import static Piruru.Piruru.makeID;
+
 
 /**
  * Basically stolen from
@@ -24,6 +26,7 @@ import java.lang.reflect.Field;
 public class Frozen extends PiruruPower implements
         CloneablePowerInterface,
         InvisiblePower {
+    public static final String POWER_ID = makeID(Frozen.class);
 
     public Frozen(AbstractCreature owner) {
         this.owner = owner;
