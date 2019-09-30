@@ -16,7 +16,7 @@ public class InfiniteScalingShit extends PiruruCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(
             makeID(InfiniteScalingShit.class.getSimpleName()));
     private static final int COST = 0;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final int RECOVER_AMT = 1;
@@ -36,7 +36,7 @@ public class InfiniteScalingShit extends PiruruCard {
             initializeDescription();
         }
         upgraded = true;
-        name = name + "+" + timesUpgraded;
+        name = cardStrings.NAME + "+" + timesUpgraded;
         initializeTitle();
         upgradeMagicNumber(RECOVER_UP);
     }
