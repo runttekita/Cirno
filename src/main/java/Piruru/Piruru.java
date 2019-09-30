@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import Piruru.cards.*;
+import Piruru.relics.*;
 
 import java.nio.charset.StandardCharsets;
 
@@ -112,7 +114,7 @@ public class Piruru implements
      */
     @Override
     public void receiveEditCards() {
-        //autoAddCards
+		//autoAddCards
     }
 
     @Override
@@ -131,7 +133,7 @@ public class Piruru implements
      */
     @Override
     public void receiveEditRelics() {
-        //autoAddRelics
+		//autoAddRelics
         for (AbstractCard c : CardLibrary.getCardList(PiruruChar.Enums.LIBRARY_COLOR)) {
             UnlockTracker.unlockCard(c.cardID);
         }

@@ -2,10 +2,18 @@ package Piruru.cards;
 
 import Piruru.abstracts.PiruruCard;
 import Piruru.powers.Cold;
+import basemod.BaseMod;
+import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import javax.swing.*;
+import javax.tools.Tool;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static Piruru.Piruru.makeID;
 
@@ -25,6 +33,14 @@ public class DamageAndCold extends PiruruCard {
         super(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 0, COLD_UP, COST);
         baseDamage = damage = DAMAGE;
         baseMagicNumber = magicNumber = COLD_AMT;
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        TooltipInfo tooltip = new TooltipInfo(BaseMod.getKeywordTitle(makeID("freeze").toLowerCase()), BaseMod.getKeywordDescription(makeID("freeze").toLowerCase()));
+        ArrayList<TooltipInfo> list = new ArrayList<>();
+        list.add(tooltip);
+        return list;
     }
 
     @Override
