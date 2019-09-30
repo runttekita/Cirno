@@ -6,8 +6,18 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.function.Consumer;
+
 public class BanishAction extends AbstractGameAction {
     private int amount;
+    private Consumer<ArrayList<AbstractCard>> callback;
+
+    public BanishAction(int amount, Consumer<ArrayList<AbstractCard>> callback) {
+        this(amount);
+        this.callback = callback;
+    }
 
     public BanishAction(int amount) {
         this.amount = amount;
@@ -26,6 +36,9 @@ public class BanishAction extends AbstractGameAction {
             return;
         }
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+            if (callback != null) {
+                callback.accept(AbstractDungeon.gridSelectScreen.selectedCards);
+            }
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(
                         c, AbstractDungeon.player.discardPile
