@@ -46,6 +46,9 @@ public class RecoverAction extends AbstractGameAction {
         if (duration == Settings.ACTION_DUR_FASTER) {
 
             if (player.discardPile.size() < amount && player.hand.size() + player.discardPile.size() <= BaseMod.MAX_HAND_SIZE) {
+                if (callback != null) {
+                    callback.accept(player.discardPile.group);
+                }
                 for (AbstractCard c : player.discardPile.group) {
                     if (player.hand.size() < BaseMod.MAX_HAND_SIZE) {
                         player.hand.addToHand(c);
@@ -55,6 +58,10 @@ public class RecoverAction extends AbstractGameAction {
                 player.hand.refreshHandLayout();
                 isDone = true;
                 return;
+            }
+
+            if (player.discardPile.size() < amount) {
+                AbstractDungeon.gridSelectScreen.open(player.discardPile, player.discardPile.size(), false, "");
             }
 
             AbstractDungeon.gridSelectScreen.open(player.discardPile, amount, false, "");
