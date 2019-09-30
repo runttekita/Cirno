@@ -65,5 +65,9 @@
   "EnterACRO": {
     "NAME": "ACRO",
     "DESCRIPTION": "$acro"
+  },
+  "AttackExhume": {
+    "NAME": "infinite shit i guess",
+    "DESCRIPTION": "$damage NL $exhume"
   }
 }

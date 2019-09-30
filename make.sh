@@ -58,6 +58,7 @@ then
   BANISH='piruru:Banish !M! cards.'
   APEX_FORM='Enter piruru:Apex'
   ACRO='Enter piruru:ACRO'
+  EXHUME='Put a card from your exhaust pile into your hand.'
 fi
 
 # Copy into production folder
@@ -94,6 +95,7 @@ sed -i s/\$banishone/"${BANISH_ONE}"/g ${PROD_JSON}
 sed -i s/\$banish/"${BANISH}"/g ${PROD_JSON}
 sed -i s/\$apex/"${APEX_FORM}"/g ${PROD_JSON}
 sed -i s/\$acro/"${ACRO}"/g ${PROD_JSON}
+sed -i s/\$exhume/"${EXHUME}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}powers.json
