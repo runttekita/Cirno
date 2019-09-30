@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.function.Consumer;
 
 /**
- * This is literally just a wrapper for Hologram's action.
+ * This is literally just Hologram's action.
  * Why?
  * I can't stand the fucking name.
  * @see com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction
@@ -44,7 +44,6 @@ public class RecoverAction extends AbstractGameAction {
             return;
         }
         if (duration == Settings.ACTION_DUR_FASTER) {
-
             if (player.discardPile.size() < amount && player.hand.size() + player.discardPile.size() <= BaseMod.MAX_HAND_SIZE) {
                 if (callback != null) {
                     callback.accept(player.discardPile.group);
@@ -65,7 +64,9 @@ public class RecoverAction extends AbstractGameAction {
             }
 
             AbstractDungeon.gridSelectScreen.open(player.discardPile, amount, false, "");
+            System.out.println("asf;as;lfkas" + amount);
             tickDuration();
+            return;
         }
 
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {

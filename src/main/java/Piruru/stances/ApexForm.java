@@ -52,12 +52,13 @@ public class ApexForm extends PiruruStance {
         }
     }
 
-    public void atStartOfTurnPostDraw() {
-       AbstractDungeon.actionManager.addToBottom(new RecoverAction(RECOVER_AMT,
-               c -> c.forEach(card -> {
-                   card.exhaust = true;
-                   card.rawDescription += cardStrings.DESCRIPTION;
-                   card.initializeDescription();
+    @Override
+    public void atStartOfTurn() {
+       AbstractDungeon.actionManager.addToTop(new RecoverAction(RECOVER_AMT,
+               list -> list.forEach(c -> {
+                   c.exhaust = true;
+                   c.rawDescription += cardStrings.DESCRIPTION;
+                   c.initializeDescription();
                })));
     }
 
