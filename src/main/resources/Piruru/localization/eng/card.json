@@ -42,7 +42,7 @@
   },
   "InfiniteScalingShit": {
     "NAME": "skyson",
-    "DESCRIPTION": "$recover $nl $exhaust $nl $infiniteupgrades"
+    "DESCRIPTION": "$recover $nl $infiniteupgrades $nl $exhaust"
   },
   "DiscardAnyAmountAndGainEnergy": {
     "NAME": "Wha",
