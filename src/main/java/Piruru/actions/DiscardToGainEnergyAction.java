@@ -30,7 +30,7 @@ public class DiscardToGainEnergyAction extends AbstractGameAction {
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             int energyToGain = 0;
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-                energyToGain++;
+                energyToGain+=c.cost;
                 AbstractDungeon.player.hand.moveToDiscardPile(c);
                 c.triggerOnManualDiscard();
                 GameActionManager.incrementDiscard(false);

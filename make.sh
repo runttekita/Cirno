@@ -65,16 +65,17 @@ then
   MILL='piruru:Mill !M! cards.'
   ETHEREAL='Ethereal.'
   EXHAUST='Exhaust.'
-  RECOVER='Put a card from your discard pile into your hand.'
-  RECOVER_SKILLS='Put all Skills from your discard pile into your hand.'
-  RECOVER_SKILLS_IGNORE_HAND='Put all Skills from your discard pile into your hand ignoring max hand size.'
+  RECOVER='piruru:Recover !M! card.'
+  RECOVER_MULTI='piruru:Recover !M! cards.'
+  RECOVER_SKILLS='piruru:Recover all Skills..'
+  RECOVER_SKILLS_IGNORE_HAND='piruru:Recover all skills hand ignoring max hand size.'
   SPREAD_COLD='Apply !M! piruru:Cold to target and to adjacent enemies.'
   ICE_BARRIER='Whenever you are attacked this turn, apply piruru:Cold back.'
   INFINITE_UPGRADES='Can be Upgraded any number of times.'
   SCOUT_ATTACKS='Discard all cards drawn this way that are not Attacks.'
-  INFINITE_ENERGY_DISCARD='Discard any amount of cards and gain the same amount of [E] as discarded cards.'
+  INFINITE_ENERGY_DISCARD='Discard any amount of cards and gain the same amount of [E] as the discarded cards.'
   NL='NL'
-  EXHAUST_DISCARD_RECOVER_ONE='Exhaust !M! card from your discard pile and piruru:Recover a card.'
+  EXHAUST_DISCARD_RECOVER_ONE='Exhaust !M! card from your discard pile and piruru:Recover !M! card.'
   EXHAUST_DISCARD_RECOVER='Exhaust !M! cards from your discard pile and piruru:Recover !M! cards.'
 fi
 
@@ -170,16 +171,17 @@ sed -i s/\$freeze/"${FREEZE}"/g ${PROD_JSON}
 sed -i s/\$mill/"${MILL}"/g ${PROD_JSON}
 sed -i s/\$ethereal/"${ETHEREAL}"/g ${PROD_JSON}
 sed -i s/\$exhaust/"${EXHAUST}"/g ${PROD_JSON}
-sed -i s/\$recover/"${RECOVER}"/g ${PROD_JSON}
-sed -i s/\$recoverskill/"${RECOVER_SKILLS}"/g ${PROD_JSON}
 sed -i s/\$recoverskillnohand/"${RECOVER_SKILLS_IGNORE_HAND}"/g ${PROD_JSON}
+sed -i s/\$recoverskill/"${RECOVER_SKILLS}"/g ${PROD_JSON}
+sed -i s/\$recovermulti/"${RECOVER_MULTI}"/g ${PROD_JSON}
+sed -i s/\$recover/"${RECOVER}"/g ${PROD_JSON}
 sed -i s/\$spreadcold/"${SPREAD_COLD}"/g ${PROD_JSON}
 sed -i s/\$icebarrier/"${ICE_BARRIER}"/g ${PROD_JSON}
 sed -i s/\$scoutattacks/"${SCOUT_ATTACKS}"/g ${PROD_JSON}
 sed -i s/\$infiniteenergydiscard/"${INFINITE_ENERGY_DISCARD}"/g ${PROD_JSON}
 sed -i s/\$infiniteupgrades/"${INFINITE_UPGRADES}"/g ${PROD_JSON}
-sed -i s/\$exhaustdiscardrecoverone/"${EXHAUST_DISCARD_RECOVER_ONE}"/g ${PROD_JSON}
-sed -i s/\$exhaustdiscardrecover/"${EXHAUST_DISCARD_RECOVER}"/g ${PROD_JSON}
+sed -i s/\$fromexhaustdiscardrecoverone/"${EXHAUST_DISCARD_RECOVER_ONE}"/g ${PROD_JSON}
+sed -i s/\$fromexhaustdiscardrecover/"${EXHAUST_DISCARD_RECOVER}"/g ${PROD_JSON}
 sed -i s/\$nl/"${NL}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 

@@ -29,7 +29,7 @@
   },
   "AllForOneButSkills": {
     "NAME": "shrug",
-    "DESCRIPTION": "$recoverskills $nl $ethereal $nl $exhaust",
+    "DESCRIPTION": "$recoverskill $nl $ethereal $nl $exhaust",
     "UPGRADE_DESCRIPTION": "$recoverskillnohand $nl $ethereal $nl $exhaust"
   },
   "SpreadCold": {
@@ -42,7 +42,8 @@
   },
   "InfiniteScalingShit": {
     "NAME": "skyson",
-    "DESCRIPTION": "$recover $nl $infiniteupgrades $nl $exhaust"
+    "DESCRIPTION": "$recover $nl $infiniteupgrades $nl $exhaust",
+    "UPGRADE_DESCRIPTION": "$recovermulti $nl $infiniteupgrades $nl $exhaust"
   },
   "DiscardAnyAmountAndGainEnergy": {
     "NAME": "Wha",
@@ -50,7 +51,7 @@
   },
   "ExhaustDiscardAndRecover": {
     "NAME": "god i hate bd",
-    "DESCRIPTION": "$exhaustdiscardrecoverone",
-    "UPGRADE_DESCRIPTION": "$exhaustdiscardrecover"
+    "DESCRIPTION": "$fromexhaustdiscardrecoverone",
+    "UPGRADE_DESCRIPTION": "$fromexhaustdiscardrecover"
   }
 }
