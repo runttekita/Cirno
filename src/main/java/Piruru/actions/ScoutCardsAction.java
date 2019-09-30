@@ -20,9 +20,9 @@ import java.util.ArrayList;
  * Disgustingly copied from scrape and idgaf
  */
 public class ScoutCardsAction extends AbstractGameAction {
-    private boolean shuffleCheck;
     private static final Logger logger = LogManager.getLogger(DrawCardAction.class.getName());
     public static ArrayList<AbstractCard> scrapedCards = new ArrayList();
+    private boolean shuffleCheck;
 
     public ScoutCardsAction(AbstractCreature source, int amount, boolean endTurnDraw) {
         this.shuffleCheck = false;// 21

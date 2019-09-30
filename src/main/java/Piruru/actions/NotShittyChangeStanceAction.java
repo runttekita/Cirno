@@ -38,7 +38,7 @@ public class NotShittyChangeStanceAction extends AbstractGameAction {
             for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
                 c.triggerExhaustedCardsOnStanceChange(newStance);
             }
-           AbstractDungeon.player.onStanceChange(newStance.ID);
+            AbstractDungeon.player.onStanceChange(newStance.ID);
         }
         AbstractDungeon.onModifyPower();
         isDone = true;

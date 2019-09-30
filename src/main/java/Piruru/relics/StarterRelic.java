@@ -13,8 +13,8 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 
 public class StarterRelic extends PiruruRelic implements ClickableRelic {
     public static final String ID = Piruru.makeID(StarterRelic.class);
-    private static final RelicTier TIER = RelicTier.STARTER;
     public static final LandingSound SFX = LandingSound.FLAT;
+    private static final RelicTier TIER = RelicTier.STARTER;
 
     public StarterRelic() {
         super(ID, TIER, SFX);

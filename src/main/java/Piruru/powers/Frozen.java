@@ -27,15 +27,13 @@ public class Frozen extends PiruruPower implements
         CloneablePowerInterface,
         InvisiblePower {
     public static final String POWER_ID = makeID(Frozen.class);
-
-    public Frozen(AbstractCreature owner) {
-        this.owner = owner;
-    }
-
+    public float shaderTimer;
     private byte moveByte;
     private AbstractMonster.Intent moveIntent;
     private EnemyMoveInfo move;
-    public float shaderTimer;
+    public Frozen(AbstractCreature owner) {
+        this.owner = owner;
+    }
 
     public Frozen(AbstractMonster owner) {
         super();

@@ -26,7 +26,7 @@ public class InfiniteScalingShit extends PiruruCard {
     }
 
     @Override
-    public void upgrade(){
+    public void upgrade() {
         timesUpgraded++;
         if (!upgraded) {
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;

@@ -18,9 +18,9 @@ import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 
 public class ACRO extends PiruruStance {
-    private static long sfxId = -1L;
     private static final int DRAW_CAP = 6;
     public static boolean usedDraw = false;
+    private static long sfxId = -1L;
 
     public void onEnterStance() {
         CardCrawlGame.sound.play("STANCE_ENTER_WRATH");
@@ -35,6 +35,7 @@ public class ACRO extends PiruruStance {
             sfxId = -1L;
         }
     }
+
     public void updateAnimation() {
         if (!Settings.DISABLE_EFFECTS) {
             particleTimer -= Gdx.graphics.getDeltaTime();

@@ -1,7 +1,6 @@
 package Piruru;
 
 import Piruru.characters.PiruruChar;
-import Piruru.stances.ApexForm;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -11,13 +10,9 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import Piruru.cards.*;
-import Piruru.relics.*;
 
 import java.nio.charset.StandardCharsets;
 
@@ -27,35 +22,38 @@ public class Piruru implements
         EditCharactersSubscriber,
         EditStringsSubscriber,
         EditRelicsSubscriber,
-        EditKeywordsSubscriber
-{
-    public static AssetLoader textureLoader = new AssetLoader();
-
-    private static String modID;
+        EditKeywordsSubscriber {
     public static final Color PIRURU_ICE = Color.valueOf("#000DAB");
-
+    public static final String PIRURU_SHOULDER_1 = "Piruru/images/char/defaultCharacter/shoulder.png";
+    public static final String PIRURU_SHOULDER_2 = "Piruru/images/char/defaultCharacter/shoulder2.png";
+    public static final String PIRURU_CORPSE = "Piruru/images/char/defaultCharacter/corpse.png";
+    public static final String BADGE_IMAGE = "Piruru/images/Badge.png";
+    public static final String PIRURU_SKELETON_ATLAS = "Piruru/images/char/defaultCharacter/skeleton.atlas";
+    public static final String PIRURU_SKELETON_JSON = "Piruru/images/char/defaultCharacter/skeleton.json";
     private static final String ATTACK_PIRURU_ICE = "Piruru/images/512prod/bg_attack_default_gray.png";
     private static final String SKILL_PIRURU_ICE = "Piruru/images/512prod/bg_skill_default_gray.png";
     private static final String POWER_PIRURU_ICE = "Piruru/images/512prod/bg_power_default_gray.png";
-
     private static final String ENERGY_ORB_PIRURU_ICE = "Piruru/images/512prod/card_default_gray_orb.png";
     private static final String CARD_ENERGY_ORB = "Piruru/images/512prod/card_small_orb.png";
-
     private static final String ATTACK_PIRURU_ICE_PORTRAIT = "Piruru/images/1024prod/bg_attack_default_gray.png";
     private static final String SKILL_PIRURU_ICE_PORTRAIT = "Piruru/images/1024prod/bg_skill_default_gray.png";
     private static final String POWER_PIRURU_ICE_PORTRAIT = "Piruru/images/1024prod/bg_power_default_gray.png";
     private static final String ENERGY_ORB_PIRURU_ICE_PORTRAIT = "Piruru/images/1024prod/card_default_gray_orb.png";
-
     private static final String PIRURU_BUTTON = "Piruru/images/charSelect/DefaultCharacterButton.png";
     private static final String PIRURU_PORTRAIT = "Piruru/images/charSelect/DefaultCharacterPortraitBG.png";
-    public static final String PIRURU_SHOULDER_1 = "Piruru/images/char/defaultCharacter/shoulder.png";
-    public static final String PIRURU_SHOULDER_2 = "Piruru/images/char/defaultCharacter/shoulder2.png";
-    public static final String PIRURU_CORPSE = "Piruru/images/char/defaultCharacter/corpse.png";
+    public static AssetLoader textureLoader = new AssetLoader();
+    private static String modID;
 
-    public static final String BADGE_IMAGE = "Piruru/images/Badge.png";
-
-    public static final String PIRURU_SKELETON_ATLAS = "Piruru/images/char/defaultCharacter/skeleton.atlas";
-    public static final String PIRURU_SKELETON_JSON = "Piruru/images/char/defaultCharacter/skeleton.json";
+    public Piruru() {
+        BaseMod.subscribe(this);
+        setModID("Piruru");
+        BaseMod.addColor(PiruruChar.Enums.PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
+                PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
+                ATTACK_PIRURU_ICE, SKILL_PIRURU_ICE, POWER_PIRURU_ICE,
+                ENERGY_ORB_PIRURU_ICE, ATTACK_PIRURU_ICE_PORTRAIT,
+                SKILL_PIRURU_ICE_PORTRAIT, POWER_PIRURU_ICE_PORTRAIT,
+                ENERGY_ORB_PIRURU_ICE_PORTRAIT, CARD_ENERGY_ORB);
+    }
 
     public static String makeCardPath(String resourcePath) {
         return getModID() + "/images/cards/" + resourcePath;
@@ -81,23 +79,12 @@ public class Piruru implements
         return getModID() + "/images/events/" + resourcePath;
     }
 
-    public Piruru() {
-        BaseMod.subscribe(this);
-        setModID("Piruru");
-        BaseMod.addColor(PiruruChar.Enums.PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
-                PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
-                ATTACK_PIRURU_ICE, SKILL_PIRURU_ICE, POWER_PIRURU_ICE,
-                ENERGY_ORB_PIRURU_ICE, ATTACK_PIRURU_ICE_PORTRAIT,
-                SKILL_PIRURU_ICE_PORTRAIT, POWER_PIRURU_ICE_PORTRAIT,
-                ENERGY_ORB_PIRURU_ICE_PORTRAIT, CARD_ENERGY_ORB);
+    public static String getModID() {
+        return modID;
     }
 
     public static void setModID(String ID) {
         modID = ID;
-    }
-
-    public static String getModID() {
-        return modID;
     }
 
     public static void initialize() {
@@ -106,6 +93,10 @@ public class Piruru implements
 
     public static String makeID(Class c) {
         return makeID(c.getSimpleName());
+    }
+
+    public static String makeID(String idText) {
+        return getModID() + ":" + idText;
     }
 
     @Override
@@ -121,11 +112,7 @@ public class Piruru implements
      */
     @Override
     public void receiveEditCards() {
-		//autoAddCards
-    }
-
-    public static String makeID(String idText) {
-        return getModID() + ":" + idText;
+        //autoAddCards
     }
 
     @Override
@@ -144,7 +131,7 @@ public class Piruru implements
      */
     @Override
     public void receiveEditRelics() {
-		//autoAddRelics
+        //autoAddRelics
         for (AbstractCard c : CardLibrary.getCardList(PiruruChar.Enums.LIBRARY_COLOR)) {
             UnlockTracker.unlockCard(c.cardID);
         }

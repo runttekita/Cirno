@@ -19,8 +19,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.exordium.Hexaghost;
 import javassist.CtBehavior;
 
-import java.util.Arrays;
-
 import static Piruru.Piruru.makeID;
 import static Piruru.Piruru.textureLoader;
 
@@ -32,6 +30,15 @@ import static Piruru.Piruru.textureLoader;
 public class FrozenIntent {
     @SpireEnum
     public static AbstractMonster.Intent FROZEN;
+
+    private static PowerTip getTip() {
+        PowerTip tip = new PowerTip();
+        UIStrings strings = CardCrawlGame.languagePack.getUIString("Piruru:FrozenIntent");
+        tip.header = strings.TEXT[0];
+        tip.body = strings.TEXT[1];
+        tip.img = textureLoader.getTexture("Piruru/images/FrozenIntent.png");
+        return tip;
+    }
 
     @SpirePatch(
             clz = AbstractMonster.class,
@@ -61,15 +68,6 @@ public class FrozenIntent {
             }
             return SpireReturn.Continue();
         }
-    }
-
-    private static PowerTip getTip() {
-        PowerTip tip = new PowerTip();
-        UIStrings strings = CardCrawlGame.languagePack.getUIString("Piruru:FrozenIntent");
-        tip.header = strings.TEXT[0];
-        tip.body = strings.TEXT[1];
-        tip.img = textureLoader.getTexture("Piruru/images/FrozenIntent.png");
-        return tip;
     }
 
     @SpirePatch(
@@ -151,8 +149,7 @@ public class FrozenIntent {
 
         private static class LocatorImageEnd extends SpireInsertLocator {
             @Override
-            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception
-            {
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractMonster.class, "isDying");
                 return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
             }

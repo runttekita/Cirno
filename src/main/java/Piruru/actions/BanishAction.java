@@ -15,9 +15,9 @@ import java.util.function.Consumer;
 import static Piruru.Piruru.makeID;
 
 public class BanishAction extends AbstractGameAction {
+    private static UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID(BanishAction.class));
     private int amount;
     private Consumer<ArrayList<AbstractCard>> callback;
-    private static UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID(BanishAction.class));
 
     public BanishAction(int amount, Consumer<ArrayList<AbstractCard>> callback) {
         this(amount);
@@ -42,7 +42,7 @@ public class BanishAction extends AbstractGameAction {
                 isDone = true;
                 return;
             }
-            AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.discardPile, amount,  "", false);
+            AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.discardPile, amount, "", false);
             tickDuration();
             return;
         }

@@ -32,28 +32,12 @@ import static Piruru.Piruru.makeID;
 
 public class PiruruChar extends CustomPlayer {
 
-    public static class Enums {
-        @SpireEnum
-        public static AbstractPlayer.PlayerClass PIRURU;
-        @SpireEnum(name = "ICE")
-        public static AbstractCard.CardColor PIRURU_ICE;
-        @SpireEnum(name = "ICE")
-        public static CardLibrary.LibraryType LIBRARY_COLOR;
-    }
-
     public static final int ENERGY_PER_TURN = 3;
     public static final int STARTING_HP = 75;
     public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 3;
-
-    private static final String ID = makeID("Piruru");
-    private static final CharacterStrings characterStrings =
-            CardCrawlGame.languagePack.getCharacterString(ID);
-    private static final String[] NAMES = {"Pirulu", "Pirulu", "Pirulu", "Pirulu", "Pirulu"};
-    private static final String[] TEXT = {"Pirulu", "Pirulu", "Pirulu", "Pirulu", "Pirulu"};
-
     public static final String[] orbTextures = {
             "Piruru/images/char/defaultCharacter/orb/layer1.png",
             "Piruru/images/char/defaultCharacter/orb/layer2.png",
@@ -66,6 +50,11 @@ public class PiruruChar extends CustomPlayer {
             "Piruru/images/char/defaultCharacter/orb/layer3d.png",
             "Piruru/images/char/defaultCharacter/orb/layer4d.png",
             "Piruru/images/char/defaultCharacter/orb/layer5d.png",};
+    private static final String ID = makeID("Piruru");
+    private static final CharacterStrings characterStrings =
+            CardCrawlGame.languagePack.getCharacterString(ID);
+    private static final String[] NAMES = {"Pirulu", "Pirulu", "Pirulu", "Pirulu", "Pirulu"};
+    private static final String[] TEXT = {"Pirulu", "Pirulu", "Pirulu", "Pirulu", "Pirulu"};
 
     public PiruruChar(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
@@ -201,5 +190,14 @@ public class PiruruChar extends CustomPlayer {
     @Override
     public String getVampireText() {
         return "Pirulu";
+    }
+
+    public static class Enums {
+        @SpireEnum
+        public static AbstractPlayer.PlayerClass PIRURU;
+        @SpireEnum(name = "ICE")
+        public static AbstractCard.CardColor PIRURU_ICE;
+        @SpireEnum(name = "ICE")
+        public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 }

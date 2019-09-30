@@ -14,6 +14,7 @@ import java.util.function.Consumer;
  * This is literally just Hologram's action.
  * Why?
  * I can't stand the fucking name.
+ *
  * @see com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction
  * Also added a callback functionality I guess.
  */
