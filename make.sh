@@ -58,7 +58,7 @@ then
   BANISH='piruru:Banish !M! cards.'
   APEX_FORM='Enter piruru:Apex'
   ACRO='Enter piruru:ACRO'
-  EXHUME='Put a card from your exhaust pile into your hand.'
+  EXHUME='Put a card from your Exhaust pile into your hand.'
   BANISH_CONDITIONAL='piruru:Banish !M! cards and if you do '
 fi
 
