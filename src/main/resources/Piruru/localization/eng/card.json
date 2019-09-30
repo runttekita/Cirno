@@ -72,6 +72,6 @@
   },
   "BanishExhume": {
     "NAME": "swappy",
-    "DESCRIPTION": "$banishone NL $exhume"
+    "DESCRIPTION": "$banishconditional $exhume"
   }
 }

@@ -59,6 +59,7 @@ then
   APEX_FORM='Enter piruru:Apex'
   ACRO='Enter piruru:ACRO'
   EXHUME='Put a card from your exhaust pile into your hand.'
+  BANISH_CONDITIONAL='piruru:Banish !M! cards and if you do '
 fi
 
 # Copy into production folder
@@ -92,6 +93,7 @@ sed -i s/\$infiniteenergydiscard/"${INFINITE_ENERGY_DISCARD}"/g ${PROD_JSON}
 sed -i s/\$infiniteupgrades/"${INFINITE_UPGRADES}"/g ${PROD_JSON}
 sed -i s/\$nl/"${NL}"/g ${PROD_JSON}
 sed -i s/\$banishone/"${BANISH_ONE}"/g ${PROD_JSON}
+sed -i s/\$banishconditional/"${BANISH_CONDITIONAL}"/g ${PROD_JSON}
 sed -i s/\$banish/"${BANISH}"/g ${PROD_JSON}
 sed -i s/\$apex/"${APEX_FORM}"/g ${PROD_JSON}
 sed -i s/\$acro/"${ACRO}"/g ${PROD_JSON}

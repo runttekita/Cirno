@@ -1,18 +1,24 @@
 package Piruru.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 
+import static Piruru.Piruru.makeID;
+
 public class BanishAction extends AbstractGameAction {
     private int amount;
     private Consumer<ArrayList<AbstractCard>> callback;
+    private static UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID(BanishAction.class));
 
     public BanishAction(int amount, Consumer<ArrayList<AbstractCard>> callback) {
         this(amount);
@@ -28,6 +34,11 @@ public class BanishAction extends AbstractGameAction {
     public void update() {
         if (duration == Settings.ACTION_DUR_FASTER) {
             if (AbstractDungeon.player.discardPile.isEmpty()) {
+                isDone = true;
+                return;
+            }
+            if (AbstractDungeon.player.discardPile.size() < amount) {
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(AbstractDungeon.player, uiStrings.TEXT[0]));
                 isDone = true;
                 return;
             }

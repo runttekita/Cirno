@@ -9,5 +9,10 @@
     "TEXT": [
       "discard."
     ]
+  },
+  "BanishAction": {
+    "TEXT": [
+      "I don't have enough cards to Banish!"
+    ]
   }
 }
