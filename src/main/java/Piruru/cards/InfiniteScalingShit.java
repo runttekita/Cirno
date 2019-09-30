@@ -19,12 +19,12 @@ public class InfiniteScalingShit extends PiruruCard {
     private static final CardType TYPE = CardType.POWER;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final int PULL_AMT = 1;
-    private static final int PULL_UP = 2;
+    private static final int RECOVER_AMT = 1;
+    private static final int RECOVER_UP = 2;
 
     public InfiniteScalingShit() {
-        super(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, PULL_UP, COST);
-        baseMagicNumber = magicNumber = PULL_AMT;
+        super(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, RECOVER_UP, COST);
+        baseMagicNumber = magicNumber = RECOVER_AMT;
         exhaust = true;
     }
 
@@ -38,7 +38,7 @@ public class InfiniteScalingShit extends PiruruCard {
         upgraded = true;
         name = name + "+" + timesUpgraded;
         initializeTitle();
-        upgradeMagicNumber(PULL_UP);
+        upgradeMagicNumber(RECOVER_UP);
     }
 
     @Override
