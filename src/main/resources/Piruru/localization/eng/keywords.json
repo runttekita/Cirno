@@ -36,5 +36,11 @@
       "apex"
     ],
     "DESCRIPTION": "At the start of your turn, #yRecover #b2 cards and make them #yExhaust."
+  },
+  {
+    "NAMES": [
+      "acro"
+    ],
+    "DESCRIPTION": "#yRight #yClick #yyourself #yto #yActivate. If you have less than #b6 cards in your hand, draw until you have #b6 cards. #rUsable #ronce #rper #rturn."
   }
 ]

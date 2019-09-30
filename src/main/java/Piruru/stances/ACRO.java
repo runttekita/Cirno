@@ -1,28 +1,26 @@
 package Piruru.stances;
 
 import Piruru.abstracts.PiruruStance;
-import Piruru.actions.RecoverAction;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.stslib.patches.HitboxRightClick;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.actions.unique.ExpertiseAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.stances.WrathStance;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 
-import javax.smartcardio.Card;
-
-import static Piruru.Piruru.makeID;
-
-public class ApexForm extends PiruruStance {
+public class ACRO extends PiruruStance {
     private static long sfxId = -1L;
-    private static final int RECOVER_AMT = 2;
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(makeID("LiterallyJustTheWordExhaust"));
+    private static final int DRAW_CAP = 6;
+    public static boolean usedDraw = false;
 
     public void onEnterStance() {
         CardCrawlGame.sound.play("STANCE_ENTER_WRATH");
@@ -37,7 +35,7 @@ public class ApexForm extends PiruruStance {
             sfxId = -1L;
         }
     }
- public void updateAnimation() {
+    public void updateAnimation() {
         if (!Settings.DISABLE_EFFECTS) {
             particleTimer -= Gdx.graphics.getDeltaTime();
             if (particleTimer < 0.0F) {
@@ -54,16 +52,31 @@ public class ApexForm extends PiruruStance {
 
     @Override
     public void atStartOfTurn() {
-       AbstractDungeon.actionManager.addToTop(new RecoverAction(RECOVER_AMT,
-               list -> list.forEach(c -> {
-                   c.exhaust = true;
-                   c.rawDescription += cardStrings.DESCRIPTION;
-                   c.initializeDescription();
-               })));
+        usedDraw = false;
+    }
+
+    @Override
+    public void onExitStance() {
+        usedDraw = false;
     }
 
     @Override
     public void updateDescription() {
-        description = stanceStrings.DESCRIPTION[0] + RECOVER_AMT + stanceStrings.DESCRIPTION[1];
+        description = stanceStrings.DESCRIPTION[0] + DRAW_CAP + stanceStrings.DESCRIPTION[1] + DRAW_CAP + stanceStrings.DESCRIPTION[2];
+    }
+
+    @SpirePatch(
+            clz = AbstractPlayer.class,
+            method = "combatUpdate"
+    )
+    public static class AcroDrawPatch {
+        public static void Postfix(AbstractPlayer __instance) {
+            if (AbstractDungeon.player.stance instanceof ACRO) {
+                if (HitboxRightClick.rightClicked.get(__instance.hb) && !usedDraw) {
+                    AbstractDungeon.actionManager.addToBottom(new ExpertiseAction(__instance, DRAW_CAP));
+                    usedDraw = true;
+                }
+            }
+        }
     }
 }

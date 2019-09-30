@@ -2,7 +2,16 @@
   "ApexForm": {
     "NAME": "Apex Form",
     "DESCRIPTION": [
-      "At the start of your turn, #yRecover #b2 cards and make them #yExhaust."
+      "At the start of your turn, #yRecover #b",
+      " cards and make them #yExhaust."
+    ]
+  },
+  "ACRO": {
+    "NAME": "ACRO",
+    "DESCRIPTION": [
+      "#yRight #yClick #yyourself #yto #yActivate. If your hand has less than #b",
+      " cards, draw until you have #b",
+      " cards. #rOnly #rusable #ronce #rper #rturn."
     ]
   }
 }
