@@ -1,6 +1,5 @@
 package Piruru.cards;
 
-import Piruru.Piruru;
 import Piruru.abstracts.PiruruCard;
 import Piruru.actions.DiscardToGainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

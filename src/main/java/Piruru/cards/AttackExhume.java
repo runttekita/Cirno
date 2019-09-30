@@ -1,9 +1,7 @@
 package Piruru.cards;
 
-import Piruru.Piruru;
 import Piruru.abstracts.PiruruCard;
 import Piruru.actions.ExhumeButWithOneLessParameter;
-import com.megacrit.cardcrawl.actions.unique.ExhumeAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;

@@ -1,10 +1,7 @@
 package Piruru.cards;
 
-import Piruru.Piruru;
 import Piruru.abstracts.PiruruCard;
 import Piruru.actions.RecoverAction;
-import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
-import com.megacrit.cardcrawl.cards.blue.Hologram;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;

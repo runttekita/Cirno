@@ -1,6 +1,5 @@
 package Piruru.cards;
 
-import Piruru.Piruru;
 import Piruru.abstracts.PiruruCard;
 import Piruru.actions.NotShittyChangeStanceAction;
 import Piruru.stances.ACRO;
