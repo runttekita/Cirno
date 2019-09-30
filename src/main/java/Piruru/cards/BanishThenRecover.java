@@ -27,8 +27,7 @@ public class BanishThenRecover extends PiruruCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new BanishAction(magicNumber));
-        act(new RecoverAction(magicNumber));
+        act(new BanishAction(magicNumber, ifSuccess -> act(new RecoverAction(magicNumber))));
     }
 
     @Override
