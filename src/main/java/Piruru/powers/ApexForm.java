@@ -1,20 +1,28 @@
 package Piruru.powers;
 
 import Piruru.abstracts.PiruruStance;
+import Piruru.actions.RecoverAction;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.stances.WrathStance;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 
+import javax.smartcardio.Card;
+
+import static Piruru.Piruru.makeID;
+
 public class ApexForm extends PiruruStance {
     private static long sfxId = -1L;
+    private static final int RECOVER_AMT = 2;
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(makeID("LiterallyJustTheWordExhaust"));
 
     public void onEnterStance() {
         CardCrawlGame.sound.play("STANCE_ENTER_WRATH");
@@ -46,7 +54,12 @@ public class ApexForm extends PiruruStance {
 
     @Override
     public void atStartOfTurn() {
-       AbstractDungeon.actionManager.addToBottom(new ApexAction());
+       AbstractDungeon.actionManager.addToBottom(new RecoverAction(RECOVER_AMT,
+               c -> c.forEach(card -> {
+                   card.exhaust = true;
+                   card.rawDescription += cardStrings.DESCRIPTION;
+                   card.initializeDescription();
+               })));
     }
 
     @Override
