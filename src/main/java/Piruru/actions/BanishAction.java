@@ -17,7 +17,11 @@ public class BanishAction extends AbstractGameAction {
     @Override
     public void update() {
         if (duration == Settings.ACTION_DUR_FASTER) {
-            AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.discardPile, amount, false, "");
+            if (AbstractDungeon.player.discardPile.isEmpty()) {
+                isDone = true;
+                return;
+            }
+            AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.discardPile, amount,  "", false);
             tickDuration();
             return;
         }
