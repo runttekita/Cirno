@@ -51,7 +51,7 @@
   },
   "ExhaustDiscardAndRecover": {
     "NAME": "god i hate bd",
-    "DESCRIPTION": "$fromexhaustdiscardrecoverone",
-    "UPGRADE_DESCRIPTION": "$fromexhaustdiscardrecover"
+    "DESCRIPTION": "$banishone $nl $recover",
+    "UPGRADE_DESCRIPTION": "$banish $nl $recover"
   }
 }
