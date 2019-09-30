@@ -86,3 +86,4 @@ sendToDevs/
 twitchconfig.txt
 src/main/resources/Piruru/localization/eng/prodStrings/*
 runs/
+betaPreferences/
