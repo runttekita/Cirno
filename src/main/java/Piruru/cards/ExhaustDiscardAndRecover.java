@@ -1,8 +1,8 @@
 package Piruru.cards;
 
-import Piruru.Piruru;
 import Piruru.abstracts.PiruruCard;
-import Piruru.actions.ExhaustFromDiscardAndRecoverAction;
+import Piruru.actions.BanishAction;
+import Piruru.actions.RecoverAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -27,7 +27,8 @@ public class ExhaustDiscardAndRecover extends PiruruCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new ExhaustFromDiscardAndRecoverAction(magicNumber));
+        act(new BanishAction(magicNumber));
+        act(new RecoverAction(magicNumber));
     }
 
     @Override
