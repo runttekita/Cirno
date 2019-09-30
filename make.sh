@@ -173,7 +173,7 @@ sed -i s/\$ethereal/"${ETHEREAL}"/g ${PROD_JSON}
 sed -i s/\$exhaust/"${EXHAUST}"/g ${PROD_JSON}
 sed -i s/\$recoverskillnohand/"${RECOVER_SKILLS_IGNORE_HAND}"/g ${PROD_JSON}
 sed -i s/\$recoverskill/"${RECOVER_SKILLS}"/g ${PROD_JSON}
-sed -i s/\$recovermulti/"${RECOVER_MULTI}"/g ${PROD_JSON}
+sed -i s/\$recoverone/"${RECOVER_ONE}"/g ${PROD_JSON}
 sed -i s/\$recover/"${RECOVER}"/g ${PROD_JSON}
 sed -i s/\$spreadcold/"${SPREAD_COLD}"/g ${PROD_JSON}
 sed -i s/\$icebarrier/"${ICE_BARRIER}"/g ${PROD_JSON}

@@ -23,12 +23,12 @@
       "banish",
       "banished"
     ],
-    "DESCRIPTION": "#Banishing a card #yExhausts it from the discard pile."
+    "DESCRIPTION": "#yBanishing a card #yExhausts it from the discard pile."
   },
   {
     "NAMES": [
       "recover"
     ],
-    "DESCRIPTION": "#Recovering a card adds it from the discard pile to the hand."
+    "DESCRIPTION": "#yRecovering a card adds it from the discard pile to the hand."
   }
 ]

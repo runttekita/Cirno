@@ -42,8 +42,8 @@
   },
   "InfiniteScalingShit": {
     "NAME": "skyson",
-    "DESCRIPTION": "$recover $nl $infiniteupgrades $nl $exhaust",
-    "UPGRADE_DESCRIPTION": "$recovermulti $nl $infiniteupgrades $nl $exhaust"
+    "DESCRIPTION": "$recoverone $nl $infiniteupgrades $nl $exhaust",
+    "UPGRADE_DESCRIPTION": "$recover $nl $infiniteupgrades $nl $exhaust"
   },
   "DiscardAnyAmountAndGainEnergy": {
     "NAME": "Wha",
@@ -51,7 +51,7 @@
   },
   "ExhaustDiscardAndRecover": {
     "NAME": "god i hate bd",
-    "DESCRIPTION": "$banishone $nl $recover",
+    "DESCRIPTION": "$banishone $nl $recoverone",
     "UPGRADE_DESCRIPTION": "$banish $nl $recover"
   }
 }
