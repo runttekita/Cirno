@@ -10,9 +10,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static Piruru.Piruru.makeID;
 
-public class ExhaustDiscardAndRecover extends PiruruCard {
+public class BanishThenRecover extends PiruruCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(
-            makeID(ExhaustDiscardAndRecover.class.getSimpleName()));
+            makeID(BanishThenRecover.class.getSimpleName()));
     private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -20,7 +20,7 @@ public class ExhaustDiscardAndRecover extends PiruruCard {
     private static final int RECOVER_AMT = 1;
     private static final int RECOVER_UP = 1;
 
-    public ExhaustDiscardAndRecover() {
+    public BanishThenRecover() {
         super(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, RECOVER_UP, COST);
         baseMagicNumber = magicNumber = RECOVER_AMT;
     }

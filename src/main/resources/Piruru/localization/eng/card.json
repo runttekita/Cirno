@@ -49,7 +49,7 @@
     "NAME": "Wha",
     "DESCRIPTION": "$infiniteenergydiscard"
   },
-  "ExhaustDiscardAndRecover": {
+  "BanishThenRecover": {
     "NAME": "god i hate bd",
     "DESCRIPTION": "$banishone $nl $recoverone",
     "UPGRADE_DESCRIPTION": "$banish $nl $recover"
