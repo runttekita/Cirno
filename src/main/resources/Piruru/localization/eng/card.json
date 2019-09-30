@@ -59,7 +59,7 @@
   },
   "EnterApexForm": {
     "NAME": "Apex Form",
-    "DESCRIPTION": "$apex $nl $exhaust"
+    "DESCRIPTION": "$apex"
   },
   "EnterACRO": {
     "NAME": "ACRO",
