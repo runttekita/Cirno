@@ -69,5 +69,9 @@
   "AttackExhume": {
     "NAME": "infinite shit i guess",
     "DESCRIPTION": "$damage NL $exhume"
+  },
+  "BanishExhume": {
+    "NAME": "swappy",
+    "DESCRIPTION": "$banishone NL $exhume"
   }
 }
