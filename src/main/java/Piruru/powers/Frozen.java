@@ -6,13 +6,18 @@ import basemod.ReflectionHacks;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import javassist.CannotCompileException;
+import javassist.expr.ExprEditor;
+import javassist.expr.MethodCall;
 
 import java.lang.reflect.Field;
 
@@ -115,5 +120,30 @@ public class Frozen extends PiruruPower implements
     @Override
     public AbstractPower makeCopy() {
         return new Frozen(owner);
+    }
+
+    /**
+     * Straight nabbed and improved from
+     * https://github.com/oeht/StSLib/blob/master/src/main/java/com/evacipated/cardcrawl/mod/stslib/patches/StunMonsterPatch.java
+     * Ty Papa Kio!
+     */
+    @SpirePatch(
+            clz = GameActionManager.class,
+            method = "getNextAction"
+    )
+    public static class FrozenPowerPatch {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(MethodCall m) throws CannotCompileException {
+                    if (m.getClassName().equals(AbstractMonster.class.getName())
+                            && m.getMethodName().equals("takeTurn")) {
+                        m.replace("if (!m.hasPower(" + Frozen.class.getName() + ".POWER_ID)) {" +
+                                "$_ = $proceed($$);" +
+                                "}");
+                    }
+                }
+            };
+        }
     }
 }
