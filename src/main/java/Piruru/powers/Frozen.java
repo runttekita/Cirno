@@ -26,7 +26,7 @@ import static Piruru.Piruru.makeID;
 
 /**
  * Basically stolen from
- * https://github.com/kiooeht/StSLib/blob/master/src/main/java/com/evacipated/cardcrawl/mod/stslib/powers/StunMonsterPower.java
+ * @see com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower
  */
 public class Frozen extends PiruruPower implements
         CloneablePowerInterface,
@@ -124,7 +124,7 @@ public class Frozen extends PiruruPower implements
 
     /**
      * Straight nabbed and improved from
-     * https://github.com/oeht/StSLib/blob/master/src/main/java/com/evacipated/cardcrawl/mod/stslib/patches/StunMonsterPatch.java
+     * @see com.evacipated.cardcrawl.mod.stslib.patches.StunMonsterPatch
      * Ty Papa Kio!
      */
     @SpirePatch(
