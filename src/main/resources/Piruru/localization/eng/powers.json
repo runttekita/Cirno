@@ -18,5 +18,12 @@
       "When you are attacked, apply #b1",
       " #yCold to the attacker."
     ]
+  },
+  "NoCardsBlockP": {
+    "NAME": "UWU",
+    "DESCRIPTIONS": [
+      "Whenever your hand becomes empty, gain #b",
+      " #yBlock."
+    ]
   }
 }
