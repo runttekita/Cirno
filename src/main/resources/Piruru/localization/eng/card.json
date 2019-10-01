@@ -125,5 +125,10 @@
   "MillForPowers": {
     "NAME": "rummage ffas",
     "DESCRIPTION": "$millconditional $powermill"
+  },
+  "AoEFreeze": {
+    "NAME": "Lock You",
+    "DESCRIPTION": "$lockyou",
+    "UPGRADE_DESCRIPTION": "$lockyou $nl $retain"
   }
 }

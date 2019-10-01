@@ -80,6 +80,8 @@ then
   RANDOM_COLD='Apply 1 piruru:Cold to a random enemy for each card discarded.'
   MILL_CONDITIONAL='piruru:Mill !M! cards and '
   POWER_MILL='if any of them were powers, piruru:Recover it.'
+  LOCK_YOU='piruru:Freeze ALL enemies.'
+  RETAIN='Retain.'
 fi
 
 # Copy into production folder
@@ -92,6 +94,8 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$lockyou/"${LOCK_YOU}"/g ${PROD_JSON}
+sed -i s/\$retain/"${RETAIN}"/g ${PROD_JSON}
 sed -i s/\$energydiscard/"${ENERGY_DISCARD}"/g ${PROD_JSON}
 sed -i s/\$millconditional/"${MILL_CONDITIONAL}"/g ${PROD_JSON}
 sed -i s/\$powermill/"${POWER_MILL}"/g ${PROD_JSON}
