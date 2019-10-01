@@ -76,5 +76,9 @@
   "EnterAllos": {
     "NAME": "Piruluk Allos",
     "DESCRIPTION": "$allos"
+  },
+  "AoEMill": {
+    "NAME": "common stuff",
+    "DESCRIPTION": "$multidmg $nl $aoemill"
   }
 }
