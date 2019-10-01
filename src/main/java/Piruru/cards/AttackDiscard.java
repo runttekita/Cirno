@@ -17,10 +17,10 @@ public class AttackDiscard extends PiruruCard {
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
-    private static final int DAMAGE_UP = 4;
+    private static final int DAMAGE_UP = 3;
     private static final int BLOCK_UP = 0;
     private static final int DISCARD_UP = 1;
-    private static final int DAMAGE = 13;
+    private static final int DAMAGE = 12;
     private static final int BLOCK = 0;
     private static final int DISCARD = 2;
 
