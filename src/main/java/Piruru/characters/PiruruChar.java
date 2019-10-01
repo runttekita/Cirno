@@ -7,8 +7,10 @@ import Piruru.cards.ScoutAttacks;
 import Piruru.cards.Strike;
 import Piruru.relics.StarterRelic;
 import basemod.abstracts.CustomPlayer;
+import basemod.animations.AbstractAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -19,6 +21,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -29,6 +32,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import java.util.ArrayList;
 
 import static Piruru.Piruru.makeID;
+import static Piruru.Piruru.textureLoader;
 
 public class PiruruChar extends CustomPlayer {
 
@@ -37,7 +41,7 @@ public class PiruruChar extends CustomPlayer {
     public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
-    public static final int ORB_SLOTS = 3;
+    public static final int ORB_SLOTS = 0;
     public static final String[] orbTextures = {
             "Piruru/images/char/defaultCharacter/orb/layer1.png",
             "Piruru/images/char/defaultCharacter/orb/layer2.png",
@@ -58,25 +62,18 @@ public class PiruruChar extends CustomPlayer {
 
     public PiruruChar(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
-                "Piruru/images/char/defaultCharacter/orb/vfx.png", null,
-                "Piruru/images/char/defaultCharacter/piru");
-
-
-        initializeClass(null,
+                "Piruru/images/char/defaultCharacter/orb/vfx.png", null, new AbstractAnimation() {
+                    @Override
+                    public Type type() {
+                        return Type.SPRITE;
+                    }
+                });
+        initializeClass("Piruru/images/char/defaultCharacter/piru.png",
                 Piruru.PIRURU_SHOULDER_1,
                 Piruru.PIRURU_SHOULDER_2,
                 Piruru.PIRURU_CORPSE,
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F,
                 new EnergyManager(ENERGY_PER_TURN));
-
-
-        loadAnimation(
-                Piruru.PIRURU_SKELETON_ATLAS,
-                Piruru.PIRURU_SKELETON_JSON,
-                1.0f);
-        AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
-        e.setTime(e.getEndTime() * MathUtils.random());
-
 
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 220.0F * Settings.scale);
