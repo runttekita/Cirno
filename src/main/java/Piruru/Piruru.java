@@ -134,8 +134,28 @@ public class Piruru implements
     @Override
     public void receiveEditRelics() {
 		//autoAddRelics
+        int count = 0;
+        int commonCount = 0;
+        int uncommonCount = 0;
+        int rareCount = 0;
         for (AbstractCard c : CardLibrary.getCardList(PiruruChar.Enums.LIBRARY_COLOR)) {
             UnlockTracker.unlockCard(c.cardID);
+            if (c.rarity == AbstractCard.CardRarity.COMMON) {
+                commonCount++;
+                count++;
+            }
+            if (c.rarity == AbstractCard.CardRarity.UNCOMMON) {
+                uncommonCount++;
+                count++;
+            }
+            if (c.rarity == AbstractCard.CardRarity.RARE) {
+                rareCount++;
+                count++;
+            }
+            System.out.println("COMMON CARDS" + commonCount);
+            System.out.println("UNCOMMON CARDS" + uncommonCount);
+            System.out.println("RARE CARDS" + rareCount);
+            System.out.println("TOTAL CARDS" + count);
         }
     }
 
