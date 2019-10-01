@@ -80,5 +80,9 @@
   "AoEMill": {
     "NAME": "common stuff",
     "DESCRIPTION": "$multidmg $nl $aoemill"
+  },
+  "AoECold": {
+    "NAME": "common staff",
+    "DESCRIPTION": "$multidmg $nl $aoecold"
   }
 }
