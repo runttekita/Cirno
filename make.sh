@@ -67,6 +67,7 @@ then
   SCRY='Scry !M! cards.'
   NO_HAND='Whenever your hand becomes empty, '
   MAGIC_BLOCK='Gain !M! Block.'
+  DISCARD_RANDOM='Discard !M! random cards.'
 fi
 
 # Copy into production folder
@@ -83,6 +84,7 @@ sed -i s/\$damage/"${DAMAGE}"/g ${PROD_JSON}
 sed -i s/\$magicblock/"${MAGIC_BLOCK}"/g ${PROD_JSON}
 sed -i s/\$block/"${BLOCK}"/g ${PROD_JSON}
 sed -i s/\$discardOne/"${DISCARD_ONE}"/g ${PROD_JSON}
+sed -i s/\$discardrandom/"${DISCARD_RANDOM}"/g ${PROD_JSON}
 sed -i s/\$energy/"${ENERGY}"/g ${PROD_JSON}
 sed -i s/\$draw/"${DRAW}"/g ${PROD_JSON}
 sed -i s/\$cold/"${COLD}"/g ${PROD_JSON}

@@ -92,5 +92,9 @@
   "NoCardsBlock": {
     "NAME": "owo",
     "DESCRIPTION": "$nohand $magicblock"
+  },
+  "AttackDiscard": {
+    "NAME": "All out attack smol",
+    "DESCRIPTION": "$damage $nl $discardrandom"
   }
 }
