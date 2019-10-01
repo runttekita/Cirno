@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.patches.HitboxRightClick;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.unique.ExpertiseAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -73,7 +74,7 @@ public class ACRO extends PiruruStance {
     public static class AcroDrawPatch {
         public static void Postfix(AbstractPlayer __instance) {
             if (AbstractDungeon.player.stance instanceof ACRO) {
-                if (HitboxRightClick.rightClicked.get(__instance.hb) && !usedDraw) {
+                if (HitboxRightClick.rightClicked.get(__instance.hb) && !usedDraw && AbstractDungeon.actionManager.phase == GameActionManager.Phase.WAITING_ON_USER) {
                     AbstractDungeon.actionManager.addToBottom(new ExpertiseAction(__instance, DRAW_CAP));
                     usedDraw = true;
                 }
