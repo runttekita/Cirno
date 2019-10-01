@@ -189,7 +189,6 @@ public class Piruru implements
      * https://asciiart.club/
      */
     public static class ASCII_ART {
-        private static int random;
         @SpireEnum
         public static AbstractCard.CardTags dab;
 
@@ -206,7 +205,7 @@ public class Piruru implements
         }
 
         private static void init() {
-            random = getRandomNumberInRange(0, 3);
+            int random = getRandomNumberInRange(0, 3);
             if (random == 0) {
                 System.out.println("\n" +
                         "                                                           ,╔▄▄▄▄▓▓▓▓▄▄w\n" +
