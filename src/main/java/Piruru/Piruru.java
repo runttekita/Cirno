@@ -142,8 +142,13 @@ public class Piruru implements
         int commonCount = 0;
         int uncommonCount = 0;
         int rareCount = 0;
+        int basicCount = 0;
         for (AbstractCard c : CardLibrary.getCardList(PiruruChar.Enums.LIBRARY_COLOR)) {
             UnlockTracker.unlockCard(c.cardID);
+            if (c.rarity == AbstractCard.CardRarity.BASIC) {
+                basicCount++;
+                count++;
+            }
             if (c.rarity == AbstractCard.CardRarity.COMMON) {
                 commonCount++;
                 count++;
