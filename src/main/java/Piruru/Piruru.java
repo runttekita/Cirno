@@ -152,11 +152,11 @@ public class Piruru implements
                 rareCount++;
                 count++;
             }
-            System.out.println("COMMON CARDS" + commonCount);
-            System.out.println("UNCOMMON CARDS" + uncommonCount);
-            System.out.println("RARE CARDS" + rareCount);
-            System.out.println("TOTAL CARDS" + count);
         }
+        System.out.println("COMMON CARDS" + commonCount);
+        System.out.println("UNCOMMON CARDS" + uncommonCount);
+        System.out.println("RARE CARDS" + rareCount);
+        System.out.println("TOTAL CARDS" + count);
     }
 
     /**
