@@ -57,8 +57,8 @@ public class PiruruChar extends CustomPlayer {
     private static final String ID = makeID("Piruru");
     private static final CharacterStrings characterStrings =
             CardCrawlGame.languagePack.getCharacterString(ID);
-    private static final String[] NAMES = {"Pirulu", "Pirulu", "Pirulu", "Pirulu", "Pirulu"};
-    private static final String[] TEXT = {"Pirulu", "Pirulu", "Pirulu", "Pirulu", "Pirulu"};
+    private static final String[] NAMES = {"Piruluk", "Piruluk", "Piruluk", "Piruluk", "Piruluk"};
+    private static final String[] TEXT = {"Piruluk", "Piruluk", "Piruluk", "Piruluk", "Piruluk"};
 
     public PiruruChar(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
@@ -103,7 +103,6 @@ public class PiruruChar extends CustomPlayer {
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(PrismaticShard.ID);
         retVal.add(StarterRelic.ID);
         return retVal;
     }
@@ -143,7 +142,7 @@ public class PiruruChar extends CustomPlayer {
 
     @Override
     public String getLocalizedCharacterName() {
-        return "Pirulu";
+        return "Piruluk";
     }
 
     @Override
@@ -153,7 +152,7 @@ public class PiruruChar extends CustomPlayer {
 
     @Override
     public String getTitle(AbstractPlayer.PlayerClass playerClass) {
-        return "Pirulu";
+        return "Piruluk";
     }
 
     @Override
@@ -181,12 +180,12 @@ public class PiruruChar extends CustomPlayer {
 
     @Override
     public String getSpireHeartText() {
-        return "Pirulu";
+        return "Piruluk";
     }
 
     @Override
     public String getVampireText() {
-        return "Pirulu";
+        return "Piruluk";
     }
 
     public static class Enums {
