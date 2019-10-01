@@ -133,6 +133,7 @@
   },
   "UnceasingTopPower": {
     "NAME": "spin",
-    "DESCRIPTION": "$spin"
+    "DESCRIPTION": "$spin",
+    "UPGRADE_DESCRIPTION": "$spins"
   }
 }
