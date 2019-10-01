@@ -72,5 +72,9 @@
   "BanishExhume": {
     "NAME": "swappy",
     "DESCRIPTION": "$banishconditional $exhume"
+  },
+  "EnterAllos": {
+    "NAME": "Piruluk Allos",
+    "DESCRIPTION": "$allos"
   }
 }

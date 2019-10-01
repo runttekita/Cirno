@@ -48,5 +48,11 @@
       "exhume"
     ],
     "DESCRIPTION": "Put a card from your #yExhaust pile into your hand."
+  },
+  {
+    "NAMES": [
+      "allos"
+    ],
+    "DESCRIPTION": "At the end of your turn, you no longer discard your hand. If you have no cards in your hand, you no longer take damage."
   }
 ]

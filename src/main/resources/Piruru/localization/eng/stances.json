@@ -13,5 +13,11 @@
       " cards, draw until you have #b",
       " cards. #rOnly #rusable #ronce #rper #rturn."
     ]
+  },
+  "Allos": {
+    "NAME": "Allos",
+    "DESCRIPTION": [
+      "At the end of your turn, you no longer discard your hand. If you have no cards in your hand, you no longer take damage."
+    ]
   }
 }
