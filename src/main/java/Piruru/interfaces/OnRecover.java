@@ -37,9 +37,8 @@ public interface OnRecover {
 
             @Override
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
-                Matcher finalMatcher = new Matcher.MethodCallMatcher(CardGroup.class, "removeCard");
-                int[] lines = LineFinder.findAllInOrder(ctMethodToPatch, new ArrayList<>(), finalMatcher);
-                return new int[]{lines[lines.length - 1]};
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(CardGroup.class, "addToHand");
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
             }
         }
     }
