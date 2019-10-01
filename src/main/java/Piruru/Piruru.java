@@ -6,12 +6,15 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import Piruru.cards.*;
 import Piruru.relics.*;
@@ -176,6 +179,40 @@ public class Piruru implements
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
+        }
+    }
+
+    public static class YOHANE_PRINT {
+        @SpireEnum
+        public static AbstractCard.CardTags dab;
+
+        static {
+            init();
+        }
+
+        private static void init() {
+            System.out.println("uwu reina uwu\n" +
+                    "    ████████████████████████▓▓▓▓▓▓▓▓▓▓▓▓████████████████████████████████████████████\n" +
+                    "    ██████████████████▓█████▓▓▓▓▓█▓▓▓▓▓▓▓▓▓▓████████████████████████████████████████\n" +
+                    "    █████████████████████████████████████▓███▓██████████████████████████████████████\n" +
+                    "    ████████████████████████████▌▌╫▀██▓▓╫█▓█████████████████████████████████████████\n" +
+                    "    ████████████████████████████▌╣▓▓▀▀▓▒╫╫╫Ñ████████████████████████████████████████\n" +
+                    "    ████████████████████████████▓╫▀╬▀▓▓╫Ñ╫╫▓████████████████████████████████████████\n" +
+                    "    ██████████████████████▓▓████▓▓░╫╫╫╫╫╫╫╫╬▀███████████████████████████████████████\n" +
+                    "    █████████████████████▌╫╫▓████▓╫╫╫╫╫╫╫╫╫╫╫╫██████████████████████████████████████\n" +
+                    "    ██████████████████████▓▓▓▓█▓██▓╫╫╫╫╫╫╫╫╫▒╫██████████████████████████████████████\n" +
+                    "    ███████████████████████████▓▓╬╫▀MÑ╫╫╫╫╫╫╫╫██████████████████████████████████████\n" +
+                    "    ███████████████████████████▓▓▓╫╫╫╫╫╫╫╫╫╫╫███████████████████████████████████████\n" +
+                    "    ██████████████████████████▓▓▓▓▓▓▓▓▓▓╬╬╬▒▓███████████████████████████████████████\n" +
+                    "    █████████████████████████▓▓▓▓▓▓▓▓▓██████████████████████████████████████████████\n" +
+                    "    ████████████████████████▓▓▓▓▓▓▓▓▓▓██████████████████████████████████████████████\n" +
+                    "    ████████████████████████▓▓▓▓╫╫╫╫╫███████████████████████████████████████████████\n" +
+                    "    ███████████████▀╫╫▒▀█▓▓██▓▓▓▓╫╫╫▓███████████████████████████████████████████████\n" +
+                    "    █████████████▓╫╫╫╫╫╫╫╫▓▓╫╫▓▓▓▓▓▓▓▓▓▓▓▓██████████████████████████████████████████\n" +
+                    "    ████████████▓▓╫╫╫╫╫▓╫╫╫╫▀▓▓▓▒╫╫▓▓█▓▓▓▀╬╣▓███████████████████████████████████████\n" +
+                    "    ████████████▓▓╫╫╫╫╫▓▓╫╫╫╫╫╫╫▓▓▓▓▓▓▓█▓▓▓▓▓▌██████████████████████████████████████\n" +
+                    "    ███████████▓▓▓╫╫╫╫╫▓▓╫╫╫▓╫╫╫╫▓▓▓▓█▓▓▓▓▓▓▓▓╫▓▓▓▓▓▓███████████████████████████████\n"
+                  );
         }
     }
 }
