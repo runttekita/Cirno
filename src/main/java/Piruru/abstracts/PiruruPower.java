@@ -1,5 +1,6 @@
 package Piruru.abstracts;
 
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnCardDrawPower;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -25,4 +26,11 @@ public abstract class PiruruPower extends AbstractPower {
     }
 
     public abstract void updateDescription();
+
+    @Override
+    public void stackPower(int amount) {
+        fontScale = 8.0F;
+        this.amount += amount;
+    }
+
 }

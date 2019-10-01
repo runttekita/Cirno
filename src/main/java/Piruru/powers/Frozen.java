@@ -31,6 +31,7 @@ public class Frozen extends PiruruPower implements
     private byte moveByte;
     private AbstractMonster.Intent moveIntent;
     private EnemyMoveInfo move;
+
     public Frozen(AbstractCreature owner) {
         this.owner = owner;
     }

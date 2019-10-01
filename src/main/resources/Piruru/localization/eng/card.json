@@ -88,5 +88,9 @@
   "AttackAndScry": {
     "NAME": "Watcher shit",
     "DESCRIPTION": "$damage $nl $scry"
+  },
+  "NoCardsBlock": {
+    "NAME": "owo",
+    "DESCRIPTION": "$nohand $magicblock"
   }
 }

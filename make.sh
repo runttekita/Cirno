@@ -65,6 +65,8 @@ then
   AOE_MILL='piruru:Mill for each enemy in combat'
   AOE_COLD='Apply !M! piruru:Cold to ALL enemies.'
   SCRY='Scry !M! cards.'
+  NO_HAND='Whenever your hand becomes empty, '
+  MAGIC_BLOCK='Gain !M! Block.'
 fi
 
 # Copy into production folder
@@ -78,6 +80,7 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
 sed -i s/\$damage/"${DAMAGE}"/g ${PROD_JSON}
+sed -i s/\$magicblock/"${MAGIC_BLOCK}"/g ${PROD_JSON}
 sed -i s/\$block/"${BLOCK}"/g ${PROD_JSON}
 sed -i s/\$discardOne/"${DISCARD_ONE}"/g ${PROD_JSON}
 sed -i s/\$energy/"${ENERGY}"/g ${PROD_JSON}
@@ -108,6 +111,7 @@ sed -i s/\$multidmg/"${DAMAGE_AOE}"/g ${PROD_JSON}
 sed -i s/\$aoemill/"${AOE_MILL}"/g ${PROD_JSON}
 sed -i s/\$aoecold/"${AOE_COLD}"/g ${PROD_JSON}
 sed -i s/\$scry/"${SCRY}"/g ${PROD_JSON}
+sed -i s/\%nohand/"${NO_HAND}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}powers.json
