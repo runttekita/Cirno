@@ -62,7 +62,7 @@ then
   BANISH_CONDITIONAL='piruru:Banish !M! cards. NL If you piruru:Banished !M! cards, '
   ALLOS='Enter piruru:Allos.'
   DAMAGE_AOE='Deal !D! damage to ALL enemies.'
-  AOE_MILL='piruru:Mill for each enemy in combat'
+  AOE_MILL='piruru:Mill !M! cards for each enemy in combat'
   AOE_COLD='Apply !M! piruru:Cold to ALL enemies.'
   SCRY='Scry !M! cards.'
   NO_HAND='Whenever your hand becomes empty, '
