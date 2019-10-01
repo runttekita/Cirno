@@ -33,5 +33,12 @@
       " card.",
       " cards."
     ]
+  },
+  "RecoverDamageP": {
+    "NAME": "ASfs;lk",
+    "DESCRIPTIONS": [
+      "Whenever you #yRecover, deal #b",
+      " damage."
+    ]
   }
 }

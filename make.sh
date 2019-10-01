@@ -78,12 +78,14 @@ then
   CONDITIONAL_DRAW='Draw !M! cards. If you draw a '
   COLD_DRAW='Skill, apply 1 piruru:Cold.'
   RANDOM_COLD='Apply 1 piruru:Cold to a random enemy for each card discarded.'
-  MILL_CONDITIONAL='piruru:Mill !M! cards and '
+  MILL_CONDITIONAL='piruru:Mill !M! cards, and '
   POWER_MILL='if any of them were powers, piruru:Recover it.'
   LOCK_YOU='piruru:Freeze ALL enemies.'
   RETAIN='Retain.'
   SPIN='Whenever your hand becomes empty, draw !M! card.'
   SPINS='Whenever your hand becomes empty, draw !M! cards.'
+  WHEN_RECOVER='Whenever you piruru:Recover, '
+  MAGIC_DAMAGE='deal !M! damage.'
 fi
 
 # Copy into production folder
@@ -96,6 +98,8 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$magicdamage/"${MAGIC_DAMAGE}"/g ${PROD_JSON}
+sed -i s/\$whenrecover/"${WHEN_RECOVER}"/g ${PROD_JSON}
 sed -i s/\$spins/"${SPINS}"/g ${PROD_JSON}
 sed -i s/\$spin/"${SPIN}"/g ${PROD_JSON}
 sed -i s/\$lockyou/"${LOCK_YOU}"/g ${PROD_JSON}

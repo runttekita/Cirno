@@ -135,5 +135,9 @@
     "NAME": "spin",
     "DESCRIPTION": "$spin",
     "UPGRADE_DESCRIPTION": "$spins"
+  },
+  "RecoverDamage": {
+    "NAME": "laskfas",
+    "DESCRIPTION": "$whenrecover $magicdamage"
   }
 }
