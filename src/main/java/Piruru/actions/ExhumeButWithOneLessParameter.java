@@ -11,4 +11,5 @@ public class ExhumeButWithOneLessParameter extends AbstractGameAction {
         AbstractDungeon.actionManager.addToBottom(new ExhumeAction(false));
         isDone = true;
     }
+    
 }
