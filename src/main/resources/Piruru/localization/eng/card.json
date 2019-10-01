@@ -113,5 +113,9 @@
   "AttackReturnAttacks": {
     "NAME": "wee",
     "DESCRIPTION": "$damage $nl $returnattacks"
+  },
+  "ColdDraw": {
+    "NAME": "sora",
+    "DESCRIPTION": "$conditionaldraw $colddraw"
   }
 }

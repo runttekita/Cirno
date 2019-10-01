@@ -75,6 +75,8 @@ then
   DISCARD_ANY='Discard any number of cards.'
   DISCARD_BLOCK='Gain !B! Block for each card discarded.'
   RETURN_ATTACKS='piruru:Return !M! Attacks.'
+  CONDITIONAL_DRAW='Draw !M! cards. If you draw a '
+  COLD_DRAW='Skill, apply 1 piruru:Cold.'
 fi
 
 # Copy into production folder
@@ -87,6 +89,8 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$colddraw/"${COLD_DRAW}"/g ${PROD_JSON}
+sed -i s/\$conditionaldraw/"${CONDITIONAL_DRAW}"/g ${PROD_JSON}
 sed -i s/\$discardblock/"${DISCARD_BLOCK}"/g ${PROD_JSON}
 sed -i s/\$discardany/"${DISCARD_ANY}"/g ${PROD_JSON}
 sed -i s/\$damage/"${DAMAGE}"/g ${PROD_JSON}
