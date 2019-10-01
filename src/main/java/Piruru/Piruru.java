@@ -114,6 +114,31 @@ public class Piruru implements
      */
     @Override
     public void receiveEditCards() {
+		BaseMod.addCard(new AllForOneButSkills());//delete
+		BaseMod.addCard(new AoECold());//delete
+		BaseMod.addCard(new AoEMill());//delete
+		BaseMod.addCard(new AttackAndMill());//delete
+		BaseMod.addCard(new AttackAndScry());//delete
+		BaseMod.addCard(new AttackDiscard());//delete
+		BaseMod.addCard(new AttackExhume());//delete
+		BaseMod.addCard(new BanishExhume());//delete
+		BaseMod.addCard(new BanishThenRecover());//delete
+		BaseMod.addCard(new BlockDrawMill());//delete
+		BaseMod.addCard(new ColdBane());//delete
+		BaseMod.addCard(new DamageAndCold());//delete
+		BaseMod.addCard(new Defend());//delete
+		BaseMod.addCard(new DiscardAndGainEnergy());//delete
+		BaseMod.addCard(new DiscardAnyAmountAndGainEnergy());//delete
+		BaseMod.addCard(new EnterACRO());//delete
+		BaseMod.addCard(new EnterAllos());//delete
+		BaseMod.addCard(new EnterApexForm());//delete
+		BaseMod.addCard(new FlameBarrierButCold());//delete
+		BaseMod.addCard(new FreezeEnemy());//delete
+		BaseMod.addCard(new InfiniteScalingShit());//delete
+		BaseMod.addCard(new NoCardsBlock());//delete
+		BaseMod.addCard(new ScoutAttacks());//delete
+		BaseMod.addCard(new SpreadCold());//delete
+		BaseMod.addCard(new Strike());//delete
 		//autoAddCards
     }
 
@@ -133,6 +158,7 @@ public class Piruru implements
      */
     @Override
     public void receiveEditRelics() {
+		BaseMod.addRelicToCustomPool(new StarterRelic(), PiruruChar.Enums.PIRURU_ICE);//delete
 		//autoAddRelics
         for (AbstractCard c : CardLibrary.getCardList(PiruruChar.Enums.LIBRARY_COLOR)) {
             UnlockTracker.unlockCard(c.cardID);

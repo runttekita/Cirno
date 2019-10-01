@@ -103,6 +103,7 @@
   },
   "BlockDrawMill": {
     "NAME": "BDM",
-    "DESCRIPTION": "$block $nl $drawone $nl $millone"
+    "DESCRIPTION": "$block $nl $drawone $nl $millone",
+    "UPGRADE_DESCRIPTION": "$block $nl $draw $nl $mill"
   }
 }
