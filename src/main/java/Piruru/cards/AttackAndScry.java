@@ -34,6 +34,6 @@ public class AttackAndScry extends PiruruCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         damage(m);
-        act(new ScryAction(SCRY));
+        act(new ScryAction(magicNumber));
     }
 }
