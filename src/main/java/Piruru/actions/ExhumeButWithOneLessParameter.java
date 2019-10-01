@@ -4,12 +4,15 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.unique.ExhumeAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class ExhumeButWithOneLessParameter extends AbstractGameAction {
+public class ExhumeButWithOneLessParameter extends ExhumeAction {
+
+    public ExhumeButWithOneLessParameter() {
+        super(false);
+    }
 
     @Override
     public void update() {
-        AbstractDungeon.actionManager.addToBottom(new ExhumeAction(false));
-        isDone = true;
+        super.update();
     }
-    
+
 }
