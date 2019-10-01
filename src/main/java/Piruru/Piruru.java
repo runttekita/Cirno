@@ -118,6 +118,32 @@ public class Piruru implements
      */
     @Override
     public void receiveEditCards() {
+		BaseMod.addCard(new AllForOneButSkills());//delete
+		BaseMod.addCard(new AoECold());//delete
+		BaseMod.addCard(new AoEMill());//delete
+		BaseMod.addCard(new AttackAndMill());//delete
+		BaseMod.addCard(new AttackAndScry());//delete
+		BaseMod.addCard(new AttackDiscard());//delete
+		BaseMod.addCard(new AttackExhume());//delete
+		BaseMod.addCard(new BanishExhume());//delete
+		BaseMod.addCard(new BanishThenRecover());//delete
+		BaseMod.addCard(new BlockDrawMill());//delete
+		BaseMod.addCard(new ColdBane());//delete
+		BaseMod.addCard(new DamageAndCold());//delete
+		BaseMod.addCard(new Defend());//delete
+		BaseMod.addCard(new DiscardAndGainEnergy());//delete
+		BaseMod.addCard(new DiscardAnyAmountAndGainEnergy());//delete
+		BaseMod.addCard(new DiscardForBlock());//delete
+		BaseMod.addCard(new EnterACRO());//delete
+		BaseMod.addCard(new EnterAllos());//delete
+		BaseMod.addCard(new EnterApexForm());//delete
+		BaseMod.addCard(new FlameBarrierButCold());//delete
+		BaseMod.addCard(new FreezeEnemy());//delete
+		BaseMod.addCard(new InfiniteScalingShit());//delete
+		BaseMod.addCard(new NoCardsBlock());//delete
+		BaseMod.addCard(new ScoutAttacks());//delete
+		BaseMod.addCard(new SpreadCold());//delete
+		BaseMod.addCard(new Strike());//delete
 		//autoAddCards
     }
 
@@ -137,6 +163,7 @@ public class Piruru implements
      */
     @Override
     public void receiveEditRelics() {
+		BaseMod.addRelicToCustomPool(new StarterRelic(), PiruruChar.Enums.PIRURU_ICE);//delete
 		//autoAddRelics
         int count = 0;
         int commonCount = 0;
@@ -201,17 +228,12 @@ public class Piruru implements
          * https://www.mkyong.com/java/java-generate-random-integers-in-a-range/
          */
         private static int getRandomNumberInRange(int min, int max) {
-
-            if (min >= max) {
-                throw new IllegalArgumentException("max must be greater than min");
-            }
-
             Random r = new Random();
             return r.nextInt((max - min) + 1) + min;
         }
 
         private static void init() {
-            random = getRandomNumberInRange(0, 1);
+            random = getRandomNumberInRange(2, 2);
             if (random == 0) {
                 System.out.println("\n" +
                         "                                                           ,╔▄▄▄▄▓▓▓▓▄▄w\n" +
@@ -242,7 +264,7 @@ public class Piruru implements
                         "                                                        ,╫╫╫╫▓▓H╙,  .`╙╨╩╣▓▓▓╫╫M»»` ,«`\n" +
                         "                                                       ]░╫╫╫▓▓▌``!]/   `\"╓╩````\"\"```\n" +
                         "                                                         `╙▀▓▓]  ,\"     ]░»»»,\n" +
-                        "                                                            ``╙ \"     ,╩µ»»»»»»»;»,.  STAN YOHANE -reina\n");
+                        "                                                            ``╙ \"     ,╩µ»»»»»»»;»,.  STAN YOHANE\n");
             }
             if (random == 1) {
                 System.out.println("\n" +
@@ -314,12 +336,7 @@ public class Piruru implements
                         "    ▐█████▀\"└    »≈╨ÑΦ▀▀▀▀▀╨╨╨^          ╙▀▀▓▓▓▓▓▓M\"╫╫███▓▓▓╫╫▓██████▓█╔▌░░▓░░╣Ñ╙@ ░\n" +
                         "    ▐████▌▓▄╝╙                              `▀▓████▄ ╣╫▓████▓▓██████▓▓H▓░░║M░║╫░»║⌂:\n" +
                         "    ▐████▒╫╫¥▄µ,,,,,,,╓╓▄▄▄▄▄▄▄▄µ,            \"▀▓███▓▓▌╫████████████▓▌╦▌░░▓░░▌Ñ»»░╣▐\n" +
-                        "    ▐████M╫╫╫╫╫▓▓▓▓▓▓▓▓▓▓▓▓█▀▀▀▀▀▀*             ╙▓▓╨. ▌╫╢████████████M╢Mµ▄Ü░╟╫H░▄M╢M\n" +
-                        "    ▐████╫╫╫╫╫╫╫╫▀▓▓▓▓▀╙╙           .                ▐▒╫▓██████████▓█░▓╟▓ ╙▌╣╫û║M  \"\n" +
-                        "    ▐████╫╫╫╫╫╫╫╫╫╫╫▀▓▓▓▄▄▄▄Φ╫ΦKK╫▓▓▓▓▓▄▄╦╦╦╦╥╥,,,,╦╦▌╫╫████████████▌╬▌▓░N ▓▓▌░▓K. .\n" +
-                        "    ▐█▌██╫╫╫╫╫╫╫╫╫╫╫╫╫╫╫╫╫╬▄▄▄▄▄▄▄╫▀▓▓▓▓▓█▓▓▓▄▄▄▄▄▄▄▀╫╫█████████████M╫▓█▒░U║║M║▓Ñ╦ .\n" +
-                        "    ▐█╫██Ñ╫╫╫╫╫╫╫╫╫╫╫╫╫╫▓███▀▒▒▒▀▀▀████▓▓██▓███▓▓██▓▓▓██████████████░╫█▓▌░H╫░▌▓▓▌░⌐\n" +
-                        "    ▐█╬██Ñ╫╫╫╫╫╫╫╫╫╫╫╫▓█▀╫╫╫╫╫╫╫╫╫╫╫╫╬▀██▓█▓▓██▓███▓████████████████░▓█▓▓░H▓░╣█▓▓░H  Homura did nothing wrong.\n");
+                        "    ▐████M╫╫╫╫╫▓▓▓▓▓▓▓▓▓▓▓▓█▀▀▀▀▀▀*             ╙▓▓╨. ▌╫╢████████████M╢Mµ▄Ü░╟╫H░▄M╢M Homura did nothing wrong.\n");
             }
         }
     }
