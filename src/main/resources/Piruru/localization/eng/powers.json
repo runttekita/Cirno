@@ -25,5 +25,13 @@
       "Whenever your hand becomes empty, gain #b",
       " #yBlock."
     ]
+  },
+  "UnceasingTopP": {
+    "NAME": "unceasing top",
+    "DESCRIPTIONS": [
+      "Whenever your hand becomes empty, draw #b",
+      " card.",
+      " cards."
+    ]
   }
 }
