@@ -1,11 +1,13 @@
 package Piruru.actions;
 
+import Piruru.interfaces.OnRecover;
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
@@ -82,6 +84,11 @@ public class RecoverAction extends AbstractGameAction {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 player.hand.addToHand(c);
                 player.discardPile.removeCard(c);
+                for (AbstractPower p : AbstractDungeon.player.powers) {
+                    if (p instanceof OnRecover) {
+                        ((OnRecover)p).onRecover(c);
+                    }
+                }
             }
             player.hand.refreshHandLayout();
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
