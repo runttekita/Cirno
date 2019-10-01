@@ -20,11 +20,13 @@ public abstract class PiruruCard extends CustomCard {
     private int upgradeBlock;
     private int upgradeMagic;
     private int upgradeCost;
+    private CardStrings strings;
 
     public PiruruCard(CardStrings strings, int cost, CardType type, CardRarity rarity, CardTarget target, int upgradeDamage,
                       int upgradeBlock, int upgradeMagic, int upgradeCost) {
         super(null, strings.NAME, getImg("Piruru:uwu"), cost, strings.DESCRIPTION, type, PiruruChar.Enums.PIRURU_ICE, rarity, target);
         cardID = makeID(this.getClass().getSimpleName());
+        this.strings = strings;
         this.upgradeDamage = upgradeDamage;
         this.upgradeBlock = upgradeBlock;
         this.upgradeMagic = upgradeMagic;
@@ -68,6 +70,10 @@ public abstract class PiruruCard extends CustomCard {
             upgradeBlock();
             upgradeMagic();
             upgradeCost();
+            if (strings.UPGRADE_DESCRIPTION != null) {
+                rawDescription = strings.UPGRADE_DESCRIPTION;
+                initializeDescription();
+            }
         }
     }
 

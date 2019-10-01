@@ -100,5 +100,9 @@
   "ColdBane": {
     "NAME": "cold bane",
     "DESCRIPTION": "$damage $nl $conditionalcold"
+  },
+  "BlockDrawMill": {
+    "NAME": "BDM",
+    "DESCRIPTION": "$block $nl $drawone $nl $millone"
   }
 }

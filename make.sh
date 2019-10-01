@@ -69,6 +69,9 @@ then
   MAGIC_BLOCK='Gain !M! Block.'
   DISCARD_RANDOM='Discard !M! random cards.'
   CONDITIONAL_COLD='If the enemy is piruru:Cold, apply !M! piruru:Cold.'
+  DRAW_ONE='Draw !M! card.'
+  MILL_ONE='piruru:Mill !M! card.'
+  DRAW='Draw !M! cards.'
 fi
 
 # Copy into production folder
@@ -116,6 +119,9 @@ sed -i s/\$aoecold/"${AOE_COLD}"/g ${PROD_JSON}
 sed -i s/\$scry/"${SCRY}"/g ${PROD_JSON}
 sed -i s/\$nohand/"${NO_HAND}"/g ${PROD_JSON}
 sed -i s/\$conditionalcold/"${CONDITIONAL_COLD}"/g ${PROD_JSON}
+sed -i s/\$drawone/"${DRAW_ONE}"/g ${PROD_JSON}
+sed -i s/\$draw/"${DRAW}"/g ${PROD_JSON}
+sed -i s/\$millone/"${MILL_ONE}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}powers.json
