@@ -1,6 +1,6 @@
 package Piruru.patches;
 
-import Piruru.OnRefreshHand;
+import Piruru.interfaces.OnRefreshHand;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

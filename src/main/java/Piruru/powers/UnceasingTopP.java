@@ -1,6 +1,6 @@
 package Piruru.powers;
 
-import Piruru.OnRefreshHand;
+import Piruru.interfaces.OnRefreshHand;
 import Piruru.abstracts.PiruruPower;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

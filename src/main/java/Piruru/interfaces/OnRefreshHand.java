@@ -1,4 +1,6 @@
-package Piruru;
+package Piruru.interfaces;
+
+import Piruru.Piruru;
 
 public interface OnRefreshHand {
 
