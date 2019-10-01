@@ -75,7 +75,7 @@ public class DrawActionButWithACallback extends AbstractGameAction {
                         duration = Settings.ACTION_DUR_FASTER;
                     }
 
-                    --amount;// 112
+                    --amount;
                     if (!AbstractDungeon.player.drawPile.isEmpty()) {
                         AbstractDungeon.player.draw();
                         callback.accept(AbstractDungeon.player.drawPile.getTopCard());
