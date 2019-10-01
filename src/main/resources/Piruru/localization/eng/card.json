@@ -121,5 +121,9 @@
   "DiscardRandomCold": {
     "NAME": "waoifja",
     "DESCRIPTION": "$discardany $nl $randomcold"
+  },
+  "MillForPowers": {
+    "NAME": "rummage ffas",
+    "DESCRIPTION": "$millconditional $powermill"
   }
 }

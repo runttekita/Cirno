@@ -22,6 +22,7 @@ public class RecoverAction extends AbstractGameAction {
     private int amount;
     private Consumer<ArrayList<AbstractCard>> callback = null;
     private AbstractPlayer player;
+    private AbstractCard card = null;
 
     public RecoverAction(int amount) {
         this.amount = amount;
@@ -34,11 +35,19 @@ public class RecoverAction extends AbstractGameAction {
         this.callback = callback;
     }
 
+    public RecoverAction(AbstractCard card) {
+        this.card = card;
+    }
+
     @Override
     public void update() {
         if (player.discardPile.isEmpty()) {
             isDone = true;
             return;
+        }
+        if (card != null) {
+            player.hand.addToHand(card);
+            player.discardPile.removeCard(card);
         }
         if (duration == Settings.ACTION_DUR_FASTER) {
             if (player.discardPile.size() < amount && player.hand.size() + player.discardPile.size() <= BaseMod.MAX_HAND_SIZE) {

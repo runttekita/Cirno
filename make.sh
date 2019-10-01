@@ -78,6 +78,8 @@ then
   CONDITIONAL_DRAW='Draw !M! cards. If you draw a '
   COLD_DRAW='Skill, apply 1 piruru:Cold.'
   RANDOM_COLD='Apply 1 piruru:Cold to a random enemy for each card discarded.'
+  MILL_CONDITIONAL='piruru:Mill !M! cards and '
+  POWER_MILL='if any of them were powers, piruru:Recover it.'
 fi
 
 # Copy into production folder
@@ -91,6 +93,8 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
 sed -i s/\$energydiscard/"${ENERGY_DISCARD}"/g ${PROD_JSON}
+sed -i s/\$millconditional/"${MILL_CONDITIONAL}"/g ${PROD_JSON}
+sed -i s/\$powermill/"${POWER_MILL}"/g ${PROD_JSON}
 sed -i s/\$randomcold/"${RANDOM_COLD}"/g ${PROD_JSON}
 sed -i s/\$colddraw/"${COLD_DRAW}"/g ${PROD_JSON}
 sed -i s/\$conditionaldraw/"${CONDITIONAL_DRAW}"/g ${PROD_JSON}
