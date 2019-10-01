@@ -90,6 +90,7 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$energydiscard/"${ENERGY_DISCARD}"/g ${PROD_JSON}
 sed -i s/\$randomcold/"${RANDOM_COLD}"/g ${PROD_JSON}
 sed -i s/\$colddraw/"${COLD_DRAW}"/g ${PROD_JSON}
 sed -i s/\$conditionaldraw/"${CONDITIONAL_DRAW}"/g ${PROD_JSON}
@@ -114,7 +115,6 @@ sed -i s/\$recover/"${RECOVER}"/g ${PROD_JSON}
 sed -i s/\$spreadcold/"${SPREAD_COLD}"/g ${PROD_JSON}
 sed -i s/\$icebarrier/"${ICE_BARRIER}"/g ${PROD_JSON}
 sed -i s/\$scoutattacks/"${SCOUT_ATTACKS}"/g ${PROD_JSON}
-sed -i s/\$energydiscard/"${ENERGY_DISCARD}"/g ${PROD_JSON}
 sed -i s/\$infiniteupgrades/"${INFINITE_UPGRADES}"/g ${PROD_JSON}
 sed -i s/\$nl/"${NL}"/g ${PROD_JSON}
 sed -i s/\$banishone/"${BANISH_ONE}"/g ${PROD_JSON}
