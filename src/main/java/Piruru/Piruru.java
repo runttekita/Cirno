@@ -118,32 +118,6 @@ public class Piruru implements
      */
     @Override
     public void receiveEditCards() {
-		BaseMod.addCard(new AllForOneButSkills());//delete
-		BaseMod.addCard(new AoECold());//delete
-		BaseMod.addCard(new AoEMill());//delete
-		BaseMod.addCard(new AttackAndMill());//delete
-		BaseMod.addCard(new AttackAndScry());//delete
-		BaseMod.addCard(new AttackDiscard());//delete
-		BaseMod.addCard(new AttackExhume());//delete
-		BaseMod.addCard(new BanishExhume());//delete
-		BaseMod.addCard(new BanishThenRecover());//delete
-		BaseMod.addCard(new BlockDrawMill());//delete
-		BaseMod.addCard(new ColdBane());//delete
-		BaseMod.addCard(new DamageAndCold());//delete
-		BaseMod.addCard(new Defend());//delete
-		BaseMod.addCard(new DiscardAndGainEnergy());//delete
-		BaseMod.addCard(new DiscardAnyAmountAndGainEnergy());//delete
-		BaseMod.addCard(new DiscardForBlock());//delete
-		BaseMod.addCard(new EnterACRO());//delete
-		BaseMod.addCard(new EnterAllos());//delete
-		BaseMod.addCard(new EnterApexForm());//delete
-		BaseMod.addCard(new FlameBarrierButCold());//delete
-		BaseMod.addCard(new FreezeEnemy());//delete
-		BaseMod.addCard(new InfiniteScalingShit());//delete
-		BaseMod.addCard(new NoCardsBlock());//delete
-		BaseMod.addCard(new ScoutAttacks());//delete
-		BaseMod.addCard(new SpreadCold());//delete
-		BaseMod.addCard(new Strike());//delete
 		//autoAddCards
     }
 
@@ -163,7 +137,6 @@ public class Piruru implements
      */
     @Override
     public void receiveEditRelics() {
-		BaseMod.addRelicToCustomPool(new StarterRelic(), PiruruChar.Enums.PIRURU_ICE);//delete
 		//autoAddRelics
         int count = 0;
         int commonCount = 0;
@@ -233,7 +206,7 @@ public class Piruru implements
         }
 
         private static void init() {
-            random = getRandomNumberInRange(2, 2);
+            random = getRandomNumberInRange(3, 3);
             if (random == 0) {
                 System.out.println("\n" +
                         "                                                           ,╔▄▄▄▄▓▓▓▓▄▄w\n" +
@@ -337,6 +310,40 @@ public class Piruru implements
                         "    ▐████▌▓▄╝╙                              `▀▓████▄ ╣╫▓████▓▓██████▓▓H▓░░║M░║╫░»║⌂:\n" +
                         "    ▐████▒╫╫¥▄µ,,,,,,,╓╓▄▄▄▄▄▄▄▄µ,            \"▀▓███▓▓▌╫████████████▓▌╦▌░░▓░░▌Ñ»»░╣▐\n" +
                         "    ▐████M╫╫╫╫╫▓▓▓▓▓▓▓▓▓▓▓▓█▀▀▀▀▀▀*             ╙▓▓╨. ▌╫╢████████████M╢Mµ▄Ü░╟╫H░▄M╢M Homura did nothing wrong.\n");
+            }
+            if (random == 3) {
+                System.out.println("\n" +
+                        "                                    `'```''`````'`''```` `\n" +
+                        "                                  `» .¡;µ╦╦╦╦╦µ¡»»»»:»»````\n" +
+                        "                                 »,»]╦╦░░░░░░░░░░░░╦░»»`''`''```\n" +
+                        "                              '»»\"»░░░░░░░░░░░░░░░░░░░≈\"»»''````\n" +
+                        "                            ``,░`  `░░░░░░░░░░░░░░░░\"`   \"»»``'```\n" +
+                        "                            ',╨,   »░░░░░░░░░░░░░░`       `»»''```` `\n" +
+                        "                           »»░╦░╦╦░░░░░░░░Ñ░╦░░╦╦░╦»,,╦╦╦»,.»»`'`````\n" +
+                        "                       `   »»░░░░░░╦░░╦╦Ñ╫░╬╫╫╫╫╫Ñ░╦░░░░░░░╦ù`''`````\n" +
+                        "                       ' ` »░░░░░░ÑÑ░╦Ñ╫ÑÑ»»╩╫░╫╫╫╫╦╫░░░░░░░░H`'`````\n" +
+                        "                       '```╠░░░╦░╫╫╫╫Ñ╫HÑ░»»»╨H»╚╫░╨╫Ñ░░░░░░Ü]`'`````\n" +
+                        "                       '  '╫]░░╫╦╫H╫╫░Ñ»╬`````\"»≈╠░»╨Ñ░░░░░░░░````''`\n" +
+                        "                      ```'»Ñ╦░░╠░H,╟╫M¥H```````▐╨╣M╠M░Ñ░░K░░░UH»»»`'`   `\n" +
+                        "                      `'''»Ñ╫░░░╫╦╨╬╫▄╬`        ╠▓▓╫▓\"╟░░╫░░H╙U»`»' ```\n" +
+                        "                  ''  '»'']Ñ╫░░░░╠ ╟╫▀╫H '»     `╠╫╫Ñ:▐Ñ░░░░H`╙U»»`````\n" +
+                        "                  ``` '»`']Ñ╫░░░░░»`╙╙\"  '»``   `     `Ñ░░]░`»`]»'.````\n" +
+                        "                 ``'` '»'`»Ñ╬░░░]H'      ```           ░Ñ░░H ``╨░»`»»``\n" +
+                        "                ```'` '»'`»Ñ░░░░░╫ `       ``    `    ]KÑ░░░H `»Ü»``»``\n" +
+                        "               ````'` '»``»Ñ░░░░░╫Ñ⌂      `,,,»     ,╬╫M»╟░░╦ ,░``»````   `\n" +
+                        "                 `'`'''»`'»Ñ░░░░]╫╫╫Nµ,          :╔╬╫╫╫```╫Ñ╫╫╫H``'````\n" +
+                        "                 ````''```»Ñ░Ñ░░]╫╫╫╫╫╫╬N≈,,.,,»ñ░╫╫╫╫╫ ``╙╫╫╫╫╫`»`````\n" +
+                        "                    `````'»Ñ░Ñ░░╫╫╫╫╫╫╫╫╫m»░░░»»»░╫╫╫╫╫H '`╙╫╫╫╫»``'``\n" +
+                        "                    ````'`»Ü░Ñ░░╫╫╫Ñ╫╫╫╫╫Ñ»»»»»»»░╟╫╩╫╫╫:   ╙╫╫╫H`\n" +
+                        "                 `````````]░╫Ñ░░╫╩╨╨╨`╚╨░░»»»»»»»»░░░`]╬░`  '╟Ñ╫H`  `\n" +
+                        "                 ``````»``]Ñ╨╫░░Ü``    »`»»»»»»»\"``; `]░H` '``╫╫Ü   `\n" +
+                        "          `````````````»»»╨! ╟░░$`     ╨^````````\":`  `░Ü»:   ╙╫╫`'``\n" +
+                        "       ````''''''```````»╔  \\\"░░╦                .^    ]Ñ»»    ╙╫░».'\n" +
+                        "       ''`````'````````»»╩   `]░╬N,     \"       .`     `Ü»»`   ```\"»¡`\n" +
+                        "      `  ```` '''''''''`/     `╦░░`╨╦╥   \".    ,`  .,╥╦ñ╨░ '    '\", `»:'  `\n" +
+                        "     ``` ''''''''''''''`╨  . . \"ÑÜ»╥ `╨╩╦╦╥H .]N╩╨╨\"`  ,»» ``    '╙N╦»`» ` `\n" +
+                        "     ``` '''''''''''»»»»    » »` ╨H`╨»╦»≈,,,U≈╥«;»╦≈^`   `` `     `╙░N,` ```  `  `\n" +
+                        "     ``` '''''''''''`»»`     \".`       `\"╥░░░*░░``        »```     .¡`H»``` Trans rights are human rights\n");
             }
         }
     }
