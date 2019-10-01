@@ -104,7 +104,6 @@ sed -i s/\$discardrandom/"${DISCARD_RANDOM}"/g ${PROD_JSON}
 sed -i s/\$energy/"${ENERGY}"/g ${PROD_JSON}
 sed -i s/\$cold/"${COLD}"/g ${PROD_JSON}
 sed -i s/\$freeze/"${FREEZE}"/g ${PROD_JSON}
-sed -i s/\$mill/"${MILL}"/g ${PROD_JSON}
 sed -i s/\$ethereal/"${ETHEREAL}"/g ${PROD_JSON}
 sed -i s/\$exhaust/"${EXHAUST}"/g ${PROD_JSON}
 sed -i s/\$recoverskillnohand/"${RECOVER_SKILLS_IGNORE_HAND}"/g ${PROD_JSON}
@@ -132,6 +131,7 @@ sed -i s/\$conditionalcold/"${CONDITIONAL_COLD}"/g ${PROD_JSON}
 sed -i s/\$drawone/"${DRAW_ONE}"/g ${PROD_JSON}
 sed -i s/\$draw/"${DRAW}"/g ${PROD_JSON}
 sed -i s/\$millone/"${MILL_ONE}"/g ${PROD_JSON}
+sed -i s/\$mill/"${MILL}"/g ${PROD_JSON}
 sed -i s/\$returnattacks/"${RETURN_ATTACKS}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
