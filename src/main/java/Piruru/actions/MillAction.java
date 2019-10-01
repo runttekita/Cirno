@@ -11,7 +11,7 @@ import java.util.function.Consumer;
 
 public class MillAction extends AbstractGameAction {
     private int amount;
-    private Consumer<AbstractCard> callback;
+    private Consumer<AbstractCard> callback = null;
 
     public MillAction(int amount) {
         this.amount = amount;
