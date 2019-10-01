@@ -33,9 +33,6 @@ public class Piruru implements
     public static final String PIRURU_SHOULDER_1 = "Piruru/images/char/defaultCharacter/shoulder.png";
     public static final String PIRURU_SHOULDER_2 = "Piruru/images/char/defaultCharacter/shoulder2.png";
     public static final String PIRURU_CORPSE = "Piruru/images/char/defaultCharacter/corpse.png";
-    public static final String BADGE_IMAGE = "Piruru/images/Badge.png";
-    public static final String PIRURU_SKELETON_ATLAS = "Piruru/images/char/defaultCharacter/skeleton.atlas";
-    public static final String PIRURU_SKELETON_JSON = "Piruru/images/char/defaultCharacter/skeleton.json";
     private static final String ATTACK_PIRURU_ICE = "Piruru/images/512prod/bg_attack_default_gray.png";
     private static final String SKILL_PIRURU_ICE = "Piruru/images/512prod/bg_skill_default_gray.png";
     private static final String POWER_PIRURU_ICE = "Piruru/images/512prod/bg_power_default_gray.png";
