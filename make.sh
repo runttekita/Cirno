@@ -64,6 +64,7 @@ then
   DAMAGE_AOE='Deal !D! damage to ALL enemies.'
   AOE_MILL='piruru:Mill for each enemy in combat'
   AOE_COLD='Apply !M! piruru:Cold to ALL enemies.'
+  SCRY='Scry !M! cards.'
 fi
 
 # Copy into production folder
@@ -106,6 +107,7 @@ sed -i s/\$allos/"${ALLOS}"/g ${PROD_JSON}
 sed -i s/\$multidmg/"${DAMAGE_AOE}"/g ${PROD_JSON}
 sed -i s/\$aoemill/"${AOE_MILL}"/g ${PROD_JSON}
 sed -i s/\$aoecold/"${AOE_COLD}"/g ${PROD_JSON}
+sed -i s/\$scry/"${SCRY}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}powers.json

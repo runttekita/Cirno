@@ -84,5 +84,9 @@
   "AoECold": {
     "NAME": "common staff",
     "DESCRIPTION": "$multidmg $nl $aoecold"
+  },
+  "AttackAndScry": {
+    "NAME": "Watcher shit",
+    "DESCRIPTION": "$damage $nl $scry"
   }
 }
