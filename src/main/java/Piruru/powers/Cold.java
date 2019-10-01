@@ -11,10 +11,10 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class Cold extends PiruruPower implements CloneablePowerInterface {
     private static final int PROC_AMOUNT = 3;
 
-    public Cold(AbstractCreature owner, int amount) {
+    public Cold(AbstractCreature owner) {
         super();
         this.owner = owner;
-        this.amount = amount;
+        this.amount = 1;
         isTurnBased = true;
     }
 
@@ -42,7 +42,7 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
 
     @Override
     public AbstractPower makeCopy() {
-        return new Cold(owner, amount);
+        return new Cold(owner);
     }
 
     @Override

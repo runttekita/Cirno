@@ -13,9 +13,8 @@ public class SpreadColdAction extends AbstractGameAction {
     private AbstractCreature target;
     private int amount;
 
-    public SpreadColdAction(AbstractCreature target, int amount) {
+    public SpreadColdAction(AbstractCreature target) {
         this.target = target;
-        this.amount = amount;
     }
 
     //TODO Refactor this so it isn't ugly as sin
@@ -30,11 +29,11 @@ public class SpreadColdAction extends AbstractGameAction {
                 right = AbstractDungeon.getMonsters().monsters.get(slot + 1);
             if (left != null && !left.isDeadOrEscaped()) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction
-                        (left, AbstractDungeon.player, new Cold(left, amount)));
+                        (left, AbstractDungeon.player, new Cold(left)));
             }
             if (right != null && !right.isDeadOrEscaped()) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction
-                        (right, AbstractDungeon.player, new Cold(right, amount)));
+                        (right, AbstractDungeon.player, new Cold(right)));
             }
         }
         isDone = true;

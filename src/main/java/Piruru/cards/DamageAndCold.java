@@ -46,6 +46,6 @@ public class DamageAndCold extends PiruruCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         damage(m);
-        act(power(m, p, new Cold(m, magicNumber), magicNumber));
+        act(power(m, p, new Cold(m), 1));
     }
 }

@@ -29,6 +29,6 @@ public class SpreadCold extends PiruruCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         damage(m);
-        act(new SpreadColdAction(m, magicNumber));
+        act(new SpreadColdAction(m));
     }
 }

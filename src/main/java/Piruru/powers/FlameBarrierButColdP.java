@@ -21,7 +21,7 @@ public class FlameBarrierButColdP extends PiruruPower implements CloneablePowerI
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(info.owner, owner,
-                new Cold(info.owner, 1), 1));
+                new Cold(info.owner), 1));
         return damageAmount;
     }
 

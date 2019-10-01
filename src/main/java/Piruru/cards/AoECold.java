@@ -41,7 +41,7 @@ public class AoECold extends PiruruCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         act(new DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            act(new ApplyPowerAction(m, p, new Cold(m, magicNumber), magicNumber));
+            act(new ApplyPowerAction(m, p, new Cold(m), 1));
         }
     }
 }

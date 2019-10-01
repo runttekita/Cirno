@@ -37,7 +37,7 @@ public class ColdDraw extends PiruruCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         act(new DrawActionButWithACallback(magicNumber, c -> {
             if (c.type == CardType.SKILL) {
-                act(new ApplyPowerAction(m, p, new Cold(m, 1), 1));
+                act(new ApplyPowerAction(m, p, new Cold(m), 1));
             }
         }));
     }

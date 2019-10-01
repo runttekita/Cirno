@@ -39,7 +39,7 @@ public class DiscardRandomCold extends PiruruCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         act(new DiscardAnyAmountAction(list -> list.forEach(c -> {
             AbstractMonster target = AbstractDungeon.getCurrRoom().monsters.getRandomMonster();
-            act(new ApplyPowerAction(target, p, new Cold(m, 1), 1));
+            act(new ApplyPowerAction(target, p, new Cold(m), 1));
         })));
     }
 }
