@@ -52,7 +52,7 @@ then
   ICE_BARRIER='Whenever you are attacked this turn, apply piruru:Cold back.'
   INFINITE_UPGRADES='Can be Upgraded any number of times.'
   SCOUT_ATTACKS='Discard all cards drawn this way that are not Attacks.'
-  INFINITE_ENERGY_DISCARD='Discard any number of cards. NL Gain [E] equal to their costs.'
+  ENERGY_DISCARD='Gain [E] equal to their costs.'
   NL='NL'
   BANISH_ONE='piruru:Banish !M! card.'
   BANISH='piruru:Banish !M! cards.'
@@ -72,6 +72,8 @@ then
   DRAW_ONE='Draw !M! card.'
   MILL_ONE='piruru:Mill !M! card.'
   DRAW='Draw !M! cards.'
+  DISCARD_ANY='Discard any number of cards.'
+  DISCARD_BLOCK='Gain !B! Block for each card discarded.'
 fi
 
 # Copy into production folder
@@ -84,6 +86,8 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$discardblock/"${DISCARD_BLOCK}"/g ${PROD_JSON}
+sed -i s/\$discardany/"${DISCARD_ANY}"/g ${PROD_JSON}
 sed -i s/\$damage/"${DAMAGE}"/g ${PROD_JSON}
 sed -i s/\$magicblock/"${MAGIC_BLOCK}"/g ${PROD_JSON}
 sed -i s/\$block/"${BLOCK}"/g ${PROD_JSON}
@@ -103,7 +107,7 @@ sed -i s/\$recover/"${RECOVER}"/g ${PROD_JSON}
 sed -i s/\$spreadcold/"${SPREAD_COLD}"/g ${PROD_JSON}
 sed -i s/\$icebarrier/"${ICE_BARRIER}"/g ${PROD_JSON}
 sed -i s/\$scoutattacks/"${SCOUT_ATTACKS}"/g ${PROD_JSON}
-sed -i s/\$infiniteenergydiscard/"${INFINITE_ENERGY_DISCARD}"/g ${PROD_JSON}
+sed -i s/\$energydiscard/"${ENERGY_DISCARD}"/g ${PROD_JSON}
 sed -i s/\$infiniteupgrades/"${INFINITE_UPGRADES}"/g ${PROD_JSON}
 sed -i s/\$nl/"${NL}"/g ${PROD_JSON}
 sed -i s/\$banishone/"${BANISH_ONE}"/g ${PROD_JSON}

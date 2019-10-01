@@ -47,7 +47,7 @@
   },
   "DiscardAnyAmountAndGainEnergy": {
     "NAME": "Wha",
-    "DESCRIPTION": "$infiniteenergydiscard"
+    "DESCRIPTION": "$discardany $nl $energydiscard"
   },
   "BanishThenRecover": {
     "NAME": "god i hate bd",
@@ -105,5 +105,9 @@
     "NAME": "BDM",
     "DESCRIPTION": "$block $nl $drawone $nl $millone",
     "UPGRADE_DESCRIPTION": "$block $nl $draw $nl $mill"
+  },
+  "DiscardForBlock": {
+    "NAME": "wa",
+    "DESCRIPTION": "$discardany $nl $discardblock"
   }
 }
