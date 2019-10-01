@@ -20,7 +20,7 @@ public class BlockDrawMill extends PiruruCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final int DAMAGE_UP = 0;
     private static final int BLOCK_UP = 3;
-    private static final int MILL_DRAW_UP = 0;
+    private static final int MILL_DRAW_UP = 1;
     private static final int DAMAGE = 0;
     private static final int BLOCK = 8;
     private static final int MILL_DRAW = 1;
