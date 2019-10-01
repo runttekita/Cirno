@@ -82,6 +82,7 @@ then
   POWER_MILL='if any of them were powers, piruru:Recover it.'
   LOCK_YOU='piruru:Freeze ALL enemies.'
   RETAIN='Retain.'
+  SPIN='Whenever you have no cards in hand during your turn, draw !M! cards.'
 fi
 
 # Copy into production folder
@@ -94,6 +95,7 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$spin/"${SPIN}"/g ${PROD_JSON}
 sed -i s/\$lockyou/"${LOCK_YOU}"/g ${PROD_JSON}
 sed -i s/\$retain/"${RETAIN}"/g ${PROD_JSON}
 sed -i s/\$energydiscard/"${ENERGY_DISCARD}"/g ${PROD_JSON}

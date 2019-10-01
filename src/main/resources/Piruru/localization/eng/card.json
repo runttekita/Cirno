@@ -130,5 +130,9 @@
     "NAME": "Lock You",
     "DESCRIPTION": "$lockyou",
     "UPGRADE_DESCRIPTION": "$lockyou $nl $retain"
+  },
+  "UnceasingTopPower": {
+    "NAME": "spin",
+    "DESCRIPTION": "$spin"
   }
 }
