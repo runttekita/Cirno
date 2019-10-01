@@ -13,9 +13,9 @@ import static Piruru.Piruru.makeID;
 public class EnterACRO extends PiruruCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(
             makeID(EnterACRO.class.getSimpleName()));
-    private static final int COST = 3;
+    private static final int COST = 2;
     private static final CardType TYPE = CardType.POWER;
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final int DAMAGE_UP = 0;
     private static final int BLOCK_UP = 0;
