@@ -1,6 +1,7 @@
 package Piruru.stances;
 
 import Piruru.abstracts.PiruruStance;
+import Piruru.interfaces.OnRefreshHand;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
@@ -22,7 +23,7 @@ import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 
-public class Allos extends PiruruStance {
+public class Allos extends PiruruStance implements OnRefreshHand {
     private static long sfxId = -1L;
 
     @Override
@@ -67,6 +68,11 @@ public class Allos extends PiruruStance {
         return damage;
     }
 
+    @Override
+    public void onRefreshHand() {
+        AbstractDungeon.onModifyPower();
+    }
+
     @SpirePatch(
             clz = DiscardAtEndOfTurnAction.class,
             method = "update"
@@ -81,61 +87,6 @@ public class Allos extends PiruruStance {
                     }
                 }
             };
-        }
-    }
-
-    @SpirePatch(
-            clz = CardGroup.class,
-            method = "moveToHand",
-            paramtypez = {
-                    AbstractCard.class
-            }
-    )
-    @SpirePatch(
-            clz = CardGroup.class,
-            method = "removeCard",
-            paramtypez = {
-                AbstractCard.class
-            }
-    )
-    @SpirePatch(
-            clz = CardGroup.class,
-            method = "addToHand"
-    )
-    @SpirePatch(
-            clz = CardGroup.class,
-            method = "moveToDiscardPile"
-    )
-    public static class ApplyPowersOnMoveCard {
-        public static void Postfix(CardGroup __instance, AbstractCard c) {
-            AbstractDungeon.onModifyPower();
-        }
-    }
-
-    @SpirePatch(
-            clz = CardGroup.class,
-            method = "removeCard",
-            paramtypez = {
-                    String.class
-            }
-    )
-    public static class ApplyPowersOnMoveCardStrings {
-        public static void Postfix(CardGroup __instance, String useless) {
-            AbstractDungeon.onModifyPower();
-        }
-    }
-
-    @SpirePatch(
-            clz = CardGroup.class,
-            method = "moveToHand",
-            paramtypez = {
-                    AbstractCard.class,
-                    CardGroup.class
-            }
-    )
-    public static class OverloadStuff {
-        public static void Postfix(CardGroup __instance, AbstractCard useless, CardGroup useless2) {
-            AbstractDungeon.onModifyPower();
         }
     }
 

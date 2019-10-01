@@ -1,6 +1,7 @@
 package Piruru.patches;
 
 import Piruru.interfaces.OnRefreshHand;
+import Piruru.stances.Allos;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -20,6 +21,9 @@ public class OnRefreshHandPatch {
             if (p instanceof OnRefreshHand) {
                 ((OnRefreshHand)p).onRefreshHand();
             }
+        }
+        if (AbstractDungeon.player.stance instanceof Allos) {
+            ((OnRefreshHand)AbstractDungeon.player.stance).onRefreshHand();
         }
     }
 
