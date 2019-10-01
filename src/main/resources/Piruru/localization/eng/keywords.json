@@ -54,5 +54,11 @@
       "allos"
     ],
     "DESCRIPTION": "At the end of your turn, you no longer discard your hand. If you have no cards in your hand, you no longer take damage."
+  },
+  {
+    "NAMES": [
+      "return"
+    ],
+    "DESCRIPTION": "#yReturned cards are moved from the #yExhaust pile to the discard pile."
   }
 ]

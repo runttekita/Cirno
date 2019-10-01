@@ -109,5 +109,9 @@
   "DiscardForBlock": {
     "NAME": "wa",
     "DESCRIPTION": "$discardany $nl $discardblock"
+  },
+  "AttackReturnAttacks": {
+    "NAME": "wee",
+    "DESCRIPTION": "$damage $nl $returnattacks"
   }
 }

@@ -74,6 +74,7 @@ then
   DRAW='Draw !M! cards.'
   DISCARD_ANY='Discard any number of cards.'
   DISCARD_BLOCK='Gain !B! Block for each card discarded.'
+  RETURN_ATTACKS='piruru:Return !M! Attacks.'
 fi
 
 # Copy into production folder
@@ -126,6 +127,7 @@ sed -i s/\$conditionalcold/"${CONDITIONAL_COLD}"/g ${PROD_JSON}
 sed -i s/\$drawone/"${DRAW_ONE}"/g ${PROD_JSON}
 sed -i s/\$draw/"${DRAW}"/g ${PROD_JSON}
 sed -i s/\$millone/"${MILL_ONE}"/g ${PROD_JSON}
+sed -i s/\$returnattacks/"${RETURN_ATTACKS}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}powers.json
