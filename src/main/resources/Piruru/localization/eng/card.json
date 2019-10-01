@@ -117,5 +117,9 @@
   "ColdDraw": {
     "NAME": "sora",
     "DESCRIPTION": "$conditionaldraw $colddraw"
+  },
+  "DiscardRandomCold": {
+    "NAME": "waoifja",
+    "DESCRIPTION": "$discardany $nl $randomcold"
   }
 }
