@@ -1,7 +1,8 @@
 package Piruru.cards;
 
 import Piruru.abstracts.PiruruCard;
-import Piruru.actions.DiscardToGainEnergyAction;
+import Piruru.actions.DiscardAnyAmountAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -17,13 +18,17 @@ public class DiscardAnyAmountAndGainEnergy extends PiruruCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final int COST_UP = 0;
+    private static final int ENERGY_GAIN = 1;
 
     public DiscardAnyAmountAndGainEnergy() {
         super(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, 0, COST_UP);
+        baseMagicNumber = magicNumber = ENERGY_GAIN;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        act(new DiscardToGainEnergyAction());
+        act(new DiscardAnyAmountAction(list -> list.forEach(
+                c -> act(new GainEnergyAction(magicNumber))
+        )));
     }
 }
