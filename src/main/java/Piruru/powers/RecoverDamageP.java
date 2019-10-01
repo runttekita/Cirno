@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 public class RecoverDamageP extends PiruruPower implements OnRecover {
 
     public RecoverDamageP(int amount) {
+        this.owner = AbstractDungeon.player;
         this.amount = amount;
     }
 
