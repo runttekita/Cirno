@@ -188,7 +188,7 @@ public class Piruru implements
      * ASCII Art made from
      * https://asciiart.club/
      */
-    public static class YOHANE_PRINT {
+    public static class ASCII_ART {
         private static int random;
         @SpireEnum
         public static AbstractCard.CardTags dab;
