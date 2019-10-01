@@ -206,7 +206,7 @@ public class Piruru implements
         }
 
         private static void init() {
-            random = getRandomNumberInRange(3, 3);
+            random = getRandomNumberInRange(0, 3);
             if (random == 0) {
                 System.out.println("\n" +
                         "                                                           ,╔▄▄▄▄▓▓▓▓▄▄w\n" +
