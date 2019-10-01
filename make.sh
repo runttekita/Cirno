@@ -68,6 +68,7 @@ then
   NO_HAND='Whenever your hand becomes empty, '
   MAGIC_BLOCK='Gain !M! Block.'
   DISCARD_RANDOM='Discard !M! random cards.'
+  CONDITIONAL_COLD='If the enemy is piruru:Cold, apply !M! piruru:Cold.'
 fi
 
 # Copy into production folder
@@ -113,7 +114,8 @@ sed -i s/\$multidmg/"${DAMAGE_AOE}"/g ${PROD_JSON}
 sed -i s/\$aoemill/"${AOE_MILL}"/g ${PROD_JSON}
 sed -i s/\$aoecold/"${AOE_COLD}"/g ${PROD_JSON}
 sed -i s/\$scry/"${SCRY}"/g ${PROD_JSON}
-sed -i s/\%nohand/"${NO_HAND}"/g ${PROD_JSON}
+sed -i s/\$nohand/"${NO_HAND}"/g ${PROD_JSON}
+sed -i s/\$conditionalcold/"${CONDITIONAL_COLD}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}powers.json

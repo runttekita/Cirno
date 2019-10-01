@@ -96,5 +96,9 @@
   "AttackDiscard": {
     "NAME": "All out attack smol",
     "DESCRIPTION": "$damage $nl $discardrandom"
+  },
+  "ColdBane": {
+    "NAME": "cold bane",
+    "DESCRIPTION": "$damage $nl $conditionalcold"
   }
 }
