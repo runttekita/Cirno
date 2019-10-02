@@ -84,7 +84,7 @@
   },
   "DiscardAndGainEnergy": {
     "NAME": "C R Y S T A L SEAL",
-    "DESCRIPTION": "$discardOne $nl $energy"
+    "DESCRIPTION": "$discardone $nl $energy"
   },
   "DiscardAnyAmountAndGainEnergy": {
     "NAME": "Wha",
