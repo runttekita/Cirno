@@ -4,10 +4,12 @@ import Piruru.Piruru;
 import Piruru.characters.PiruruChar;
 import Piruru.powers.Cold;
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -118,5 +120,8 @@ public abstract class PiruruCard extends CustomCard {
             upgradedCost = true;
         }
     }
+
+    @SpireEnum
+    AbstractCard.CardTags ARTS;
 
 }
