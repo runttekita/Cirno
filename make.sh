@@ -89,7 +89,7 @@ then
   RECOVER_RANDOM='piruru:Recover !M! random card.'
   REMEMBER='Enter piruru:Remember'
   DRAW_ARTS='Add !M! *Water *ARTS into your hand.'
-  ARTS='piruru:ARTS'
+  ARTS='piruru:ARTS.'
 fi
 
 # Copy into production folder
