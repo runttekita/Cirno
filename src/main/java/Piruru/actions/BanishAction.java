@@ -2,14 +2,12 @@ package Piruru.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.utility.ShowCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.vfx.SpeechBubble;
-import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
@@ -68,7 +66,6 @@ public class BanishAction extends AbstractGameAction {
         if (list != null) {
             callback.accept(list);
             for (AbstractCard c : list) {
-                //TODO
                 AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(
                         c, AbstractDungeon.player.discardPile
                 ));
