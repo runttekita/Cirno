@@ -30,53 +30,37 @@ public class ChainPower extends PiruruPower implements OnRefreshHand {
     public void onUseCard(AbstractCard c, UseCardAction a) {
         for (AbstractCard ca : AbstractDungeon.player.drawPile.group) {
             if (ChainedField.chained.get(ca)) {
-                if (ca.costForTurn > 0) {
-                    ca.costForTurn++;
-                    ca.isCostModifiedForTurn = false;
-                }
-                if (ca.cost > 0) {
-                    ca.cost++;
-                    ca.isCostModified = false;
-                }
+                ca.costForTurn++;
+                ca.isCostModifiedForTurn = false;
+                ca.cost++;
+                ca.isCostModified = false;
                 ChainedField.chained.set(ca, false);
             }
         }
         for (AbstractCard ca : AbstractDungeon.player.discardPile.group) {
             if (ChainedField.chained.get(ca)) {
-                if (ca.costForTurn > 0) {
-                    ca.costForTurn++;
-                    ca.isCostModifiedForTurn = false;
-                }
-                if (ca.cost > 0) {
-                    ca.cost++;
-                    ca.isCostModified = false;
-                }
+                ca.costForTurn++;
+                ca.isCostModifiedForTurn = false;
+                ca.cost++;
+                ca.isCostModified = false;
                 ChainedField.chained.set(ca, false);
             }
         }
         for (AbstractCard ca : AbstractDungeon.player.hand.group) {
             if (ChainedField.chained.get(ca)) {
-                if (ca.costForTurn > 0) {
-                    ca.costForTurn++;
-                    ca.isCostModifiedForTurn = false;
-                }
-                if (ca.cost > 0) {
-                    ca.cost++;
-                    ca.isCostModified = false;
-                }
+                ca.costForTurn++;
+                ca.isCostModifiedForTurn = false;
+                ca.cost++;
+                ca.isCostModified = false;
                 ChainedField.chained.set(ca, false);
             }
         }
         for (AbstractCard ca : AbstractDungeon.player.exhaustPile.group) {
             if (ChainedField.chained.get(ca)) {
-                if (ca.costForTurn > 0) {
-                    ca.costForTurn++;
-                    ca.isCostModifiedForTurn = false;
-                }
-                if (ca.cost > 0) {
-                    ca.cost++;
-                    ca.isCostModified = false;
-                }
+                ca.costForTurn++;
+                ca.isCostModifiedForTurn = false;
+                ca.cost++;
+                ca.isCostModified = false;
                 ChainedField.chained.set(ca, false);
             }
         }
@@ -90,12 +74,13 @@ public class ChainPower extends PiruruPower implements OnRefreshHand {
                 if (c.costForTurn > 0) {
                     c.costForTurn--;
                     c.isCostModifiedForTurn = true;
+                    ChainedField.chained.set(c, true);
                 }
                 if (c.cost > 0) {
                     c.cost--;
                     c.isCostModified = true;
+                    ChainedField.chained.set(c, true);
                 }
-                ChainedField.chained.set(c, true);
             }
         }
     }
