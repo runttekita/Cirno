@@ -163,5 +163,9 @@
   "ColdARTS": {
     "NAME": "Cold ARTS",
     "DESCRIPTION": "$cold $nl $retain $nl $arts $nl $exhaust"
+  },
+  "MillChainCopy": {
+    "NAME": "Chain Blue and Black",
+    "DESCRIPTION": "$damage $nl $mill $nl $chain $nl $copyblueblack"
   }
 }

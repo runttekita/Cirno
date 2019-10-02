@@ -72,5 +72,11 @@
       "arts"
     ],
     "DESCRIPTION": "Effect is also triggered when taking damage. If the card has a target, it is dealt to the attacker."
+  },
+  {
+    "NAMES": [
+      "chain"
+    ],
+    "DESCRIPTION": "The next card you play costs #b1 less."
   }
 ]

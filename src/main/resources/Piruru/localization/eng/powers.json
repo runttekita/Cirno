@@ -40,5 +40,13 @@
       "Whenever you #yRecover, deal #b",
       " damage."
     ]
+  },
+  "ChainPower": {
+    "NAME": "Chain",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " card you play costs #b1 less.",
+      " cards you play costs #b1 less."
+    ]
   }
 }
