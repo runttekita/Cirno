@@ -147,5 +147,13 @@
   "EnterRemember": {
     "NAME": "Enter Remember",
     "DESCRIPTION": "$remember"
+  },
+  "AddDrawARTS": {
+    "NAME": "asflkjsa",
+    "DESCRIPTION": "$drawarts"
+  },
+  "DrawARTS": {
+    "NAME": "asfsa;l",
+    "DESCRIPTION": "$draw"
   }
 }
