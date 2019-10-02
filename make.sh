@@ -93,6 +93,7 @@ then
   COLD_ARTS='Add !M! *Cold *ARTS into your hand.'
   CHAIN='piruru:Chain.'
   COPY_BLUE_BLACK='Shuffle a *Chain *Blue *and *Black into your draw pile.'
+  MULLIGAN='Draw the same amount of cards plus 1.'
 fi
 
 # Copy into production folder
@@ -105,6 +106,7 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$mulligan/"${MULLIGAN}"/g ${PROD_JSON}
 sed -i s/\$copyblueblack/"${COPY_BLUE_BLACK}"/g ${PROD_JSON}
 sed -i s/\$chain/"${CHAIN}"/g ${PROD_JSON}
 sed -i s/\$coldarts/"${COLD_ARTS}"/g ${PROD_JSON}

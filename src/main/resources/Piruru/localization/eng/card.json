@@ -171,5 +171,9 @@
   "DiscardChain": {
     "NAME": "Disafoia",
     "DESCRIPTION": "$discardone $nl $chain"
+  },
+  "Mulligan": {
+    "NAME": "TREASURE",
+    "DESCRIPTION": "$discardany $nl $mulligan"
   }
 }
