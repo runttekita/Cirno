@@ -71,6 +71,6 @@
     "NAMES": [
       "arts"
     ],
-    "DESCRIPTION": "Effect is also triggered when taking damage."
+    "DESCRIPTION": "Effect is also triggered when taking damage. If the card has a target, it is dealt to the attacker."
   }
 ]
