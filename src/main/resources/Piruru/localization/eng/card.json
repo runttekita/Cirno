@@ -147,5 +147,9 @@
   "EnterRemember": {
     "NAME": "Enter Remember",
     "DESCRIPTION": "$remember"
+  },
+  "BanishRandomForBlock": {
+    "NAME": "owo",
+    "DESCRIPTION": "$banishrandom $nl $blockeach"
   }
 }

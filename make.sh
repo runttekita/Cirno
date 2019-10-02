@@ -88,6 +88,8 @@ then
   MAGIC_DAMAGE='deal !M! damage.'
   RECOVER_RANDOM='piruru:Recover !M! random card.'
   REMEMBER='Enter piruru:Remember'
+  BANISH_RANDOM='piruru:Banish !M! random cards.'
+  BLOCK_EACH='Gain !B! block for each.'
 fi
 
 # Copy into production folder
@@ -100,6 +102,8 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$banishrandom/"${BANISH_RANDOM}"/g ${PROD_JSON}
+sed -i s/\$blockeach/"${BLOCK_EACH}"/g ${PROD_JSON}
 sed -i s/\$remember/"${REMEMBER}"/g ${PROD_JSON}
 sed -i s/\$recoverrandom/"${RECOVER_RANDOM}"/g ${PROD_JSON}
 sed -i s/\$magicdamage/"${MAGIC_DAMAGE}"/g ${PROD_JSON}
