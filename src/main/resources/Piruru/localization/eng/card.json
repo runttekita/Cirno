@@ -167,5 +167,9 @@
     "NAME": "spin",
     "DESCRIPTION": "$spin",
     "UPGRADE_DESCRIPTION": "$spins"
+  },
+  "DiscardChain": {
+    "NAME": "Disafoia",
+    "DESCRIPTION": "$discardone $nl $chain"
   }
 }
