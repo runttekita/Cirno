@@ -90,6 +90,7 @@ then
   REMEMBER='Enter piruru:Remember'
   DRAW_ARTS='Add !M! *Water *ARTS into your hand.'
   ARTS='piruru:ARTS.'
+  COLD_ARTS='Add !M! *Cold *ARTS into your hand.'
 fi
 
 # Copy into production folder
@@ -102,6 +103,7 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$coldarts/"${COLD_ARTS}"/g ${PROD_JSON}
 sed -i s/\$drawarts/"${DRAW_ARTS}"/g ${PROD_JSON}
 sed -i s/\$arts/"${ARTS}"/g ${PROD_JSON}
 sed -i s/\$remember/"${REMEMBER}"/g ${PROD_JSON}

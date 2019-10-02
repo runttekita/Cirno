@@ -155,5 +155,13 @@
   "DrawARTS": {
     "NAME": "Water ARTS",
     "DESCRIPTION": "$draw $nl $retain $nl $arts $nl $exhaust"
+  },
+  "AddColdARTS":  {
+    "NAME":  "asfsaasfa;l",
+    "DESCRIPTION":  "$coldart"
+  },
+  "ColdARTS": {
+    "NAME": "Cold ARTS",
+    "DESCRIPTION": "$cold $nl $retain $nl $arts $nl $exhaust"
   }
 }

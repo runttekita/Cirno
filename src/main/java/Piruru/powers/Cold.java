@@ -18,6 +18,13 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
         isTurnBased = true;
     }
 
+    public Cold(int amount, AbstractCreature owner) {
+        super();
+        this.amount = amount;
+        this.owner = owner;
+        isTurnBased = true;
+    }
+
     @Override
     public void onInitialApplication() {
         if (amount >= PROC_AMOUNT) {
