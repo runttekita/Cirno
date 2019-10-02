@@ -36,7 +36,7 @@ public class ColdBane extends PiruruCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         damage(m);
         if (m.hasPower(makeID(Cold.class))) {
-            act(new ApplyPowerAction(m, p, new Cold(m), 1));
+            cold(m);
         }
     }
 }
