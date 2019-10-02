@@ -156,7 +156,7 @@ public abstract class PiruruCard extends CustomCard implements NotShittyTookDama
         )
         public static SpireReturn Insert(AbstractCard __instance) {
             if (__instance instanceof PiruruCard && __instance.hasTag(Enums.ARTS)) {
-                return SpireReturn.Return(false);
+                return SpireReturn.Return(true);
             }
             return SpireReturn.Continue();
         }
