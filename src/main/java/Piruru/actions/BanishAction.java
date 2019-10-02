@@ -19,7 +19,6 @@ public class BanishAction extends AbstractGameAction {
     private int amount;
     private Consumer<ArrayList<AbstractCard>> callback;
     private boolean anyAmount = false;
-    private ArrayList<AbstractCard> list = null;
 
     public BanishAction(int amount, Consumer<ArrayList<AbstractCard>> callback) {
         this(amount);
@@ -36,14 +35,9 @@ public class BanishAction extends AbstractGameAction {
         this.anyAmount = anyAmount;
     }
 
-    public BanishAction(ArrayList<AbstractCard> list, Consumer<ArrayList<AbstractCard>> callback) {
-        this.list = list;
-        this.callback = callback;
-    }
-
     @Override
     public void update() {
-        if (duration == Settings.ACTION_DUR_FASTER && list == null) {
+        if (duration == Settings.ACTION_DUR_FASTER) {
             if (AbstractDungeon.player.discardPile.isEmpty()) {
                 isDone = true;
                 return;
@@ -61,16 +55,6 @@ public class BanishAction extends AbstractGameAction {
             }
             AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.discardPile, amount, "", false);
             tickDuration();
-            return;
-        }
-        if (list != null) {
-            callback.accept(list);
-            for (AbstractCard c : list) {
-                AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(
-                        c, AbstractDungeon.player.discardPile
-                ));
-            }
-            isDone = true;
             return;
         }
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
