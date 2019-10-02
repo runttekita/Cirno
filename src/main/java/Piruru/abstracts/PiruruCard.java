@@ -2,6 +2,7 @@ package Piruru.abstracts;
 
 import Piruru.Piruru;
 import Piruru.characters.PiruruChar;
+import Piruru.interfaces.NotShittyTookDamage;
 import Piruru.powers.Cold;
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -20,7 +21,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static Piruru.Piruru.makeID;
 
-public abstract class PiruruCard extends CustomCard {
+public abstract class PiruruCard extends CustomCard implements NotShittyTookDamage {
     private int upgradeDamage;
     private int upgradeBlock;
     private int upgradeMagic;
@@ -72,10 +73,15 @@ public abstract class PiruruCard extends CustomCard {
     }
 
     @Override
-    public void tookDamage() {
+    public void notShittyTookDamage(DamageInfo i) {
         if (tags.contains(Enums.ARTS) && AbstractDungeon.player.hand.contains(this)) {
-            use(AbstractDungeon.player, AbstractDungeon.getRandomMonster());
-            act(new UseCardAction(this, AbstractDungeon.getRandomMonster()));
+            if (i.owner instanceof AbstractMonster) {
+                use(AbstractDungeon.player, (AbstractMonster)i.owner);
+                act(new UseCardAction(this, i.owner));
+            } else {
+                use(AbstractDungeon.player, AbstractDungeon.getRandomMonster());
+                act(new UseCardAction(this, AbstractDungeon.getRandomMonster()));
+            }
         }
     }
 
