@@ -71,6 +71,17 @@ public abstract class PiruruCard extends CustomCard {
     }
 
     @Override
+    public void tookDamage() {
+        if (tags.contains(ARTS) && AbstractDungeon.player.hand.contains(this)) {
+            triggerARTS();
+        }
+    }
+
+    public void triggerARTS() {
+        
+    }
+
+    @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
