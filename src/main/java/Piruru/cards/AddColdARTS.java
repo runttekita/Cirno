@@ -29,6 +29,7 @@ public class AddColdARTS extends PiruruCard {
         baseDamage = damage = DAMAGE;
         baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = COLD;
+        cardsToPreview = new ColdARTS();
     }
 
     @Override
