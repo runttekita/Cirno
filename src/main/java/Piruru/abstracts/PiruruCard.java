@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -72,13 +73,10 @@ public abstract class PiruruCard extends CustomCard {
 
     @Override
     public void tookDamage() {
-        if (tags.contains(ARTS) && AbstractDungeon.player.hand.contains(this)) {
-            triggerARTS();
+        if (tags.contains(Enums.ARTS) && AbstractDungeon.player.hand.contains(this)) {
+            use(AbstractDungeon.player, AbstractDungeon.getRandomMonster());
+            act(new UseCardAction(this, AbstractDungeon.getRandomMonster()));
         }
-    }
-
-    public void triggerARTS() {
-        
     }
 
     @Override
@@ -132,7 +130,9 @@ public abstract class PiruruCard extends CustomCard {
         }
     }
 
-    @SpireEnum
-    public static AbstractCard.CardTags ARTS;
+    public static class Enums {
+        @SpireEnum
+        public static AbstractCard.CardTags ARTS;
+    }
 
 }
