@@ -1,11 +1,16 @@
 package Piruru.cards;
 
 import Piruru.abstracts.PiruruCard;
+import basemod.BaseMod;
+import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static Piruru.Piruru.makeID;
 
@@ -29,6 +34,14 @@ public class AddDrawARTS extends PiruruCard {
         baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = ICE;
         cardsToPreview = new DrawARTS();
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        TooltipInfo tooltip = new TooltipInfo(BaseMod.getKeywordTitle(makeID("arts").toLowerCase()), BaseMod.getKeywordDescription(makeID("arts").toLowerCase()));
+        ArrayList<TooltipInfo> list = new ArrayList<>();
+        list.add(tooltip);
+        return list;
     }
 
     @Override
