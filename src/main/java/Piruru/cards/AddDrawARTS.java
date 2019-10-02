@@ -28,6 +28,7 @@ public class AddDrawARTS extends PiruruCard {
         baseDamage = damage = DAMAGE;
         baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = ICE;
+        cardsToPreview = new DrawARTS();
     }
 
     @Override

@@ -88,7 +88,7 @@ then
   MAGIC_DAMAGE='deal !M! damage.'
   RECOVER_RANDOM='piruru:Recover !M! random card.'
   REMEMBER='Enter piruru:Remember'
-  DRAW_ARTS='Add !M! piruru:Water_ARTS into your hand.'
+  DRAW_ARTS='Add !M! *Water *ARTS into your hand.'
 fi
 
 # Copy into production folder
