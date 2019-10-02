@@ -153,7 +153,7 @@
     "DESCRIPTION": "$drawarts"
   },
   "DrawARTS": {
-    "NAME": "asfsa;l",
-    "DESCRIPTION": "$draw"
+    "NAME": "Water ARTS",
+    "DESCRIPTION": "$draw $nl $retain"
   }
 }
