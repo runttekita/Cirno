@@ -18,6 +18,7 @@ public class BanishAction extends AbstractGameAction {
     private static UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID(BanishAction.class));
     private int amount;
     private Consumer<ArrayList<AbstractCard>> callback;
+    private boolean anyAmount = false;
 
     public BanishAction(int amount, Consumer<ArrayList<AbstractCard>> callback) {
         this(amount);
@@ -27,6 +28,11 @@ public class BanishAction extends AbstractGameAction {
     public BanishAction(int amount) {
         this.amount = amount;
         duration = Settings.ACTION_DUR_FASTER;
+    }
+
+    public BanishAction(int amount, Consumer<ArrayList<AbstractCard>> callback, boolean anyAmount) {
+        this(amount, callback);
+        this.anyAmount = anyAmount;
     }
 
     @Override
@@ -40,6 +46,11 @@ public class BanishAction extends AbstractGameAction {
                 AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.5f,
                         uiStrings.TEXT[0], true));
                 isDone = true;
+                return;
+            }
+            if (anyAmount) {
+                AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.discardPile, amount, true, "");
+                tickDuration();
                 return;
             }
             AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.discardPile, amount, "", false);
