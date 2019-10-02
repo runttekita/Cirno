@@ -81,7 +81,7 @@ public abstract class PiruruCard extends CustomCard implements NotShittyTookDama
 
     @Override
     public void notShittyTookDamage(DamageInfo i) {
-        if (tags.contains(Enums.ARTS) && AbstractDungeon.player.hand.contains(this)) {
+        if (hasTag(Enums.ARTS) && AbstractDungeon.player.hand.contains(this)) {
             if (i.owner instanceof AbstractMonster) {
                 act(new QueueCardAction(this, (AbstractMonster)i.owner));
             } else {
