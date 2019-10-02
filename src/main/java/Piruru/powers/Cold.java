@@ -55,7 +55,7 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
 
     @Override
     public AbstractPower makeCopy() {
-        return new Cold(owner);
+        return new Cold(amount, owner);
     }
 
     @Override
