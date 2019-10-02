@@ -3,6 +3,7 @@ package Piruru.powers;
 import Piruru.abstracts.PiruruPower;
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -38,10 +39,15 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
     @Override
     public void stackPower(int amount) {
         fontScale = 8.0F;
-        this.amount += amount;
-        if (this.amount >= PROC_AMOUNT) {
+        amount += amount;
+        if (this.amount >= PROC_AMOUNT && amount - PROC_AMOUNT < 1) {
             AbstractDungeon.actionManager.addToBottom(
                     new RemoveSpecificPowerAction(owner, owner, this));
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(owner, AbstractDungeon.player, new Frozen(owner)));
+        } else {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ReducePowerAction(owner, owner, this, PROC_AMOUNT));
             AbstractDungeon.actionManager.addToBottom(
                     new ApplyPowerAction(owner, AbstractDungeon.player, new Frozen(owner)));
         }
