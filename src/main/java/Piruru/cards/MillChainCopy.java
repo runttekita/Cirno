@@ -2,7 +2,7 @@ package Piruru.cards;
 
 import Piruru.abstracts.PiruruCard;
 import Piruru.actions.MillAction;
-import Piruru.powers.ChainPower;
+import Piruru.powers.Chain;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -38,6 +38,6 @@ public class MillChainCopy extends PiruruCard {
         damage(m);
         act(new MillAction(magicNumber));
         act(new MakeTempCardInDrawPileAction(new MillChainCopy(), 1, true, true));
-        act(new ApplyPowerAction(p, p, new ChainPower(p, 1), 1));
+        act(new ApplyPowerAction(p, p, new Chain(p, 1), 1));
     }
 }

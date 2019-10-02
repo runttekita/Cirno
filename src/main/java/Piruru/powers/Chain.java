@@ -10,9 +10,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class ChainPower extends PiruruPower implements OnRefreshHand {
+public class Chain extends PiruruPower implements OnRefreshHand {
 
-    public ChainPower(AbstractCreature owner, int amount) {
+    public Chain(AbstractCreature owner, int amount) {
         this.owner = owner;
         this.amount = amount;
     }

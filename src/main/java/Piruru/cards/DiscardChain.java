@@ -1,8 +1,7 @@
 package Piruru.cards;
 
-import Piruru.Piruru;
 import Piruru.abstracts.PiruruCard;
-import Piruru.powers.ChainPower;
+import Piruru.powers.Chain;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -36,6 +35,6 @@ public class DiscardChain extends PiruruCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         act(new DiscardAction(p, p, 1, false));
-        act(new ApplyPowerAction(p, p, new ChainPower(p, magicNumber)));
+        act(new ApplyPowerAction(p, p, new Chain(p, magicNumber)));
     }
 }
