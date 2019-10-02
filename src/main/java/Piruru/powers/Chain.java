@@ -31,7 +31,7 @@ public class Chain extends PiruruPower implements OnRefreshHand {
         for (AbstractCard ca : AbstractDungeon.player.drawPile.group) {
             if (ChainedField.chained.get(ca)) {
                 ca.costForTurn++;
-                ca.isCostModifiedForTurn = false;
+                ca.isCostModifiedForTurn = IsCostModifiedForTurnField.costModifiedTurn.get(ca);
                 ca.cost++;
                 ca.isCostModified = false;
                 ChainedField.chained.set(ca, false);
@@ -40,7 +40,7 @@ public class Chain extends PiruruPower implements OnRefreshHand {
         for (AbstractCard ca : AbstractDungeon.player.discardPile.group) {
             if (ChainedField.chained.get(ca)) {
                 ca.costForTurn++;
-                ca.isCostModifiedForTurn = false;
+                ca.isCostModifiedForTurn = IsCostModifiedForTurnField.costModifiedTurn.get(ca);
                 ca.cost++;
                 ca.isCostModified = false;
                 ChainedField.chained.set(ca, false);
@@ -49,7 +49,7 @@ public class Chain extends PiruruPower implements OnRefreshHand {
         for (AbstractCard ca : AbstractDungeon.player.hand.group) {
             if (ChainedField.chained.get(ca)) {
                 ca.costForTurn++;
-                ca.isCostModifiedForTurn = false;
+                ca.isCostModifiedForTurn = IsCostModifiedForTurnField.costModifiedTurn.get(ca);
                 ca.cost++;
                 ca.isCostModified = false;
                 ChainedField.chained.set(ca, false);
@@ -58,9 +58,8 @@ public class Chain extends PiruruPower implements OnRefreshHand {
         for (AbstractCard ca : AbstractDungeon.player.exhaustPile.group) {
             if (ChainedField.chained.get(ca)) {
                 ca.costForTurn++;
-                ca.isCostModifiedForTurn = false;
+                ca.isCostModifiedForTurn = IsCostModifiedForTurnField.costModifiedTurn.get(ca);
                 ca.cost++;
-                ca.isCostModified = false;
                 ChainedField.chained.set(ca, false);
             }
         }
@@ -91,6 +90,7 @@ public class Chain extends PiruruPower implements OnRefreshHand {
             if (!ChainedField.chained.get(c)) {
                 if (c.costForTurn > 0) {
                     c.costForTurn--;
+                    IsCostModifiedForTurnField.costModifiedTurn.set(c, c.isCostModifiedForTurn);
                     c.isCostModifiedForTurn = true;
                 }
                 if (c.cost > 0) {
@@ -104,6 +104,7 @@ public class Chain extends PiruruPower implements OnRefreshHand {
             if (!ChainedField.chained.get(c)) {
                 if (c.costForTurn > 0) {
                     c.costForTurn--;
+                    IsCostModifiedForTurnField.costModifiedTurn.set(c, c.isCostModifiedForTurn);
                     c.isCostModifiedForTurn = true;
                 }
                 if (c.cost > 0) {
@@ -117,6 +118,7 @@ public class Chain extends PiruruPower implements OnRefreshHand {
             if (!ChainedField.chained.get(c)) {
                 if (c.costForTurn > 0) {
                     c.costForTurn--;
+                    IsCostModifiedForTurnField.costModifiedTurn.set(c, c.isCostModifiedForTurn);
                     c.isCostModifiedForTurn = true;
                 }
                 if (c.cost > 0) {
@@ -130,6 +132,7 @@ public class Chain extends PiruruPower implements OnRefreshHand {
             if (!ChainedField.chained.get(c)) {
                 if (c.costForTurn > 0) {
                     c.costForTurn--;
+                    IsCostModifiedForTurnField.costModifiedTurn.set(c, c.isCostModifiedForTurn);
                     c.isCostModifiedForTurn = true;
                 }
                 if (c.cost > 0) {
@@ -147,5 +150,13 @@ public class Chain extends PiruruPower implements OnRefreshHand {
     )
     public static class ChainedField {
         public static SpireField<Boolean> chained = new SpireField<>(() -> false);
+    }
+
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = SpirePatch.CLASS
+    )
+    public static class IsCostModifiedForTurnField {
+        public static SpireField<Boolean> costModifiedTurn = new SpireField<>(() -> false);
     }
 }
