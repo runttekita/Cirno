@@ -32,6 +32,7 @@ public class DrawARTS extends PiruruCard {
         baseMagicNumber = magicNumber = DRAW;
         AlwaysRetainField.alwaysRetain.set(this, true);
         tags.add(PiruruCard.Enums.ARTS);
+        exhaust = true;
     }
 
     @Override
