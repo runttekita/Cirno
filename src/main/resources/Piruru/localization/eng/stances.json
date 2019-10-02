@@ -19,5 +19,11 @@
     "DESCRIPTION": [
       "At the end of your turn, you no longer discard your hand. If you have no cards in your hand, you no longer take damage."
     ]
+  },
+  "Remember": {
+    "NAME": "Remember",
+    "DESCRIPTION": [
+      "At the end of your turn, apply #b1 #yCold to ALL enemies."
+    ]
   }
 }

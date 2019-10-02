@@ -60,5 +60,11 @@
       "return"
     ],
     "DESCRIPTION": "#yReturned cards are moved from the #yExhaust pile to the discard pile."
+  },
+  {
+    "NAMES": [
+      "remember"
+    ],
+    "DESCRIPTION": "At the end of your turn, apply #b1 #yCold to ALL enemies."
   }
 ]

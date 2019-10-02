@@ -143,5 +143,9 @@
   "AttackRecoverRandom": {
     "NAME": "aslfkjsafsaj",
     "DESCRIPTION": "$damage $nl $recoverrandom"
+  },
+  "EnterRemember": {
+    "NAME": "Enter Remember",
+    "DESCRIPTION": "$remember"
   }
 }

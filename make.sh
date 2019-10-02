@@ -87,6 +87,7 @@ then
   WHEN_RECOVER='Whenever you piruru:Recover, '
   MAGIC_DAMAGE='deal !M! damage.'
   RECOVER_RANDOM='piruru:Recover !M! random card.'
+  REMEMBER='Enter piruru:Remember'
 fi
 
 # Copy into production folder
@@ -99,6 +100,7 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$remember/"${REMEMBER}"/g ${PROD_JSON}
 sed -i s/\$recoverrandom/"${RECOVER_RANDOM}"/g ${PROD_JSON}
 sed -i s/\$magicdamage/"${MAGIC_DAMAGE}"/g ${PROD_JSON}
 sed -i s/\$whenrecover/"${WHEN_RECOVER}"/g ${PROD_JSON}
