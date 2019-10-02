@@ -154,6 +154,6 @@
   },
   "DrawARTS": {
     "NAME": "Water ARTS",
-    "DESCRIPTION": "$draw $nl $retain $NL $arts"
+    "DESCRIPTION": "$draw $nl $retain $nl $arts"
   }
 }
