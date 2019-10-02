@@ -161,6 +161,7 @@ public abstract class PiruruCard extends CustomCard implements NotShittyTookDama
             return SpireReturn.Continue();
         }
     }
+    
     public static class Locator extends SpireInsertLocator {
 
         @Override
