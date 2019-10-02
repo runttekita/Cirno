@@ -122,6 +122,6 @@ public abstract class PiruruCard extends CustomCard {
     }
 
     @SpireEnum
-    AbstractCard.CardTags ARTS;
+    public static AbstractCard.CardTags ARTS;
 
 }

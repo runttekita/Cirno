@@ -31,6 +31,7 @@ public class DrawARTS extends PiruruCard {
         baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = DRAW;
         AlwaysRetainField.alwaysRetain.set(this, true);
+        tags.add(PiruruCard.ARTS);
     }
 
     @Override
