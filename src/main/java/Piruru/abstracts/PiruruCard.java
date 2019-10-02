@@ -4,8 +4,9 @@ import Piruru.Piruru;
 import Piruru.characters.PiruruChar;
 import Piruru.interfaces.NotShittyTookDamage;
 import Piruru.powers.Cold;
+import Piruru.stances.Allos;
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -13,12 +14,17 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import javassist.CannotCompileException;
+import javassist.CtBehavior;
+import javassist.expr.ExprEditor;
+import javassist.expr.MethodCall;
 
 import static Piruru.Piruru.makeID;
 
@@ -140,4 +146,26 @@ public abstract class PiruruCard extends CustomCard implements NotShittyTookDama
         public static AbstractCard.CardTags ARTS;
     }
 
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = "hasEnoughEnergy"
+    )
+    public static class PlayARTSOnEnemyTurnPatch {
+        @SpireInsertPatch(
+                locator = Locator.class
+        )
+        public static SpireReturn Insert(AbstractCard __instance) {
+            if (__instance instanceof PiruruCard && __instance.hasTag(Enums.ARTS)) {
+                return SpireReturn.Return(false);
+            }
+        }
+    }
+    public static class Locator extends SpireInsertLocator {
+
+        @Override
+        public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+            Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractCard.class, "cantUseMessage");
+            return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+        }
+    }
 }
