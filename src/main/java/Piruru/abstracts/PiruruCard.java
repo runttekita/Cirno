@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -76,11 +77,9 @@ public abstract class PiruruCard extends CustomCard implements NotShittyTookDama
     public void notShittyTookDamage(DamageInfo i) {
         if (tags.contains(Enums.ARTS) && AbstractDungeon.player.hand.contains(this)) {
             if (i.owner instanceof AbstractMonster) {
-                use(AbstractDungeon.player, (AbstractMonster)i.owner);
-                act(new UseCardAction(this, i.owner));
+                act(new QueueCardAction(this, (AbstractMonster)i.owner));
             } else {
-                use(AbstractDungeon.player, AbstractDungeon.getRandomMonster());
-                act(new UseCardAction(this, AbstractDungeon.getRandomMonster()));
+                act(new QueueCardAction(this, AbstractDungeon.getRandomMonster()));
             }
         }
     }
