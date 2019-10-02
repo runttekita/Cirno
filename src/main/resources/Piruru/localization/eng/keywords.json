@@ -66,5 +66,11 @@
       "remember"
     ],
     "DESCRIPTION": "At the end of your turn, apply #b1 #yCold to ALL enemies."
+  },
+  {
+    "NAMES": [
+      "arts"
+    ],
+    "DESCRIPTION": "Effect is also triggered when taking damage."
   }
 ]

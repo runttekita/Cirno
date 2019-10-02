@@ -89,6 +89,7 @@ then
   RECOVER_RANDOM='piruru:Recover !M! random card.'
   REMEMBER='Enter piruru:Remember'
   DRAW_ARTS='Add !M! *Water *ARTS into your hand.'
+  ARTS='piruru:ARTS'
 fi
 
 # Copy into production folder
@@ -102,6 +103,7 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
 sed -i s/\$drawarts/"${DRAW_ARTS}"/g ${PROD_JSON}
+sed -i s/\$arts/"${ARTS}"/g ${PROD_JSON}
 sed -i s/\$remember/"${REMEMBER}"/g ${PROD_JSON}
 sed -i s/\$remember/"${REMEMBER}"/g ${PROD_JSON}
 sed -i s/\$recoverrandom/"${RECOVER_RANDOM}"/g ${PROD_JSON}

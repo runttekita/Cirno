@@ -38,4 +38,9 @@ public class DrawARTS extends PiruruCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         act(new DrawCardAction(magicNumber));
     }
+
+    @Override
+    public void triggerARTS() {
+        act(new DrawCardAction(magicNumber));
+    }
 }
