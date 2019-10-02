@@ -158,6 +158,7 @@ public abstract class PiruruCard extends CustomCard implements NotShittyTookDama
             if (__instance instanceof PiruruCard && __instance.hasTag(Enums.ARTS)) {
                 return SpireReturn.Return(false);
             }
+            return SpireReturn.Continue();
         }
     }
     public static class Locator extends SpireInsertLocator {
