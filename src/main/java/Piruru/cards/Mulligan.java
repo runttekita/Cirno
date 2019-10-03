@@ -24,7 +24,7 @@ public class Mulligan extends PiruruCard {
     private static final int DAMAGE = 0;
     private static final int BLOCK = 0;
     private static final int MAGIC = 0;
-    private static final int COST_UP
+    private static final int COST_UP = 0;
 
     public Mulligan() {
         super(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, MAGIC_UP, COST_UP);
