@@ -99,6 +99,7 @@ then
   EXCESS_DMG='deal twice as much damage.'
   EXCESS='If you have more than !M! cards in your hand, '
   EXCESS_BLOCK=' gain twice as much Block.'
+  PEEPING_ANALYZE='Send from your draw pile to your discard pile all cards that cost !M! NL (Same as *Fukashigi *no *Carte).'
 fi
 
 # Copy into production folder
@@ -111,6 +112,7 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$peepinganalyze/"${PEEPING_ANALYZE}"/g ${PROD_JSON}
 sed -i s/\$excessblock/"${EXCESS_BLOCK}"/g ${PROD_JSON}
 sed -i s/\$excessdmg/"${EXCESS_DMG}"/g ${PROD_JSON}
 sed -i s/\$excess/"${EXCESS}"/g ${PROD_JSON}

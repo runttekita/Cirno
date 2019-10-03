@@ -203,5 +203,9 @@
   "ExcessBlock": {
     "NAME": "af;las",
     "DESCRIPTION":"$block $nl $excess $excessblock"
+  },
+  "YeetNCostCardToDiscard": {
+    "NAME": "Peeping Analyze",
+    "DESCRIPTION": "$peepinganalyze"
   }
 }
