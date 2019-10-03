@@ -21,6 +21,7 @@ class AttackReturnAttacks : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, 
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
+        damage(m!!);
         act(ReturnAction({ c -> c.type == AbstractCard.CardType.ATTACK }, magicNumber))
     }
 
