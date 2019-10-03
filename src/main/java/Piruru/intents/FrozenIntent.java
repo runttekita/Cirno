@@ -92,7 +92,7 @@ public class FrozenIntent {
                 Frozen frozen = (Frozen) __instance.getPower(makeID(Frozen.class));
                 if (frozen != null) {
                     shader.begin();
-                    shader.setUniformf("shadeTimer", frozen.shaderTimer);
+                    shader.setUniformf("shadeTimer", frozen.getShaderTimer());
                     sb.setShader(shader);
                 }
             }
@@ -117,7 +117,7 @@ public class FrozenIntent {
             Frozen frozen = (Frozen) __instance.getPower(makeID(Frozen.class));
             if (frozen != null && !(__instance instanceof Hexaghost)) {
                 shader.begin();
-                shader.setUniformf("shadeTimer", frozen.shaderTimer);
+                shader.setUniformf("shadeTimer", frozen.getShaderTimer());
                 CardCrawlGame.psb.setShader(shader);
                 renderer.begin(ShapeRenderer.ShapeType.Filled);
                 renderer.setColor(Color.BLUE);
