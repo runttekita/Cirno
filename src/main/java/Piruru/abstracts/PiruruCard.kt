@@ -4,6 +4,7 @@ import Piruru.Piruluk
 import Piruru.Piruluk.Statics.makeID
 import Piruru.characters.PiruruChar
 import Piruru.interfaces.NotShittyTookDamage
+import Piruru.patches.PatchLocators
 import Piruru.powers.Cold
 import basemod.abstracts.CustomCard
 import com.evacipated.cardcrawl.modthespire.lib.*
@@ -125,8 +126,8 @@ abstract class PiruruCard
     }
 
     @SpirePatch(clz = AbstractCard::class, method = "hasEnoughEnergy")
-    object PlayARTSOnEnemyTurnPatch {
-        @SpireInsertPatch(locator = Locator::class)
+    class PlayARTSOnEnemyTurnPatch {
+        @SpireInsertPatch(locator = PatchLocators.ARTSLocator::class)
         fun Insert(__instance: AbstractCard): SpireReturn<*> {
             return if (__instance is PiruruCard && __instance.hasTag(Enums.ARTS)) {
                 SpireReturn.Return(true)
@@ -134,14 +135,6 @@ abstract class PiruruCard
         }
     }
 
-    class Locator : SpireInsertLocator() {
-
-        @Throws(Exception::class)
-        override fun Locate(ctMethodToPatch: CtBehavior): IntArray {
-            val finalMatcher = Matcher.FieldAccessMatcher(AbstractCard::class.java, "cantUseMessage")
-            return LineFinder.findInOrder(ctMethodToPatch, finalMatcher)
-        }
-    }
 }
 
 fun getImg(id: String): String {
