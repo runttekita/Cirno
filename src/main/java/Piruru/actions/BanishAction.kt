@@ -62,7 +62,7 @@ class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
                 if (tmp.size() < banishAmount) {
                     AbstractDungeon.effectList.add(SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.5f,
                             uiStrings.TEXT[0], true))
-                    isDone = true
+                    tickDuration()
                     return
                 }
                 AbstractDungeon.gridSelectScreen.open(tmp, banishAmount, "", false)
