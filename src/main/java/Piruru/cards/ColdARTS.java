@@ -32,7 +32,7 @@ public class ColdARTS extends PiruruCard {
         baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = COLD;
         exhaust = true;
-        tags.add(Enums.ARTS);
+        tags.add(Enums.INSTANCE.getARTS());
         AlwaysRetainField.alwaysRetain.set(this, true);
     }
 

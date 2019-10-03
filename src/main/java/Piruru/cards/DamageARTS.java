@@ -29,7 +29,7 @@ public class DamageARTS extends PiruruCard {
         baseBlock = block = BLOCK;
         baseMagicNumber = magicNumber = MAGIC;
         AlwaysRetainField.alwaysRetain.set(this, true);
-        tags.add(PiruruCard.Enums.ARTS);
+        tags.add(PiruruCard.Enums.INSTANCE.getARTS());
         exhaust = true;
     }
 
