@@ -12,7 +12,7 @@ import java.util.ArrayList
 import java.util.function.Consumer
 
 
-class DiscardAnyAmountAction(private val callback: Consumer<ArrayList<AbstractCard>>?) : AbstractGameAction() {
+class DiscardAnyAmountAction(private val callback: (ArrayList<AbstractCard>) -> Unit?) : AbstractGameAction() {
 
     init {
         duration = Settings.ACTION_DUR_FASTER
@@ -28,7 +28,7 @@ class DiscardAnyAmountAction(private val callback: Consumer<ArrayList<AbstractCa
             return
         }
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-            callback?.accept(AbstractDungeon.handCardSelectScreen.selectedCards.group)
+            callback(AbstractDungeon.handCardSelectScreen.selectedCards.group)
             AbstractDungeon.handCardSelectScreen.selectedCards.clear()
         }
         isDone = true
