@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import static Piruru.Piruluk.makeID;
+
 
 public class BanishAction extends AbstractGameAction {
     private static UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID(BanishAction.class));

@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 
-import static Piruru.Piruluk.makeID;
+
 
 public class DiscardAnyAmountAction extends AbstractGameAction {
     private Consumer<ArrayList<AbstractCard>> callback;

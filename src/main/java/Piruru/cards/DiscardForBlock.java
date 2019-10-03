@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static Piruru.Piruluk.makeID;
+
 
 public class DiscardForBlock extends PiruruCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(

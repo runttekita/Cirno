@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 
-import static Piruru.Piruluk.makeID;
+
 
 public class ApexForm extends PiruruStance {
     private static final int RECOVER_AMT = 2;

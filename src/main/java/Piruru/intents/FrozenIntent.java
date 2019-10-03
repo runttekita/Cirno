@@ -19,7 +19,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.exordium.Hexaghost;
 import javassist.CtBehavior;
 
-import static Piruru.Piruluk.makeID;
+
 import static Piruru.Piruluk.textureLoader;
 
 /**

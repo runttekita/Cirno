@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Piruru.Piruluk.makeID;
+
 
 public class DamageAndCold extends PiruruCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(
