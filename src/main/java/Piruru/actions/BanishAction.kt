@@ -36,6 +36,7 @@ class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
 
     constructor(banishAmount: Int, predicate: (AbstractCard) -> Boolean, callback: (ArrayList<AbstractCard>) -> Unit) : this(banishAmount) {
         this.predicate = predicate
+        this.callback = callback
     }
 
     override fun update() {

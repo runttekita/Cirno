@@ -24,7 +24,7 @@ class AttackBanishAttack : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, D
         act(BanishAction(
                 magicNumber,
                 { c -> c.type == CardType.ATTACK },
-                { _ -> damage(m!!) }
+                { damage(m!!) }
         ))
     }
 
