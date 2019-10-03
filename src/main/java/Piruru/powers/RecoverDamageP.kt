@@ -14,14 +14,16 @@ import com.megacrit.cardcrawl.localization.PowerStrings
 class RecoverDamageP(amount: Int) : PiruruPower(), OnRecover {
 
     companion object {
-        val POWER_ID : String = Piruluk.makeID(this::class.java.simpleName)
-        internal var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         var NAME: String? = null
         var DESCRIPTION: String? = null
     }
 
     init {
+        val POWER_ID : String = Piruluk.makeID(this::class.java.simpleName)
+        val powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         ID = POWER_ID
+        println(POWER_ID)
+        println(powerStrings.NAME)
         NAME = powerStrings.NAME
         DESCRIPTIONS = powerStrings.DESCRIPTIONS
         name = NAME

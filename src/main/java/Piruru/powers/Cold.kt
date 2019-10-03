@@ -15,14 +15,14 @@ import com.megacrit.cardcrawl.powers.AbstractPower
 class Cold : PiruruPower, CloneablePowerInterface {
 
     companion object {
-        val POWER_ID : String = Piruluk.makeID(this::class.java.simpleName)
-        internal var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         var NAME: String? = null
         var DESCRIPTION: String? = null
         private const val PROC_AMOUNT = 3
     }
 
     init {
+        val POWER_ID : String = Piruluk.makeID(this::class.java.simpleName)
+        val powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         ID = POWER_ID
         NAME = powerStrings.NAME
         DESCRIPTIONS = powerStrings.DESCRIPTIONS

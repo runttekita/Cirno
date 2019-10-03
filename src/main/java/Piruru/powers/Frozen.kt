@@ -52,13 +52,13 @@ public class Frozen : PiruruPower, CloneablePowerInterface, InvisiblePower {
     }
 
     companion object {
-        val POWER_ID : String = Piruluk.makeID(this::class.java.simpleName)
-        internal var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         var NAME: String? = null
         var DESCRIPTION: String? = null
     }
 
     init {
+        val POWER_ID : String = Piruluk.makeID(this::class.java.simpleName)
+        val powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         ID = POWER_ID
         NAME = powerStrings.NAME
         DESCRIPTIONS = powerStrings.DESCRIPTIONS
