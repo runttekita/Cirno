@@ -5,12 +5,14 @@ import Piruru.abstracts.PiruruCard
 import Piruru.actions.BanishAction
 import Piruru.actions.MoveNCostToDiscard
 import Piruru.relics.StarterRelic
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.relics.AbstractRelic
 
 
 class YeetNCostCardToDiscard : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, MAGIC_UP, COST_UP) {
@@ -54,5 +56,14 @@ class YeetNCostCardToDiscard : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGE
         private val BLOCK = 0
         private val MAGIC = 0
         private val COST_UP = 0;
+    }
+
+    @SpirePatch(clz = AbstractPlayer::class, method = "loseRelic")
+    object RemoveIfNoStarterPatch {
+        @JvmStatic
+        fun Postfix(__instance: AbstractPlayer, id: String) {
+            if (id == StarterRelic.ID)
+                AbstractDungeon.rareCardPool.removeCard(makeID(YeetNCostCardToDiscard::class.java))
+        }
     }
 }
