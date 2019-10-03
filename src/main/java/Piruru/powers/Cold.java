@@ -60,6 +60,6 @@ public class Cold extends PiruruPower implements CloneablePowerInterface {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + PROC_AMOUNT + DESCRIPTIONS[1];
+        description = getDESCRIPTIONS()[0] + PROC_AMOUNT + getDESCRIPTIONS()[1];
     }
 }

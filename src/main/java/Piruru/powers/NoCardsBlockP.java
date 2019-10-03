@@ -18,7 +18,7 @@ public class NoCardsBlockP extends PiruruPower implements OnRefreshHand {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        description = getDESCRIPTIONS()[0] + amount + getDESCRIPTIONS()[1];
     }
 
     @Override

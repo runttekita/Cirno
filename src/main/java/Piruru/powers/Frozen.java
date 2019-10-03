@@ -50,7 +50,7 @@ public class Frozen extends PiruruPower implements
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        description = getDESCRIPTIONS()[0];
     }
 
     @Override

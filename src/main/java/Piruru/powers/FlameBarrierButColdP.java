@@ -38,7 +38,7 @@ public class FlameBarrierButColdP extends PiruruPower implements CloneablePowerI
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
+        description = getDESCRIPTIONS()[0] + getDESCRIPTIONS()[1];
     }
 
     @Override

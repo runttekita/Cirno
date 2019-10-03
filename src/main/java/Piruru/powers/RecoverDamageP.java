@@ -25,6 +25,6 @@ public class RecoverDamageP extends PiruruPower implements OnRecover {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        description = getDESCRIPTIONS()[0] + amount + getDESCRIPTIONS()[1];
     }
 }

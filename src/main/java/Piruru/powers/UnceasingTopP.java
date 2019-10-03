@@ -17,9 +17,9 @@ public class UnceasingTopP extends PiruruPower implements OnRefreshHand {
     @Override
     public void updateDescription() {
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+            description = getDESCRIPTIONS()[0] + amount + getDESCRIPTIONS()[1];
         } else {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+            description = getDESCRIPTIONS()[0] + amount + getDESCRIPTIONS()[2];
         }
     }
 
