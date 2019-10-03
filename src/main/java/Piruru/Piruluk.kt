@@ -176,10 +176,8 @@ class Piruluk() :
         val json = Gdx.files.internal("Piruru/localization/eng/prodStrings/keywords.json").readString(StandardCharsets.UTF_8.toString())
         val keywords = gson.fromJson(json, Array<Keyword>::class.java)
 
-        if (keywords != null) {
-            for (keyword in keywords) {
-                addKeyword(getModID()?.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION)
-            }
+        for (keyword in keywords) {
+            addKeyword(getModID()?.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION)
         }
     }
 
