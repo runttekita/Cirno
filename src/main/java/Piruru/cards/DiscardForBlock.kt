@@ -21,7 +21,7 @@ class DiscardForBlock : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMA
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster) {
-        act(DiscardAnyAmountAction { list -> list.forEach { c -> block() } })
+        act(DiscardAnyAmountAction { list -> list.forEach { _ -> block() } })
     }
 
     companion object {
