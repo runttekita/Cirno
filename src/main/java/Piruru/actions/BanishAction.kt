@@ -77,7 +77,7 @@ class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
             return
         }
         if (AbstractDungeon.gridSelectScreen.selectedCards.isNotEmpty()) {
-            callback!!(AbstractDungeon.gridSelectScreen.selectedCards);
+            if (callback != null) callback!!(AbstractDungeon.gridSelectScreen.selectedCards);
             for (c in AbstractDungeon.gridSelectScreen.selectedCards) {
                 AbstractDungeon.actionManager.addToBottom(ExhaustSpecificCardAction(
                         c, AbstractDungeon.player.discardPile
