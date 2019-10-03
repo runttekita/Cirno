@@ -28,7 +28,7 @@ import java.lang.reflect.Field
  * @see com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower
  */
 class Frozen : PiruruPower, CloneablePowerInterface, InvisiblePower {
-    var shaderTimer: Float = 0.toFloat()
+    public var shaderTimer: Float = 0.toFloat()
     private var moveByte: Byte = 0
     private var moveIntent: AbstractMonster.Intent? = null
     private var move: EnemyMoveInfo? = null
