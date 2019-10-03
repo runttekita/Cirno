@@ -26,8 +26,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower
 import javassist.CtBehavior
 
 abstract class PiruruCard
-(private val strings: CardStrings, cost: Int, type: AbstractCard.CardType, rarity: AbstractCard.CardRarity, target: AbstractCard.CardTarget, private val upgradeDamage: Int,
-                          private val upgradeBlock: Int, private val upgradeMagic: Int, private val upgradeCost: Int)
+(private val strings: CardStrings, cost: Int, type: AbstractCard.CardType, rarity: AbstractCard.CardRarity,
+ target: AbstractCard.CardTarget, private val upgradeDamage: Int, private val upgradeBlock: Int,
+ private val upgradeMagic: Int, private val upgradeCost: Int)
     : CustomCard(null, strings.NAME, getImg("Piruru:uwu"), cost, strings.DESCRIPTION, type, PIRURU_ICE, rarity, target),
         NotShittyTookDamage {
 
