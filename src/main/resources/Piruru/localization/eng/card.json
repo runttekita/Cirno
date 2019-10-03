@@ -175,5 +175,13 @@
   "Mulligan": {
     "NAME": "TREASURE",
     "DESCRIPTION": "$discardany $nl $mulligan"
+  },
+  "DamageARTS": {
+    "NAME": "Damage ARTS",
+    "DESCRIPTION": "$damage $nl $retain $nl $arts $nl $exhaust"
+  },
+  "AddDamageARTS": {
+    "NAME": "Add Damage ARTS",
+    "DESCRIPTION": "$damagearts"
   }
 }
