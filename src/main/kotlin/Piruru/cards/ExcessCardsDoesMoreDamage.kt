@@ -18,7 +18,8 @@ class ExcessCardsDoesMoreDamage : PiruruCard(cardStrings, COST, TYPE, RARITY, TA
         OnRefreshHand {
 
     override fun onRefreshHand() {
-        if (AbstractDungeon.player.hand.size() >= magicNumber) baseDamage * 2
+        if (AbstractDungeon.player.hand.size() >= magicNumber)
+            baseDamage * 2
     }
 
     init {
