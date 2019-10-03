@@ -1,8 +1,6 @@
 package Piruru.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.GameActionManager;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -12,7 +10,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 
-import static Piruru.Piruru.makeID;
+import static Piruru.Piruluk.makeID;
 
 public class DiscardAnyAmountAction extends AbstractGameAction {
     private Consumer<ArrayList<AbstractCard>> callback;

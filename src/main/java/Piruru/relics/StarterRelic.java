@@ -1,6 +1,6 @@
 package Piruru.relics;
 
-import Piruru.Piruru;
+import Piruru.Piruluk;
 import Piruru.abstracts.PiruruRelic;
 import Piruru.actions.PeepingAnalyzeAction;
 import com.badlogic.gdx.graphics.Color;
@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 
 public class StarterRelic extends PiruruRelic implements ClickableRelic {
-    public static final String ID = Piruru.makeID(StarterRelic.class);
+    public static final String ID = Piruluk.makeID(StarterRelic.class);
     public static final LandingSound SFX = LandingSound.FLAT;
     private static final RelicTier TIER = RelicTier.STARTER;
 

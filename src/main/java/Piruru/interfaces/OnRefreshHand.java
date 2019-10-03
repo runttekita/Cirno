@@ -1,6 +1,5 @@
 package Piruru.interfaces;
 
-import Piruru.Piruru;
 import Piruru.stances.Allos;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.CardGroup;

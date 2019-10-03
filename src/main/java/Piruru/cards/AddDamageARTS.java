@@ -1,6 +1,5 @@
 package Piruru.cards;
 
-import Piruru.Piruru;
 import Piruru.abstracts.PiruruCard;
 import basemod.BaseMod;
 import basemod.helpers.TooltipInfo;
@@ -13,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Piruru.Piruru.makeID;
+import static Piruru.Piruluk.makeID;
 
 public class AddDamageARTS extends PiruruCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(

@@ -1,13 +1,12 @@
 package Piruru.cards;
 
 import Piruru.abstracts.PiruruCard;
-import Piruru.actions.SpreadColdAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static Piruru.Piruru.makeID;
+import static Piruru.Piruluk.makeID;
 
 public class SpreadCold extends PiruruCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(

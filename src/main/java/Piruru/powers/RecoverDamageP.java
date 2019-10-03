@@ -1,6 +1,5 @@
 package Piruru.powers;
 
-import Piruru.Piruru;
 import Piruru.abstracts.PiruruPower;
 import Piruru.interfaces.OnRecover;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

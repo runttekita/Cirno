@@ -1,11 +1,10 @@
 package Piruru.abstracts;
 
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnCardDrawPower;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import static Piruru.Piruru.*;
+import static Piruru.Piruluk.*;
 
 public abstract class PiruruPower extends AbstractPower {
     static PowerStrings powerStrings;

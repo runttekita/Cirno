@@ -1,7 +1,6 @@
 package Piruru.cards;
 
 import Piruru.abstracts.PiruruCard;
-import Piruru.powers.Cold;
 import basemod.BaseMod;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,13 +8,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import javax.swing.*;
-import javax.tools.Tool;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static Piruru.Piruru.makeID;
+import static Piruru.Piruluk.makeID;
 
 public class DamageAndCold extends PiruruCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(

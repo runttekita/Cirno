@@ -21,7 +21,7 @@ import javassist.expr.MethodCall;
 
 import java.lang.reflect.Field;
 
-import static Piruru.Piruru.makeID;
+import static Piruru.Piruluk.makeID;
 
 
 /**

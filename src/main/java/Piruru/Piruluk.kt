@@ -1,130 +1,123 @@
-package Piruru;
+package Piruru
 
-import Piruru.characters.PiruruChar;
-import basemod.BaseMod;
-import basemod.interfaces.*;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.evacipated.cardcrawl.mod.stslib.Keyword;
-import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.google.gson.Gson;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.stances.AbstractStance;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import Piruru.cards.*;
-import Piruru.relics.*;
+import Piruru.characters.PiruruChar
+import basemod.BaseMod
+import basemod.interfaces.*
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.Color
+import com.evacipated.cardcrawl.mod.stslib.Keyword
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum
+import com.google.gson.Gson
+import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.core.Settings
+import com.megacrit.cardcrawl.helpers.CardLibrary
+import com.megacrit.cardcrawl.localization.*
+import com.megacrit.cardcrawl.unlock.UnlockTracker
+import java.nio.charset.StandardCharsets
+import java.util.*
 
-import java.nio.charset.StandardCharsets;
-import java.util.Random;
-
-@SpireInitializer
-public class Piruru implements
+class Piruluk() :
         EditCardsSubscriber,
         EditCharactersSubscriber,
         EditStringsSubscriber,
         EditRelicsSubscriber,
         EditKeywordsSubscriber {
-    public static final Color PIRURU_ICE = Color.valueOf("#000DAB");
-    public static final String PIRURU_SHOULDER_1 = "Piruru/images/char/defaultCharacter/shoulder.png";
-    public static final String PIRURU_SHOULDER_2 = "Piruru/images/char/defaultCharacter/shoulder2.png";
-    public static final String PIRURU_CORPSE = "Piruru/images/char/defaultCharacter/corpse.png";
-    private static final String ATTACK_PIRURU_ICE = "Piruru/images/512prod/bg_attack_default_gray.png";
-    private static final String SKILL_PIRURU_ICE = "Piruru/images/512prod/bg_skill_default_gray.png";
-    private static final String POWER_PIRURU_ICE = "Piruru/images/512prod/bg_power_default_gray.png";
-    private static final String ENERGY_ORB_PIRURU_ICE = "Piruru/images/512prod/card_default_gray_orb.png";
-    private static final String CARD_ENERGY_ORB = "Piruru/images/512prod/card_small_orb.png";
-    private static final String ATTACK_PIRURU_ICE_PORTRAIT = "Piruru/images/1024prod/bg_attack_default_gray.png";
-    private static final String SKILL_PIRURU_ICE_PORTRAIT = "Piruru/images/1024prod/bg_skill_default_gray.png";
-    private static final String POWER_PIRURU_ICE_PORTRAIT = "Piruru/images/1024prod/bg_power_default_gray.png";
-    private static final String ENERGY_ORB_PIRURU_ICE_PORTRAIT = "Piruru/images/1024prod/card_default_gray_orb.png";
-    private static final String PIRURU_BUTTON = "Piruru/images/charSelect/DefaultCharacterButton.png";
-    private static final String PIRURU_PORTRAIT = "Piruru/images/charSelect/DefaultCharacterPortraitBG.png";
-    public static AssetLoader textureLoader = new AssetLoader();
-    private static String modID;
 
-    public Piruru() {
-        BaseMod.subscribe(this);
-        setModID("Piruru");
-        BaseMod.addColor(PiruruChar.Enums.PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
-                PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
-                ATTACK_PIRURU_ICE, SKILL_PIRURU_ICE, POWER_PIRURU_ICE,
-                ENERGY_ORB_PIRURU_ICE, ATTACK_PIRURU_ICE_PORTRAIT,
-                SKILL_PIRURU_ICE_PORTRAIT, POWER_PIRURU_ICE_PORTRAIT,
-                ENERGY_ORB_PIRURU_ICE_PORTRAIT, CARD_ENERGY_ORB);
+    companion object Statics {
+        val PIRURU_ICE: Color = Color.valueOf("#000DAB")
+        val PIRURU_SHOULDER_1 = "Piruru/images/char/defaultCharacter/shoulder.png"
+        val PIRURU_SHOULDER_2 = "Piruru/images/char/defaultCharacter/shoulder2.png"
+        val PIRURU_CORPSE = "Piruru/images/char/defaultCharacter/corpse.png"
+        private val ATTACK_PIRURU_ICE = "Piruru/images/512prod/bg_attack_default_gray.png"
+        private val SKILL_PIRURU_ICE = "Piruru/images/512prod/bg_skill_default_gray.png"
+        private val POWER_PIRURU_ICE = "Piruru/images/512prod/bg_power_default_gray.png"
+        private val ENERGY_ORB_PIRURU_ICE = "Piruru/images/512prod/card_default_gray_orb.png"
+        private val CARD_ENERGY_ORB = "Piruru/images/512prod/card_small_orb.png"
+        private val ATTACK_PIRURU_ICE_PORTRAIT = "Piruru/images/1024prod/bg_attack_default_gray.png"
+        private val SKILL_PIRURU_ICE_PORTRAIT = "Piruru/images/1024prod/bg_skill_default_gray.png"
+        private val POWER_PIRURU_ICE_PORTRAIT = "Piruru/images/1024prod/bg_power_default_gray.png"
+        private val ENERGY_ORB_PIRURU_ICE_PORTRAIT = "Piruru/images/1024prod/card_default_gray_orb.png"
+        private val PIRURU_BUTTON = "Piruru/images/charSelect/DefaultCharacterButton.png"
+        private val PIRURU_PORTRAIT = "Piruru/images/charSelect/DefaultCharacterPortraitBG.png"
+        var textureLoader = AssetLoader()
+        private var modID: String? = null
+
+        fun makeID(c: Class<*>): String {
+            return makeID(c.simpleName)
+        }
+
+        fun makeID(idText: String): String {
+            return getModID() + ":" + idText
+        }
+
+        fun getModID(): String? {
+            return modID
+        }
+
+        fun setModID(ID: String) {
+            modID = ID
+        }
+
+        fun makeCardPath(resourcePath: String): String {
+            return getModID() + "/images/cards/" + resourcePath
+        }
+
+        fun makeRelicPath(resourcePath: String): String {
+            return getModID() + "/images/relics/" + resourcePath
+        }
+
+        fun makeRelicOutlinePath(resourcePath: String): String {
+            return getModID() + "/images/relics/outline/" + resourcePath
+        }
+
+        fun makeOrbPath(resourcePath: String): String {
+            return getModID() + "/orbs/" + resourcePath
+        }
+
+        fun makePowerPath(resourcePath: String): String {
+            return getModID() + "/images/powers/" + resourcePath
+        }
+
+        fun makeEventPath(resourcePath: String): String {
+            return getModID() + "/images/events/" + resourcePath
+        }
+
+        @JvmStatic
+        fun initialize() {
+            Piruluk()
+            BaseMod.addColor(PiruruChar.PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
+                    PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
+                    ATTACK_PIRURU_ICE, SKILL_PIRURU_ICE, POWER_PIRURU_ICE,
+                    ENERGY_ORB_PIRURU_ICE, ATTACK_PIRURU_ICE_PORTRAIT,
+                    SKILL_PIRURU_ICE_PORTRAIT, POWER_PIRURU_ICE_PORTRAIT,
+                    ENERGY_ORB_PIRURU_ICE_PORTRAIT, CARD_ENERGY_ORB)
+        }
     }
 
-    public static String makeCardPath(String resourcePath) {
-        return getModID() + "/images/cards/" + resourcePath;
+    fun Piruru() {
+        BaseMod.subscribe(this)
+        setModID("Piruru")
     }
 
-    public static String makeRelicPath(String resourcePath) {
-        return getModID() + "/images/relics/" + resourcePath;
-    }
-
-    public static String makeRelicOutlinePath(String resourcePath) {
-        return getModID() + "/images/relics/outline/" + resourcePath;
-    }
-
-    public static String makeOrbPath(String resourcePath) {
-        return getModID() + "/orbs/" + resourcePath;
-    }
-
-    public static String makePowerPath(String resourcePath) {
-        return getModID() + "/images/powers/" + resourcePath;
-    }
-
-    public static String makeEventPath(String resourcePath) {
-        return getModID() + "/images/events/" + resourcePath;
-    }
-
-    public static String getModID() {
-        return modID;
-    }
-
-    public static void setModID(String ID) {
-        modID = ID;
-    }
-
-    public static void initialize() {
-        Piruru piruru = new Piruru();
-    }
-
-    public static String makeID(Class c) {
-        return makeID(c.getSimpleName());
-    }
-
-    public static String makeID(String idText) {
-        return getModID() + ":" + idText;
-    }
-
-    @Override
-    public void receiveEditCharacters() {
-
-        BaseMod.addCharacter(new PiruruChar("Piruru", PiruruChar.Enums.PIRURU),
-                PIRURU_BUTTON, PIRURU_PORTRAIT, PiruruChar.Enums.PIRURU);
+    override fun receiveEditCharacters() {
+        BaseMod.addCharacter(PiruruChar.PIRURU?.let { PiruruChar("Piruru", it) },
+                PIRURU_BUTTON, PIRURU_PORTRAIT, PiruruChar.PIRURU)
     }
 
     /**
      * But Reina, I can hear you ask, why aren't you using autoAddCards from Kio? Well the answer is simple
      * I'm too lazy to copy paste all that stuff and make like 90 classes and make.sh does this for me.
      */
-    @Override
-    public void receiveEditCards() {
-		//autoAddCards
+    override fun receiveEditCards() {
+        //autoAddCards
     }
 
-    @Override
-    public void receiveEditStrings() {
-        BaseMod.loadCustomStringsFile(RelicStrings.class, "Piruru/localization/eng/prodStrings/pirurelic.json");
-        BaseMod.loadCustomStringsFile(CardStrings.class, "Piruru/localization/eng/prodStrings/card.json");
-        BaseMod.loadCustomStringsFile(UIStrings.class, "Piruru/localization/eng/prodStrings/ui.json");
-        BaseMod.loadCustomStringsFile(PowerStrings.class, "Piruru/localization/eng/prodStrings/powers.json");
-        BaseMod.loadCustomStringsFile(StanceStrings.class, "Piruru/localization/eng/prodStrings/stances.json");
+    override fun receiveEditStrings() {
+        BaseMod.loadCustomStringsFile(RelicStrings::class.java, "Piruru/localization/eng/prodStrings/pirurelic.json")
+        BaseMod.loadCustomStringsFile(CardStrings::class.java, "Piruru/localization/eng/prodStrings/card.json")
+        BaseMod.loadCustomStringsFile(UIStrings::class.java, "Piruru/localization/eng/prodStrings/ui.json")
+        BaseMod.loadCustomStringsFile(PowerStrings::class.java, "Piruru/localization/eng/prodStrings/powers.json")
+        BaseMod.loadCustomStringsFile(StanceStrings::class.java, "Piruru/localization/eng/prodStrings/stances.json")
     }
 
 
@@ -132,55 +125,53 @@ public class Piruru implements
      * But Reina, I can hear you ask, why aren't you using autoAddRelicsg from Kio? Well the answer is simple
      * I'm too lazy to copy paste all that stuff and make like 90 classes and make.sh does this for me.
      */
-    @Override
-    public void receiveEditRelics() {
-		//autoAddRelics
-        int count = 0;
-        int commonCount = 0;
-        int uncommonCount = 0;
-        int rareCount = 0;
-        int basicCount = 0;
-        for (AbstractCard c : CardLibrary.getCardList(PiruruChar.Enums.LIBRARY_COLOR)) {
-            UnlockTracker.unlockCard(c.cardID);
+    override fun receiveEditRelics() {
+        //autoAddRelics
+        var count = 0
+        var commonCount = 0
+        var uncommonCount = 0
+        var rareCount = 0
+        var basicCount = 0
+        for (c in CardLibrary.getCardList(PiruruChar.LIBRARY_COLOR)) {
+            UnlockTracker.unlockCard(c.cardID)
             if (c.rarity == AbstractCard.CardRarity.BASIC) {
-                basicCount++;
-                count++;
+                basicCount++
+                count++
             }
             if (c.rarity == AbstractCard.CardRarity.COMMON) {
-                commonCount++;
-                count++;
+                commonCount++
+                count++
             }
             if (c.rarity == AbstractCard.CardRarity.UNCOMMON) {
-                uncommonCount++;
-                count++;
+                uncommonCount++
+                count++
             }
             if (c.rarity == AbstractCard.CardRarity.RARE) {
-                rareCount++;
-                count++;
+                rareCount++
+                count++
             }
         }
-        System.out.println("COMMON CARDS" + commonCount);
-        System.out.println("UNCOMMON CARDS" + uncommonCount);
-        System.out.println("RARE CARDS" + rareCount);
-        System.out.println("TOTAL CARDS" + count);
+        println("COMMON CARDS$commonCount")
+        println("UNCOMMON CARDS$uncommonCount")
+        println("RARE CARDS$rareCount")
+        println("TOTAL CARDS$count")
     }
 
     /**
      * https://github.com/kiooeht/Bard/blob/master/src/main/java/com/evacipated/cardcrawl/mod/bard/BardMod.java#L345
      */
-    private void loadLocKeywords(Settings.GameLanguage language) {
+    private fun loadLocKeywords(language: Settings.GameLanguage) {
 
     }
 
-    @Override
-    public void receiveEditKeywords() {
-        Gson gson = new Gson();
-        String json = Gdx.files.internal("Piruru/localization/eng/prodStrings/keywords.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        Keyword[] keywords = gson.fromJson(json, Keyword[].class);
+    override fun receiveEditKeywords() {
+        val gson = Gson()
+        val json = Gdx.files.internal("Piruru/localization/eng/prodStrings/keywords.json").readString(StandardCharsets.UTF_8.toString())
+        val keywords = gson.fromJson(json, Array<Keyword>::class.java)
 
         if (keywords != null) {
-            for (Keyword keyword : keywords) {
-                BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+            for (keyword in keywords) {
+                BaseMod.addKeyword(getModID()?.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION)
             }
         }
     }
@@ -190,26 +181,26 @@ public class Piruru implements
      * ASCII Art made from
      * https://asciiart.club/
      */
-    public static class ASCII_ART {
+    object ASCII_ART {
         @SpireEnum
-        public static AbstractCard.CardTags dab;
+        var dab: AbstractCard.CardTags? = null
 
-        static {
-            init();
+        init {
+            init()
         }
 
         /**
          * https://www.mkyong.com/java/java-generate-random-integers-in-a-range/
          */
-        private static int getRandomNumberInRange(int min, int max) {
-            Random r = new Random();
-            return r.nextInt((max - min) + 1) + min;
+        private fun getRandomNumberInRange(min: Int, max: Int): Int {
+            val r = Random()
+            return r.nextInt(max - min + 1) + min
         }
 
-        private static void init() {
-            int random = getRandomNumberInRange(0, 3);
+        private fun init() {
+            val random = getRandomNumberInRange(0, 3)
             if (random == 0) {
-                System.out.println("\n" +
+                println("\n" +
                         "                                                           ,╔▄▄▄▄▓▓▓▓▄▄w\n" +
                         "                                                   ╓▄▄  ▄▓▓████████████▓▓▓╦\n" +
                         "                                                ,╣▓▓██▓▓█▓███████▓▓▓▓▓▓▓▓▓▓▓╗\n" +
@@ -238,10 +229,10 @@ public class Piruru implements
                         "                                                        ,╫╫╫╫▓▓H╙,  .`╙╨╩╣▓▓▓╫╫M»»` ,«`\n" +
                         "                                                       ]░╫╫╫▓▓▌``!]/   `\"╓╩````\"\"```\n" +
                         "                                                         `╙▀▓▓]  ,\"     ]░»»»,\n" +
-                        "                                                            ``╙ \"     ,╩µ»»»»»»»;»,.  STAN YOHANE\n");
+                        "                                                            ``╙ \"     ,╩µ»»»»»»»;»,.  STAN YOHANE\n")
             }
             if (random == 1) {
-                System.out.println("\n" +
+                println("\n" +
                         "    ███████████████████████████████████▓▓▓▓▓▓▓▓▓▓███████████████████████████████████\n" +
                         "    ███████████████████████████▓▀╫╫╫╫╫▓▓▓▓▓▓▓▓▓▓▓▓▓▓╫╫▓█████████████████████████████\n" +
                         "    ███████████████████████▀╫╫╫╫╫╫╫▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓╫▓█████████████████████████\n" +
@@ -276,10 +267,10 @@ public class Piruru implements
                         "    ╫╫╫╫╫╫╫╫╫╫╫╫╫╫╫╫╫╨             \"╨╨╩▓▓▓▓██▀▒░«»*\"\"`                ``»░╣▓▓▓▓▓▓▓▓▓\n" +
                         "    ╫╫╫╫╫╫╫╫╫╫╫╫╫╫╫╫`                 »║████▌╫Ü`                        `!░╨▓▓▓▓▓▓▓▓\n" +
                         "    ╫╫╫╫╫╫╫╫╫╫╫╫╫╫╫H                  ║█████▌╫`                          `»»░▓▓▓▓╫▓▓\n" +
-                        "    ╫╫╫╫╫╫╫╫╫╫╫╫╫╫╫                   ▓██▓██▌╨                     ']    `»»»╠▓▓▓▓▓▓ Rin Tezuka <3\n");
+                        "    ╫╫╫╫╫╫╫╫╫╫╫╫╫╫╫                   ▓██▓██▌╨                     ']    `»»»╠▓▓▓▓▓▓ Rin Tezuka <3\n")
             }
             if (random == 2) {
-                System.out.println("\n" +
+                println("\n" +
                         "    ▐██████████████████████████████████▌░█████`╫█▌░░╫███▌ ░▓╫█████▌░███████████████M\n" +
                         "    ▐█████████████████████████████████▀▀╣███▀ ╔█▀Ñ\"░▓██▌  ╟M╣█████░░▓██████████████M\n" +
                         "    ▐████████████████████████████████▀╩ ▓██▀*Φ█▌╨  ]███   ╫░╫████Mñ░▓███▌▓█████████M\n" +
@@ -310,10 +301,10 @@ public class Piruru implements
                         "    ▐█████▀\"└    »≈╨ÑΦ▀▀▀▀▀╨╨╨^          ╙▀▀▓▓▓▓▓▓M\"╫╫███▓▓▓╫╫▓██████▓█╔▌░░▓░░╣Ñ╙@ ░\n" +
                         "    ▐████▌▓▄╝╙                              `▀▓████▄ ╣╫▓████▓▓██████▓▓H▓░░║M░║╫░»║⌂:\n" +
                         "    ▐████▒╫╫¥▄µ,,,,,,,╓╓▄▄▄▄▄▄▄▄µ,            \"▀▓███▓▓▌╫████████████▓▌╦▌░░▓░░▌Ñ»»░╣▐\n" +
-                        "    ▐████M╫╫╫╫╫▓▓▓▓▓▓▓▓▓▓▓▓█▀▀▀▀▀▀*             ╙▓▓╨. ▌╫╢████████████M╢Mµ▄Ü░╟╫H░▄M╢M Homura did nothing wrong.\n");
+                        "    ▐████M╫╫╫╫╫▓▓▓▓▓▓▓▓▓▓▓▓█▀▀▀▀▀▀*             ╙▓▓╨. ▌╫╢████████████M╢Mµ▄Ü░╟╫H░▄M╢M Homura did nothing wrong.\n")
             }
             if (random == 3) {
-                System.out.println("\n" +
+                println("\n" +
                         "                                    `'```''`````'`''```` `\n" +
                         "                                  `» .¡;µ╦╦╦╦╦µ¡»»»»:»»````\n" +
                         "                                 »,»]╦╦░░░░░░░░░░░░╦░»»`''`''```\n" +
@@ -338,13 +329,13 @@ public class Piruru implements
                         "                    ````'`»Ü░Ñ░░╫╫╫Ñ╫╫╫╫╫Ñ»»»»»»»░╟╫╩╫╫╫:   ╙╫╫╫H`\n" +
                         "                 `````````]░╫Ñ░░╫╩╨╨╨`╚╨░░»»»»»»»»░░░`]╬░`  '╟Ñ╫H`  `\n" +
                         "                 ``````»``]Ñ╨╫░░Ü``    »`»»»»»»»\"``; `]░H` '``╫╫Ü   `\n" +
-                        "          `````````````»»»╨! ╟░░$`     ╨^````````\":`  `░Ü»:   ╙╫╫`'``\n" +
+                        "          `````````````»»»╨! ╟░░`     ```````\":`  `░Ü»:   ╙╫╫`'``\n" +
                         "       ````''''''```````»╔  \\\"░░╦                .^    ]Ñ»»    ╙╫░».'\n" +
                         "       ''`````'````````»»╩   `]░╬N,     \"       .`     `Ü»»`   ```\"»¡`\n" +
                         "      `  ```` '''''''''`/     `╦░░`╨╦╥   \".    ,`  .,╥╦ñ╨░ '    '\", `»:'  `\n" +
                         "     ``` ''''''''''''''`╨  . . \"ÑÜ»╥ `╨╩╦╦╥H .]N╩╨╨\"`  ,»» ``    '╙N╦»`» ` `\n" +
                         "     ``` '''''''''''»»»»    » »` ╨H`╨»╦»≈,,,U≈╥«;»╦≈^`   `` `     `╙░N,` ```  `  `\n" +
-                        "     ``` '''''''''''`»»`     \".`       `\"╥░░░*░░``        »```     .¡`H»``` Trans rights are human rights\n");
+                        "     ``` '''''''''''`»»`     \".`       `\"╥░░░*░░``        »```     .¡`H»``` Trans rights are human rights\n")
             }
         }
     }
