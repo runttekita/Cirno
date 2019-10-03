@@ -6,8 +6,7 @@ import Piruru.characters.PiruruChar
 import Piruru.characters.PiruruChar.Enums.enums.LIBRARY_COLOR
 import Piruru.characters.PiruruChar.Enums.enums.PIRURU
 import basemod.BaseMod
-import basemod.BaseMod.addCard
-import basemod.BaseMod.addRelicToCustomPool
+import basemod.BaseMod.*
 import basemod.interfaces.*
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
@@ -93,7 +92,7 @@ class Piruluk() :
         @JvmStatic
         fun initialize() {
             Piruluk()
-            BaseMod.addColor(PiruruChar.Enums.enums.PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
+            addColor(PiruruChar.Enums.enums.PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
                     PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
                     ATTACK_PIRURU_ICE, SKILL_PIRURU_ICE, POWER_PIRURU_ICE,
                     ENERGY_ORB_PIRURU_ICE, ATTACK_PIRURU_ICE_PORTRAIT,
@@ -103,12 +102,12 @@ class Piruluk() :
     }
 
     init {
-        BaseMod.subscribe(this)
+        subscribe(this)
         setModID("Piruru")
     }
 
     override fun receiveEditCharacters() {
-        BaseMod.addCharacter(PIRURU?.let { PiruruChar("Piruru", it) },
+        addCharacter(PIRURU?.let { PiruruChar("Piruru", it) },
                 PIRURU_BUTTON, PIRURU_PORTRAIT, PIRURU)
     }
 
@@ -121,11 +120,11 @@ class Piruluk() :
     }
 
     override fun receiveEditStrings() {
-        BaseMod.loadCustomStringsFile(RelicStrings::class.java, "Piruru/localization/eng/prodStrings/pirurelic.json")
-        BaseMod.loadCustomStringsFile(CardStrings::class.java, "Piruru/localization/eng/prodStrings/card.json")
-        BaseMod.loadCustomStringsFile(UIStrings::class.java, "Piruru/localization/eng/prodStrings/ui.json")
-        BaseMod.loadCustomStringsFile(PowerStrings::class.java, "Piruru/localization/eng/prodStrings/powers.json")
-        BaseMod.loadCustomStringsFile(StanceStrings::class.java, "Piruru/localization/eng/prodStrings/stances.json")
+        loadCustomStringsFile(RelicStrings::class.java, "Piruru/localization/eng/prodStrings/pirurelic.json")
+        loadCustomStringsFile(CardStrings::class.java, "Piruru/localization/eng/prodStrings/card.json")
+        loadCustomStringsFile(UIStrings::class.java, "Piruru/localization/eng/prodStrings/ui.json")
+        loadCustomStringsFile(PowerStrings::class.java, "Piruru/localization/eng/prodStrings/powers.json")
+        loadCustomStringsFile(StanceStrings::class.java, "Piruru/localization/eng/prodStrings/stances.json")
     }
 
 
@@ -179,7 +178,7 @@ class Piruluk() :
 
         if (keywords != null) {
             for (keyword in keywords) {
-                BaseMod.addKeyword(getModID()?.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION)
+                addKeyword(getModID()?.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION)
             }
         }
     }
