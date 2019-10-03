@@ -45,20 +45,21 @@ class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
                 return
             }
             if (AbstractDungeon.player.discardPile.size() < banishAmount) {
-                AbstractDungeon.effectList.add(SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.5f,
+                AbstractDungeon.effectList.add(SpeechBubble(
+                        AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.5f,
                         uiStrings.TEXT[0], true))
                 isDone = true
                 return
             }
 
             if (predicate != null) {
-                val tmp: CardGroup = CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+                val tmp = CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                 for (c in AbstractDungeon.player.discardPile.group) {
                     if(predicate!!(c)) {
                         tmp.addToBottom(c)
                     }
                 }
-                if (banishAmount < tmp.size()) {
+                if (tmp.size() < banishAmount) {
                     AbstractDungeon.effectList.add(SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.5f,
                             uiStrings.TEXT[0], true))
                     isDone = true
@@ -79,7 +80,7 @@ class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
             return
         }
         if (AbstractDungeon.gridSelectScreen.selectedCards.isNotEmpty()) {
-            if (callback != null) callback!!(AbstractDungeon.gridSelectScreen.selectedCards);
+            if (callback != null) callback!!(AbstractDungeon.gridSelectScreen.selectedCards)
             for (c in AbstractDungeon.gridSelectScreen.selectedCards) {
                 AbstractDungeon.actionManager.addToBottom(ExhaustSpecificCardAction(
                         c, AbstractDungeon.player.discardPile
