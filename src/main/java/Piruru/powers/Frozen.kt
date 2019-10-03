@@ -64,6 +64,7 @@ public class Frozen : PiruruPower, CloneablePowerInterface, InvisiblePower {
         name = NAME
         ID = POWER_ID
         updateDescription()
+        img = Piruluk.textureLoader.getTexture(Piruluk.makePowerPath(this.javaClass.simpleName))
     }
 
     override fun onDeath() {

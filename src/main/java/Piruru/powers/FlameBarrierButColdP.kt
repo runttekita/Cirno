@@ -28,6 +28,7 @@ class FlameBarrierButColdP(owner: AbstractCreature, amount: Int) : PiruruPower()
         name = NAME
         ID = POWER_ID
         updateDescription()
+        img = Piruluk.textureLoader.getTexture(Piruluk.makePowerPath(this.javaClass.simpleName))
         this.owner = owner
         this.amount = amount
         isTurnBased = true

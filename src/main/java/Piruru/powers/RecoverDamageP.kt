@@ -28,7 +28,7 @@ class RecoverDamageP(amount: Int) : PiruruPower(), OnRecover {
         updateDescription()
         this.owner = AbstractDungeon.player
         this.amount = amount
-        updateDescription()
+        img = Piruluk.textureLoader.getTexture(Piruluk.makePowerPath(this.javaClass.simpleName))
     }
 
     override fun onRecover(c: AbstractCard) {

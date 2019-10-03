@@ -29,6 +29,8 @@ class NoCardsBlockP(owner: AbstractCreature, amount: Int) : PiruruPower(), OnRef
         updateDescription()
         this.owner = owner
         this.amount = amount
+        img = Piruluk.textureLoader.getTexture(Piruluk.makePowerPath(this.javaClass.simpleName))
+
     }
 
     override fun updateDescription() {
