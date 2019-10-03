@@ -27,7 +27,7 @@ class ColdARTS : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        act(ApplyPowerAction(m, p, Cold(magicNumber, m), magicNumber))
+        act(ApplyPowerAction(m, p, Cold(magicNumber, m!!), magicNumber))
     }
 
     companion object {
