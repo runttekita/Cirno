@@ -95,6 +95,7 @@ then
   COPY_BLUE_BLACK='Shuffle a *Chain *Blue *and *Black into your draw pile.'
   MULLIGAN='Draw the same amount of cards plus 1.'
   DAMAGE_ARTS='Add !M! *Damage *ARTS into your hand.'
+  BANISH_CONDITIONAL_ATTACK='piruru:Banish !M! Attacks. NL if you piruru:Banished !M! Attacks, '
 fi
 
 # Copy into production folder
@@ -107,6 +108,7 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$banishconditionalattack/"${BANISH_CONDITIONAL_ATTACK}"/g ${PROD_JSON}
 sed -i s/\$damagearts/"${DAMAGE_ARTS}"/g ${PROD_JSON}
 sed -i s/\$mulligan/"${MULLIGAN}"/g ${PROD_JSON}
 sed -i s/\$copyblueblack/"${COPY_BLUE_BLACK}"/g ${PROD_JSON}

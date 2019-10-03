@@ -187,5 +187,9 @@
   "AttackBlock": {
     "NAME": "aslfkajslfska",
     "DESCRIPTION": "$damage $nl $block"
+  },
+  "BanishConditionalAttack": {
+    "NAME": "bcm",
+    "DESCRIPTION": "$banishconditionalattack $damage"
   }
 }

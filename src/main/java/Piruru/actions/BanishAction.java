@@ -38,7 +38,7 @@ public class BanishAction extends AbstractGameAction {
         this.anyAmount = anyAmount;
     }
 
-    public BanishAction(int amount, Consumer<ArrayList<AbstractCard>> callback, Predicate<AbstractCard> predicate) {
+    public BanishAction(int amount, Predicate<AbstractCard> predicate, Consumer<ArrayList<AbstractCard>> callback) {
         this(amount);
         this.callback = callback;
         this.predicate = predicate;
