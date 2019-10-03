@@ -1,5 +1,5 @@
 #!/bin/bash
-CODE=./src/main/kotlin/Piruru/
+CODE=./src/main/java/Piruru/
 RESOURCES=./src/main/resources/Piruru/
 PROD_STRINGS=${RESOURCES}localization/eng/prodStrings/
 DEV_STRINGS=${RESOURCES}localization/eng/
