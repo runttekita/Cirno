@@ -158,10 +158,10 @@ class Piruluk() :
                 count++
             }
         }
-        println("COMMON CARDS$commonCount")
-        println("UNCOMMON CARDS$uncommonCount")
-        println("RARE CARDS$rareCount")
-        println("TOTAL CARDS$count")
+        println("COMMON CARDS $commonCount")
+        println("UNCOMMON CARDS $uncommonCount")
+        println("RARE CARDS $rareCount")
+        println("TOTAL CARDS $count")
     }
 
     /**
