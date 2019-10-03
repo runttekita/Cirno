@@ -1,7 +1,6 @@
 package Piruru.patches;
 
 import Piruru.Piruluk;
-import Piruru.intents.FrozenIntent;
 import Piruru.powers.Frozen;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.Gdx;
