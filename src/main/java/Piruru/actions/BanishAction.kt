@@ -34,7 +34,9 @@ class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
         this.anyAmount = anyAmount
     }
 
-    constructor(banishAmount: Int, predicate: (AbstractCard) -> Boolean, callback: (ArrayList<AbstractCard>) -> Unit) : this(banishAmount)
+    constructor(banishAmount: Int, predicate: (AbstractCard) -> Boolean, callback: (ArrayList<AbstractCard>) -> Unit) : this(banishAmount) {
+        this.predicate = predicate
+    }
 
     override fun update() {
         if (duration == Settings.ACTION_DUR_FASTER) {
