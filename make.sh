@@ -95,7 +95,7 @@ then
   COPY_BLUE_BLACK='Shuffle a *Chain *Blue *and *Black into your draw pile.'
   MULLIGAN='Draw the same amount of cards plus 1.'
   DAMAGE_ARTS='Add !M! *Damage *ARTS into your hand.'
-  BANISH_CONDITIONAL_ATTACK='piruru:Banish !M! Attacks. NL if you piruru:Banished !M! Attacks,'
+  BANISH_CONDITIONAL_ATTACK='piruru:Banish !M! Attacks. NL If you piruru:Banished !M! Attacks,'
   EXCESS_DMG='deal twice as much damage.'
   EXCESS='If you have more than !M! cards in your hand,'
   EXCESS_BLOCK='gain twice as much Block.'
