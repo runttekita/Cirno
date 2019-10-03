@@ -1,15 +1,30 @@
 package Piruru.powers
 
+import Piruru.Piruluk
 import Piruru.interfaces.OnRefreshHand
 import Piruru.abstracts.PiruruPower
 import com.megacrit.cardcrawl.actions.common.DrawCardAction
+import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.localization.PowerStrings
 import com.megacrit.cardcrawl.powers.NoDrawPower
 import com.megacrit.cardcrawl.rooms.AbstractRoom
 
 class UnceasingTopP(amount: Int) : PiruruPower(), OnRefreshHand {
 
+    companion object {
+        val POWER_ID : String = Piruluk.makeID(this::class.java.simpleName)
+        internal var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
+        var NAME: String? = null
+        var DESCRIPTION: String? = null
+    }
+
     init {
+        NAME = powerStrings.NAME
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS
+        name = NAME
+        ID = POWER_ID
+        updateDescription()
         this.amount = amount
         this.owner = AbstractDungeon.player
     }

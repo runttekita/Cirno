@@ -1,5 +1,6 @@
 package Piruru.powers
 
+import Piruru.Piruluk
 import Piruru.abstracts.PiruruPower
 import Piruru.interfaces.OnRefreshHand
 import Piruru.patches.ChainPatch
@@ -9,11 +10,25 @@ import com.megacrit.cardcrawl.actions.common.ReducePowerAction
 import com.megacrit.cardcrawl.actions.utility.UseCardAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.core.AbstractCreature
+import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.localization.PowerStrings
 
 class Chain(owner: AbstractCreature, amount: Int) : PiruruPower(), OnRefreshHand {
+    companion object {
+        val POWER_ID : String = Piruluk.makeID(this::class.java.simpleName)
+        internal var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
+        var NAME: String? = null
+        var DESCRIPTION: String? = null
+    }
 
     init {
+        NAME = powerStrings.NAME
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS
+        name = NAME
+        ID = POWER_ID
+        updateDescription()
+        img = Piruluk.textureLoader.getTexture(Piruluk.makePowerPath(this.javaClass.simpleName))
         this.owner = owner
         this.amount = amount
     }

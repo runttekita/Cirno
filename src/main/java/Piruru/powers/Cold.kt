@@ -1,15 +1,35 @@
 package Piruru.powers
 
+import Piruru.Piruluk
 import Piruru.abstracts.PiruruPower
 import basemod.interfaces.CloneablePowerInterface
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
 import com.megacrit.cardcrawl.core.AbstractCreature
+import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.localization.PowerStrings
 import com.megacrit.cardcrawl.powers.AbstractPower
 
 class Cold : PiruruPower, CloneablePowerInterface {
+
+    companion object {
+        val POWER_ID : String = Piruluk.makeID(this::class.java.simpleName)
+        internal var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
+        var NAME: String? = null
+        var DESCRIPTION: String? = null
+        private const val PROC_AMOUNT = 3
+    }
+
+    init {
+        NAME = powerStrings.NAME
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS
+        name = NAME
+        ID = POWER_ID
+        updateDescription()
+        img = Piruluk.textureLoader.getTexture(Piruluk.makePowerPath(this.javaClass.simpleName))
+    }
 
     constructor(owner: AbstractCreature) : super() {
         this.owner = owner
@@ -56,7 +76,4 @@ class Cold : PiruruPower, CloneablePowerInterface {
         description = DESCRIPTIONS[0] + PROC_AMOUNT + DESCRIPTIONS[1]
     }
 
-    companion object {
-        private val PROC_AMOUNT = 3
-    }
 }

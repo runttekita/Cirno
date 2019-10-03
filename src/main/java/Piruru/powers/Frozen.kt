@@ -1,5 +1,6 @@
 package Piruru.powers
 
+import Piruru.Piruluk
 import Piruru.Piruluk.Statics.makeID
 import Piruru.abstracts.PiruruPower
 import Piruru.patches.FrozenIntentPatches
@@ -13,7 +14,9 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.GameActionManager
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
 import com.megacrit.cardcrawl.core.AbstractCreature
+import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.localization.PowerStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo
 import com.megacrit.cardcrawl.powers.AbstractPower
@@ -46,6 +49,21 @@ public class Frozen : PiruruPower, CloneablePowerInterface, InvisiblePower {
 
     override fun updateDescription() {
         description = DESCRIPTIONS[0]
+    }
+
+    companion object {
+        val POWER_ID : String = Piruluk.makeID(this::class.java.simpleName)
+        internal var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
+        var NAME: String? = null
+        var DESCRIPTION: String? = null
+    }
+
+    init {
+        NAME = powerStrings.NAME
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS
+        name = NAME
+        ID = POWER_ID
+        updateDescription()
     }
 
     override fun onDeath() {
@@ -133,7 +151,5 @@ public class Frozen : PiruruPower, CloneablePowerInterface, InvisiblePower {
         }
     }
 
-    companion object {
-        val POWER_ID = makeID(Frozen::class.java)
-    }
+
 }
