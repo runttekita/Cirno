@@ -25,7 +25,7 @@ class DamageARTS : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        damage(m)
+        damage(m!!)
     }
 
     companion object {

@@ -27,7 +27,7 @@ class DiscardRandomCold : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DA
         act(DiscardAnyAmountAction { list ->
             list.forEach { c ->
                 val target = AbstractDungeon.getCurrRoom().monsters.randomMonster
-                act(ApplyPowerAction(target, p, Cold(m), 1))
+                act(ApplyPowerAction(target, p, Cold(m!!), 1))
             }
         })
     }

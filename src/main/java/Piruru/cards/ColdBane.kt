@@ -21,7 +21,7 @@ class ColdBane : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        damage(m)
+        damage(m!!)
         if (m.hasPower(makeID(Cold::class.java))) {
             cold(m)
         }

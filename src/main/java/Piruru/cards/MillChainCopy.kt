@@ -24,7 +24,7 @@ class MillChainCopy : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        damage(m)
+        damage(m!!)
         act(MillAction(magicNumber))
         act(MakeTempCardInDrawPileAction(MillChainCopy(), 1, true, true))
         act(ApplyPowerAction(p, p, Chain(p, 1), 1))

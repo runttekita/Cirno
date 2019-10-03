@@ -19,7 +19,7 @@ class AttackAndMill : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        damage(m)
+        damage(m!!)
         act(MillAction(magicNumber))
     }
 

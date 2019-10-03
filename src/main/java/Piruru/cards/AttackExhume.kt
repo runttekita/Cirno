@@ -21,7 +21,7 @@ class AttackExhume : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        damage(m)
+        damage(m!!)
         act(ExhumeButWithOneLessParameter())
     }
 

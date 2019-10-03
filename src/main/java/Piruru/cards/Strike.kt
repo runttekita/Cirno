@@ -19,7 +19,7 @@ class Strike : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 0,
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        damage(m)
+        damage(m!!)
     }
 
     companion object {
