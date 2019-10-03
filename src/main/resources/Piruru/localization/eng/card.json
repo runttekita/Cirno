@@ -199,5 +199,9 @@
   "ExcessCardsDoesMoreDamage": {
     "NAME": "awa",
     "DESCRIPTION": "$damage $nl $excess $excessdmg"
+  },
+  "ExcessBlock": {
+    "NAME": "af;las",
+    "DESCRIPTION":"$block $nl $excess $excessblock"
   }
 }
