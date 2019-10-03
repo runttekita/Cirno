@@ -50,7 +50,7 @@ class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
             }
 
             if (predicate != null) {
-                var tmp: CardGroup = CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+                val tmp: CardGroup = CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                 for (c in AbstractDungeon.player.discardPile.group) {
                     if(predicate!!(c)) {
                         tmp.addToBottom(c)
