@@ -17,7 +17,7 @@ class BanishThenRecover : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, 0,
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(BanishAction(magicNumber) { ifSuccess -> act(RecoverAction(magicNumber)) })
     }
 

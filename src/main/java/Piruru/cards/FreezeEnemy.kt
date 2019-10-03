@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 class FreezeEnemy : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, 0, COST_UP) {
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(FreezeMonsterAction(m, p))
     }
 

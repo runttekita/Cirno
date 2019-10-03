@@ -21,7 +21,7 @@ class MillForPowers : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(MillAction(magicNumber) { c ->
             if (c.type == AbstractCard.CardType.POWER) {
                 act(RecoverAction(c))

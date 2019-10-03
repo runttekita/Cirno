@@ -23,7 +23,7 @@ class AoEFreeze : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP,
         exhaust = true
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         for (mo in AbstractDungeon.getCurrRoom().monsters.monsters) {
             act(FreezeMonsterAction(mo, p))
         }

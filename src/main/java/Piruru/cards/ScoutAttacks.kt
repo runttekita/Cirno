@@ -18,7 +18,7 @@ class ScoutAttacks : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, S
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(ScoutCardsAction(p, magicNumber))
         act(WaitAction(0.4f))
         act(ScoutFollowUpAction())

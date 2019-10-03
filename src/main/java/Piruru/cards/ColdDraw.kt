@@ -20,7 +20,7 @@ class ColdDraw : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(DrawActionButWithACallback(magicNumber) { c ->
             if (c.type == AbstractCard.CardType.SKILL) {
                 cold(m)

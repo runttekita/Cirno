@@ -18,7 +18,7 @@ class FlameBarrierButCold : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, 
         magicNumber = baseMagicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         block()
         act(power(p, p, FlameBarrierButColdP(p, magicNumber), magicNumber))
     }

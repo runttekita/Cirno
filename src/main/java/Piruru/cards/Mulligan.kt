@@ -21,7 +21,7 @@ class Mulligan : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(DiscardAnyAmountAction { list -> act(MulliganAction(list.size)) })
     }
 

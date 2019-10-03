@@ -17,7 +17,7 @@ class DiscardAnyAmountAndGainEnergy : PiruruCard(cardStrings, COST, TYPE, RARITY
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(DiscardAnyAmountAction { list -> list.forEach { c -> act(GainEnergyAction(magicNumber)) } })
     }
 

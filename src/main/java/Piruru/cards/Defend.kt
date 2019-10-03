@@ -17,7 +17,7 @@ class Defend : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, 0, BLOCK_UP, 
         tags.add(BaseModCardTags.BASIC_DEFEND)
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster??) {
         block()
     }
 

@@ -24,7 +24,7 @@ class AllForOneButSkills : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, 0
         }
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(AllForSkills(upgraded))
     }
 

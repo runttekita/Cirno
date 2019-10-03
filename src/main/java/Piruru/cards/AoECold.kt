@@ -24,7 +24,7 @@ class AoECold : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, B
         isMultiDamage = true
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE))
         for (mo in AbstractDungeon.getCurrRoom().monsters.monsters) {
             cold(mo)

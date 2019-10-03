@@ -28,7 +28,7 @@ class DamageAndCold : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE
         return list
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         damage(m)
         cold(m)
     }

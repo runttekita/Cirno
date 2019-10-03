@@ -21,7 +21,7 @@ class AttackRecoverRandom : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, 
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         damage(m)
         act(RecoverAction(AbstractDungeon.player.discardPile.getRandomCard(true)))
     }

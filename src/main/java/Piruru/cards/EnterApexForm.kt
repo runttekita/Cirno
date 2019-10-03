@@ -21,7 +21,7 @@ class EnterApexForm : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(NotShittyChangeStanceAction(ApexForm()))
     }
 

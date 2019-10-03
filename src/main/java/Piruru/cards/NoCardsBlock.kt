@@ -21,7 +21,7 @@ class NoCardsBlock : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(ApplyPowerAction(p, p, NoCardsBlockP(p, magicNumber)))
     }
 

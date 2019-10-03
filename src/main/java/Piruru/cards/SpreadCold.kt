@@ -17,7 +17,7 @@ class SpreadCold : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         damage(m)
         cold(m)
     }

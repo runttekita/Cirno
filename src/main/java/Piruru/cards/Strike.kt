@@ -18,7 +18,7 @@ class Strike : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 0,
         tags.add(AbstractCard.CardTags.STRIKE)
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         damage(m)
     }
 

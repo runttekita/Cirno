@@ -26,7 +26,7 @@ class ColdARTS : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 
         AlwaysRetainField.alwaysRetain.set(this, true)
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(ApplyPowerAction(m, p, Cold(magicNumber, m), magicNumber))
     }
 

@@ -19,7 +19,7 @@ class AttackBlock : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_U
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         damage(m)
         block()
     }

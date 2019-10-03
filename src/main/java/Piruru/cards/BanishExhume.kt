@@ -21,7 +21,7 @@ class BanishExhume : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(BanishAction(magicNumber) { ifSuccess -> act(ExhumeButWithOneLessParameter()) })
     }
 

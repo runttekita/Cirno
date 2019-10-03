@@ -21,7 +21,7 @@ class UnceasingTopPower : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DA
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(ApplyPowerAction(p, p, UnceasingTopP(magicNumber), magicNumber))
     }
 

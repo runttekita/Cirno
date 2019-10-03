@@ -22,7 +22,7 @@ class DiscardChain : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(DiscardAction(p, p, 1, false))
         act(ApplyPowerAction(p, p, Chain(p, magicNumber)))
     }

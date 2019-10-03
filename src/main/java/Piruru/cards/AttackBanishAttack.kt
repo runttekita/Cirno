@@ -20,7 +20,7 @@ class AttackBanishAttack : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, D
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(BanishAction(
                 magicNumber,
                 { c : AbstractCard -> c.type == CardType.ATTACK },

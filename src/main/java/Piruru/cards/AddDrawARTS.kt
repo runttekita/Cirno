@@ -32,7 +32,7 @@ class AddDrawARTS : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_U
         return list
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         for (i in 0 until magicNumber) {
             act(MakeTempCardInHandAction(DrawARTS()))
         }

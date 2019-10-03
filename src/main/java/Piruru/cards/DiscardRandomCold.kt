@@ -23,7 +23,7 @@ class DiscardRandomCold : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DA
         baseMagicNumber = magicNumber
     }
 
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(DiscardAnyAmountAction { list ->
             list.forEach { c ->
                 val target = AbstractDungeon.getCurrRoom().monsters.randomMonster
