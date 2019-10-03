@@ -23,8 +23,8 @@ class AttackBanishAttack : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, D
     override fun use(p: AbstractPlayer, m: AbstractMonster) {
         act(BanishAction(
                 magicNumber,
-                { c -> c.type == AbstractCard.CardType.ATTACK },
-                { c -> damage(m) }
+                { c : AbstractCard -> c.type == CardType.ATTACK },
+                { _ -> damage(m) }
         ))
     }
 
@@ -32,7 +32,7 @@ class AttackBanishAttack : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, D
         private val cardStrings = CardCrawlGame.languagePack.getCardStrings(
                 makeID(AttackBanishAttack::class.java.simpleName))
         private val COST = 1
-        private val TYPE = AbstractCard.CardType.ATTACK
+        private val TYPE = CardType.ATTACK
         private val RARITY = AbstractCard.CardRarity.COMMON
         private val TARGET = AbstractCard.CardTarget.ENEMY
         private val DAMAGE_UP = 3

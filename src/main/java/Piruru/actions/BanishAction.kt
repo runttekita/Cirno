@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.CardGroup
+import com.megacrit.cardcrawl.characters.AbstractPlayer.uiStrings
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
@@ -17,11 +18,11 @@ import java.util.function.Predicate
 
 
 class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
-    private var callback: Consumer<ArrayList<AbstractCard>>? = null
+    private var callback: ((Nothing) -> Unit)? = null
     private var anyAmount = false
-    private var predicate: Predicate<AbstractCard>? = null
+    private var predicate: ((AbstractCard) -> Boolean)? = null
 
-    constructor(banishAmount: Int, callback: Consumer<ArrayList<AbstractCard>>) : this(banishAmount) {
+    constructor(banishAmount: Int, callback: (Nothing) -> Unit) : this(banishAmount) {
         this.callback = callback
     }
 
@@ -29,14 +30,11 @@ class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
         duration = Settings.ACTION_DUR_FASTER
     }
 
-    constructor(banishAmount: Int, callback: Consumer<ArrayList<AbstractCard>>, anyAmount: Boolean) : this(banishAmount, callback) {
+    constructor(banishAmount: Int, callback: (Nothing) -> Unit, anyAmount: Boolean) : this(banishAmount, callback) {
         this.anyAmount = anyAmount
     }
 
-    constructor(banishAmount: Int, predicate: Predicate<AbstractCard>, callback: Consumer<ArrayList<AbstractCard>>) : this(banishAmount) {
-        this.callback = callback
-        this.predicate = predicate
-    }
+    constructor(banishAmount: Int, predicate: (AbstractCard) -> Boolean, callback: (Nothing) -> Unit) : this(banishAmount)
 
     override fun update() {
         if (duration == Settings.ACTION_DUR_FASTER) {
@@ -52,9 +50,9 @@ class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
             }
 
             if (predicate != null) {
-                val tmp = CardGroup(CardGroup.CardGroupType.UNSPECIFIED)
+                var tmp: CardGroup = CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                 for (c in AbstractDungeon.player.discardPile.group) {
-                    if (predicate!!.test(c)) {
+                    if(predicate!!(c)) {
                         tmp.addToBottom(c)
                     }
                 }
@@ -80,7 +78,7 @@ class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
         }
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             if (callback != null) {
-                callback!!.accept(AbstractDungeon.gridSelectScreen.selectedCards)
+                callback
             }
             for (c in AbstractDungeon.gridSelectScreen.selectedCards) {
                 AbstractDungeon.actionManager.addToBottom(ExhaustSpecificCardAction(
