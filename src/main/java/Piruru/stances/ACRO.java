@@ -64,7 +64,7 @@ public class ACRO extends PiruruStance {
 
     @Override
     public void updateDescription() {
-        description = stanceStrings.DESCRIPTION[0] + DRAW_CAP + stanceStrings.DESCRIPTION[1] + DRAW_CAP + stanceStrings.DESCRIPTION[2];
+        description = getStanceStrings().DESCRIPTION[0] + DRAW_CAP + getStanceStrings().DESCRIPTION[1] + DRAW_CAP + getStanceStrings().DESCRIPTION[2];
     }
 
     @SpirePatch(

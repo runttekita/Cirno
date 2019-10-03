@@ -28,7 +28,7 @@ public class Allos extends PiruruStance implements OnRefreshHand {
 
     @Override
     public void updateDescription() {
-        description = stanceStrings.DESCRIPTION[0];
+        description = getStanceStrings().DESCRIPTION[0];
     }
 
     public void onEnterStance() {

@@ -13,7 +13,7 @@ open class PiruruRelic(id: String, tier: AbstractRelic.RelicTier, sfx: AbstractR
     fun act(a: AbstractGameAction) {
         AbstractDungeon.actionManager.addToBottom(a)
     }
-    
+
 }
 
 

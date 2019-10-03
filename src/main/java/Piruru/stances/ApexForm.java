@@ -65,6 +65,6 @@ public class ApexForm extends PiruruStance {
 
     @Override
     public void updateDescription() {
-        description = stanceStrings.DESCRIPTION[0] + RECOVER_AMT + stanceStrings.DESCRIPTION[1];
+        description = getStanceStrings().DESCRIPTION[0] + RECOVER_AMT + getStanceStrings().DESCRIPTION[1];
     }
 }
