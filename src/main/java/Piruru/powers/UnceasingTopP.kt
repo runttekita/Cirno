@@ -13,17 +13,17 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom
 class UnceasingTopP(amount: Int) : PiruruPower(), OnRefreshHand {
 
     companion object {
-        val POWER_ID : String = Piruluk.makeID(this.javaClass.simpleName)
+        val POWER_ID : String = Piruluk.makeID(this::class.java.simpleName)
         internal var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         var NAME: String? = null
         var DESCRIPTION: String? = null
     }
 
     init {
+        ID = POWER_ID
         NAME = powerStrings.NAME
         DESCRIPTIONS = powerStrings.DESCRIPTIONS
         name = NAME
-        ID = POWER_ID
         updateDescription()
         this.amount = amount
         this.owner = AbstractDungeon.player

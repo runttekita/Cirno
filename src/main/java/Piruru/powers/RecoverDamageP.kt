@@ -21,10 +21,10 @@ class RecoverDamageP(amount: Int) : PiruruPower(), OnRecover {
     }
 
     init {
+        ID = POWER_ID
         NAME = powerStrings.NAME
         DESCRIPTIONS = powerStrings.DESCRIPTIONS
         name = NAME
-        ID = POWER_ID
         updateDescription()
         this.owner = AbstractDungeon.player
         this.amount = amount

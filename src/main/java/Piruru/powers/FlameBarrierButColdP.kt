@@ -23,10 +23,10 @@ class FlameBarrierButColdP(owner: AbstractCreature, amount: Int) : PiruruPower()
     }
 
     init {
+        ID = POWER_ID
         NAME = powerStrings.NAME
         DESCRIPTIONS = powerStrings.DESCRIPTIONS
         name = NAME
-        ID = POWER_ID
         updateDescription()
         img = Piruluk.textureLoader.getTexture(Piruluk.makePowerPath(this.javaClass.simpleName))
         this.owner = owner

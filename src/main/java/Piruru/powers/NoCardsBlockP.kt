@@ -22,10 +22,10 @@ class NoCardsBlockP(owner: AbstractCreature, amount: Int) : PiruruPower(), OnRef
     }
 
     init {
+        ID = POWER_ID
         NAME = powerStrings.NAME
         DESCRIPTIONS = powerStrings.DESCRIPTIONS
         name = NAME
-        ID = POWER_ID
         updateDescription()
         this.owner = owner
         this.amount = amount
