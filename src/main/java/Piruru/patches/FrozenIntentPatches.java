@@ -15,6 +15,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.esotericsoftware.spine.SkeletonMeshRenderer;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.exordium.Hexaghost;
 import javassist.CtBehavior;
@@ -26,6 +28,14 @@ public class FrozenIntentPatches {
         public static AbstractMonster.Intent FROZEN;
     }
 
+    private static PowerTip getTip() {
+        PowerTip tip = new PowerTip();
+        UIStrings strings = CardCrawlGame.languagePack.getUIString("Piruru:FrozenIntent");
+        tip.header = strings.TEXT[0];
+        tip.body = strings.TEXT[1];
+        tip.img = Piruluk.Statics.getTextureLoader().getTexture("Piruru/images/FrozenIntent.png");
+        return tip;
+    }
 
     @SpirePatch(
             clz = AbstractMonster.class,
@@ -50,7 +60,7 @@ public class FrozenIntentPatches {
     public static class FrozenIntentTip {
         public static SpireReturn Prefix(AbstractMonster __instance) {
             if (__instance.intent == FrozenIntentEnum.FROZEN) {
-                ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentTip", FrozenIntent.INSTANCE.getTip());
+                ReflectionHacks.setPrivate(__instance, AbstractMonster.class, "intentTip", getTip());
                 return SpireReturn.Return(null);
             }
             return SpireReturn.Continue();

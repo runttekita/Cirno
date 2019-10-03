@@ -113,6 +113,144 @@ class Piruluk() :
      * I'm too lazy to copy paste all that stuff and make like 90 classes and make.sh does this for me.
      */
     override fun receiveEditCards() {
+		addCard(AddColdARTS());//delete
+		addCard(AddDamageARTS());//delete
+		addCard(AddDrawARTS());//delete
+		addCard(AllForOneButSkills());//delete
+		addCard(AoECold());//delete
+		addCard(AoEFreeze());//delete
+		addCard(AoEMill());//delete
+		addCard(AttackAndMill());//delete
+		addCard(AttackAndScry());//delete
+		addCard(AttackBanishAttack());//delete
+		addCard(AttackBlock());//delete
+		addCard(AttackDiscard());//delete
+		addCard(AttackExhume());//delete
+		addCard(AttackRecoverRandom());//delete
+		addCard(AttackReturnAttacks());//delete
+		addCard(BanishExhume());//delete
+		addCard(BanishThenRecover());//delete
+		addCard(BlockDrawMill());//delete
+		addCard(ColdARTS());//delete
+		addCard(ColdBane());//delete
+		addCard(ColdDraw());//delete
+		addCard(DamageAndCold());//delete
+		addCard(DamageARTS());//delete
+		addCard(Defend());//delete
+		addCard(DiscardAndGainEnergy());//delete
+		addCard(DiscardAnyAmountAndGainEnergy());//delete
+		addCard(DiscardChain());//delete
+		addCard(DiscardForBlock());//delete
+		addCard(DiscardRandomCold());//delete
+		addCard(DrawARTS());//delete
+		addCard(EnterACRO());//delete
+		addCard(EnterAllos());//delete
+		addCard(EnterApexForm());//delete
+		addCard(EnterRemember());//delete
+		addCard(FlameBarrierButCold());//delete
+		addCard(FreezeEnemy());//delete
+		addCard(InfiniteScalingShit());//delete
+		addCard(MillChainCopy());//delete
+		addCard(MillForPowers());//delete
+		addCard(Mulligan());//delete
+		addCard(NoCardsBlock());//delete
+		addCard(RecoverDamage());//delete
+		addCard(ScoutAttacks());//delete
+		addCard(SpreadCold());//delete
+		addCard(Strike());//delete
+		addCard(UnceasingTopPower());//delete
+		addCard(AddColdARTS());//delete
+		addCard(AddDamageARTS());//delete
+		addCard(AddDrawARTS());//delete
+		addCard(AllForOneButSkills());//delete
+		addCard(AoECold());//delete
+		addCard(AoEFreeze());//delete
+		addCard(AoEMill());//delete
+		addCard(AttackAndMill());//delete
+		addCard(AttackAndScry());//delete
+		addCard(AttackBanishAttack());//delete
+		addCard(AttackBlock());//delete
+		addCard(AttackDiscard());//delete
+		addCard(AttackExhume());//delete
+		addCard(AttackRecoverRandom());//delete
+		addCard(AttackReturnAttacks());//delete
+		addCard(BanishExhume());//delete
+		addCard(BanishThenRecover());//delete
+		addCard(BlockDrawMill());//delete
+		addCard(ColdARTS());//delete
+		addCard(ColdBane());//delete
+		addCard(ColdDraw());//delete
+		addCard(DamageAndCold());//delete
+		addCard(DamageARTS());//delete
+		addCard(Defend());//delete
+		addCard(DiscardAndGainEnergy());//delete
+		addCard(DiscardAnyAmountAndGainEnergy());//delete
+		addCard(DiscardChain());//delete
+		addCard(DiscardForBlock());//delete
+		addCard(DiscardRandomCold());//delete
+		addCard(DrawARTS());//delete
+		addCard(EnterACRO());//delete
+		addCard(EnterAllos());//delete
+		addCard(EnterApexForm());//delete
+		addCard(EnterRemember());//delete
+		addCard(FlameBarrierButCold());//delete
+		addCard(FreezeEnemy());//delete
+		addCard(InfiniteScalingShit());//delete
+		addCard(MillChainCopy());//delete
+		addCard(MillForPowers());//delete
+		addCard(Mulligan());//delete
+		addCard(NoCardsBlock());//delete
+		addCard(RecoverDamage());//delete
+		addCard(ScoutAttacks());//delete
+		addCard(SpreadCold());//delete
+		addCard(Strike());//delete
+		addCard(UnceasingTopPower());//delete
+		addCard(AddColdARTS());//delete
+		addCard(AddDamageARTS());//delete
+		addCard(AddDrawARTS());//delete
+		addCard(AllForOneButSkills());//delete
+		addCard(AoECold());//delete
+		addCard(AoEFreeze());//delete
+		addCard(AoEMill());//delete
+		addCard(AttackAndMill());//delete
+		addCard(AttackAndScry());//delete
+		addCard(AttackBanishAttack());//delete
+		addCard(AttackBlock());//delete
+		addCard(AttackDiscard());//delete
+		addCard(AttackExhume());//delete
+		addCard(AttackRecoverRandom());//delete
+		addCard(AttackReturnAttacks());//delete
+		addCard(BanishExhume());//delete
+		addCard(BanishThenRecover());//delete
+		addCard(BlockDrawMill());//delete
+		addCard(ColdARTS());//delete
+		addCard(ColdBane());//delete
+		addCard(ColdDraw());//delete
+		addCard(DamageAndCold());//delete
+		addCard(DamageARTS());//delete
+		addCard(Defend());//delete
+		addCard(DiscardAndGainEnergy());//delete
+		addCard(DiscardAnyAmountAndGainEnergy());//delete
+		addCard(DiscardChain());//delete
+		addCard(DiscardForBlock());//delete
+		addCard(DiscardRandomCold());//delete
+		addCard(DrawARTS());//delete
+		addCard(EnterACRO());//delete
+		addCard(EnterAllos());//delete
+		addCard(EnterApexForm());//delete
+		addCard(EnterRemember());//delete
+		addCard(FlameBarrierButCold());//delete
+		addCard(FreezeEnemy());//delete
+		addCard(InfiniteScalingShit());//delete
+		addCard(MillChainCopy());//delete
+		addCard(MillForPowers());//delete
+		addCard(Mulligan());//delete
+		addCard(NoCardsBlock());//delete
+		addCard(RecoverDamage());//delete
+		addCard(ScoutAttacks());//delete
+		addCard(SpreadCold());//delete
+		addCard(Strike());//delete
+		addCard(UnceasingTopPower());//delete
 		//autoAddCards
     }
 
@@ -130,6 +268,9 @@ class Piruluk() :
      * I'm too lazy to copy paste all that stuff and make like 90 classes and make.sh does this for me.
      */
     override fun receiveEditRelics() {
+		addRelicToCustomPool(StarterRelic(), PiruruChar.PIRURU_ICE);//delete
+		addRelicToCustomPool(StarterRelic(), PiruruChar.PIRURU_ICE);//delete
+		addRelicToCustomPool(StarterRelic(), PiruruChar.PIRURU_ICE);//delete
 		//autoAddRelics
         var count = 0
         var commonCount = 0
