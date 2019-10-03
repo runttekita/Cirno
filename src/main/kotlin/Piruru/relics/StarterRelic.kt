@@ -2,7 +2,7 @@ package Piruru.relics
 
 import Piruru.Piruluk
 import Piruru.abstracts.PiruruRelic
-import Piruru.actions.PeepingAnalyzeAction
+import Piruru.actions.MoveNCostToDiscard
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic
@@ -18,7 +18,7 @@ class StarterRelic : PiruruRelic(ID, TIER, SFX), ClickableRelic {
     }
 
     override fun atBattleStartPreDraw() {
-        act(PeepingAnalyzeAction(counter))
+        act(MoveNCostToDiscard(counter))
     }
 
     override fun onRightClick() {

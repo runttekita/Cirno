@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 
-class PeepingAnalyzeAction(private val cost: Int) : AbstractGameAction() {
+class MoveNCostToDiscard(private val cost: Int) : AbstractGameAction() {
 
     override fun update() {
         for (c in AbstractDungeon.player.drawPile.group) {
