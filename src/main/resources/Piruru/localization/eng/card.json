@@ -195,5 +195,9 @@
   "BigDickARTSAttack": {
     "NAME": "uwu",
     "DESCRIPTION": "$damage $nl $retain $nl $arts"
+  },
+  "ExcessCardsDoesMoreDamage": {
+    "NAME": "awa",
+    "DESCRIPTION": "$damage $nl $excess $excessdmg"
   }
 }
