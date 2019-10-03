@@ -195,7 +195,7 @@ done
 for f in ${RELICS}
 do
     ADD=$(echo $f | rev | cut -d"/" -f1 | rev | cut -d"." -f1)
-    sed -i "s|\/\/autoAddRelics|addRelicToCustomPool(${ADD}(), PiruruChar.PIRURU_ICE);\/\/delete\n\t\t\/\/autoAddRelics|g" ${GOD_OBJECT}
+    sed -i "s|\/\/autoAddRelics|addRelicToCustomPool(${ADD}(), PiruruChar.Enums.enums.PIRURU_ICE);\/\/delete\n\t\t\/\/autoAddRelics|g" ${GOD_OBJECT}
 done
 
 # images!

@@ -6,6 +6,7 @@ import Piruru.cards.DamageAndCold
 import Piruru.cards.Defend
 import Piruru.cards.ScoutAttacks
 import Piruru.cards.Strike
+import Piruru.characters.PiruruChar.Enums.enums.PIRURU_ICE
 import Piruru.relics.StarterRelic
 import basemod.abstracts.CustomPlayer
 import basemod.animations.AbstractAnimation
@@ -134,7 +135,6 @@ class PiruruChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPla
     }
 
     companion object statics {
-
         val ENERGY_PER_TURN = 3
         val STARTING_HP = 75
         val MAX_HP = 75
@@ -146,12 +146,20 @@ class PiruruChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPla
         private val characterStrings = CardCrawlGame.languagePack.getCharacterString(ID)
         private val NAMES = arrayOf("Piruluk", "Piruluk", "Piruluk", "Piruluk", "Piruluk")
         private val TEXT = arrayOf("Piruluk", "Piruluk", "Piruluk", "Piruluk", "Piruluk")
+    }
 
-        @SpireEnum
-        var PIRURU: AbstractPlayer.PlayerClass? = null
-        @SpireEnum(name = "ICE")
-        var PIRURU_ICE: AbstractCard.CardColor? = null
-        @SpireEnum(name = "ICE")
-        var LIBRARY_COLOR: CardLibrary.LibraryType? = null
+    public class Enums {
+        object enums{
+            @SpireEnum
+            @JvmStatic
+            var PIRURU: AbstractPlayer.PlayerClass? = null
+            @SpireEnum(name = "ICE")
+            @JvmStatic
+            var PIRURU_ICE: AbstractCard.CardColor? = null
+            @SpireEnum(name = "ICE")
+            @JvmStatic
+            var LIBRARY_COLOR: CardLibrary.LibraryType? = null
+        }
+
     }
 }

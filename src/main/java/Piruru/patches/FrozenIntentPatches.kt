@@ -32,15 +32,19 @@ object FrozenIntentPatches {
             return tip
         }
 
-    object FrozenIntentEnum {
-        @SpireEnum
-        var FROZEN: AbstractMonster.Intent? = null
+    public class Enum{
+        object FrozenIntentEnum {
+            @SpireEnum
+            @JvmStatic
+            var FROZEN: AbstractMonster.Intent? = null
+        }
     }
 
     @SpirePatch(clz = AbstractMonster::class, method = "getIntentImg")
     object FrozenIntentImage {
+        @JvmStatic
         fun Prefix(__instance: AbstractMonster): SpireReturn<Texture> {
-            return if (__instance.intent == FrozenIntentEnum.FROZEN) {
+            return if (__instance.intent == FrozenIntentPatches.Enum.FrozenIntentEnum.FROZEN) {
                 SpireReturn.Return(Piruluk.textureLoader.getTexture(
                         "Piruru/images/intents/Frozen.png"
                 ))
@@ -50,8 +54,9 @@ object FrozenIntentPatches {
 
     @SpirePatch(clz = AbstractMonster::class, method = "updateIntentTip")
     object FrozenIntentTip {
+        @JvmStatic
         fun Prefix(__instance: AbstractMonster): SpireReturn<*> {
-            if (__instance.intent == FrozenIntentEnum.FROZEN) {
+            if (__instance.intent == FrozenIntentPatches.Enum.FrozenIntentEnum.FROZEN) {
                 ReflectionHacks.setPrivate(__instance, AbstractMonster::class.java, "intentTip", tip)
                 return SpireReturn.Return<Any>(null)
             }

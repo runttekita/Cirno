@@ -11,8 +11,9 @@ import javassist.CtBehavior
 class OnRefreshHandP {
 
     @SpirePatch(clz = CardGroup::class, method = "refreshHandLayout")
-    class OnRefreshHandPatch {
+    object OnRefreshHandPatch {
         @SpireInsertPatch(locator = PatchLocators.OnRefreshLocator::class)
+        @JvmStatic
         fun Insert(__instance: CardGroup) {
             for (p in AbstractDungeon.player.powers) {
                 if (p is OnRefreshHand) {

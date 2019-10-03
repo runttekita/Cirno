@@ -61,6 +61,7 @@ class Remember : PiruruStance() {
 
     @SpirePatch(clz = GameActionManager::class, method = "callEndOfTurnActions")
     object TempFixBecauseWtfMegacrit {
+        @JvmStatic
         fun Postfix(__instance: GameActionManager) {
             AbstractDungeon.player.stance.onEndOfTurn()
         }

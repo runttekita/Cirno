@@ -70,6 +70,7 @@ public class Allos : PiruruStance(), OnRefreshHand {
 
     @SpirePatch(clz = DiscardAtEndOfTurnAction::class, method = "update")
     object NoDiscardHandAllosPatch {
+        @JvmStatic
         fun Instrument(): ExprEditor {
             return object : ExprEditor() {
                 @Throws(CannotCompileException::class)

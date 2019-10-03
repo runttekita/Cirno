@@ -3,6 +3,8 @@ package Piruru
 import Piruru.cards.*
 import Piruru.relics.*
 import Piruru.characters.PiruruChar
+import Piruru.characters.PiruruChar.Enums.enums.LIBRARY_COLOR
+import Piruru.characters.PiruruChar.Enums.enums.PIRURU
 import basemod.BaseMod
 import basemod.BaseMod.addCard
 import basemod.BaseMod.addRelicToCustomPool
@@ -11,6 +13,7 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
 import com.evacipated.cardcrawl.mod.stslib.Keyword
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum
+import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
 import com.google.gson.Gson
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.core.Settings
@@ -20,6 +23,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker
 import java.nio.charset.StandardCharsets
 import java.util.*
 
+@SpireInitializer
 class Piruluk() :
         EditCardsSubscriber,
         EditCharactersSubscriber,
@@ -89,7 +93,7 @@ class Piruluk() :
         @JvmStatic
         fun initialize() {
             Piruluk()
-            BaseMod.addColor(PiruruChar.PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
+            BaseMod.addColor(PiruruChar.Enums.enums.PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
                     PIRURU_ICE, PIRURU_ICE, PIRURU_ICE, PIRURU_ICE,
                     ATTACK_PIRURU_ICE, SKILL_PIRURU_ICE, POWER_PIRURU_ICE,
                     ENERGY_ORB_PIRURU_ICE, ATTACK_PIRURU_ICE_PORTRAIT,
@@ -98,14 +102,14 @@ class Piruluk() :
         }
     }
 
-    fun Piruru() {
+    init {
         BaseMod.subscribe(this)
         setModID("Piruru")
     }
 
     override fun receiveEditCharacters() {
-        BaseMod.addCharacter(PiruruChar.PIRURU?.let { PiruruChar("Piruru", it) },
-                PIRURU_BUTTON, PIRURU_PORTRAIT, PiruruChar.PIRURU)
+        BaseMod.addCharacter(PIRURU?.let { PiruruChar("Piruru", it) },
+                PIRURU_BUTTON, PIRURU_PORTRAIT, PIRURU)
     }
 
     /**
@@ -136,7 +140,7 @@ class Piruluk() :
         var uncommonCount = 0
         var rareCount = 0
         var basicCount = 0
-        for (c in CardLibrary.getCardList(PiruruChar.LIBRARY_COLOR)) {
+        for (c in CardLibrary.getCardList(LIBRARY_COLOR)) {
             UnlockTracker.unlockCard(c.cardID)
             if (c.rarity == AbstractCard.CardRarity.BASIC) {
                 basicCount++
@@ -186,7 +190,9 @@ class Piruluk() :
      * https://asciiart.club/
      */
     object ASCII_ART {
+
         @SpireEnum
+        @JvmStatic
         var dab: AbstractCard.CardTags? = null
 
         init {

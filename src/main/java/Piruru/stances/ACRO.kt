@@ -63,6 +63,7 @@ class ACRO : PiruruStance() {
 
     @SpirePatch(clz = AbstractPlayer::class, method = "combatUpdate")
     object AcroDrawPatch {
+        @JvmStatic
         fun Postfix(__instance: AbstractPlayer) {
             if (AbstractDungeon.player.stance is ACRO) {
                 if (HitboxRightClick.rightClicked.get(__instance.hb) && !usedDraw && AbstractDungeon.actionManager.phase == GameActionManager.Phase.WAITING_ON_USER) {

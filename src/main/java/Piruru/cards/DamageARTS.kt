@@ -2,6 +2,7 @@ package Piruru.cards
 
 import Piruru.Piruluk.Statics.makeID
 import Piruru.abstracts.PiruruCard
+import Piruru.abstracts.PiruruCard.Enums.Enums.ARTS
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -19,7 +20,7 @@ class DamageARTS : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP
         magicNumber = MAGIC
         baseMagicNumber = magicNumber
         AlwaysRetainField.alwaysRetain.set(this, true)
-        tags.add(PiruruCard.Enums.ARTS)
+        tags.add(ARTS)
         exhaust = true
     }
 

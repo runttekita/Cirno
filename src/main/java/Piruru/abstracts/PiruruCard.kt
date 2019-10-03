@@ -2,10 +2,13 @@ package Piruru.abstracts
 
 import Piruru.Piruluk
 import Piruru.Piruluk.Statics.makeID
+import Piruru.abstracts.PiruruCard.Enums.Enums.ARTS
 import Piruru.characters.PiruruChar
+import Piruru.characters.PiruruChar.Enums.enums.PIRURU_ICE
 import Piruru.interfaces.NotShittyTookDamage
 import Piruru.patches.PatchLocators
 import Piruru.powers.Cold
+import Piruru.powers.Frozen
 import basemod.abstracts.CustomCard
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.AbstractGameAction
@@ -25,7 +28,7 @@ import javassist.CtBehavior
 abstract class PiruruCard
 (private val strings: CardStrings, cost: Int, type: AbstractCard.CardType, rarity: AbstractCard.CardRarity, target: AbstractCard.CardTarget, private val upgradeDamage: Int,
                           private val upgradeBlock: Int, private val upgradeMagic: Int, private val upgradeCost: Int)
-    : CustomCard(null, strings.NAME, getImg("Piruru:uwu"), cost, strings.DESCRIPTION, type, PiruruChar.PIRURU_ICE, rarity, target),
+    : CustomCard(null, strings.NAME, getImg("Piruru:uwu"), cost, strings.DESCRIPTION, type, PIRURU_ICE, rarity, target),
         NotShittyTookDamage {
 
     init {
@@ -61,7 +64,7 @@ abstract class PiruruCard
     }
 
     override fun notShittyTookDamage(i: DamageInfo) {
-        if (hasTag(Enums.ARTS) && AbstractDungeon.player.hand.contains(this)) {
+        if (hasTag(ARTS) && AbstractDungeon.player.hand.contains(this)) {
             if (i.owner is AbstractMonster) {
                 act(QueueCardAction(this, i.owner as AbstractMonster))
             } else {
@@ -120,16 +123,20 @@ abstract class PiruruCard
         }
     }
 
-    object Enums {
-        @SpireEnum
-        var ARTS: AbstractCard.CardTags? = null
+    public class Enums {
+        object Enums {
+            @SpireEnum
+            @JvmStatic
+            var ARTS: AbstractCard.CardTags? = null
+        }
     }
 
     @SpirePatch(clz = AbstractCard::class, method = "hasEnoughEnergy")
-    class PlayARTSOnEnemyTurnPatch {
+    object PlayARTSOnEnemyTurnPatch {
         @SpireInsertPatch(locator = PatchLocators.ARTSLocator::class)
+        @JvmStatic
         fun Insert(__instance: AbstractCard): SpireReturn<*> {
-            return if (__instance is PiruruCard && __instance.hasTag(Enums.ARTS)) {
+            return if (__instance is PiruruCard && __instance.hasTag(ARTS)) {
                 SpireReturn.Return(true)
             } else SpireReturn.Continue<Any>()
         }

@@ -3,6 +3,7 @@ package Piruru.powers
 import Piruru.Piruluk.Statics.makeID
 import Piruru.abstracts.PiruruPower
 import Piruru.patches.FrozenIntentPatches
+import Piruru.patches.FrozenIntentPatches.Enum.FrozenIntentEnum.FROZEN
 import basemod.ReflectionHacks
 import basemod.interfaces.CloneablePowerInterface
 import com.badlogic.gdx.Gdx
@@ -81,7 +82,7 @@ public class Frozen : PiruruPower, CloneablePowerInterface, InvisiblePower {
                         val f = AbstractMonster::class.java.getDeclaredField("move")
                         f.isAccessible = true
                         move = f.get(owner) as EnemyMoveInfo
-                        move!!.intent = FrozenIntentPatches.FrozenIntentEnum.FROZEN
+                        move!!.intent = FROZEN
                         (owner as AbstractMonster).createIntent()
                     } catch (e: IllegalAccessException) {
                         e.printStackTrace()
@@ -119,14 +120,13 @@ public class Frozen : PiruruPower, CloneablePowerInterface, InvisiblePower {
      */
     @SpirePatch(clz = GameActionManager::class, method = "getNextAction")
     object FrozenPowerPatch {
+        @JvmStatic
         fun Instrument(): ExprEditor {
             return object : ExprEditor() {
                 @Throws(CannotCompileException::class)
                 override fun edit(m: MethodCall?) {
                     if (m!!.className == AbstractMonster::class.java.name && m.methodName == "takeTurn") {
-                        m.replace("if (!m.hasPower(" + Frozen::class.java.name + ".POWER_ID)) {" +
-                                "\$_ = \$proceed($$);" +
-                                "}")
+
                     }
                 }
             }

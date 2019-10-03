@@ -2,6 +2,7 @@ package Piruru.powers
 
 import Piruru.abstracts.PiruruPower
 import Piruru.interfaces.OnRefreshHand
+import Piruru.patches.ChainPatch
 import com.evacipated.cardcrawl.modthespire.lib.SpireField
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction
@@ -27,38 +28,38 @@ class Chain(owner: AbstractCreature, amount: Int) : PiruruPower(), OnRefreshHand
 
     override fun onUseCard(c: AbstractCard?, a: UseCardAction?) {
         for (ca in AbstractDungeon.player.drawPile.group) {
-            if (ChainedField.chained.get(ca)) {
+            if (ChainPatch.ChainedField.chained.get(ca)) {
                 ca.costForTurn++
-                ca.isCostModifiedForTurn = IsCostModifiedForTurnField.costModifiedTurn.get(ca)
+                ca.isCostModifiedForTurn = ChainPatch.IsCostModifiedForTurnField.costModifiedTurn.get(ca)
                 ca.cost++
                 ca.isCostModified = false
-                ChainedField.chained.set(ca, false)
+                ChainPatch.ChainedField.chained.set(ca, false)
             }
         }
         for (ca in AbstractDungeon.player.discardPile.group) {
-            if (ChainedField.chained.get(ca)) {
+            if (ChainPatch.ChainedField.chained.get(ca)) {
                 ca.costForTurn++
-                ca.isCostModifiedForTurn = IsCostModifiedForTurnField.costModifiedTurn.get(ca)
+                ca.isCostModifiedForTurn = ChainPatch.IsCostModifiedForTurnField.costModifiedTurn.get(ca)
                 ca.cost++
                 ca.isCostModified = false
-                ChainedField.chained.set(ca, false)
+                ChainPatch.ChainedField.chained.set(ca, false)
             }
         }
         for (ca in AbstractDungeon.player.hand.group) {
-            if (ChainedField.chained.get(ca)) {
+            if (ChainPatch.ChainedField.chained.get(ca)) {
                 ca.costForTurn++
-                ca.isCostModifiedForTurn = IsCostModifiedForTurnField.costModifiedTurn.get(ca)
+                ca.isCostModifiedForTurn = ChainPatch.IsCostModifiedForTurnField.costModifiedTurn.get(ca)
                 ca.cost++
                 ca.isCostModified = false
-                ChainedField.chained.set(ca, false)
+                ChainPatch.ChainedField.chained.set(ca, false)
             }
         }
         for (ca in AbstractDungeon.player.exhaustPile.group) {
-            if (ChainedField.chained.get(ca)) {
+            if (ChainPatch.ChainedField.chained.get(ca)) {
                 ca.costForTurn++
-                ca.isCostModifiedForTurn = IsCostModifiedForTurnField.costModifiedTurn.get(ca)
+                ca.isCostModifiedForTurn = ChainPatch.IsCostModifiedForTurnField.costModifiedTurn.get(ca)
                 ca.cost++
-                ChainedField.chained.set(ca, false)
+                ChainPatch.ChainedField.chained.set(ca, false)
             }
         }
         AbstractDungeon.actionManager.addToBottom(ReducePowerAction(owner, owner, this, 1))
@@ -66,16 +67,16 @@ class Chain(owner: AbstractCreature, amount: Int) : PiruruPower(), OnRefreshHand
 
     override fun onRefreshHand() {
         for (c in AbstractDungeon.player.hand.group) {
-            if (!ChainedField.chained.get(c)) {
+            if (!ChainPatch.ChainedField.chained.get(c)) {
                 if (c.costForTurn > 0) {
                     c.costForTurn--
                     c.isCostModifiedForTurn = true
-                    ChainedField.chained.set(c, true)
+                    ChainPatch.ChainedField.chained.set(c, true)
                 }
                 if (c.cost > 0) {
                     c.cost--
                     c.isCostModified = true
-                    ChainedField.chained.set(c, true)
+                    ChainPatch.ChainedField.chained.set(c, true)
                 }
             }
         }
@@ -83,70 +84,61 @@ class Chain(owner: AbstractCreature, amount: Int) : PiruruPower(), OnRefreshHand
 
     override fun onInitialApplication() {
         for (c in AbstractDungeon.player.drawPile.group) {
-            if (!ChainedField.chained.get(c)) {
+            if (!ChainPatch.ChainedField.chained.get(c)) {
                 if (c.costForTurn > 0) {
                     c.costForTurn--
-                    IsCostModifiedForTurnField.costModifiedTurn.set(c, c.isCostModifiedForTurn)
+                    ChainPatch.IsCostModifiedForTurnField.costModifiedTurn.set(c, c.isCostModifiedForTurn)
                     c.isCostModifiedForTurn = true
                 }
                 if (c.cost > 0) {
                     c.cost--
                     c.isCostModified = true
                 }
-                ChainedField.chained.set(c, true)
+                ChainPatch.ChainedField.chained.set(c, true)
             }
         }
         for (c in AbstractDungeon.player.discardPile.group) {
-            if (!ChainedField.chained.get(c)) {
+            if (!ChainPatch.ChainedField.chained.get(c)) {
                 if (c.costForTurn > 0) {
                     c.costForTurn--
-                    IsCostModifiedForTurnField.costModifiedTurn.set(c, c.isCostModifiedForTurn)
+                    ChainPatch.IsCostModifiedForTurnField.costModifiedTurn.set(c, c.isCostModifiedForTurn)
                     c.isCostModifiedForTurn = true
                 }
                 if (c.cost > 0) {
                     c.cost--
                     c.isCostModified = true
                 }
-                ChainedField.chained.set(c, true)
+                ChainPatch.ChainedField.chained.set(c, true)
             }
         }
         for (c in AbstractDungeon.player.exhaustPile.group) {
-            if (!ChainedField.chained.get(c)) {
+            if (!ChainPatch.ChainedField.chained.get(c)) {
                 if (c.costForTurn > 0) {
                     c.costForTurn--
-                    IsCostModifiedForTurnField.costModifiedTurn.set(c, c.isCostModifiedForTurn)
+                    ChainPatch.IsCostModifiedForTurnField.costModifiedTurn.set(c, c.isCostModifiedForTurn)
                     c.isCostModifiedForTurn = true
                 }
                 if (c.cost > 0) {
                     c.cost--
                     c.isCostModified = true
                 }
-                ChainedField.chained.set(c, true)
+                ChainPatch.ChainedField.chained.set(c, true)
             }
         }
         for (c in AbstractDungeon.player.hand.group) {
-            if (!ChainedField.chained.get(c)) {
+            if (!ChainPatch.ChainedField.chained.get(c)) {
                 if (c.costForTurn > 0) {
                     c.costForTurn--
-                    IsCostModifiedForTurnField.costModifiedTurn.set(c, c.isCostModifiedForTurn)
+                    ChainPatch.IsCostModifiedForTurnField.costModifiedTurn.set(c, c.isCostModifiedForTurn)
                     c.isCostModifiedForTurn = true
                 }
                 if (c.cost > 0) {
                     c.cost--
                     c.isCostModified = true
                 }
-                ChainedField.chained.set(c, true)
+                ChainPatch.ChainedField.chained.set(c, true)
             }
         }
     }
 
-    @SpirePatch(clz = AbstractCard::class, method = SpirePatch.CLASS)
-    object ChainedField {
-        var chained = SpireField { false }
-    }
-
-    @SpirePatch(clz = AbstractCard::class, method = SpirePatch.CLASS)
-    object IsCostModifiedForTurnField {
-        var costModifiedTurn = SpireField { false }
-    }
 }
