@@ -2,7 +2,7 @@ package Piruru.powers
 
 import Piruru.Piruluk.Statics.makeID
 import Piruru.abstracts.PiruruPower
-import Piruru.intents.FrozenIntent
+import Piruru.patches.FrozenIntentPatches
 import basemod.ReflectionHacks
 import basemod.interfaces.CloneablePowerInterface
 import com.badlogic.gdx.Gdx
@@ -27,7 +27,7 @@ import java.lang.reflect.Field
  * Basically stolen from
  * @see com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower
  */
-class Frozen : PiruruPower, CloneablePowerInterface, InvisiblePower {
+public class Frozen : PiruruPower, CloneablePowerInterface, InvisiblePower {
     public var shaderTimer: Float = 0.toFloat()
     private var moveByte: Byte = 0
     private var moveIntent: AbstractMonster.Intent? = null
@@ -81,7 +81,7 @@ class Frozen : PiruruPower, CloneablePowerInterface, InvisiblePower {
                         val f = AbstractMonster::class.java.getDeclaredField("move")
                         f.isAccessible = true
                         move = f.get(owner) as EnemyMoveInfo
-                        move!!.intent = FrozenIntent.FROZEN
+                        move!!.intent = FrozenIntentPatches.FrozenIntentEnum.FROZEN
                         (owner as AbstractMonster).createIntent()
                     } catch (e: IllegalAccessException) {
                         e.printStackTrace()

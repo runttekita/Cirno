@@ -23,7 +23,7 @@ import javassist.CannotCompileException
 import javassist.expr.ExprEditor
 import javassist.expr.MethodCall
 
-class Allos : PiruruStance(), OnRefreshHand {
+public class Allos : PiruruStance(), OnRefreshHand {
 
     override fun updateDescription() {
         description = stanceStrings.DESCRIPTION[0]
