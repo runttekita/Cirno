@@ -183,5 +183,9 @@
   "AddDamageARTS": {
     "NAME": "Add Damage ARTS",
     "DESCRIPTION": "$damagearts"
+  },
+  "AttackBlock": {
+    "NAME": "aslfkajslfska",
+    "DESCRIPTION": "$damage $nl $block"
   }
 }
