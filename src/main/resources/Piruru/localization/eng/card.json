@@ -191,5 +191,9 @@
   "AttackBanishAttack": {
     "NAME": "bcm",
     "DESCRIPTION": "$banishconditionalattack $damage"
+  },
+  "BigDickARTSAttack": {
+    "NAME": "uwu",
+    "DESCRIPTION": "$damage $nl $retain $nl $arts"
   }
 }
