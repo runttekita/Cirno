@@ -13,19 +13,19 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 
 class ExcessBlock : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, EXCESS_UP, COST),
-    OnRefreshHand{
-
-    override fun onRefreshHand() {
-        if (AbstractDungeon.player.hand.size() >= magicNumber)
-            block * 2
-    }
-
+    OnRefreshHand {
     init {
         baseDamage = DAMAGE
         baseBlock = BLOCK
         magicNumber = EXCESS
         baseMagicNumber = magicNumber
     }
+
+    override fun onRefreshHand() {
+        if (AbstractDungeon.player.hand.size() >= magicNumber)
+            block * 2
+    }
+
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         block()

@@ -12,7 +12,7 @@ BIG_CARD_BACK_PROD=${RESOURCES}images/1024prod/
 SMOL_CARD_BACK_PROD=${RESOURCES}images/512prod/
 
 function finish {
-  sed -i '\/\/delete/d' ${GOD_OBJECT}
+  sed -i'\/\/delete/d' ${GOD_OBJECT}
   rm ${PROD_STRINGS}/[a-z]*
   rm ${BIG_CARD_BACK_PROD}/[a-z]*
   rm ${SMOL_CARD_BACK_PROD}/[a-z]*
@@ -59,13 +59,13 @@ then
   APEX_FORM='Enter piruru:Apex.'
   ACRO='Enter piruru:ACRO.'
   EXHUME='piruru:Exhume.'
-  BANISH_CONDITIONAL='piruru:Banish !M! cards. NL If you piruru:Banished !M! cards, '
+  BANISH_CONDITIONAL='piruru:Banish !M! cards. NL If you piruru:Banished !M! cards,'
   ALLOS='Enter piruru:Allos.'
   DAMAGE_AOE='Deal !D! damage to ALL enemies.'
   AOE_MILL='piruru:Mill !M! cards for each enemy in combat'
   AOE_COLD='Apply !M! piruru:Cold to ALL enemies.'
   SCRY='Scry !M! cards.'
-  NO_HAND='Whenever your hand becomes empty, '
+  NO_HAND='Whenever your hand becomes empty,'
   MAGIC_BLOCK='Gain !M! Block.'
   DISCARD_RANDOM='Discard !M! random cards.'
   CONDITIONAL_COLD='If the enemy is piruru:Cold, apply !M! piruru:Cold.'
@@ -75,16 +75,16 @@ then
   DISCARD_ANY='Discard any number of cards.'
   DISCARD_BLOCK='Gain !B! Block for each card discarded.'
   RETURN_ATTACKS='piruru:Return !M! Attacks.'
-  CONDITIONAL_DRAW='Draw !M! cards. If you draw a '
+  CONDITIONAL_DRAW='Draw !M! cards. If you draw a'
   COLD_DRAW='Skill, apply 1 piruru:Cold.'
   RANDOM_COLD='Apply 1 piruru:Cold to a random enemy for each card discarded.'
-  MILL_CONDITIONAL='piruru:Mill !M! cards, and '
+  MILL_CONDITIONAL='piruru:Mill !M! cards, and'
   POWER_MILL='if any of them were powers, piruru:Recover it.'
   LOCK_YOU='piruru:Freeze ALL enemies.'
   RETAIN='Retain.'
   SPIN='Whenever your hand becomes empty, draw !M! card.'
   SPINS='Whenever your hand becomes empty, draw !M! cards.'
-  WHEN_RECOVER='Whenever you piruru:Recover, '
+  WHEN_RECOVER='Whenever you piruru:Recover,'
   MAGIC_DAMAGE='deal !M! damage.'
   RECOVER_RANDOM='piruru:Recover !M! random card.'
   REMEMBER='Enter piruru:Remember'
@@ -95,10 +95,10 @@ then
   COPY_BLUE_BLACK='Shuffle a *Chain *Blue *and *Black into your draw pile.'
   MULLIGAN='Draw the same amount of cards plus 1.'
   DAMAGE_ARTS='Add !M! *Damage *ARTS into your hand.'
-  BANISH_CONDITIONAL_ATTACK='piruru:Banish !M! Attacks. NL if you piruru:Banished !M! Attacks, '
+  BANISH_CONDITIONAL_ATTACK='piruru:Banish !M! Attacks. NL if you piruru:Banished !M! Attacks,'
   EXCESS_DMG='deal twice as much damage.'
-  EXCESS='If you have more than !M! cards in your hand, '
-  EXCESS_BLOCK=' gain twice as much Block.'
+  EXCESS='If you have more than !M! cards in your hand,'
+  EXCESS_BLOCK='gain twice as much Block.'
   PEEPING_ANALYZE='Send from your draw pile to your discard pile all cards that cost !M! NL (Same as *Fukashigi *no *Carte).'
 fi
 
