@@ -32,6 +32,14 @@ class ExcessCardsDoesMoreDamage : PiruruCard(cardStrings, COST, TYPE, RARITY, TA
         damage(m!!)
     }
 
+    override fun triggerOnGlowCheck() {
+        glowColor = if (AbstractDungeon.player.hand.size() >= magicNumber)
+            AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy()
+        else
+            AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy()
+    }
+
+
     companion object {
         private val cardStrings = CardCrawlGame.languagePack.getCardStrings(
                 makeID(ExcessCardsDoesMoreDamage::class.java.simpleName))

@@ -16,7 +16,8 @@ class ExcessBlock : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_U
     OnRefreshHand{
 
     override fun onRefreshHand() {
-        if (AbstractDungeon.player.hand.size() >= magicNumber) block * 2
+        if (AbstractDungeon.player.hand.size() >= magicNumber)
+            block * 2
     }
 
     init {
@@ -28,6 +29,13 @@ class ExcessBlock : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_U
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         block()
+    }
+
+    override fun triggerOnGlowCheck() {
+        glowColor = if (AbstractDungeon.player.hand.size() >= magicNumber)
+            AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy()
+        else
+            AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy()
     }
 
     companion object {
