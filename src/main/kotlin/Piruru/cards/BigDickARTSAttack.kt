@@ -14,8 +14,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 class BigDickARTSAttack : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, MAGIC_UP, COST) {
     init {
-        baseDamage = damage
-        baseBlock = block
+        baseDamage = DAMAGE
+        baseBlock = BLOCK
         magicNumber = MAGIC
         baseMagicNumber = magicNumber
         tags.add(ARTS);
