@@ -11,7 +11,7 @@ import javassist.CtBehavior;
 import java.util.ArrayList;
 
 public class OnRecoverPatch {
-    
+
     @SpirePatch(
             clz = BetterDiscardPileToHandAction.class,
             method = "update"
