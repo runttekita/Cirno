@@ -45,8 +45,15 @@ class RecoverAction : AbstractGameAction {
             return
         }
         if (card != null) {
-            player.hand.addToHand(card)
             player.discardPile.removeCard(card)
+            player.hand.addToHand(card);
+            for (p in AbstractDungeon.player.powers) {
+                if (p is OnRecover) {
+                    (p as OnRecover).onRecover(card)
+                }
+            }
+            isDone = true;
+            return;
         }
         if (duration == Settings.ACTION_DUR_FASTER) {
             if (player.discardPile.size() < recoverAmount && player.hand.size() + player.discardPile.size() <= BaseMod.MAX_HAND_SIZE) {
