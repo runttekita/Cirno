@@ -18,11 +18,11 @@ import java.util.function.Predicate
 
 
 class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
-    private var callback: ((Nothing) -> Unit)? = null
+    private var callback: ((ArrayList<AbstractCard>) -> Unit)? = null
     private var anyAmount = false
     private var predicate: ((AbstractCard) -> Boolean)? = null
 
-    constructor(banishAmount: Int, callback: (Nothing) -> Unit) : this(banishAmount) {
+    constructor(banishAmount: Int, callback: (ArrayList<AbstractCard>) -> Unit) : this(banishAmount) {
         this.callback = callback
     }
 
@@ -30,11 +30,11 @@ class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
         duration = Settings.ACTION_DUR_FASTER
     }
 
-    constructor(banishAmount: Int, callback: (Nothing) -> Unit, anyAmount: Boolean) : this(banishAmount, callback) {
+    constructor(banishAmount: Int, callback: (ArrayList<AbstractCard>) -> Unit, anyAmount: Boolean) : this(banishAmount, callback) {
         this.anyAmount = anyAmount
     }
 
-    constructor(banishAmount: Int, predicate: (AbstractCard) -> Boolean, callback: (Nothing) -> Unit) : this(banishAmount)
+    constructor(banishAmount: Int, predicate: (AbstractCard) -> Boolean, callback: (ArrayList<AbstractCard>) -> Unit) : this(banishAmount)
 
     override fun update() {
         if (duration == Settings.ACTION_DUR_FASTER) {
@@ -76,10 +76,8 @@ class BanishAction(private var banishAmount: Int) : AbstractGameAction() {
             tickDuration()
             return
         }
-        if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-            if (callback != null) {
-                callback
-            }
+        if (AbstractDungeon.gridSelectScreen.selectedCards.isNotEmpty()) {
+            callback!!(AbstractDungeon.gridSelectScreen.selectedCards);
             for (c in AbstractDungeon.gridSelectScreen.selectedCards) {
                 AbstractDungeon.actionManager.addToBottom(ExhaustSpecificCardAction(
                         c, AbstractDungeon.player.discardPile
