@@ -21,7 +21,6 @@ class Piruluk() :
         private var modID: String? = null
         public val PIRURU_ICE: Color = Color.valueOf("#000DAB")
 
-
         fun makeID(c: Class<*>): String {
             return makeID(c.simpleName)
         }

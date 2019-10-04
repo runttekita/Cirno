@@ -34,10 +34,13 @@ class PiruruChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPla
 }) {
 
     init {
+        val shoulderOne = "Piruru/images/char/defaultCharacter/shoulder.png"
+        val shoulderTwo = "Piruru/images/char/defaultCharacter/shoulder2.png"
+        val corpse = "Piruru/images/char/defaultCharacter/corpse.png"
         initializeClass("Piruru/images/char/defaultCharacter/piru.png",
-                Piruluk.PIRURU_SHOULDER_1,
-                Piruluk.PIRURU_SHOULDER_2,
-                Piruluk.PIRURU_CORPSE,
+                shoulderOne,
+                shoulderTwo,
+                corpse,
                 loadout, 20.0f, -10.0f, 220.0f, 290.0f,
                 EnergyManager(ENERGY_PER_TURN))
 

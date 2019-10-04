@@ -1,9 +1,11 @@
 package Piruru.daten
 
 import Piruru.characters.PiruruChar
+import basemod.BaseMod
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.helpers.CardLibrary
 import com.megacrit.cardcrawl.unlock.UnlockTracker
+import Piruru.relics.*
 
 /**
  * But Reina, I can hear you ask, why aren't you using autoAddRelics from Kio? Well the answer is simple
@@ -12,7 +14,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker
 class ReceiveEditRelics {
 
     init {
-        //autoAddRelics
+		//autoAddRelics
         var count = 0
         var commonCount = 0
         var uncommonCount = 0
