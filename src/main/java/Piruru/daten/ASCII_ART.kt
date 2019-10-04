@@ -1,4 +1,4 @@
-package Piruru.brokenupgodobject
+package Piruru.daten
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum
 import com.megacrit.cardcrawl.cards.AbstractCard

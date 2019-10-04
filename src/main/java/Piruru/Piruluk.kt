@@ -1,7 +1,6 @@
 package Piruru
 
-import Piruru.brokenupgodobject.*
-import Piruru.characters.PiruruChar
+import Piruru.daten.*
 import basemod.BaseMod.*
 import basemod.interfaces.*
 import com.badlogic.gdx.graphics.Color

@@ -1,4 +1,4 @@
-package Piruru.brokenupgodobject
+package Piruru.daten
 
 import Piruru.characters.PiruruChar
 import basemod.BaseMod

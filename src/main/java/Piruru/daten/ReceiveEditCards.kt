@@ -1,4 +1,4 @@
-package Piruru.brokenupgodobject
+package Piruru.daten
 
 /**
  * But Reina, I can hear you ask, why aren't you using autoAddCards from Kio? Well the answer is simple

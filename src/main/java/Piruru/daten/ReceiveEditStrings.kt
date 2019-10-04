@@ -1,4 +1,4 @@
-package Piruru.brokenupgodobject
+package Piruru.daten
 
 import basemod.BaseMod
 import com.megacrit.cardcrawl.localization.*

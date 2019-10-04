@@ -1,8 +1,6 @@
-package Piruru.brokenupgodobject
+package Piruru.daten
 
 import Piruru.characters.PiruruChar
-import Piruru.relics.StarterRelic
-import basemod.BaseMod
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.helpers.CardLibrary
 import com.megacrit.cardcrawl.unlock.UnlockTracker
