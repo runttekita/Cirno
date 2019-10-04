@@ -74,7 +74,7 @@ class Piruluk() :
     }
 
     override fun receiveEditCharacters() {
-        receiveEditCharacters()
+        ReceiveEditCharacters()
     }
 
     override fun receiveEditCards() {
