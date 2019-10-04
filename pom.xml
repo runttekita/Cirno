@@ -56,6 +56,13 @@
             <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>reina.yUi</groupId>
+            <artifactId>yUi</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/1879864511/yUi.jar</systemPath>
+        </dependency>
     </dependencies>
 
 
