@@ -196,14 +196,14 @@ sed -i s/'[[:alnum:]]*": {'/'Piruru:&'/g ${PROD_JSON}
 for f in ${CARDS}
 do
     ADD=$(echo $f | rev | cut -d"/" -f1 | rev | cut -d"." -f1)
-    sed -i "s|\/\/autoAddCards|addCard(${ADD}());\/\/delete\n\t\t\/\/autoAddCards|g" ${GOD_OBJECT}
+    sed -i "s|\/\/autoAddCards|addCard(${ADD}());\/\/delete\n\t\t\/\/autoAddCards|g" ./src/main/java/Piruru/daten/ReceiveEditCards.kt
 done
 
 # Autoadd Relics
 for f in ${RELICS}
 do
     ADD=$(echo $f | rev | cut -d"/" -f1 | rev | cut -d"." -f1)
-    sed -i "s|\/\/autoAddRelics|addRelicToCustomPool(${ADD}(), PiruruChar.Enums.enums.PIRURU_ICE);\/\/delete\n\t\t\/\/autoAddRelics|g" ${GOD_OBJECT}
+    sed -i "s|\/\/autoAddRelics|addRelicToCustomPool(${ADD}(), PiruruChar.Enums.enums.PIRURU_ICE);\/\/delete\n\t\t\/\/autoAddRelics|g" ./src/main/java/Piruru/daten/ReceiveEditRelics.kt
 done
 
 # images!
