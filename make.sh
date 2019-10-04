@@ -12,7 +12,8 @@ BIG_CARD_BACK_PROD=${RESOURCES}images/1024prod/
 SMOL_CARD_BACK_PROD=${RESOURCES}images/512prod/
 
 function finish {
-  sed -i'\/\/delete/d' ${GOD_OBJECT}
+  sed -i'\/\/delete/d' ./src/main/java/Piruru/daten/ReceiveEditCards.kt
+   sed -i'\/\/delete/d' ./src/main/java/Piruru/daten/ReceiveEditRelics.kt
   rm ${PROD_STRINGS}/[a-z]*
   rm ${BIG_CARD_BACK_PROD}/[a-z]*
   rm ${SMOL_CARD_BACK_PROD}/[a-z]*
