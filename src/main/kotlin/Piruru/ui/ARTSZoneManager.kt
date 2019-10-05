@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import reina.yui.*
 
 public val AbstractPlayer.artsZones: ARTSZoneManager
-    get() = ARTSZoneManager.ArtsZonePatch.Field.artsZones.get(this)
+    get() = ARTSZoneManager.ArtsZonePatch.artsZones.get(this)
 
 class ARTSZoneManager() {
     public var zones = ArrayList<ARTSZone>()
@@ -25,7 +25,9 @@ class ARTSZoneManager() {
             zones.add(ARTSZone())
         } else if (zones.size < maxSize) {
             val lastZone = zones[zones.size - 1]
-            Yui.autoPlaceVertically(lastZone, ARTSZone())
+            val newZone = ARTSZone()
+            Yui.autoPlaceVertically(lastZone, newZone)
+            zones.add(newZone)
         } else {
             return
         }
@@ -37,16 +39,15 @@ class ARTSZoneManager() {
 
     @SpirePatch(clz = AbstractPlayer::class, method = SpirePatch.CLASS)
     public class ArtsZonePatch {
-        object Field {
-            @JvmStatic
+        public companion object {
+            @JvmField
             public var artsZones = SpireField{ARTSZoneManager()}
         }
-
     }
 
     @SpirePatch(clz = AbstractPlayer::class, method = SpirePatch.CONSTRUCTOR)
     public class GivePiruArtsZones {
-        object Method {
+        public companion object {
             @JvmStatic
             public fun Postfix(__instance: AbstractPlayer) {
                 if (__instance is PiruruChar) {
