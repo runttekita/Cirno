@@ -16,7 +16,7 @@ class NoCardsBlockP(owner: AbstractCreature, amount: Int) : PiruruPower(), OnRef
 
     companion object {
         var NAME: String? = null
-        var DESCRIPTION: String? = null
+        var DESCRIPTIONS: Array<String>? = null
     }
 
     init {

@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings
 class Chain(owner: AbstractCreature, amount: Int) : PiruruPower(), OnRefreshHand {
     companion object {
         var NAME: String? = null
-        var DESCRIPTION: String? = null
+        var DESCRIPTIONS: Array<String>? = null
     }
 
     init {

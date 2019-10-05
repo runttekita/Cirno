@@ -14,7 +14,7 @@ class UnceasingTopP(amount: Int) : PiruruPower(), OnRefreshHand {
 
     companion object {
         var NAME: String? = null
-        var DESCRIPTION: String? = null
+        var DESCRIPTIONS: Array<String>? = null
     }
 
     init {

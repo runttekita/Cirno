@@ -15,7 +15,7 @@ class RecoverDamageP(amount: Int) : PiruruPower(), OnRecover {
 
     companion object {
         var NAME: String? = null
-        var DESCRIPTION: String? = null
+        var DESCRIPTIONS: Array<String>? = null
     }
 
     init {

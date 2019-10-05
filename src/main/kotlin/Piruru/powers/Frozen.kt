@@ -53,7 +53,7 @@ public class Frozen : PiruruPower, CloneablePowerInterface, InvisiblePower {
 
     companion object {
         var NAME: String? = null
-        var DESCRIPTION: String? = null
+        var DESCRIPTIONS: Array<String>? = null
     }
 
     init {

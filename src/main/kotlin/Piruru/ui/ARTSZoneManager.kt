@@ -1,5 +1,6 @@
 package Piruru.ui
 
+import Piruru.characters.PiruruChar
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.evacipated.cardcrawl.modthespire.lib.SpireField
 import com.evacipated.cardcrawl.modthespire.lib.SpireField.DefaultValue
@@ -9,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import reina.yui.*
 
 public val AbstractPlayer.artsZones: ARTSZoneManager
-    get() = ARTSZoneManager.ArtsZonePatch.artsZones.get(this)
+    get() = ARTSZoneManager.ArtsZonePatch.Field.artsZones.get(this)
 
 class ARTSZoneManager() {
     public var zones = ArrayList<ARTSZone>()
@@ -36,12 +37,26 @@ class ARTSZoneManager() {
 
     @SpirePatch(clz = AbstractPlayer::class, method = SpirePatch.CLASS)
     public class ArtsZonePatch {
-
-        companion object {
+        object Field {
             @JvmStatic
-            public val artsZones = SpireField{ARTSZoneManager()}
+            public var artsZones = SpireField{ARTSZoneManager()}
         }
 
+    }
+
+    @SpirePatch(clz = AbstractPlayer::class, method = SpirePatch.CONSTRUCTOR)
+    public class GivePiruArtsZones {
+        object Method {
+            @JvmStatic
+            public fun Postfix(__instance: AbstractPlayer) {
+                if (__instance is PiruruChar) {
+                    __instance.artsZones.addZone()
+                    __instance.artsZones.addZone()
+                    __instance.artsZones.addZone()
+                    __instance.artsZones.addZone()
+                }
+            }
+        }
     }
 
 }
