@@ -2,11 +2,14 @@ package Piruru
 
 import Piruru.daten.*
 import Piruru.ui.ARTSZoneManager
+import Piruru.ui.artsZones
 import basemod.BaseMod.*
 import basemod.interfaces.*
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
+import com.megacrit.cardcrawl.characters.AbstractPlayer
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 
 @SpireInitializer
 class Piruluk() :
@@ -101,7 +104,12 @@ class Piruluk() :
     }
 
     override fun receiveRender(sb: SpriteBatch) {
-
+        if (AbstractDungeon.player != null && AbstractDungeon.player.artsZones.zones.isNotEmpty()) {
+            for (zone in AbstractDungeon.player.artsZones.zones) {
+                zone.render(sb)
+                zone.update()
+            }
+        }
     }
 
 }

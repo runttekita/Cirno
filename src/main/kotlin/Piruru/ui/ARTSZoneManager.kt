@@ -8,8 +8,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import reina.yui.*
 
+public val AbstractPlayer.artsZones: ARTSZoneManager
+    get() = ARTSZoneManager.ArtsZonePatch.artsZones.get(this)
+
 class ARTSZoneManager() {
-    private var artsZones = ArrayList<ARTSZone>()
+    public var zones = ArrayList<ARTSZone>()
     private val maxSize = 4
 
     init {
@@ -17,10 +20,10 @@ class ARTSZoneManager() {
     }
 
     public fun addZone() {
-        if (artsZones.isEmpty()) {
-            artsZones.add(ARTSZone())
-        } else if (artsZones.size < maxSize) {
-            val lastZone = artsZones[artsZones.size - 1]
+        if (zones.isEmpty()) {
+            zones.add(ARTSZone())
+        } else if (zones.size < maxSize) {
+            val lastZone = zones[zones.size - 1]
             Yui.autoPlaceVertically(lastZone, ARTSZone())
         } else {
             return
@@ -28,7 +31,7 @@ class ARTSZoneManager() {
     }
 
     public fun removeZone() {
-        artsZones.removeAt(artsZones.size - 1)
+        zones.removeAt(zones.size - 1)
     }
 
     @SpirePatch(clz = AbstractPlayer::class, method = SpirePatch.CLASS)
