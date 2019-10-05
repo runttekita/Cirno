@@ -47,7 +47,6 @@ class PiruruChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPla
 
         dialogX = drawX + 0.0f * Settings.scale
         dialogY = drawY + 220.0f * Settings.scale
-        artsZones.addZone()
     }
 
     override fun getLoadout(): CharSelectInfo {

@@ -101,10 +101,7 @@ class Piruluk() :
     }
 
     override fun receiveRender(sb: SpriteBatch) {
-        if (artsZones == null) {
-            artsZones = ARTSZoneManager(sb)
-        }
-        artsZones.render(sb)
+
     }
 
 }

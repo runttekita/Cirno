@@ -1,24 +1,19 @@
 package Piruru.ui
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.evacipated.cardcrawl.modthespire.lib.SpireField
+import com.evacipated.cardcrawl.modthespire.lib.SpireField.DefaultValue
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
+import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import reina.yui.*
 
-class ARTSZoneManager(private val sb: SpriteBatch) {
+class ARTSZoneManager() {
     private var artsZones = ArrayList<ARTSZone>()
     private val maxSize = 4
 
     init {
 
-    }
-
-    public fun render(sb) {
-        if (AbstractDungeon.player != null && artsZones.isNotEmpty()) {
-            for (zone in artsZones) {
-                zone.render(sb)
-                zone.update()
-            }
-        }
     }
 
     public fun addZone() {
@@ -34,6 +29,16 @@ class ARTSZoneManager(private val sb: SpriteBatch) {
 
     public fun removeZone() {
         artsZones.removeAt(artsZones.size - 1)
+    }
+
+    @SpirePatch(clz = AbstractPlayer::class, method = SpirePatch.CLASS)
+    public class ArtsZonePatch {
+
+        companion object {
+            @JvmStatic
+            public val artsZones = SpireField{ARTSZoneManager()}
+        }
+
     }
 
 }
