@@ -5,7 +5,6 @@ import basemod.BaseMod.*
 import basemod.interfaces.*
 import com.badlogic.gdx.graphics.Color
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
-import reina.yui.Yui
 
 @SpireInitializer
 class Piruluk() :
