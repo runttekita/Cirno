@@ -3,7 +3,7 @@ package Piruru.ui
 import Piruru.Piruluk
 import reina.yui.YuiClickableObject;
 
-class ARTSZone : YuiClickableObject(Piruluk.textureLoader.getTexture("uwu"), 0f, 0f) {
+class ARTSZone : YuiClickableObject(Piruluk.textureLoader.getTexture("Piruru/images/ui/ARTS.jpg"), 2f, 250f) {
 
     override fun onClick() {
 

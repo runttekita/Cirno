@@ -1,6 +1,7 @@
 package Piruru.characters
 
 import Piruru.Piruluk
+import Piruru.Piruluk.Statics.artsZones
 import Piruru.Piruluk.Statics.makeID
 import Piruru.cards.DamageAndCold
 import Piruru.cards.Defend
@@ -46,6 +47,7 @@ class PiruruChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPla
 
         dialogX = drawX + 0.0f * Settings.scale
         dialogY = drawY + 220.0f * Settings.scale
+        artsZones.addZone()
     }
 
     override fun getLoadout(): CharSelectInfo {

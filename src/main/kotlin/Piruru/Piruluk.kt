@@ -1,9 +1,11 @@
 package Piruru
 
 import Piruru.daten.*
+import Piruru.ui.ARTSZoneManager
 import basemod.BaseMod.*
 import basemod.interfaces.*
 import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
 
 @SpireInitializer
@@ -13,12 +15,14 @@ class Piruluk() :
         EditStringsSubscriber,
         EditRelicsSubscriber,
         EditKeywordsSubscriber,
-		PostInitializeSubscriber {
+		PostInitializeSubscriber,
+        RenderSubscriber {
 
     companion object Statics {
         var textureLoader = AssetLoader()
         private var modID: String? = null
         public val PIRURU_ICE: Color = Color.valueOf("#000DAB")
+        public var artsZones: ARTSZoneManager? = null
 
         fun makeID(c: Class<*>): String {
             return makeID(c.simpleName)
@@ -94,6 +98,13 @@ class Piruluk() :
 
     override fun receiveEditKeywords() {
         ReceiveEditKeywords()
+    }
+
+    override fun receiveRender(sb: SpriteBatch) {
+        if (artsZones == null) {
+            artsZones = ARTSZoneManager(sb)
+        }
+        artsZones.render(sb)
     }
 
 }
