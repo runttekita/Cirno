@@ -105,12 +105,6 @@ class Piruluk() :
     }
 
     override fun receiveRender(sb: SpriteBatch) {
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.player != null && AbstractDungeon.player.artsZones.zones.isNotEmpty()) {
-            for (zone in AbstractDungeon.player.artsZones.zones) {
-                zone.render(sb)
-                zone.update()
-            }
-        }
     }
 
 }

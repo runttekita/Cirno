@@ -14,6 +14,9 @@ import Piruru.relics.*
 class ReceiveEditRelics {
 
     init {
+		BaseMod.addRelicToCustomPool(StarterRelic(), PiruruChar.Enums.enums.PIRURU_ICE);//delete
+		BaseMod.addRelicToCustomPool(StarterRelic(), PiruruChar.Enums.enums.PIRURU_ICE);//delete
+		BaseMod.addRelicToCustomPool(StarterRelic(), PiruruChar.Enums.enums.PIRURU_ICE);//delete
 		//autoAddRelics
         var count = 0
         var commonCount = 0
