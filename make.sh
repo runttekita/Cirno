@@ -243,4 +243,4 @@ then
 fi
 
 # clean up after myself
-finish "$@"
+finish
