@@ -2,6 +2,7 @@ package Piruru.ui
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import reina.yui.*
 
 class ARTSZoneManager(private val sb: SpriteBatch) {
     private var artsZones = ArrayList<ARTSZone>()
@@ -27,6 +28,9 @@ height: 175
     public fun addZone() {
         if (artsZones.isEmpty()) {
             artsZones.add(ARTSZone())
+        } else {
+            val lastZone = artsZones[artsZones.size - 1]
+            Yui.autoPlaceVertically(lastZone, ARTSZone())
         }
     }
 
