@@ -32,9 +32,9 @@ class UnceasingTopP(amount: Int) : PiruruPower(), OnRefreshHand {
 
     override fun updateDescription() {
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1]
+            description = DESCRIPTIONS!![0] + amount + DESCRIPTIONS!![1]
         } else {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2]
+            description = DESCRIPTIONS!![0] + amount + DESCRIPTIONS!![2]
         }
     }
 

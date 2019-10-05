@@ -50,7 +50,7 @@ class FlameBarrierButColdP(owner: AbstractCreature, amount: Int) : PiruruPower()
     }
 
     override fun updateDescription() {
-        description = DESCRIPTIONS[0] + DESCRIPTIONS[1]
+        description = DESCRIPTIONS!![0] + DESCRIPTIONS!![1]
     }
 
     override fun makeCopy(): AbstractPower {

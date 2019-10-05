@@ -34,7 +34,7 @@ class NoCardsBlockP(owner: AbstractCreature, amount: Int) : PiruruPower(), OnRef
     }
 
     override fun updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1]
+        description = DESCRIPTIONS!![0] + amount + DESCRIPTIONS!![1]
     }
 
     override fun onRefreshHand() {

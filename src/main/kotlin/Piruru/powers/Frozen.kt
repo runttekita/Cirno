@@ -48,7 +48,7 @@ public class Frozen : PiruruPower, CloneablePowerInterface, InvisiblePower {
     }
 
     override fun updateDescription() {
-        description = DESCRIPTIONS[0]
+        description = DESCRIPTIONS!![0]
     }
 
     companion object {

@@ -73,7 +73,7 @@ class Cold : PiruruPower, CloneablePowerInterface {
     }
 
     override fun updateDescription() {
-        description = DESCRIPTIONS[0] + PROC_AMOUNT + DESCRIPTIONS[1]
+        description = DESCRIPTIONS!![0] + PROC_AMOUNT + DESCRIPTIONS!![1]
     }
 
 }

@@ -40,6 +40,6 @@ class RecoverDamageP(amount: Int) : PiruruPower(), OnRecover {
     }
 
     override fun updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1]
+        description = DESCRIPTIONS!![0] + amount + DESCRIPTIONS!![1]
     }
 }
