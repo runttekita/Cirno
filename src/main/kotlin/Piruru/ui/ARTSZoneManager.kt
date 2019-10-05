@@ -60,4 +60,18 @@ class ARTSZoneManager() {
         }
     }
 
+    @SpirePatch(clz = AbstractPlayer::class, method = "renderHand")
+    public class renderZones {
+        public companion object {
+            @JvmStatic
+            public fun Prefix(__instance: AbstractPlayer, sb: SpriteBatch) {
+                if (CardCrawlGame.dungeon != null && AbstractDungeon.player != null && AbstractDungeon.player.artsZones.zones.isNotEmpty()) {
+                    for (zone in AbstractDungeon.player.artsZones.zones) {
+                        zone.render(sb)
+                        zone.update()
+                    }
+                }
+            }
+        }
+    }
 }
