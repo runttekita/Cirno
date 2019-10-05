@@ -10,7 +10,7 @@ import Piruru.cards.*
 class ReceiveEditCards {
 
     init {
-	    //autoAddCards
+		//autoAddCards
     }
 
 }
