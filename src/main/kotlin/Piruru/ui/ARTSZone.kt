@@ -20,10 +20,11 @@ class ARTSZone : YuiClickableObject(Piruluk.textureLoader.getTexture("Piruru/ima
 
     override fun onHover() {
         super.onHover()
-        if (AbstractDungeon.player.hoveredCard != null && InputHelper.justClickedLeft) {
+        if (AbstractDungeon.player.hoveredCard != null) {
             storedCard = AbstractDungeon.player.hoveredCard
             AbstractDungeon.player.hand.removeCard(AbstractDungeon.player.hoveredCard)
             AbstractDungeon.player.limbo.addToBottom(AbstractDungeon.player.hoveredCard)
+            AbstractDungeon.player.hoveredCard = null
         }
     }
 
