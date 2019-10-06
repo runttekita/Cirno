@@ -23,6 +23,12 @@ function finish {
   fi
 }
 
+if [ "$1" == "-f" ]
+then
+  finish
+  exit 1
+fi
+
 # Idiot proof
 if [ "$1" == "-p" ] || [ "$1" == "" ]
 then
