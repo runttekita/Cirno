@@ -1,9 +1,11 @@
 package Piruru.ui
 
 import Piruru.Piruluk
+import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.helpers.input.InputAction
 import com.megacrit.cardcrawl.helpers.input.InputHelper
 import reina.yui.YuiClickableObject;
 
@@ -11,6 +13,14 @@ class ARTSZone : YuiClickableObject(Piruluk.textureLoader.getTexture("Piruru/ima
     public var storedCard: AbstractCard? = null
 
     override fun onClick() {
+    }
+
+    override fun onUnhover() {
+
+    }
+
+    override fun onHover() {
+        super.onHover()
         if (AbstractDungeon.player.hoveredCard != null) {
             storedCard = AbstractDungeon.player.hoveredCard
             AbstractDungeon.player.hand.removeCard(AbstractDungeon.player.hoveredCard)
@@ -21,14 +31,6 @@ class ARTSZone : YuiClickableObject(Piruluk.textureLoader.getTexture("Piruru/ima
             AbstractDungeon.player.hoveredCard = null
             storedCard?.drawScale = 0.25f
         }
-    }
-
-    override fun onUnhover() {
-
-    }
-
-    override fun onHover() {
-        super.onHover()
     }
 
     override fun render(sb: SpriteBatch) {

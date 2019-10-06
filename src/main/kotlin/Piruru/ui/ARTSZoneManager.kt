@@ -2,9 +2,11 @@ package Piruru.ui
 
 import Piruru.characters.PiruruChar
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum
 import com.evacipated.cardcrawl.modthespire.lib.SpireField
 import com.evacipated.cardcrawl.modthespire.lib.SpireField.DefaultValue
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
+import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
@@ -73,6 +75,14 @@ class ARTSZoneManager() {
                     }
                 }
             }
+        }
+    }
+
+    public class TargettingEnum {
+        public companion object {
+            @SpireEnum
+            @JvmStatic
+            public val ARTS_OR_ENEMY: AbstractCard.CardTarget? = null
         }
     }
 }
