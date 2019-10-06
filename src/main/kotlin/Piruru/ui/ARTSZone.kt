@@ -11,7 +11,16 @@ class ARTSZone : YuiClickableObject(Piruluk.textureLoader.getTexture("Piruru/ima
     public var storedCard: AbstractCard? = null
 
     override fun onClick() {
-
+        if (AbstractDungeon.player.hoveredCard != null) {
+            storedCard = AbstractDungeon.player.hoveredCard
+            AbstractDungeon.player.hand.removeCard(AbstractDungeon.player.hoveredCard)
+            AbstractDungeon.player.isDraggingCard = false
+            AbstractDungeon.player.isHoveringDropZone = false
+            AbstractDungeon.player.inSingleTargetMode = false
+            AbstractDungeon.player.cardInUse = null
+            AbstractDungeon.player.hoveredCard = null
+            storedCard?.drawScale = 0.25f
+        }
     }
 
     override fun onUnhover() {
@@ -20,12 +29,6 @@ class ARTSZone : YuiClickableObject(Piruluk.textureLoader.getTexture("Piruru/ima
 
     override fun onHover() {
         super.onHover()
-        if (AbstractDungeon.player.hoveredCard != null) {
-            storedCard = AbstractDungeon.player.hoveredCard
-            AbstractDungeon.player.hand.removeCard(AbstractDungeon.player.hoveredCard)
-            AbstractDungeon.player.limbo.addToBottom(AbstractDungeon.player.hoveredCard)
-            AbstractDungeon.player.hoveredCard = null
-        }
     }
 
     override fun render(sb: SpriteBatch) {
@@ -34,6 +37,7 @@ class ARTSZone : YuiClickableObject(Piruluk.textureLoader.getTexture("Piruru/ima
             storedCard!!.current_x = x
             storedCard!!.current_y = y
             storedCard!!.render(sb)
+            storedCard!!.update()
         }
     }
 }

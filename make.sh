@@ -245,8 +245,6 @@ fi
 if [ "$2" != "-p" ]
 then
   mvn package
+  finish "$@"
   java -jar ../.local/share/Steam/steamapps/workshop/content/646570/1605060445/ModTheSpire.jar --skip-launcher
 fi
-
-# clean up after myself
-finish "$@"
