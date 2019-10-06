@@ -16,7 +16,6 @@ class ARTSZone : YuiClickableObject(Piruluk.textureLoader.getTexture("Piruru/ima
     }
 
     override fun onUnhover() {
-
     }
 
     override fun onHover() {

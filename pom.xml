@@ -61,7 +61,7 @@
             <artifactId>yUi</artifactId>
             <version>0.0.1</version>
             <scope>system</scope>
-            <systemPath>${Steam.path}/workshop/content/646570/1879864511/yUi.jar</systemPath>
+            <systemPath>${Steam.path}/workshop/content/646570/1879864511/idea/yUi.jar</systemPath>
         </dependency>
     </dependencies>
 
