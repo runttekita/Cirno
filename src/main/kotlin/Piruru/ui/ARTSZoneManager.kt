@@ -77,12 +77,5 @@ class ARTSZoneManager() {
             }
         }
     }
-
-    public class TargettingEnum {
-        public companion object {
-            @SpireEnum
-            @JvmStatic
-            public val ARTS_OR_ENEMY: AbstractCard.CardTarget? = null
-        }
-    }
+    
 }
