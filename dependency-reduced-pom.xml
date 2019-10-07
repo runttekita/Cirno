@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>reinashsl</groupId>
   <artifactId>Cirno</artifactId>
-  <name>Cirno</name>
+  <name>cirno</name>
   <version>0.0.1</version>
   <description>Baka!</description>
   <build>

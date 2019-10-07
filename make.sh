@@ -1,9 +1,9 @@
 #!/bin/bash
-CODE=./src/main/kotlin/Cirno/
-RESOURCES=./src/main/resources/Cirno/
+CODE=./src/main/kotlin/cirno/
+RESOURCES=./src/main/resources/cirno/
 PROD_STRINGS=${RESOURCES}localization/eng/prodStrings/
 DEV_STRINGS=${RESOURCES}localization/eng/
-GOD_OBJECT=${CODE}Cirno.kt
+GOD_OBJECT=${CODE}cirno.kt
 CARDS=${CODE}cards/*
 RELICS=${CODE}relics/*
 BIG_CARD_BACK=${RESOURCES}images/1024/*
@@ -12,8 +12,8 @@ BIG_CARD_BACK_PROD=${RESOURCES}images/1024prod/
 SMOL_CARD_BACK_PROD=${RESOURCES}images/512prod/
 
 function finish {
-  sed -i '\/\/delete/d' ./src/main/kotlin/Cirno/daten/ReceiveEditCards.kt
-  sed -i '\/\/delete/d' ./src/main/kotlin/Cirno/daten/ReceiveEditRelics.kt
+  sed -i '\/\/delete/d' ./src/main/kotlin/cirno/daten/ReceiveEditCards.kt
+  sed -i '\/\/delete/d' ./src/main/kotlin/cirno/daten/ReceiveEditRelics.kt
   rm ${PROD_STRINGS}/[a-z]*
   rm ${BIG_CARD_BACK_PROD}/[a-z]*
   rm ${SMOL_CARD_BACK_PROD}/[a-z]*
@@ -89,32 +89,32 @@ sed -i s/\$multidmg/"${DAMAGE_AOE}"/g ${PROD_JSON}
 sed -i s/\$aoecold/"${AOE_COLD}"/g ${PROD_JSON}
 sed -i s/\$conditionalcold/"${CONDITIONAL_COLD}"/g ${PROD_JSON}
 sed -i s/\$draw/"${DRAW}"/g ${PROD_JSON}
-sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
+sed -i s/'[[:alnum:]]*": {'/'cirno:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}powers.json
-sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
+sed -i s/'[[:alnum:]]*": {'/'cirno:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}ui.json
-sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
+sed -i s/'[[:alnum:]]*": {'/'cirno:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}pirurelic.json
-sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
+sed -i s/'[[:alnum:]]*": {'/'cirno:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}stances.json
-sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
+sed -i s/'[[:alnum:]]*": {'/'cirno:&'/g ${PROD_JSON}
 
 # Autoadd Cards
 for f in ${CARDS}
 do
     ADD=$(echo $f | rev | cut -d"/" -f1 | rev | cut -d"." -f1)
-    sed -i "s|\/\/autoAddCards|BaseMod.addCard(${ADD}());\/\/delete\n\t\t\/\/autoAddCards|g" ./src/main/kotlin/Cirno/daten/ReceiveEditCards.kt
+    sed -i "s|\/\/autoAddCards|BaseMod.addCard(${ADD}());\/\/delete\n\t\t\/\/autoAddCards|g" ./src/main/kotlin/cirno/daten/ReceiveEditCards.kt
 done
 
 # Autoadd Relics
 # for f in ${RELICS}
 # do
 #     ADD=$(echo $f | rev | cut -d"/" -f1 | rev | cut -d"." -f1)
-#     sed -i "s|\/\/autoAddRelics|BaseMod.addRelicToCustomPool(${ADD}(), CirnoChar.Enums.enums.Cirno_Ice);\/\/delete\n\t\t\/\/autoAddRelics|g" ./src/main/kotlin/Cirno/daten/ReceiveEditRelics.kt
+#     sed -i "s|\/\/autoAddRelics|BaseMod.addRelicToCustomPool(${ADD}(), CirnoChar.Enums.enums.Cirno_Ice);\/\/delete\n\t\t\/\/autoAddRelics|g" ./src/main/kotlin/cirno/daten/ReceiveEditRelics.kt
 # done
 
 # images!
