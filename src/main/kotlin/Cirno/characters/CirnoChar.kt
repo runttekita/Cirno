@@ -4,9 +4,7 @@ import Cirno.Cirno
 import Cirno.Cirno.Statics.makeID
 import Cirno.cards.DamageAndCold
 import Cirno.cards.Defend
-import Cirno.cards.ScoutAttacks
 import Cirno.cards.Strike
-import Cirno.relics.StarterRelic
 import basemod.abstracts.CustomPlayer
 import basemod.animations.AbstractAnimation
 import com.badlogic.gdx.graphics.Color
@@ -22,21 +20,22 @@ import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.helpers.CardLibrary
 import com.megacrit.cardcrawl.helpers.FontHelper
 import com.megacrit.cardcrawl.helpers.ScreenShake
+import com.megacrit.cardcrawl.relics.IceCream
 import com.megacrit.cardcrawl.screens.CharSelectInfo
 
 import java.util.ArrayList
 
-class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlayer(name, setClass, orbTextures, "Piruru/images/char/defaultCharacter/orb/vfx.png", null, object : AbstractAnimation() {
+class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlayer(name, setClass, orbTextures, "Cirno/images/char/defaultCharacter/orb/vfx.png", null, object : AbstractAnimation() {
     override fun type(): AbstractAnimation.Type {
         return AbstractAnimation.Type.SPRITE
     }
 }) {
 
     init {
-        val shoulderOne = "Piruru/images/char/defaultCharacter/shoulder.png"
-        val shoulderTwo = "Piruru/images/char/defaultCharacter/shoulder2.png"
-        val corpse = "Piruru/images/char/defaultCharacter/corpse.png"
-        initializeClass("Piruru/images/char/defaultCharacter/piru.png",
+        val shoulderOne = "Cirno/images/char/defaultCharacter/shoulder.png"
+        val shoulderTwo = "Cirno/images/char/defaultCharacter/shoulder2.png"
+        val corpse = "Cirno/images/char/defaultCharacter/corpse.png"
+        initializeClass("Cirno/images/char/defaultCharacter/piru.png",
                 shoulderOne,
                 shoulderTwo,
                 corpse,
@@ -48,7 +47,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getLoadout(): CharSelectInfo {
-        return CharSelectInfo("Piruru", "Piruru",
+        return CharSelectInfo("Cirno", "Cirno",
                 STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW,
                 this, startingRelics,
                 startingDeck, false)
@@ -62,14 +61,13 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
         for (i in 0..3) {
             retVal.add(makeID(Defend::class.java))
         }
-        retVal.add(makeID(ScoutAttacks::class.java))
         retVal.add(makeID(DamageAndCold::class.java))
         return retVal
     }
 
     override fun getStartingRelics(): ArrayList<String> {
         val retVal = ArrayList<String>()
-        retVal.add(StarterRelic.ID)
+        retVal.add(IceCream.ID)
         return retVal
     }
 
@@ -101,7 +99,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getLocalizedCharacterName(): String {
-        return "Piruluk"
+        return "Cirno"
     }
 
     override fun getStartCardForEvent(): AbstractCard {
@@ -109,7 +107,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getTitle(playerClass: AbstractPlayer.PlayerClass): String {
-        return "Piruluk"
+        return "Cirno"
     }
 
     override fun newInstance(): AbstractPlayer {
@@ -129,11 +127,11 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getSpireHeartText(): String {
-        return "Piruluk"
+        return "Cirno"
     }
 
     override fun getVampireText(): String {
-        return "Piruluk"
+        return "Cirno"
     }
 
     companion object statics {
@@ -143,11 +141,11 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
         val STARTING_GOLD = 99
         val CARD_DRAW = 5
         val ORB_SLOTS = 0
-        val orbTextures = arrayOf("Piruru/images/char/defaultCharacter/orb/layer1.png", "Piruru/images/char/defaultCharacter/orb/layer2.png", "Piruru/images/char/defaultCharacter/orb/layer3.png", "Piruru/images/char/defaultCharacter/orb/layer4.png", "Piruru/images/char/defaultCharacter/orb/layer5.png", "Piruru/images/char/defaultCharacter/orb/layer6.png", "Piruru/images/char/defaultCharacter/orb/layer1d.png", "Piruru/images/char/defaultCharacter/orb/layer2d.png", "Piruru/images/char/defaultCharacter/orb/layer3d.png", "Piruru/images/char/defaultCharacter/orb/layer4d.png", "Piruru/images/char/defaultCharacter/orb/layer5d.png")
-        private val ID = makeID("Piruru")
+        val orbTextures = arrayOf("Cirno/images/char/defaultCharacter/orb/layer1.png", "Cirno/images/char/defaultCharacter/orb/layer2.png", "Cirno/images/char/defaultCharacter/orb/layer3.png", "Cirno/images/char/defaultCharacter/orb/layer4.png", "Cirno/images/char/defaultCharacter/orb/layer5.png", "Cirno/images/char/defaultCharacter/orb/layer6.png", "Cirno/images/char/defaultCharacter/orb/layer1d.png", "Cirno/images/char/defaultCharacter/orb/layer2d.png", "Cirno/images/char/defaultCharacter/orb/layer3d.png", "Cirno/images/char/defaultCharacter/orb/layer4d.png", "Cirno/images/char/defaultCharacter/orb/layer5d.png")
+        private val ID = makeID("Cirno")
         private val characterStrings = CardCrawlGame.languagePack.getCharacterString(ID)
-        private val NAMES = arrayOf("Piruluk", "Piruluk", "Piruluk", "Piruluk", "Piruluk")
-        private val TEXT = arrayOf("Piruluk", "Piruluk", "Piruluk", "Piruluk", "Piruluk")
+        private val NAMES = arrayOf("Cirno", "Cirno", "Cirno", "Cirno", "Cirno")
+        private val TEXT = arrayOf("Cirno", "Cirno", "Cirno", "Cirno", "Cirno")
     }
 
     public class Enums {

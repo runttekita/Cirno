@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import Cirno.Cirno.Statics.textureLoader
 import com.megacrit.cardcrawl.relics.AbstractRelic
 
-open class PiruruRelic(id: String, tier: AbstractRelic.RelicTier, sfx: AbstractRelic.LandingSound) : CustomRelic(id, getTexture(id), tier, sfx) {
+open class CirnoRelic(id: String, tier: AbstractRelic.RelicTier, sfx: AbstractRelic.LandingSound) : CustomRelic(id, getTexture(id), tier, sfx) {
 
     fun act(a: AbstractGameAction) {
         AbstractDungeon.actionManager.addToBottom(a)

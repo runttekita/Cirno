@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import reina.yui.YuiClickableObject;
 
-class ARTSZone : YuiClickableObject(Cirno.textureLoader.getTexture("Piruru/images/ui/ARTS.jpg"), 1.32f, 86.5f) {
+class ARTSZone : YuiClickableObject(Cirno.textureLoader.getTexture("Cirno/images/ui/ARTS.jpg"), 1.32f, 86.5f) {
     public var storedCard: AbstractCard? = null
 
     override fun onClick() {

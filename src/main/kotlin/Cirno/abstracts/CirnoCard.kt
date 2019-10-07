@@ -25,7 +25,7 @@ abstract class CirnoCard
 (private val strings: CardStrings, cost: Int, type: AbstractCard.CardType, rarity: AbstractCard.CardRarity,
  target: AbstractCard.CardTarget, private val upgradeDamage: Int, private val upgradeBlock: Int,
  private val upgradeMagic: Int, private val upgradeCost: Int)
-    : CustomCard(null, strings.NAME, getImg("Piruru:uwu"), cost, strings.DESCRIPTION, type, Cirno_Ice, rarity, target),
+    : CustomCard(null, strings.NAME, getImg("Cirno:uwu"), cost, strings.DESCRIPTION, type, Cirno_Ice, rarity, target),
         NotShittyTookDamage {
 
     init {
