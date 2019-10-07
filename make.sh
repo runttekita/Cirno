@@ -43,70 +43,22 @@ then
   echo "Compiling English Jar"
   DAMAGE='Deal !D! Damage.'
   BLOCK='Gain !B! Block.'
-  DISCARD_ONE='Discard 1 card.'
-  ENERGY='Gain !M! [E] .'
   DRAW='Draw !M! cards.'
   COLD='Apply !M! cirno:Cold.'
   FREEZE='cirno:Freeze an enemy.'
-  MILL='cirno:Mill !M! cards.'
   ETHEREAL='Ethereal.'
   EXHAUST='Exhaust.'
-  RECOVER_ONE='cirno:Recover !M! card.'
-  RECOVER_SKILLS='cirno:Recover all Skills.'
-  RECOVER_SKILLS_IGNORE_HAND='cirno:Recover all skills hand ignoring max hand size.'
-  RECOVER='cirno:Recover !M! cards.'
   SPREAD_COLD='Apply !M! cirno:Cold to target and to adjacent enemies.'
   ICE_BARRIER='Whenever you are attacked this turn, apply cirno:Cold back.'
-  INFINITE_UPGRADES='Can be Upgraded any number of times.'
-  SCOUT_ATTACKS='Discard all cards drawn this way that are not Attacks.'
-  ENERGY_DISCARD='Gain [E] equal to their costs.'
   NL='NL'
-  BANISH_ONE='cirno:Banish !M! card.'
-  BANISH='cirno:Banish !M! cards.'
-  APEX_FORM='Enter cirno:Apex.'
-  ACRO='Enter cirno:ACRO.'
-  EXHUME='cirno:Exhume.'
-  BANISH_CONDITIONAL='cirno:Banish !M! cards. NL If you cirno:Banished !M! cards,'
-  ALLOS='Enter cirno:Allos.'
   DAMAGE_AOE='Deal !D! damage to ALL enemies.'
-  AOE_MILL='cirno:Mill !M! cards for each enemy in combat'
   AOE_COLD='Apply !M! cirno:Cold to ALL enemies.'
-  SCRY='Scry !M! cards.'
-  NO_HAND='Whenever your hand becomes empty,'
   MAGIC_BLOCK='Gain !M! Block.'
-  DISCARD_RANDOM='Discard !M! random cards.'
   CONDITIONAL_COLD='If the enemy is cirno:Cold, apply !M! cirno:Cold.'
-  DRAW_ONE='Draw !M! card.'
-  MILL_ONE='cirno:Mill !M! card.'
-  DRAW='Draw !M! cards.'
-  DISCARD_ANY='Discard any number of cards.'
-  DISCARD_BLOCK='Gain !B! Block for each card discarded.'
-  RETURN_ATTACKS='cirno:Return !M! Attacks.'
-  CONDITIONAL_DRAW='Draw !M! cards. If you draw a'
   COLD_DRAW='Skill, apply 1 cirno:Cold.'
   RANDOM_COLD='Apply 1 cirno:Cold to a random enemy for each card discarded.'
-  MILL_CONDITIONAL='cirno:Mill !M! cards, and'
-  POWER_MILL='if any of them were powers, cirno:Recover it.'
-  LOCK_YOU='cirno:Freeze ALL enemies.'
   RETAIN='Retain.'
-  SPIN='Whenever your hand becomes empty, draw !M! card.'
-  SPINS='Whenever your hand becomes empty, draw !M! cards.'
-  WHEN_RECOVER='Whenever you cirno:Recover,'
   MAGIC_DAMAGE='deal !M! damage.'
-  RECOVER_RANDOM='cirno:Recover !M! random card.'
-  REMEMBER='Enter cirno:Remember'
-  DRAW_ARTS='Add !M! *Water *ARTS into your hand.'
-  ARTS='cirno:ARTS.'
-  COLD_ARTS='Add !M! *Cold *ARTS into your hand.'
-  CHAIN='cirno:Chain.'
-  COPY_BLUE_BLACK='Shuffle a *Chain *Blue *and *Black into your draw pile.'
-  MULLIGAN='Draw the same amount of cards plus 1.'
-  DAMAGE_ARTS='Add !M! *Damage *ARTS into your hand.'
-  BANISH_CONDITIONAL_ATTACK='cirno:Banish !M! Attacks. NL If you cirno:Banished !M! Attacks,'
-  EXCESS_DMG='deal twice as much damage.'
-  EXCESS='If you have more than !M! cards in your hand,'
-  EXCESS_BLOCK='gain twice as much Block.'
-  PEEPING_ANALYZE='Send from your draw pile to your discard pile all cards that cost !M! NL (Same as *Fukashigi *no *Carte).'
 fi
 
 # Copy into production folder
@@ -119,72 +71,24 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
-sed -i s/\$peepinganalyze/"${PEEPING_ANALYZE}"/g ${PROD_JSON}
-sed -i s/\$excessblock/"${EXCESS_BLOCK}"/g ${PROD_JSON}
-sed -i s/\$excessdmg/"${EXCESS_DMG}"/g ${PROD_JSON}
-sed -i s/\$excess/"${EXCESS}"/g ${PROD_JSON}
-sed -i s/\$banishconditionalattack/"${BANISH_CONDITIONAL_ATTACK}"/g ${PROD_JSON}
-sed -i s/\$damagearts/"${DAMAGE_ARTS}"/g ${PROD_JSON}
-sed -i s/\$mulligan/"${MULLIGAN}"/g ${PROD_JSON}
-sed -i s/\$copyblueblack/"${COPY_BLUE_BLACK}"/g ${PROD_JSON}
-sed -i s/\$chain/"${CHAIN}"/g ${PROD_JSON}
-sed -i s/\$coldarts/"${COLD_ARTS}"/g ${PROD_JSON}
-sed -i s/\$drawarts/"${DRAW_ARTS}"/g ${PROD_JSON}
-sed -i s/\$arts/"${ARTS}"/g ${PROD_JSON}
-sed -i s/\$remember/"${REMEMBER}"/g ${PROD_JSON}
-sed -i s/\$remember/"${REMEMBER}"/g ${PROD_JSON}
-sed -i s/\$recoverrandom/"${RECOVER_RANDOM}"/g ${PROD_JSON}
 sed -i s/\$magicdamage/"${MAGIC_DAMAGE}"/g ${PROD_JSON}
-sed -i s/\$whenrecover/"${WHEN_RECOVER}"/g ${PROD_JSON}
-sed -i s/\$spins/"${SPINS}"/g ${PROD_JSON}
-sed -i s/\$spin/"${SPIN}"/g ${PROD_JSON}
-sed -i s/\$lockyou/"${LOCK_YOU}"/g ${PROD_JSON}
 sed -i s/\$retain/"${RETAIN}"/g ${PROD_JSON}
-sed -i s/\$energydiscard/"${ENERGY_DISCARD}"/g ${PROD_JSON}
-sed -i s/\$millconditional/"${MILL_CONDITIONAL}"/g ${PROD_JSON}
-sed -i s/\$powermill/"${POWER_MILL}"/g ${PROD_JSON}
 sed -i s/\$randomcold/"${RANDOM_COLD}"/g ${PROD_JSON}
 sed -i s/\$colddraw/"${COLD_DRAW}"/g ${PROD_JSON}
-sed -i s/\$conditionaldraw/"${CONDITIONAL_DRAW}"/g ${PROD_JSON}
-sed -i s/\$discardblock/"${DISCARD_BLOCK}"/g ${PROD_JSON}
-sed -i s/\$discardany/"${DISCARD_ANY}"/g ${PROD_JSON}
 sed -i s/\$damage/"${DAMAGE}"/g ${PROD_JSON}
 sed -i s/\$magicblock/"${MAGIC_BLOCK}"/g ${PROD_JSON}
 sed -i s/\$block/"${BLOCK}"/g ${PROD_JSON}
-sed -i s/\$discardone/"${DISCARD_ONE}"/g ${PROD_JSON}
-sed -i s/\$discardrandom/"${DISCARD_RANDOM}"/g ${PROD_JSON}
-sed -i s/\$energy/"${ENERGY}"/g ${PROD_JSON}
 sed -i s/\$cold/"${COLD}"/g ${PROD_JSON}
 sed -i s/\$freeze/"${FREEZE}"/g ${PROD_JSON}
 sed -i s/\$ethereal/"${ETHEREAL}"/g ${PROD_JSON}
 sed -i s/\$exhaust/"${EXHAUST}"/g ${PROD_JSON}
-sed -i s/\$recoverskillnohand/"${RECOVER_SKILLS_IGNORE_HAND}"/g ${PROD_JSON}
-sed -i s/\$recoverskill/"${RECOVER_SKILLS}"/g ${PROD_JSON}
-sed -i s/\$recoverone/"${RECOVER_ONE}"/g ${PROD_JSON}
-sed -i s/\$recover/"${RECOVER}"/g ${PROD_JSON}
 sed -i s/\$spreadcold/"${SPREAD_COLD}"/g ${PROD_JSON}
 sed -i s/\$icebarrier/"${ICE_BARRIER}"/g ${PROD_JSON}
-sed -i s/\$scoutattacks/"${SCOUT_ATTACKS}"/g ${PROD_JSON}
-sed -i s/\$infiniteupgrades/"${INFINITE_UPGRADES}"/g ${PROD_JSON}
 sed -i s/\$nl/"${NL}"/g ${PROD_JSON}
-sed -i s/\$banishone/"${BANISH_ONE}"/g ${PROD_JSON}
-sed -i s/\$banishconditional/"${BANISH_CONDITIONAL}"/g ${PROD_JSON}
-sed -i s/\$banish/"${BANISH}"/g ${PROD_JSON}
-sed -i s/\$apex/"${APEX_FORM}"/g ${PROD_JSON}
-sed -i s/\$acro/"${ACRO}"/g ${PROD_JSON}
-sed -i s/\$exhume/"${EXHUME}"/g ${PROD_JSON}
-sed -i s/\$allos/"${ALLOS}"/g ${PROD_JSON}
 sed -i s/\$multidmg/"${DAMAGE_AOE}"/g ${PROD_JSON}
-sed -i s/\$aoemill/"${AOE_MILL}"/g ${PROD_JSON}
 sed -i s/\$aoecold/"${AOE_COLD}"/g ${PROD_JSON}
-sed -i s/\$scry/"${SCRY}"/g ${PROD_JSON}
-sed -i s/\$nohand/"${NO_HAND}"/g ${PROD_JSON}
 sed -i s/\$conditionalcold/"${CONDITIONAL_COLD}"/g ${PROD_JSON}
-sed -i s/\$drawone/"${DRAW_ONE}"/g ${PROD_JSON}
 sed -i s/\$draw/"${DRAW}"/g ${PROD_JSON}
-sed -i s/\$millone/"${MILL_ONE}"/g ${PROD_JSON}
-sed -i s/\$mill/"${MILL}"/g ${PROD_JSON}
-sed -i s/\$returnattacks/"${RETURN_ATTACKS}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}powers.json
