@@ -3,7 +3,7 @@
 
     <groupId>reinashsl</groupId>
     <artifactId>Piruru</artifactId>
-    <name>Piruru</name>
+    <name>Cirno</name>
     <version>0.0.1</version>
     <description>Peeping Analyze</description>
 
@@ -122,7 +122,7 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target/Piruru.jar" tofile="/home/reina/Piruru/mods/Piruru.jar"/>
+                                <copy file="target/Cirno.jar" tofile="/home/reina/Cirno/mods/Cirno.jar"/>
                             </target>
                         </configuration>
                         <goals>

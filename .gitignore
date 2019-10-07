@@ -84,6 +84,6 @@ preferences/
 saves/
 sendToDevs/
 twitchconfig.txt
-src/main/resources/Piruru/localization/eng/prodStrings/*
+src/main/resources/Cirno/localization/eng/prodStrings/*
 runs/
 betaPreferences/
