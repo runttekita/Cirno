@@ -1,7 +1,7 @@
 package Cirno.cards
 
 import Cirno.Cirno.Statics.makeID
-import Cirno.abstracts.PiruruCard
+import Cirno.abstracts.CirnoCard
 import basemod.BaseMod
 import basemod.helpers.TooltipInfo
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import java.util.ArrayList
 
 
-class AddDrawARTS : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, ICE_UP, COST) {
+class AddDrawARTS : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, ICE_UP, COST) {
     init {
         damage = DAMAGE
         baseDamage = damage

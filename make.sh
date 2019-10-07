@@ -210,7 +210,7 @@ done
 for f in ${RELICS}
 do
     ADD=$(echo $f | rev | cut -d"/" -f1 | rev | cut -d"." -f1)
-    sed -i "s|\/\/autoAddRelics|BaseMod.addRelicToCustomPool(${ADD}(), cirnoChar.Enums.enums.CIRNO_ICE);\/\/delete\n\t\t\/\/autoAddRelics|g" ./src/main/kotlin/Cirno/daten/ReceiveEditRelics.kt
+    sed -i "s|\/\/autoAddRelics|BaseMod.addRelicToCustomPool(${ADD}(), CirnoChar.Enums.enums.Cirno_Ice);\/\/delete\n\t\t\/\/autoAddRelics|g" ./src/main/kotlin/Cirno/daten/ReceiveEditRelics.kt
 done
 
 # images!

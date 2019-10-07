@@ -6,7 +6,6 @@ import Cirno.cards.DamageAndCold
 import Cirno.cards.Defend
 import Cirno.cards.ScoutAttacks
 import Cirno.cards.Strike
-import Cirno.characters.CirnoChar.Enums.enums.PIRURU_ICE
 import Cirno.relics.StarterRelic
 import basemod.abstracts.CustomPlayer
 import basemod.animations.AbstractAnimation
@@ -90,7 +89,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getCardColor(): AbstractCard.CardColor? {
-        return PIRURU_ICE
+        return CirnoChar.Enums.enums.Cirno_Ice
     }
 
     override fun getCardTrailColor(): Color {
@@ -155,10 +154,10 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
         object enums{
             @SpireEnum
             @JvmStatic
-            var PIRURU: AbstractPlayer.PlayerClass? = null
+            var Cirno: AbstractPlayer.PlayerClass? = null
             @SpireEnum(name = "ICE")
             @JvmStatic
-            var PIRURU_ICE: AbstractCard.CardColor? = null
+            var Cirno_Ice: AbstractCard.CardColor? = null
             @SpireEnum(name = "ICE")
             @JvmStatic
             var LIBRARY_COLOR: CardLibrary.LibraryType? = null

@@ -1,7 +1,7 @@
 package Cirno.cards
 
 import Cirno.Cirno.Statics.makeID
-import Cirno.abstracts.PiruruCard
+import Cirno.abstracts.CirnoCard
 import com.megacrit.cardcrawl.actions.common.DiscardAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 
-class AttackDiscard : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, DISCARD_UP, COST) {
+class AttackDiscard : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, DISCARD_UP, COST) {
     init {
         damage = DAMAGE
         baseDamage = damage

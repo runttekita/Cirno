@@ -1,8 +1,8 @@
 package Cirno.cards
 
 import Cirno.Cirno.Statics.makeID
-import Cirno.abstracts.PiruruCard
-import Cirno.abstracts.PiruruCard.Enums.Enums.ARTS
+import Cirno.abstracts.CirnoCard
+import Cirno.abstracts.CirnoCard.Enums.Enums.ARTS
 import Cirno.powers.Cold
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 
-class ColdARTS : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, COLD_UP, COST_UP) {
+class ColdARTS : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, COLD_UP, COST_UP) {
     init {
         damage = DAMAGE
         baseDamage = damage

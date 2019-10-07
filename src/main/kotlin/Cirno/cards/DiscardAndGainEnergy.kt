@@ -1,7 +1,7 @@
 package Cirno.cards
 
 import Cirno.Cirno.Statics.makeID
-import Cirno.abstracts.PiruruCard
+import Cirno.abstracts.CirnoCard
 import com.megacrit.cardcrawl.actions.common.DiscardAction
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction
 import com.megacrit.cardcrawl.cards.AbstractCard
@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 
-class DiscardAndGainEnergy : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, NRG_UP, COST) {
+class DiscardAndGainEnergy : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, NRG_UP, COST) {
     init {
         magicNumber = ENERGY
         baseMagicNumber = magicNumber

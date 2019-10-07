@@ -2,8 +2,8 @@ package Cirno.abstracts
 
 import Cirno.Cirno
 import Cirno.Cirno.Statics.makeID
-import Cirno.abstracts.PiruruCard.Enums.Enums.ARTS
-import Cirno.characters.CirnoChar.Enums.enums.PIRURU_ICE
+import Cirno.abstracts.CirnoCard.Enums.Enums.ARTS
+import Cirno.characters.CirnoChar.Enums.enums.Cirno_Ice
 import Cirno.interfaces.NotShittyTookDamage
 import Cirno.patches.PatchLocators
 import Cirno.powers.Cold
@@ -22,11 +22,11 @@ import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.AbstractPower
 
-abstract class PiruruCard
+abstract class CirnoCard
 (private val strings: CardStrings, cost: Int, type: AbstractCard.CardType, rarity: AbstractCard.CardRarity,
  target: AbstractCard.CardTarget, private val upgradeDamage: Int, private val upgradeBlock: Int,
  private val upgradeMagic: Int, private val upgradeCost: Int)
-    : CustomCard(null, strings.NAME, getImg("Piruru:uwu"), cost, strings.DESCRIPTION, type, PIRURU_ICE, rarity, target),
+    : CustomCard(null, strings.NAME, getImg("Piruru:uwu"), cost, strings.DESCRIPTION, type, Cirno_Ice, rarity, target),
         NotShittyTookDamage {
 
     init {
@@ -134,7 +134,7 @@ abstract class PiruruCard
         @SpireInsertPatch(locator = PatchLocators.ARTSLocator::class)
         @JvmStatic
         fun Insert(__instance: AbstractCard): SpireReturn<*> {
-            return if (__instance is PiruruCard && __instance.hasTag(ARTS)) {
+            return if (__instance is CirnoCard && __instance.hasTag(ARTS)) {
                 SpireReturn.Return(true)
             } else SpireReturn.Continue<Any>()
         }

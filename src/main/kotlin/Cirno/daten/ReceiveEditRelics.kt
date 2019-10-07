@@ -1,9 +1,11 @@
 package Cirno.daten
 
 import Cirno.characters.CirnoChar
+import basemod.BaseMod
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.helpers.CardLibrary
 import com.megacrit.cardcrawl.unlock.UnlockTracker
+import Cirno.relics.*
 
 /**
  * But Reina, I can hear you ask, why aren't you using autoAddRelics from Kio? Well the answer is simple

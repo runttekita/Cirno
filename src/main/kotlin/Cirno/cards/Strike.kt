@@ -1,7 +1,7 @@
 package Cirno.cards
 
 import Cirno.Cirno.Statics.makeID
-import Cirno.abstracts.PiruruCard
+import Cirno.abstracts.CirnoCard
 import basemod.helpers.BaseModCardTags
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 
-class Strike : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 0, 0, COST) {
+class Strike : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 0, 0, COST) {
     init {
         damage = DAMAGE
         baseDamage = damage

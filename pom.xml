@@ -2,10 +2,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>reinashsl</groupId>
-    <artifactId>Piruru</artifactId>
+    <artifactId>Cirno</artifactId>
     <name>Cirno</name>
     <version>0.0.1</version>
-    <description>Peeping Analyze</description>
+    <description>Baka!</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

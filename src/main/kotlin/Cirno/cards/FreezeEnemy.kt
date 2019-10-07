@@ -1,7 +1,7 @@
 package Cirno.cards
 
 import Cirno.Cirno.Statics.makeID
-import Cirno.abstracts.PiruruCard
+import Cirno.abstracts.CirnoCard
 import Cirno.actions.FreezeMonsterAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 
-class FreezeEnemy : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, 0, COST_UP) {
+class FreezeEnemy : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, 0, COST_UP) {
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         act(FreezeMonsterAction(m!!, p))

@@ -1,7 +1,7 @@
 package Cirno.cards
 
 import Cirno.Cirno.Statics.makeID
-import Cirno.abstracts.PiruruCard
+import Cirno.abstracts.CirnoCard
 import Cirno.actions.BanishAction
 import Cirno.actions.RecoverAction
 import com.megacrit.cardcrawl.cards.AbstractCard
@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 
-class BanishThenRecover : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, 0, COST_UP) {
+class BanishThenRecover : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, 0, COST_UP) {
     init {
         magicNumber = RECOVER_AMT
         baseMagicNumber = magicNumber

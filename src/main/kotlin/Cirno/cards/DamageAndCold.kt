@@ -1,7 +1,7 @@
 package Cirno.cards
 
 import Cirno.Cirno.Statics.makeID
-import Cirno.abstracts.PiruruCard
+import Cirno.abstracts.CirnoCard
 import basemod.BaseMod
 import basemod.helpers.TooltipInfo
 import com.megacrit.cardcrawl.cards.AbstractCard
@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import java.util.ArrayList
 
 
-class DamageAndCold : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 0, COLD_UP, COST) {
+class DamageAndCold : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, 0, COLD_UP, COST) {
     init {
         damage = DAMAGE
         baseDamage = damage

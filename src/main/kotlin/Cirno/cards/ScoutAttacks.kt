@@ -1,7 +1,7 @@
 package Cirno.cards
 
 import Cirno.Cirno.Statics.makeID
-import Cirno.abstracts.PiruruCard
+import Cirno.abstracts.CirnoCard
 import Cirno.actions.ScoutCardsAction
 import Cirno.actions.ScoutFollowUpAction
 import com.megacrit.cardcrawl.actions.utility.WaitAction
@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 
-class ScoutAttacks : PiruruCard(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, SCOUT_NUM_UP, COST) {
+class ScoutAttacks : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, 0, 0, SCOUT_NUM_UP, COST) {
     init {
         magicNumber = SCOUT_NUM
         baseMagicNumber = magicNumber
