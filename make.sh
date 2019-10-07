@@ -89,19 +89,19 @@ sed -i s/\$multidmg/"${DAMAGE_AOE}"/g ${PROD_JSON}
 sed -i s/\$aoecold/"${AOE_COLD}"/g ${PROD_JSON}
 sed -i s/\$conditionalcold/"${CONDITIONAL_COLD}"/g ${PROD_JSON}
 sed -i s/\$draw/"${DRAW}"/g ${PROD_JSON}
-sed -i s/'[[:alnum:]]*": {'/'cirno:&'/g ${PROD_JSON}
+sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}powers.json
-sed -i s/'[[:alnum:]]*": {'/'cirno:&'/g ${PROD_JSON}
+sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}ui.json
-sed -i s/'[[:alnum:]]*": {'/'cirno:&'/g ${PROD_JSON}
+sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}pirurelic.json
-sed -i s/'[[:alnum:]]*": {'/'cirno:&'/g ${PROD_JSON}
+sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}stances.json
-sed -i s/'[[:alnum:]]*": {'/'cirno:&'/g ${PROD_JSON}
+sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
 
 # Autoadd Cards
 for f in ${CARDS}
