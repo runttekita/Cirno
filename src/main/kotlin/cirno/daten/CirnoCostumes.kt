@@ -1,5 +1,6 @@
 package cirno.daten
 
+import cirno.Cirno
 import cirno.Cirno.Statics.cirnoCostumes
 import cirno.Cirno.Statics.textureLoader
 import cirno.characters.CirnoChar
@@ -58,7 +59,7 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -50
                         } else {
                             cirnoCostumes!!.currentCostume = 1
                         }
-                        ReceiveEditCharacters.cirnoChar
+                        Cirno.cirnoChar!!.loadSprite(cirnoCostumes!!.currentCostume)
                     }
                 }
             }

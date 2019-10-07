@@ -137,6 +137,10 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
         return "Cirno"
     }
 
+    fun loadSprite(costume: Int) {
+        img = textureLoader.getTexture("Cirno/images/char/defaultCharacter/cirno$costume.png")
+    }
+
     companion object statics {
         val ENERGY_PER_TURN = 3
         val STARTING_HP = 75
@@ -150,9 +154,6 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
         private val NAMES = arrayOf("Cirno", "Cirno", "Cirno", "Cirno", "Cirno")
         private val TEXT = arrayOf("Cirno", "Cirno", "Cirno", "Cirno", "Cirno")
 
-        fun loadAnimation(costume: Int) {
-             = textureLoader.getTexture("Cirno/images/char/defaultCharacter/cirno$costume.png")
-        }
     }
 
     public class Enums {

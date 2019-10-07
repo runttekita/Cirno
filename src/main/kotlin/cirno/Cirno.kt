@@ -3,6 +3,7 @@ package cirno
 import cirno.daten.*
 import basemod.BaseMod.*
 import basemod.interfaces.*
+import cirno.characters.CirnoChar
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
@@ -23,7 +24,7 @@ class Cirno() :
         private var modID: String? = null
         public val CIRNO_ICE: Color = Color.valueOf("#000DAB")
         var cirnoCostumes: CirnoCostumes? = null
-        val cirnoChar: CirnoChar? = null
+        val cirnoChar = CirnoChar.Enums.enums.Cirno?.let { CirnoChar("Cirno", it) }
 
         fun makeID(c: Class<*>): String {
             return makeID(c.simpleName)
@@ -79,7 +80,7 @@ class Cirno() :
     }
 
     override fun receiveEditCharacters() {
-        ReceiveEditCharacters()
+        ReceiveEditCharacters(cirnoChar!!)
     }
 
     override fun receiveEditCards() {
