@@ -1,7 +1,6 @@
 package Cirno
 
 import Cirno.daten.*
-import Cirno.ui.ARTSZoneManager
 import basemod.BaseMod.*
 import basemod.interfaces.*
 import com.badlogic.gdx.graphics.Color
@@ -22,7 +21,6 @@ class Cirno() :
         var textureLoader = AssetLoader()
         private var modID: String? = null
         public val CIRNO_ICE: Color = Color.valueOf("#000DAB")
-        public var artsZones: ARTSZoneManager? = null
 
         fun makeID(c: Class<*>): String {
             return makeID(c.simpleName)
