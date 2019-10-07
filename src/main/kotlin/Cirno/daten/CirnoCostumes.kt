@@ -56,7 +56,7 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -50
             @JvmStatic
             fun Postfix(__instance: CharacterOption) {
                 if (__instance.c is CirnoChar) {
-                    if (__instance.selected && __instance.hb.clickStarted) {
+                    if (__instance.hb.clickStarted && __instance.selected) {
                         if (cirnoCostumes!!.currentCostume < 9) {
                             cirnoCostumes!!.currentCostume++
                         } else {
