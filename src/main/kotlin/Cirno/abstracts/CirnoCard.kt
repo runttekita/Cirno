@@ -5,7 +5,6 @@ import Cirno.Cirno.Statics.makeID
 import Cirno.abstracts.CirnoCard.Enums.Enums.ARTS
 import Cirno.characters.CirnoChar.Enums.enums.Cirno_Ice
 import Cirno.interfaces.NotShittyTookDamage
-import Cirno.patches.PatchLocators
 import Cirno.powers.Cold
 import basemod.abstracts.CustomCard
 import com.evacipated.cardcrawl.modthespire.lib.*
@@ -126,17 +125,6 @@ abstract class CirnoCard
             @SpireEnum
             @JvmStatic
             var ARTS: AbstractCard.CardTags? = null
-        }
-    }
-
-    @SpirePatch(clz = AbstractCard::class, method = "hasEnoughEnergy")
-    object PlayARTSOnEnemyTurnPatch {
-        @SpireInsertPatch(locator = PatchLocators.ARTSLocator::class)
-        @JvmStatic
-        fun Insert(__instance: AbstractCard): SpireReturn<*> {
-            return if (__instance is CirnoCard && __instance.hasTag(ARTS)) {
-                SpireReturn.Return(true)
-            } else SpireReturn.Continue<Any>()
         }
     }
 
