@@ -6,19 +6,39 @@ import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.core.Settings
+import com.megacrit.cardcrawl.screens.charSelect.CharacterOption
 import com.megacrit.cardcrawl.screens.charSelect.CharacterSelectScreen
+import reina.yui.Yui
+import reina.yui.YuiClickableObject
 
-class CirnoCostumes {
+class CirnoCostumes: YuiClickableObject(textureLoader.getTexture("Cirno/images/char/defaultCharacter/cirno0.png"), -500f, -500f) {
+
     private var currentCostume = 0
+    private var cirnoButton: CharacterOption? = null
 
-    public fun render(sb: SpriteBatch) {
+    override fun render(sb: SpriteBatch) {
         if (CardCrawlGame.mode == CardCrawlGame.GameMode.CHAR_SELECT && CardCrawlGame.chosenCharacter == CirnoChar.Enums.enums.Cirno) {
-            sb.draw(getCurrentCostume(), 5 * Settings.scale, 400 * Settings.scale)
+            if (cirnoButton == null) {
+                for (o in CardCrawlGame.mainMenuScreen.charSelectScreen.options) {
+                    if (o.c is CirnoChar) {
+                        cirnoButton = o
+                    }
+                }
+            }
+            Yui.autoPlaceHorizontallyWithVerticalOffset(cirnoButton!!.hb, this, 200f)
+            image = getCurrentCostume()
+            super.render(sb)
         }
     }
 
     private fun getCurrentCostume(): Texture {
         return textureLoader.getTexture("Cirno/images/char/defaultCharacter/cirno$currentCostume.png")
+    }
+
+    override fun onClick() {
+    }
+
+    override fun onUnhover() {
     }
 
 }
