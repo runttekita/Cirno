@@ -26,6 +26,7 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -50
                     }
                 }
             }
+            println(cirnoButton)
             Yui.autoPlaceHorizontallyWithVerticalOffset(cirnoButton!!.hb, this, 200f)
             image = getCurrentCostume()
             super.render(sb)
