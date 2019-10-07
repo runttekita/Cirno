@@ -23,8 +23,6 @@ import com.megacrit.cardcrawl.helpers.ScreenShake
 import com.megacrit.cardcrawl.relics.IceCream
 import com.megacrit.cardcrawl.screens.CharSelectInfo
 
-import java.util.ArrayList
-
 class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlayer(name, setClass, orbTextures, "Cirno/images/char/defaultCharacter/orb/vfx.png", null, object : AbstractAnimation() {
     override fun type(): AbstractAnimation.Type {
         return AbstractAnimation.Type.SPRITE
@@ -35,7 +33,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
         val shoulderOne = "Cirno/images/char/defaultCharacter/shoulder.png"
         val shoulderTwo = "Cirno/images/char/defaultCharacter/shoulder2.png"
         val corpse = "Cirno/images/char/defaultCharacter/corpse.png"
-        initializeClass("Cirno/images/char/defaultCharacter/piru.png",
+        initializeClass("Cirno/images/char/defaultCharacter/cirno0.png",
                 shoulderOne,
                 shoulderTwo,
                 corpse,
@@ -87,7 +85,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getCardColor(): AbstractCard.CardColor? {
-        return CirnoChar.Enums.enums.Cirno_Ice
+        return Enums.enums.Cirno_Ice
     }
 
     override fun getCardTrailColor(): Color {

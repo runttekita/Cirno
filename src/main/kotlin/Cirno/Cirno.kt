@@ -22,6 +22,7 @@ class Cirno() :
         var textureLoader = AssetLoader()
         private var modID: String? = null
         public val CIRNO_ICE: Color = Color.valueOf("#000DAB")
+        var cirnoCostumes: CirnoCostumes? = null
 
         fun makeID(c: Class<*>): String {
             return makeID(c.simpleName)
@@ -103,7 +104,9 @@ class Cirno() :
     }
 
     override fun receivePostRender(sb: SpriteBatch) {
-        CirnoCostumes(sb)
+        if (cirnoCostumes != null) {
+            cirnoCostumes!!.render(sb)
+        }
     }
 
 }
