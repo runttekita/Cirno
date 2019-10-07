@@ -15,7 +15,8 @@ class Cirno() :
         EditRelicsSubscriber,
         EditKeywordsSubscriber,
 		PostInitializeSubscriber,
-        RenderSubscriber {
+        RenderSubscriber,
+        PostRenderSubscriber {
 
     companion object Statics {
         var textureLoader = AssetLoader()
@@ -99,6 +100,10 @@ class Cirno() :
     }
 
     override fun receiveRender(sb: SpriteBatch) {
+    }
+
+    override fun receivePostRender(sb: SpriteBatch) {
+        CirnoCostumes(sb)
     }
 
 }
