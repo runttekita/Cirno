@@ -1,17 +1,4 @@
 {
-  "AddColdARTS": {
-    "NAME": "asfsaasfa;l",
-    "DESCRIPTION": "$coldarts"
-  },
-  "AddDrawARTS": {
-    "NAME": "asflkjsa",
-    "DESCRIPTION": "$drawarts"
-  },
-  "AllForOneButSkills": {
-    "NAME": "shrug",
-    "DESCRIPTION": "$recoverskill $nl $ethereal $nl $exhaust",
-    "UPGRADE_DESCRIPTION": "$recoverskillnohand $nl $ethereal $nl $exhaust"
-  },
   "AoECold": {
     "NAME": "common staff",
     "DESCRIPTION": "$multidmg $nl $aoecold"
@@ -20,51 +7,6 @@
     "NAME": "Lock You",
     "DESCRIPTION": "$lockyou",
     "UPGRADE_DESCRIPTION": "$lockyou $nl $retain"
-  },
-  "AoEMill": {
-    "NAME": "common stuff",
-    "DESCRIPTION": "$multidmg $nl $aoemill"
-  },
-  "AttackAndMill": {
-    "NAME": "Who gives a fuck",
-    "DESCRIPTION": "$damage $nl $mill"
-  },
-  "AttackAndScry": {
-    "NAME": "Watcher shit",
-    "DESCRIPTION": "$damage $nl $scry"
-  },
-  "AttackDiscard": {
-    "NAME": "All out attack smol",
-    "DESCRIPTION": "$damage $nl $discardrandom"
-  },
-  "AttackExhume": {
-    "NAME": "infinite shit i guess",
-    "DESCRIPTION": "$damage NL $exhume"
-  },
-  "AttackRecoverRandom": {
-    "NAME": "aslfkjsafsaj",
-    "DESCRIPTION": "$damage $nl $recoverrandom"
-  },
-  "AttackReturnAttacks": {
-    "NAME": "wee",
-    "DESCRIPTION": "$damage $nl $returnattacks"
-  },
-  "BanishExhume": {
-    "NAME": "swappy",
-    "DESCRIPTION": "$banishconditional $exhume"
-  },
-  "BanishThenRecover": {
-    "NAME": "god i hate bd",
-    "DESCRIPTION": "$banishconditional $recover"
-  },
-  "BlockDrawMill": {
-    "NAME": "BDM",
-    "DESCRIPTION": "$block $nl $drawone $nl $millone",
-    "UPGRADE_DESCRIPTION": "$block $nl $draw $nl $mill"
-  },
-  "ColdARTS": {
-    "NAME": "Cold ARTS",
-    "DESCRIPTION": "$cold $nl $retain $nl $arts $nl $exhaust"
   },
   "ColdBane": {
     "NAME": "cold bane",
@@ -82,42 +24,6 @@
     "NAME": "Defend",
     "DESCRIPTION": "$block"
   },
-  "DiscardAndGainEnergy": {
-    "NAME": "C R Y S T A L SEAL",
-    "DESCRIPTION": "$discardone $nl $energy"
-  },
-  "DiscardAnyAmountAndGainEnergy": {
-    "NAME": "Wha",
-    "DESCRIPTION": "$discardany $nl $energydiscard"
-  },
-  "DiscardForBlock": {
-    "NAME": "wa",
-    "DESCRIPTION": "$discardany $nl $discardblock"
-  },
-  "DiscardRandomCold": {
-    "NAME": "waoifja",
-    "DESCRIPTION": "$discardany $nl $randomcold"
-  },
-  "DrawARTS": {
-    "NAME": "Water ARTS",
-    "DESCRIPTION": "$draw $nl $retain $nl $arts $nl $exhaust"
-  },
-  "EnterACRO": {
-    "NAME": "ACRO",
-    "DESCRIPTION": "$acro"
-  },
-  "EnterAllos": {
-    "NAME": "Piruluk Allos",
-    "DESCRIPTION": "$allos"
-  },
-  "EnterApexForm": {
-    "NAME": "Apex Form",
-    "DESCRIPTION": "$apex"
-  },
-  "EnterRemember": {
-    "NAME": "Enter Remember",
-    "DESCRIPTION": "$remember"
-  },
   "FlameBarrierButCold": {
     "NAME": "cold",
     "DESCRIPTION": "$block $nl $icebarrier"
@@ -125,35 +31,6 @@
   "FreezeEnemy": {
     "NAME": "Snow Halation",
     "DESCRIPTION": "$freeze"
-  },
-  "InfiniteScalingShit": {
-    "NAME": "skyson",
-    "DESCRIPTION": "$recoverone $nl $infiniteupgrades $nl $exhaust",
-    "UPGRADE_DESCRIPTION": "$recover $nl $infiniteupgrades $nl $exhaust"
-  },
-  "LiterallyJustTheWordExhaust": {
-    "NAME": "Apex meta is the best meta wixoss ever had",
-    "DESCRIPTION": " $nl $exhaust"
-  },
-  "MillChainCopy": {
-    "NAME": "Chain Blue and Black",
-    "DESCRIPTION": "$damage $nl $mill $nl $chain $nl $copyblueblack"
-  },
-  "MillForPowers": {
-    "NAME": "rummage ffas",
-    "DESCRIPTION": "$millconditional $powermill"
-  },
-  "NoCardsBlock": {
-    "NAME": "owo",
-    "DESCRIPTION": "$nohand $magicblock"
-  },
-  "RecoverDamage": {
-    "NAME": "laskfas",
-    "DESCRIPTION": "$whenrecover $magicdamage"
-  },
-  "ScoutAttacks": {
-    "NAME": "CIRCLE",
-    "DESCRIPTION": "$draw $nl $scoutattacks"
   },
   "SpreadCold": {
     "NAME": "Achoo",
@@ -163,49 +40,8 @@
     "NAME": "Strike",
     "DESCRIPTION": "$damage"
   },
-  "UnceasingTopPower": {
-    "NAME": "spin",
-    "DESCRIPTION": "$spin",
-    "UPGRADE_DESCRIPTION": "$spins"
-  },
-  "DiscardChain": {
-    "NAME": "Disafoia",
-    "DESCRIPTION": "$discardone $nl $chain"
-  },
-  "Mulligan": {
-    "NAME": "TREASURE",
-    "DESCRIPTION": "$discardany $nl $mulligan"
-  },
-  "DamageARTS": {
-    "NAME": "Damage ARTS",
-    "DESCRIPTION": "$damage $nl $retain $nl $arts $nl $exhaust"
-  },
-  "AddDamageARTS": {
-    "NAME": "Add Damage ARTS",
-    "DESCRIPTION": "$damagearts"
-  },
   "AttackBlock": {
     "NAME": "aslfkajslfska",
     "DESCRIPTION": "$damage $nl $block"
-  },
-  "AttackBanishAttack": {
-    "NAME": "bcm",
-    "DESCRIPTION": "$banishconditionalattack $damage"
-  },
-  "BigDickARTSAttack": {
-    "NAME": "uwu",
-    "DESCRIPTION": "$damage $nl $retain $nl $arts"
-  },
-  "ExcessCardsDoesMoreDamage": {
-    "NAME": "awa",
-    "DESCRIPTION": "$damage $nl $excess $excessdmg"
-  },
-  "ExcessBlock": {
-    "NAME": "af;las",
-    "DESCRIPTION":"$block $nl $excess $excessblock"
-  },
-  "YeetNCostCardToDiscard": {
-    "NAME": "Peeping Analyze",
-    "DESCRIPTION": "$peepinganalyze"
   }
 }
