@@ -51,6 +51,10 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
                 startingDeck, false)
     }
 
+    public fun changeCostume(costume: Int) {
+
+    }
+
     override fun getStartingDeck(): ArrayList<String> {
         val retVal = ArrayList<String>()
         for (i in 0..3) {

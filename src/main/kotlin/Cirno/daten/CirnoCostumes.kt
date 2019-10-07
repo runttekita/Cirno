@@ -32,7 +32,7 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -50
         }
     }
 
-    private fun getCurrentCostume(): Texture {
+    public fun getCurrentCostume(): Texture {
         return textureLoader.getTexture("Cirno/images/char/defaultCharacter/cirno$currentCostume.png")
     }
 
@@ -56,7 +56,7 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -50
             @JvmStatic
             fun Postfix(__instance: CharacterOption) {
                 if (__instance.c is CirnoChar) {
-                    if (InputHelper.justClickedLeft && __instance.selected) {
+                    if (__instance.selected && __instance.hb.clickStarted) {
                         if (cirnoCostumes!!.currentCostume < 9) {
                             cirnoCostumes!!.currentCostume++
                         } else {
