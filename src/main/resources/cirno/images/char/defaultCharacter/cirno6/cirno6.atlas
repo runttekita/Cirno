@@ -1,10 +1,10 @@
 
-cimo8.png
+cirno6.png
 size: 256,256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-cirno8
+cirno6
   rotate: false
   xy: 1, 1
   size: 160, 239

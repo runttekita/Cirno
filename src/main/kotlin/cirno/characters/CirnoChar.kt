@@ -26,7 +26,7 @@ import com.megacrit.cardcrawl.relics.IceCream
 import com.megacrit.cardcrawl.screens.CharSelectInfo
 
 class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlayer(name, setClass, orbTextures, "cirno/images/char/defaultCharacter/orb/vfx.png", null,
-        SpineAnimation("cirno/images/char/defaultCharacter/cimo1/Cimo1.atlas", "cirno/images/char/defaultCharacter/cimo1/Cimo1.json", 1.0f)) {
+        SpineAnimation("cirno/images/char/defaultCharacter/cirno1/cirno1.atlas", "cirno/images/char/defaultCharacter/cirno1/cirno1.json", 1.0f)) {
 
     init {
         val shoulderOne = "cirno/images/char/defaultCharacter/shoulder.png"
@@ -136,11 +136,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     public fun loadSprite(costume: Int) {
-        drawY += 100 * Settings.scale
-        if (costume == 1) {
-            loadAnimation("cirno/images/char/defaultCharacter/cimo$costume/Cimo$costume.atlas", "cirno/images/char/defaultCharacter/cimo$costume/Cimo$costume.json", 1.0f)
-        }
-        loadAnimation("cirno/images/char/defaultCharacter/cimo$costume/cimo$costume.atlas", "cirno/images/char/defaultCharacter/cimo$costume/cimo$costume.json", 1.0f)
+        loadAnimation("cirno/images/char/defaultCharacter/cirno$costume/cirno$costume.atlas", "cirno/images/char/defaultCharacter/cirno$costume/cirno$costume.json", 1.0f)
     }
 
     companion object statics {

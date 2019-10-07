@@ -14,6 +14,8 @@ import reina.yui.Yui
 import reina.yui.YuiClickableObject
 import com.megacrit.cardcrawl.screens.charSelect.CharacterSelectScreen
 import basemod.ReflectionHacks
+import com.megacrit.cardcrawl.core.Settings
+import com.megacrit.cardcrawl.helpers.FontHelper
 import java.util.ArrayList
 
 
@@ -36,6 +38,8 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -50
                 Yui.autoPlaceHorizontallyWithVerticalOffset(cirnoButton!!.hb, this, 200f)
                 image = getCurrentCostume()
                 super.render(sb)
+                //todo use ui strings
+                FontHelper.renderFontCentered(sb, FontHelper.energyNumFontBlue, "Click the character button to change skins.", x + image.width * Settings.scale, y)
             }
         }
     }
