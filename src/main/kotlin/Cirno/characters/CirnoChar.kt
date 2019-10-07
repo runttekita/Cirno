@@ -33,7 +33,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
         val shoulderOne = "Cirno/images/char/defaultCharacter/shoulder.png"
         val shoulderTwo = "Cirno/images/char/defaultCharacter/shoulder2.png"
         val corpse = "Cirno/images/char/defaultCharacter/corpse.png"
-        initializeClass("Cirno/images/char/defaultCharacter/cirno0.png",
+        initializeClass("Cirno/images/char/defaultCharacter/cirno1.png",
                 shoulderOne,
                 shoulderTwo,
                 corpse,

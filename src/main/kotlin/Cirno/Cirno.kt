@@ -106,6 +106,7 @@ class Cirno() :
     override fun receivePostRender(sb: SpriteBatch) {
         if (cirnoCostumes != null) {
             cirnoCostumes!!.render(sb)
+            cirnoCostumes!!.update()
         }
     }
 

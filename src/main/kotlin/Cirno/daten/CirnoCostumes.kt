@@ -1,19 +1,20 @@
 package Cirno.daten
 
+import Cirno.Cirno.Statics.cirnoCostumes
 import Cirno.Cirno.Statics.textureLoader
 import Cirno.characters.CirnoChar
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.megacrit.cardcrawl.core.CardCrawlGame
-import com.megacrit.cardcrawl.core.Settings
+import com.megacrit.cardcrawl.helpers.input.InputHelper
 import com.megacrit.cardcrawl.screens.charSelect.CharacterOption
-import com.megacrit.cardcrawl.screens.charSelect.CharacterSelectScreen
 import reina.yui.Yui
 import reina.yui.YuiClickableObject
 
-class CirnoCostumes: YuiClickableObject(textureLoader.getTexture("Cirno/images/char/defaultCharacter/cirno0.png"), -500f, -500f) {
+class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -500f) {
 
-    private var currentCostume = 0
+    var currentCostume = 1
     private var cirnoButton: CharacterOption? = null
 
     override fun render(sb: SpriteBatch) {
@@ -36,14 +37,34 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture("Cirno/images/c
     }
 
     override fun onClick() {
-        if (currentCostume < 9) {
-            currentCostume++
-        } else {
-            currentCostume = 0
-        }
     }
 
     override fun onUnhover() {
     }
 
+    override fun update() {
+        super.update()
+        onClick()
+    }
+
+    @SpirePatch(
+            clz = CharacterOption::class,
+            method = "updateHitbox"
+    )
+    public class ChangeCostume {
+        public companion object {
+            @JvmStatic
+            fun Postfix(__instance: CharacterOption) {
+                if (__instance.c is CirnoChar) {
+                    if (InputHelper.justClickedLeft && __instance.selected) {
+                        if (cirnoCostumes!!.currentCostume < 9) {
+                            cirnoCostumes!!.currentCostume++
+                        } else {
+                            cirnoCostumes!!.currentCostume = 1
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
