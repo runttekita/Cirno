@@ -21,13 +21,12 @@ import java.util.ArrayList
 
 
 
-class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -500f), CustomSavable<Int> {
+class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -500f) {
 
     var currentCostume = 1
     private var cirnoButton: CharacterOption? = null
 
     init {
-        BaseMod.addSaveField<Int>("currentCostume", this)
     }
 
     override fun render(sb: SpriteBatch) {
@@ -47,14 +46,6 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -50
                 FontHelper.renderFontCentered(sb, FontHelper.energyNumFontBlue, "Click the character button\n to change skins.", x + image.width * Settings.scale, y)
             }
         }
-    }
-
-    override fun onLoad(costume: Int) {
-        currentCostume = costume
-    }
-
-    override fun onSave(): Int {
-        return currentCostume
     }
 
     public fun getCurrentCostume(): Texture {
