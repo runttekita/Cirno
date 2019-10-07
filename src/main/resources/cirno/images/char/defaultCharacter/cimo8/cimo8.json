@@ -1,0 +1,1 @@
+{"skeleton":{"width":160,"height":239,"fps":24,"hash":" ","name":"Armature"},"bones":[{"name":"root"}],"slots":[{"name":"cirno8","bone":"root","attachment":"cirno8"}],"skins":{"default":{"cirno8":{"cirno8":{"name":"cirno8","width":160,"height":239}}}}}

@@ -136,7 +136,11 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     public fun loadSprite(costume: Int) {
-        loadAnimation("cirno/images/char/defaultCharacter/cimo$costume/Cimo$costume.atlas", "cirno/images/char/defaultCharacter/cimo$costume/Cimo$costume.json", 1.0f)
+        drawY += 100 * Settings.scale
+        if (costume == 1) {
+            loadAnimation("cirno/images/char/defaultCharacter/cimo$costume/Cimo$costume.atlas", "cirno/images/char/defaultCharacter/cimo$costume/Cimo$costume.json", 1.0f)
+        }
+        loadAnimation("cirno/images/char/defaultCharacter/cimo$costume/cimo$costume.atlas", "cirno/images/char/defaultCharacter/cimo$costume/cimo$costume.json", 1.0f)
     }
 
     companion object statics {
