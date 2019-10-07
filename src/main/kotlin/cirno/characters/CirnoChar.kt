@@ -8,6 +8,7 @@ import cirno.cards.Defend
 import cirno.cards.Strike
 import basemod.abstracts.CustomPlayer
 import basemod.animations.AbstractAnimation
+import basemod.animations.SpineAnimation
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum
@@ -24,17 +25,14 @@ import com.megacrit.cardcrawl.helpers.ScreenShake
 import com.megacrit.cardcrawl.relics.IceCream
 import com.megacrit.cardcrawl.screens.CharSelectInfo
 
-class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlayer(name, setClass, orbTextures, "Cirno/images/char/defaultCharacter/orb/vfx.png", null, object : AbstractAnimation() {
-    override fun type(): AbstractAnimation.Type {
-        return AbstractAnimation.Type.SPRITE
-    }
-}) {
+class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlayer(name, setClass, orbTextures, "cirno/images/char/defaultCharacter/orb/vfx.png", null,
+        SpineAnimation("cirno/images/char/defaultCharacter/cimo1/Cimo1.atlas", "cirno/images/char/defaultCharacter/cimo1/Cimo1.json", 1.0f)) {
 
     init {
-        val shoulderOne = "Cirno/images/char/defaultCharacter/shoulder.png"
-        val shoulderTwo = "Cirno/images/char/defaultCharacter/shoulder2.png"
-        val corpse = "Cirno/images/char/defaultCharacter/corpse.png"
-        initializeClass("Cirno/images/char/defaultCharacter/cirno1.png",
+        val shoulderOne = "cirno/images/char/defaultCharacter/shoulder.png"
+        val shoulderTwo = "cirno/images/char/defaultCharacter/shoulder2.png"
+        val corpse = "cirno/images/char/defaultCharacter/corpse.png"
+        initializeClass(null,
                 shoulderOne,
                 shoulderTwo,
                 corpse,
@@ -137,8 +135,8 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
         return "Cirno"
     }
 
-    fun loadSprite(costume: Int) {
-        img = textureLoader.getTexture("Cirno/images/char/defaultCharacter/cirno$costume.png")
+    public fun loadSprite(costume: Int) {
+        loadAnimation("cirno/images/char/defaultCharacter/cimo$costume/Cimo$costume.atlas", "cirno/images/char/defaultCharacter/cimo$costume/Cimo$costume.json", 1.0f)
     }
 
     companion object statics {
@@ -148,7 +146,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
         val STARTING_GOLD = 99
         val CARD_DRAW = 5
         val ORB_SLOTS = 0
-        val orbTextures = arrayOf("Cirno/images/char/defaultCharacter/orb/layer1.png", "Cirno/images/char/defaultCharacter/orb/layer2.png", "Cirno/images/char/defaultCharacter/orb/layer3.png", "Cirno/images/char/defaultCharacter/orb/layer4.png", "Cirno/images/char/defaultCharacter/orb/layer5.png", "Cirno/images/char/defaultCharacter/orb/layer6.png", "Cirno/images/char/defaultCharacter/orb/layer1d.png", "Cirno/images/char/defaultCharacter/orb/layer2d.png", "Cirno/images/char/defaultCharacter/orb/layer3d.png", "Cirno/images/char/defaultCharacter/orb/layer4d.png", "Cirno/images/char/defaultCharacter/orb/layer5d.png")
+        val orbTextures = arrayOf("cirno/images/char/defaultCharacter/orb/layer1.png", "cirno/images/char/defaultCharacter/orb/layer2.png", "cirno/images/char/defaultCharacter/orb/layer3.png", "cirno/images/char/defaultCharacter/orb/layer4.png", "cirno/images/char/defaultCharacter/orb/layer5.png", "cirno/images/char/defaultCharacter/orb/layer6.png", "cirno/images/char/defaultCharacter/orb/layer1d.png", "cirno/images/char/defaultCharacter/orb/layer2d.png", "cirno/images/char/defaultCharacter/orb/layer3d.png", "cirno/images/char/defaultCharacter/orb/layer4d.png", "cirno/images/char/defaultCharacter/orb/layer5d.png")
         private val ID = makeID("Cirno")
         private val characterStrings = CardCrawlGame.languagePack.getCharacterString(ID)
         private val NAMES = arrayOf("Cirno", "Cirno", "Cirno", "Cirno", "Cirno")

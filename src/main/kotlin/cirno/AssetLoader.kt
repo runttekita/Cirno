@@ -18,7 +18,7 @@ class AssetLoader {
             try {
                 assets.finishLoadingAsset(fileName)
             } catch (e: GdxRuntimeException) {
-                return getTexture("Cirno/images/ui/missing_texture.png")
+                return getTexture("cirno/images/ui/missing_texture.png")
             }
 
         }

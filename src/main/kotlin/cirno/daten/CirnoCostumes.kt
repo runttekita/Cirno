@@ -1,5 +1,6 @@
 package cirno.daten
 
+import basemod.BaseMod
 import cirno.Cirno
 import cirno.Cirno.Statics.cirnoCostumes
 import cirno.Cirno.Statics.textureLoader
@@ -11,6 +12,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.screens.charSelect.CharacterOption
 import reina.yui.Yui
 import reina.yui.YuiClickableObject
+import com.megacrit.cardcrawl.screens.charSelect.CharacterSelectScreen
+import basemod.ReflectionHacks
+import java.util.ArrayList
+
+
 
 class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -500f) {
 
@@ -35,7 +41,7 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -50
     }
 
     public fun getCurrentCostume(): Texture {
-        return textureLoader.getTexture("Cirno/images/char/defaultCharacter/cirno$currentCostume.png")
+        return textureLoader.getTexture("cirno/images/char/defaultCharacter/cirno$currentCostume.png")
     }
 
     override fun onClick() {
@@ -59,7 +65,6 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -50
                         } else {
                             cirnoCostumes!!.currentCostume = 1
                         }
-                        Cirno.cirnoChar!!.loadSprite(cirnoCostumes!!.currentCostume)
                     }
                 }
             }

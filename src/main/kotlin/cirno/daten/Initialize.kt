@@ -7,15 +7,15 @@ import basemod.BaseMod
 class Initialize {
 
     init {
-        val attackIce = "Cirno/images/512prod/bg_attack_default_gray.png"
-        val skillIce = "Cirno/images/512prod/bg_skill_default_gray.png"
-        val powerIce = "Cirno/images/512prod/bg_power_default_gray.png"
-        val iceEnergy = "Cirno/images/512prod/card_default_gray_orb.png"
-        val cardOrb = "Cirno/images/512prod/card_small_orb.png"
-        val attackIceBig = "Cirno/images/1024prod/bg_attack_default_gray.png"
-        val skillIceBig = "Cirno/images/1024prod/bg_skill_default_gray.png"
-        val powerIceBig = "Cirno/images/1024prod/bg_power_default_gray.png"
-        val energyOrbBig = "Cirno/images/1024prod/card_default_gray_orb.png"
+        val attackIce = "cirno/images/512prod/bg_attack_default_gray.png"
+        val skillIce = "cirno/images/512prod/bg_skill_default_gray.png"
+        val powerIce = "cirno/images/512prod/bg_power_default_gray.png"
+        val iceEnergy = "cirno/images/512prod/card_default_gray_orb.png"
+        val cardOrb = "cirno/images/512prod/card_small_orb.png"
+        val attackIceBig = "cirno/images/1024prod/bg_attack_default_gray.png"
+        val skillIceBig = "cirno/images/1024prod/bg_skill_default_gray.png"
+        val powerIceBig = "cirno/images/1024prod/bg_power_default_gray.png"
+        val energyOrbBig = "cirno/images/1024prod/card_default_gray_orb.png"
         BaseMod.addColor(CirnoChar.Enums.enums.Cirno_Ice, Cirno.CIRNO_ICE, Cirno.CIRNO_ICE, Cirno.CIRNO_ICE,
                 Cirno.CIRNO_ICE, Cirno.CIRNO_ICE, Cirno.CIRNO_ICE, Cirno.CIRNO_ICE,
                 attackIce, skillIce, powerIce,

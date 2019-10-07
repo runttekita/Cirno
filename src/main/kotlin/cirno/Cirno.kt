@@ -7,6 +7,7 @@ import cirno.characters.CirnoChar
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 
 @SpireInitializer
 class Cirno() :
@@ -17,14 +18,14 @@ class Cirno() :
         EditKeywordsSubscriber,
 		PostInitializeSubscriber,
         RenderSubscriber,
-        PostRenderSubscriber {
+        PostRenderSubscriber,
+        PostDungeonInitializeSubscriber {
 
     companion object Statics {
         var textureLoader = AssetLoader()
         private var modID: String? = null
         public val CIRNO_ICE: Color = Color.valueOf("#000DAB")
         var cirnoCostumes: CirnoCostumes? = null
-        val cirnoChar = CirnoChar.Enums.enums.Cirno?.let { CirnoChar("Cirno", it) }
 
         fun makeID(c: Class<*>): String {
             return makeID(c.simpleName)
@@ -43,7 +44,7 @@ class Cirno() :
         }
 
         fun makeCardPath(resourcePath: String): String {
-            return getModID() + "/images/cards/" + resourcePath
+            return "cirno" + "/images/cards/" + resourcePath
         }
 
         fun makeRelicPath(resourcePath: String): String {
@@ -80,7 +81,7 @@ class Cirno() :
     }
 
     override fun receiveEditCharacters() {
-        ReceiveEditCharacters(cirnoChar!!)
+        ReceiveEditCharacters()
     }
 
     override fun receiveEditCards() {
@@ -111,6 +112,12 @@ class Cirno() :
             cirnoCostumes!!.render(sb)
             cirnoCostumes!!.update()
         }
+        if (AbstractDungeon.player != null && AbstractDungeon.player.chosenClass == CirnoChar.Enums.enums.Cirno) {
+            (AbstractDungeon.player as CirnoChar).loadSprite(cirnoCostumes!!.currentCostume)
+        }
+    }
+
+    override fun receivePostDungeonInitialize() {
     }
 
 }

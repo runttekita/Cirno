@@ -11,7 +11,7 @@ class ReceiveEditKeywords {
 
     init {
         val gson = Gson()
-        val json = Gdx.files.internal("Cirno/localization/eng/prodStrings/keywords.json").readString(StandardCharsets.UTF_8.toString())
+        val json = Gdx.files.internal("cirno/localization/eng/prodStrings/keywords.json").readString(StandardCharsets.UTF_8.toString())
         val keywords = gson.fromJson(json, Array<Keyword>::class.java)
 
         for (keyword in keywords) {

@@ -16,7 +16,7 @@ object FrozenIntentPatches {
             val strings = CardCrawlGame.languagePack.getUIString("Cirno:FrozenIntent")
             tip.header = strings.TEXT[0]
             tip.body = strings.TEXT[1]
-            tip.img = Cirno.textureLoader.getTexture("Cirno/images/FrozenIntent.png")
+            tip.img = Cirno.textureLoader.getTexture("cirno/images/FrozenIntent.png")
             return tip
         }
 
@@ -34,7 +34,7 @@ object FrozenIntentPatches {
         fun Prefix(__instance: AbstractMonster): SpireReturn<Texture> {
             return if (__instance.intent == FrozenIntentPatches.Enum.FrozenIntentEnum.FROZEN) {
                 SpireReturn.Return(Cirno.textureLoader.getTexture(
-                        "Cirno/images/intents/Frozen.png"
+                        "cirno/images/intents/Frozen.png"
                 ))
             } else SpireReturn.Continue()
         }
