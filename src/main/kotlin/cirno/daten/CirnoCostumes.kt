@@ -39,7 +39,7 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -50
                 image = getCurrentCostume()
                 super.render(sb)
                 //todo use ui strings
-                FontHelper.renderFontCentered(sb, FontHelper.energyNumFontBlue, "Click the character button to change skins.", x + image.width * Settings.scale, y)
+                FontHelper.renderFontCentered(sb, FontHelper.energyNumFontBlue, "Click the character button\n to change skins.", x + image.width * Settings.scale, y)
             }
         }
     }
