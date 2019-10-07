@@ -36,6 +36,11 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture("Cirno/images/c
     }
 
     override fun onClick() {
+        if (currentCostume < 9) {
+            currentCostume++
+        } else {
+            currentCostume = 0
+        }
     }
 
     override fun onUnhover() {
