@@ -53,7 +53,7 @@ public class Frozen : CirnoPower, CloneablePowerInterface, InvisiblePower {
     }
 
     init {
-        val POWER_ID : String = Cirno.makeID(this::class.java.simpleName)
+        val POWER_ID : String = Cirno.makeID(Frozen::class.java.simpleName)
         val powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         ID = POWER_ID
         NAME = powerStrings.NAME

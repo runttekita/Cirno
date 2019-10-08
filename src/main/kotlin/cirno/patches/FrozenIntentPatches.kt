@@ -105,8 +105,12 @@ object FrozenIntentPatches {
         @SpireInsertPatch(locator = LocatorSkeletonStart::class)
         @JvmStatic
         fun InsertSkeletonStart(__instance: AbstractMonster, sb: SpriteBatch) {
-            val frozen = __instance.getPower(makeID(Frozen::class.java)) as Frozen
-            if (__instance !is Hexaghost) {
+            val frozen = if (__instance.getPower(makeID(Frozen::class.java)) != null) {
+                __instance.getPower(makeID(Frozen::class.java)) as Frozen
+            } else {
+                null
+            }
+            if (frozen != null && __instance !is Hexaghost) {
                 shader.begin()
                 shader.setUniformf("shadeTimer", frozen.shaderTimer)
                 CardCrawlGame.psb.shader = shader

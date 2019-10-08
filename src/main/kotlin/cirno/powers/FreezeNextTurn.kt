@@ -37,7 +37,7 @@ class FreezeNextTurn(target: AbstractCreature, turns: Int) : CirnoPower() {
         amount = turns
     }
 
-    override fun atStartOfTurn() {
+    override fun onSpecificTrigger() {
         AbstractDungeon.actionManager.addToBottom(FreezeMonsterAction(owner as AbstractMonster, AbstractDungeon.player))
         AbstractDungeon.actionManager.addToBottom(ReducePowerAction(owner, owner, this, 1))
     }
