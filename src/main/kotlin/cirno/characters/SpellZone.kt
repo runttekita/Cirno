@@ -11,9 +11,7 @@ class SpellZone() : YuiClickableObject(Cirno.textureLoader.getTexture("uwu"), 0f
     private val scale = 0.50f
 
     init {
-        val card = BlankSpellZone()
-        card.drawScale = scale
-        storedCard = card
+        storeCard(BlankSpellZone())
     }
 
     fun storeCard(spellCard: AbstractCard) {
@@ -21,7 +19,12 @@ class SpellZone() : YuiClickableObject(Cirno.textureLoader.getTexture("uwu"), 0f
         storedCard = spellCard
     }
 
+    override fun onHover() {
+        super.onHover()
+        storedCard.drawScale = 0.8f
+    }
     override fun onUnhover() {
+        storedCard.drawScale = scale
     }
 
     override fun onClick() {
