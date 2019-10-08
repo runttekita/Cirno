@@ -12,10 +12,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
-class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID, turns, AbstractDungeon.player.drawX - 300f, AbstractDungeon.player.drawY, 250f, 250f, "cirno/images/monsters/frostBoy.png") {
+class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID, turns, -1250f, AbstractDungeon.player.drawY, 450f, 550f, "cirno/images/monsters/frostBoy.png") {
 
     init {
         damage.add(DamageInfo(this, damageAmt, DamageInfo.DamageType.NORMAL))
+        setHp(turns)
     }
 
     public companion object {
