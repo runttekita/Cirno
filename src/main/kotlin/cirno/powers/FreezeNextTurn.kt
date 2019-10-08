@@ -39,11 +39,8 @@ class FreezeNextTurn(target: AbstractCreature, turns: Int) : CirnoPower() {
     }
 
     override fun onSpecificTrigger() {
-        if ((owner as AbstractMonster).intent != FrozenIntentPatches.Enum.FrozenIntentEnum.FROZEN) {
-            AbstractDungeon.actionManager.addToBottom(FreezeMonsterAction(owner as AbstractMonster, AbstractDungeon.player))
-            AbstractDungeon.actionManager.addToBottom(ReducePowerAction(owner, owner, this, 1))
-        }
-
+        AbstractDungeon.actionManager.addToBottom(FreezeMonsterAction(owner as AbstractMonster, AbstractDungeon.player))
+        AbstractDungeon.actionManager.addToBottom(ReducePowerAction(owner, owner, this, 1))
     }
 
     override fun updateDescription() {
