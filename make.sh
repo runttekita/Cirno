@@ -75,6 +75,7 @@ cp ${DEV_STRINGS}ui.json ${PROD_STRINGS}ui.json
 cp ${DEV_STRINGS}relics.json ${PROD_STRINGS}relics.json
 cp ${DEV_STRINGS}keywords.json ${PROD_STRINGS}keywords.json
 cp ${DEV_STRINGS}events.json ${PROD_STRINGS}events.json
+cp ${DEV_STRINGS}monsters.json ${PROD_STRINGS}monsters.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
@@ -115,6 +116,9 @@ PROD_JSON=${PROD_STRINGS}relics.json
 sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}events.json
+sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
+
+PROD_JSON=${PROD_STRINGS}monsters.json
 sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
 
 # Autoadd Cards
