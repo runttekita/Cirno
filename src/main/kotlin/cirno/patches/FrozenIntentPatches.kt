@@ -126,7 +126,7 @@ object FrozenIntentPatches {
         private class LocatorImageStart : SpireInsertLocator() {
             @Throws(Exception::class)
             override fun Locate(ctMethodToPatch: CtBehavior): IntArray {
-                val finalMatcher = Matcher.FieldAccessMatcher(AbstractMonster::class.java, "damageFlash")
+                val finalMatcher = Matcher.FieldAccessMatcher(AbstractMonster::class.java, "atlas")
                 return LineFinder.findInOrder(ctMethodToPatch, finalMatcher)
             }
         }
@@ -134,7 +134,7 @@ object FrozenIntentPatches {
         private class LocatorImageEnd : SpireInsertLocator() {
             @Throws(Exception::class)
             override fun Locate(ctMethodToPatch: CtBehavior): IntArray {
-                val finalMatcher = Matcher.FieldAccessMatcher(AbstractMonster::class.java, "damageFlash")
+                val finalMatcher = Matcher.FieldAccessMatcher(AbstractMonster::class.java, "isDying")
                 return Arrays.copyOfRange(LineFinder.findAllInOrder(ctMethodToPatch, finalMatcher), 1, 2)
             }
         }
