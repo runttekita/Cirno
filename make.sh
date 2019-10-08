@@ -65,6 +65,7 @@ then
   WHEN_ATTACKED='When you are attacked, '
   DAMAGE_CLAUSE='deal !D! damage'
   CONDITIONAL_DRAW='Draw !M! cards and if you draw a'
+  LOCK_YOU='cirno:Freeze ALL enemies.'
 fi
 
 # Copy into production folder
@@ -77,6 +78,7 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$lockyou/"${LOCK_YOU}"/g ${PROD_JSON}
 sed -i s/\$conditionaldraw/"${CONDITIONAL_DRAW}"/g ${PROD_JSON}
 sed -i s/\$damageclause/"${DAMAGE_CLAUSE}"/g ${PROD_JSON}
 sed -i s/\$whenattacked/"${WHEN_ATTACKED}"/g ${PROD_JSON}
