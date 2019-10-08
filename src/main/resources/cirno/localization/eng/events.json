@@ -2,14 +2,14 @@
   "AMeetingWithAFriend": {
     "NAME": "Friend?",
     "DESCRIPTIONS": [
-      "",
-      "",
-      ""
+      "Making your way through the hazards of the Exordium, you come across a robot in shambles, crawling across the floor. NL It reaches towards you as if it were asking @\"Help@ Me.\"@",
+      "You grab the robot's hand and you feel ~#bpower~ surging through you. NL The robot let go as quick as it latched on and fell to the floor, inoperational.",
+      "You ignore the robot and let it be taken apart by the monsters of the Spire. NL #bJerk."
     ],
     "OPTIONS": [
-      "",
-      "",
-      ""
+      "[Take Its Hand] #gObtain #ga #gFrost #gOrb #gCard",
+      "[Ignore]",
+      "[Leave]"
     ]
   }
 }
