@@ -25,9 +25,20 @@ import com.megacrit.cardcrawl.helpers.FontHelper
 import com.megacrit.cardcrawl.helpers.ScreenShake
 import com.megacrit.cardcrawl.relics.IceCream
 import com.megacrit.cardcrawl.screens.CharSelectInfo
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.localization.CharacterStrings
+import com.badlogic.gdx.utils.FloatArray
 
 class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlayer(name, setClass, orbTextures, "cirno/images/char/defaultCharacter/orb/vfx.png", null,
         SpineAnimation("cirno/images/char/defaultCharacter/cirno1/cirno1.atlas", "cirno/images/char/defaultCharacter/cirno1/cirno1.json", 1.0f)) {
+    var orbPositionsX = floatArrayOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
+    var orbPositionsY = floatArrayOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
+    var xStartOffset = Settings.WIDTH.toFloat() * 0.23f
+    private val xSpaceBetweenSlots = 90 * Settings.scale
+    private val xSpaceBottomAlternatingOffset = 0 * Settings.scale
+    private val yStartOffset = AbstractDungeon.floorY + 100 * Settings.scale
+    private val ySpaceBottomAlternatingOffset = -100 * Settings.scale
+    private val ySpaceAlternatingOffset = -50 * Settings.scale
 
     init {
         val shoulderOne = "cirno/images/char/defaultCharacter/shoulder.png"
@@ -138,6 +149,30 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
 
     public fun loadSprite(costume: Int) {
         loadAnimation("cirno/images/char/defaultCharacter/cirno$costume/cirno$costume.atlas", "cirno/images/char/defaultCharacter/cirno$costume/cirno$costume.json", 1.0f)
+    }
+
+    fun initializeSlotPositions() {
+        orbPositionsX[0] = xStartOffset + xSpaceBetweenSlots * 1
+        orbPositionsX[1] = xStartOffset + xSpaceBetweenSlots * 1 + xSpaceBottomAlternatingOffset
+        orbPositionsX[2] = xStartOffset + xSpaceBetweenSlots * 2
+        orbPositionsX[3] = xStartOffset + xSpaceBetweenSlots * 2 + xSpaceBottomAlternatingOffset
+        orbPositionsX[4] = xStartOffset + xSpaceBetweenSlots * 3
+        orbPositionsX[5] = xStartOffset + xSpaceBetweenSlots * 3 + xSpaceBottomAlternatingOffset
+        orbPositionsX[6] = xStartOffset + xSpaceBetweenSlots * 4
+        orbPositionsX[7] = xStartOffset + xSpaceBetweenSlots * 4 + xSpaceBottomAlternatingOffset
+        orbPositionsX[8] = xStartOffset + xSpaceBetweenSlots * 5
+        orbPositionsX[9] = xStartOffset + xSpaceBetweenSlots * 5 + xSpaceBottomAlternatingOffset
+
+        orbPositionsY[0] = yStartOffset
+        orbPositionsY[1] = yStartOffset + ySpaceBottomAlternatingOffset
+        orbPositionsY[2] = yStartOffset + ySpaceAlternatingOffset
+        orbPositionsY[3] = yStartOffset + ySpaceBottomAlternatingOffset + ySpaceAlternatingOffset
+        orbPositionsY[4] = yStartOffset
+        orbPositionsY[5] = yStartOffset + ySpaceBottomAlternatingOffset
+        orbPositionsY[6] = yStartOffset + ySpaceAlternatingOffset
+        orbPositionsY[7] = yStartOffset + ySpaceBottomAlternatingOffset + ySpaceAlternatingOffset
+        orbPositionsY[8] = yStartOffset
+        orbPositionsY[9] = yStartOffset + ySpaceBottomAlternatingOffset
     }
 
     companion object statics {

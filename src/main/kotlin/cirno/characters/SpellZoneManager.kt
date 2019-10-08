@@ -7,8 +7,14 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.orbs.AbstractOrb
 import com.megacrit.cardcrawl.vfx.SpeechBubble
 import reina.yui.Yui
+import kotlin.reflect.KClass
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn
+import java.nio.file.Files.move
+
+
 
 
 class SpellZoneManager {
@@ -68,6 +74,33 @@ class SpellZoneManager {
                     __instance.spellZones.addZone()
                     __instance.spellZones.addZone()
                     __instance.spellZones.addZone()
+                }
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz= AbstractOrb::class,
+            method="setSlot",
+            paramtypez = [
+                Int::class,
+                Int::class
+            ]
+    )
+    public class OrbPositionPatch {
+        public companion object {
+            @JvmStatic
+            fun Prefix(__instance: AbstractOrb, slotNum: Int, maxOrbs: Int): SpireReturn<Any> {
+                if (AbstractDungeon.player is CirnoChar) {
+                    __instance.tX = (AbstractDungeon.player as CirnoChar).orbPositionsX[slotNum]
+                    __instance.tY = (AbstractDungeon.player as CirnoChar).orbPositionsY[slotNum]
+
+                    __instance.hb.move(__instance.tX, __instance.tY)
+                    return SpireReturn.Return<Any>(null)
+                } else {
+
+                    return SpireReturn.Continue<Any>()
+
                 }
             }
         }
