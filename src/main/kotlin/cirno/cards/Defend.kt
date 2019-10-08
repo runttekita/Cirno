@@ -27,7 +27,7 @@ class Defend : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, 0, BLOCK_UP, 0
         private val TYPE = AbstractCard.CardType.SKILL
         private val RARITY = AbstractCard.CardRarity.BASIC
         private val TARGET = AbstractCard.CardTarget.SELF
-        private val BLOCK = 5
+        private val BLOCK = 4
         private val BLOCK_UP = 3
     }
 }
