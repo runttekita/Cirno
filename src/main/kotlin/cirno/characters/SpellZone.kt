@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.vfx.cardManip.CardFlashVfx
 import reina.yui.YuiClickableObject
 
 class SpellZone() : YuiClickableObject(Cirno.textureLoader.getTexture("uwu"), 0f, 0f) {
@@ -39,11 +40,13 @@ class SpellZone() : YuiClickableObject(Cirno.textureLoader.getTexture("uwu"), 0f
     }
 
     public fun triggerEffect(info: DamageInfo? = null) {
+        AbstractDungeon.effectList.add(CardFlashVfx(storedCard))
         if (info != null && info.owner is AbstractMonster) {
             (storedCard as CirnoCard).spellEffect(info)
         } else {
             (storedCard as CirnoCard).spellEffect()
         }
+        storedCard.moveToDiscardPile()
         AbstractDungeon.player.discardPile.addToBottom(storedCard)
         storeCard(BlankSpellZone())
     }
