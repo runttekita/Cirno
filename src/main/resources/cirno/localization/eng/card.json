@@ -43,5 +43,13 @@
   "AttackBlock": {
     "NAME": "aslfkajslfska",
     "DESCRIPTION": "$damage $nl $block"
+  },
+  "BlankSpellZone": {
+    "NAME": "Spell Zone",
+    "DESCRIPTION": ""
+  },
+  "SpellAttackedFreeze": {
+    "NAME": "Counter",
+    "DESCRIPTION": ""
   }
 }

@@ -7,6 +7,7 @@ import cirno.interfaces.Spell
 import cirno.interfaces.TookDamageSpell
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.evacipated.cardcrawl.modthespire.lib.*
+import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.core.Settings
@@ -147,7 +148,7 @@ class SpellZoneManager : NotShittyTookDamage {
                 if (___targetCard is Spell) {
                     AbstractDungeon.player.hand.removeCard(___targetCard)
                     AbstractDungeon.player.spellZones.setSpell(___targetCard)
-                    val tickDuration = UseCardAction::class.java.getDeclaredMethod("tickDuration")
+                    val tickDuration = AbstractGameAction::class.java.getDeclaredMethod("tickDuration")
                     tickDuration.isAccessible = true
                     tickDuration.invoke(__instance)
                     return SpireReturn.Return(null)
