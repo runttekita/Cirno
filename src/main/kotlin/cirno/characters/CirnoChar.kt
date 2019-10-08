@@ -73,7 +73,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
         for (i in 0..3) {
             retVal.add(makeID(Strike::class.java))
         }
-        for (i in 0..3) {
+        for (i in 0..2) {
             retVal.add(makeID(Defend::class.java))
         }
         retVal.add(makeID(DamageAndCold::class.java))
