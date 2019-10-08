@@ -13,6 +13,7 @@ class AttackBackFreeze(private val target: AbstractCreature, private val times: 
     init {
         amount = times
         owner = target
+        isTurnBased = true
     }
 
     override fun onAttacked(info: DamageInfo, damageAmount: Int): Int {
@@ -24,6 +25,6 @@ class AttackBackFreeze(private val target: AbstractCreature, private val times: 
     }
 
     override fun updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1]
+        description = DESCRIPTIONS[0]
     }
 }

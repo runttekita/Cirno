@@ -19,34 +19,10 @@
       " #yCold to the attacker."
     ]
   },
-  "NoCardsBlockP": {
-    "NAME": "UWU",
+  "AttackBackFreeze": {
+    "NAME": "Chilly",
     "DESCRIPTIONS": [
-      "Whenever your hand becomes empty, gain #b",
-      " #yBlock."
-    ]
-  },
-  "UnceasingTopP": {
-    "NAME": "unceasing top",
-    "DESCRIPTIONS": [
-      "Whenever your hand becomes empty, draw #b",
-      " card.",
-      " cards."
-    ]
-  },
-  "RecoverDamageP": {
-    "NAME": "ASfs;lk",
-    "DESCRIPTIONS": [
-      "Whenever you #yRecover, deal #b",
-      " damage."
-    ]
-  },
-  "Chain": {
-    "NAME": "Chain",
-    "DESCRIPTIONS": [
-      "The next #b",
-      " card you play costs #b1 less.",
-      " cards you play costs #b1 less."
+      "When you are attacked, #yFreeze the enemy."
     ]
   }
 }

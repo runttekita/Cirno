@@ -65,7 +65,7 @@ fi
 cp ${DEV_STRINGS}card.json ${PROD_STRINGS}card.json
 cp ${DEV_STRINGS}powers.json ${PROD_STRINGS}powers.json
 cp ${DEV_STRINGS}ui.json ${PROD_STRINGS}ui.json
-cp ${DEV_STRINGS}pirurelic.json ${PROD_STRINGS}pirurelic.json
+cp ${DEV_STRINGS}relics.json ${PROD_STRINGS}relics.json
 cp ${DEV_STRINGS}keywords.json ${PROD_STRINGS}keywords.json
 cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
@@ -97,7 +97,7 @@ sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
 PROD_JSON=${PROD_STRINGS}ui.json
 sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
 
-PROD_JSON=${PROD_STRINGS}pirurelic.json
+PROD_JSON=${PROD_STRINGS}relics.json
 sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}stances.json
