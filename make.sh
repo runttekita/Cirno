@@ -63,6 +63,7 @@ then
   AND='and'
   SPELL_FREEZE='cirno:Freeze the attacker.'
   WHEN_ATTACKED='When you are attacked, '
+  DAMAGE_CLAUSE='deal !d! damage'
 fi
 
 # Copy into production folder
@@ -75,6 +76,7 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$damageclause/"${DAMAGE_CLAUSE}"/g ${PROD_JSON}
 sed -i s/\$whenattacked/"${WHEN_ATTACKED}"/g ${PROD_JSON}
 sed -i s/\$spellfreeze/"${SPELL_FREEZE}"/g ${PROD_JSON}
 sed -i s/\$spell/"${SPELL}"/g ${PROD_JSON}

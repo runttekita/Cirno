@@ -50,6 +50,6 @@
   },
   "SpellAttackedFreeze": {
     "NAME": "Frigid Atmosphere",
-    "DESCRIPTION": "$spell $nl $whenattacked $damage $and $spellfreeze"
+    "DESCRIPTION": "$spell $nl $whenattacked $damageclause $and $spellfreeze"
   }
 }
