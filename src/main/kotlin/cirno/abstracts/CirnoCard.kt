@@ -2,7 +2,6 @@ package cirno.abstracts
 
 import cirno.Cirno
 import cirno.Cirno.Statics.makeID
-import cirno.abstracts.CirnoCard.Enums.Enums.ARTS
 import cirno.characters.CirnoChar.Enums.enums.Cirno_Ice
 import cirno.interfaces.NotShittyTookDamage
 import cirno.powers.Cold
@@ -25,8 +24,7 @@ abstract class CirnoCard
 (private val strings: CardStrings, cost: Int, type: AbstractCard.CardType, rarity: AbstractCard.CardRarity,
  target: AbstractCard.CardTarget, private val upgradeDamage: Int, private val upgradeBlock: Int,
  private val upgradeMagic: Int, private val upgradeCost: Int)
-    : CustomCard(null, strings.NAME, getImg("Cirno:uwu"), cost, strings.DESCRIPTION, type, Cirno_Ice, rarity, target),
-        NotShittyTookDamage {
+    : CustomCard(null, strings.NAME, getImg("Cirno:uwu"), cost, strings.DESCRIPTION, type, Cirno_Ice, rarity, target) {
 
     init {
         cardID = makeID(this.javaClass.simpleName)
@@ -58,16 +56,6 @@ abstract class CirnoCard
 
     fun power(target: AbstractCreature, source: AbstractCreature, p: AbstractPower, amount: Int): ApplyPowerAction {
         return ApplyPowerAction(target, source, p, amount)
-    }
-
-    override fun notShittyTookDamage(i: DamageInfo) {
-        if (hasTag(ARTS) && AbstractDungeon.player.hand.contains(this)) {
-            if (i.owner is AbstractMonster) {
-                act(QueueCardAction(this, i.owner as AbstractMonster))
-            } else {
-                act(QueueCardAction(this, AbstractDungeon.getRandomMonster()))
-            }
-        }
     }
 
     override fun upgrade() {
@@ -120,12 +108,11 @@ abstract class CirnoCard
         }
     }
 
-    public class Enums {
-        object Enums {
-            @SpireEnum
-            @JvmStatic
-            var ARTS: AbstractCard.CardTags? = null
-        }
+    open fun spellEffect() {
+    }
+
+    open fun spellEffect(info: DamageInfo) {
+
     }
 
 }

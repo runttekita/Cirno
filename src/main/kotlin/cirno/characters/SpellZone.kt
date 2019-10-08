@@ -1,9 +1,13 @@
 package cirno.characters
 
 import cirno.Cirno
+import cirno.abstracts.CirnoCard
 import cirno.cards.BlankSpellZone
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.cards.DamageInfo
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.monsters.AbstractMonster
 import reina.yui.YuiClickableObject
 
 class SpellZone() : YuiClickableObject(Cirno.textureLoader.getTexture("uwu"), 0f, 0f) {
@@ -14,9 +18,13 @@ class SpellZone() : YuiClickableObject(Cirno.textureLoader.getTexture("uwu"), 0f
         storeCard(BlankSpellZone())
     }
 
-    private fun storeCard(spellCard: AbstractCard) {
-        spellCard.drawScale = scale
-        storedCard = spellCard
+    public fun storeCard(spellCard: AbstractCard) {
+        if (spellCard is CirnoCard) {
+            spellCard.drawScale = scale
+            storedCard = spellCard
+        } else {
+            println("wtf?")
+        }
     }
 
     override fun onHover() {
@@ -30,7 +38,15 @@ class SpellZone() : YuiClickableObject(Cirno.textureLoader.getTexture("uwu"), 0f
     override fun onClick() {
     }
 
-
+    public fun triggerEffect(info: DamageInfo? = null) {
+        if (info != null && info.owner is AbstractMonster) {
+            (storedCard as CirnoCard).spellEffect(info)
+        } else {
+            (storedCard as CirnoCard).spellEffect()
+        }
+        AbstractDungeon.player.discardPile.addToBottom(storedCard)
+        storeCard(BlankSpellZone())
+    }
 
     override fun render(sb: SpriteBatch) {
         super.render(sb)

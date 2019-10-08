@@ -2,14 +2,18 @@ package cirno.cards
 
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoCard
+import cirno.actions.FreezeMonsterAction
+import cirno.interfaces.TookDamageSpell
 import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 
-class SpellAttackedFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, MAGIC_UP, COST) {
+class SpellAttackedFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, MAGIC_UP, COST), TookDamageSpell {
 
     init {
         baseDamage = DAMAGE
@@ -20,6 +24,10 @@ class SpellAttackedFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, D
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
 
+    }
+
+    override fun spellEffect(info: DamageInfo) {
+        act(FreezeMonsterAction(info.owner as AbstractMonster, AbstractDungeon.player))
     }
 
     companion object {
