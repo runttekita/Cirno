@@ -37,7 +37,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
                 shoulderOne,
                 shoulderTwo,
                 corpse,
-                loadout, 20.0f, -10.0f, 220.0f, 290.0f,
+                loadout, 20.0f, -10.0f, 220.0f, 250.0f,
                 EnergyManager(ENERGY_PER_TURN))
 
         dialogX = drawX + 0.0f * Settings.scale
