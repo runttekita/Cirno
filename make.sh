@@ -55,7 +55,7 @@ then
   AOE_COLD='Apply !M! cirno:Cold to ALL enemies.'
   MAGIC_BLOCK='Gain !M! Block.'
   CONDITIONAL_COLD='If the enemy is cirno:Cold, apply !M! cirno:Cold.'
-  COLD_DRAW='Skill, apply 1 cirno:Cold.'
+  COLD_DRAW='Skill, apply 1 cirno:Cold for each.'
   RANDOM_COLD='Apply 1 cirno:Cold to a random enemy for each card discarded.'
   RETAIN='Retain.'
   MAGIC_DAMAGE='deal !M! damage.'
@@ -64,6 +64,7 @@ then
   SPELL_FREEZE='cirno:Freeze the attacker.'
   WHEN_ATTACKED='When you are attacked, '
   DAMAGE_CLAUSE='deal !D! damage'
+  CONDITIONAL_DRAW='Draw !M! cards and if you draw a'
 fi
 
 # Copy into production folder
@@ -76,6 +77,7 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$conditionaldraw/"${CONDITIONAL_DRAW}"/g ${PROD_JSON}
 sed -i s/\$damageclause/"${DAMAGE_CLAUSE}"/g ${PROD_JSON}
 sed -i s/\$whenattacked/"${WHEN_ATTACKED}"/g ${PROD_JSON}
 sed -i s/\$spellfreeze/"${SPELL_FREEZE}"/g ${PROD_JSON}
