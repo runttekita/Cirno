@@ -26,7 +26,7 @@ class BlankSpellZone : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE
     companion object {
         private val cardStrings = CardCrawlGame.languagePack.getCardStrings(
                 makeID(BlankSpellZone::class.java.simpleName))
-        private val COST = -1
+        private val COST = -2
         private val TYPE = CardType.SKILL
         private val RARITY = AbstractCard.CardRarity.SPECIAL
         private val TARGET = AbstractCard.CardTarget.NONE
