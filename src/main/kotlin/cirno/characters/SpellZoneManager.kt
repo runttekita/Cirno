@@ -32,6 +32,7 @@ class SpellZoneManager : NotShittyTookDamage {
         for (zone in zones) {
             if (zone.storedCard is BlankSpellZone) {
                 zone.storeCard(card)
+                zone.storedCard.isGlowing = false
                 return;
             }
         }
