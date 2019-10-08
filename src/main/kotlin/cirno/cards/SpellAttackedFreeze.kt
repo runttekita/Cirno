@@ -4,6 +4,8 @@ import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoCard
 import cirno.actions.FreezeMonsterAction
 import cirno.interfaces.TookDamageSpell
+import cirno.powers.FreezeNextTurn
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -27,7 +29,8 @@ class SpellAttackedFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, D
     }
 
     override fun spellEffect(info: DamageInfo) {
-        act(FreezeMonsterAction(info.owner as AbstractMonster, AbstractDungeon.player))
+        damage(info.owner)
+        act(ApplyPowerAction(info.owner, AbstractDungeon.player, FreezeNextTurn(info.owner, 1), 1))
     }
 
     companion object {
@@ -40,7 +43,7 @@ class SpellAttackedFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, D
         private val DAMAGE_UP = 4
         private val BLOCK_UP = 0
         private val MAGIC_UP = 0
-        private val DAMAGE = 15
+        private val DAMAGE = 10
         private val BLOCK = 0
         private val MAGIC = 0
     }

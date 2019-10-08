@@ -9,6 +9,7 @@ import cirno.cards.Strike
 import basemod.abstracts.CustomPlayer
 import basemod.animations.AbstractAnimation
 import basemod.animations.SpineAnimation
+import cirno.cards.SpellAttackedFreeze
 import cirno.relics.StarterRelic
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.BitmapFont
@@ -76,6 +77,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
             retVal.add(makeID(Defend::class.java))
         }
         retVal.add(makeID(DamageAndCold::class.java))
+        retVal.add(makeID(SpellAttackedFreeze::class.java))
         return retVal
     }
 
@@ -109,7 +111,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getEnergyNumFont(): BitmapFont {
-        return FontHelper.energyNumFontRed
+        return FontHelper.energyNumFontBlue
     }
 
     override fun getLocalizedCharacterName(): String {
@@ -117,7 +119,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getStartCardForEvent(): AbstractCard {
-        return Strike_Blue()
+        return SpellAttackedFreeze()
     }
 
     override fun getTitle(playerClass: AbstractPlayer.PlayerClass): String {
