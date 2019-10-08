@@ -61,7 +61,7 @@ then
   MAGIC_DAMAGE='deal !M! damage.'
   SPELL='cirno:Spell'
   AND='and'
-  SPELL_FREEZE='Freeze the attacker.'
+  SPELL_FREEZE='cirno:Freeze the attacker.'
   WHEN_ATTACKED='When you are attacked, '
 fi
 
