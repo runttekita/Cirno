@@ -35,8 +35,8 @@ class SpellZoneManager {
                 if (CardCrawlGame.dungeon != null && AbstractDungeon.player != null && AbstractDungeon.player.spellZones.zones.isNotEmpty()) {
                     for (zone in AbstractDungeon.player.spellZones.zones) {
                         when (AbstractDungeon.player.spellZones.zones.indexOf(zone)) {
-                            0 -> Yui.autoPlaceSamePosition(AbstractDungeon.player.hb, zone, -zone.getWidth(), 0f)
-                            1 -> Yui.autoPlaceVerticallyWithHorizontalOffset(AbstractDungeon.player.hb, zone, AbstractDungeon.player.hb.width / 4f)
+                            0 -> Yui.autoPlaceVerticallyWithHorizontalOffset(AbstractDungeon.player.hb, zone, AbstractDungeon.player.hb.width / 4f)
+                            1 -> Yui.autoPlaceSamePosition(AbstractDungeon.player.hb, zone, -zone.getWidth(), 0f)
                             2 -> Yui.autoPlaceHorizontally(AbstractDungeon.player.hb, zone)
                         }
                         zone.render(sb)
