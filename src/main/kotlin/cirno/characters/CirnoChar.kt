@@ -9,6 +9,7 @@ import cirno.cards.Strike
 import basemod.abstracts.CustomPlayer
 import basemod.animations.AbstractAnimation
 import basemod.animations.SpineAnimation
+import cirno.relics.StarterRelic
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum
@@ -68,7 +69,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
 
     override fun getStartingRelics(): ArrayList<String> {
         val retVal = ArrayList<String>()
-        retVal.add(IceCream.ID)
+        retVal.add(StarterRelic.id)
         return retVal
     }
 

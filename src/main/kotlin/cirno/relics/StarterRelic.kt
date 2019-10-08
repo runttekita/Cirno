@@ -11,7 +11,7 @@ class StarterRelic : CirnoRelic(id, rarity, landingSound) {
 
     companion object {
         private const val times = 1
-        private val id = makeID(StarterRelic::class.java)
+        public val id = makeID(StarterRelic::class.java)
         private val rarity = AbstractRelic.RelicTier.STARTER
         private val landingSound = LandingSound.MAGICAL
     }
