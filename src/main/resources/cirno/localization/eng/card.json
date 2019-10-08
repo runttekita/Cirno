@@ -49,7 +49,7 @@
     "DESCRIPTION": ""
   },
   "SpellAttackedFreeze": {
-    "NAME": "Counter",
+    "NAME": "Frigid Atmosphere",
     "DESCRIPTION": "$spell $nl $whenattacked $damage $and $spellfreeze"
   }
 }
