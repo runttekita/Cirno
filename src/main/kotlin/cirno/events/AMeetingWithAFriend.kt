@@ -46,8 +46,8 @@ class AMeetingWithAFriend : AbstractImageEvent(eventStrings.NAME, eventStrings.D
                         AbstractDungeon.getCurrRoom().rewards.clear()
                         AbstractDungeon.getCurrRoom().addCardReward(frostRewards)
                         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE
-                        AbstractDungeon.combatRewardScreen.rewards.removeAt(1) // Really bad hack
                         AbstractDungeon.combatRewardScreen.open()
+                        AbstractDungeon.combatRewardScreen.rewards.removeAt(1) //Gross hack
                         imageEventText.updateBodyText(DESCRIPTIONS[1]);
                         imageEventText.updateDialogOption(0, OPTIONS[2])
                         screenNum = 1
