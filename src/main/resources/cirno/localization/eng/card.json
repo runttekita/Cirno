@@ -17,7 +17,7 @@
     "DESCRIPTION": "$conditionaldraw $colddraw"
   },
   "DamageAndCold": {
-    "NAME": "Code Art SML",
+    "NAME": "Icicle Spear",
     "DESCRIPTION": "$damage $nl $cold"
   },
   "Defend": {

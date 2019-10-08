@@ -4,6 +4,7 @@ import cirno.Cirno
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoPower
 import cirno.actions.FreezeMonsterAction
+import cirno.patches.FrozenIntentPatches
 import com.badlogic.gdx.Game
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.GameActionManager
@@ -38,8 +39,11 @@ class FreezeNextTurn(target: AbstractCreature, turns: Int) : CirnoPower() {
     }
 
     override fun onSpecificTrigger() {
-        AbstractDungeon.actionManager.addToBottom(FreezeMonsterAction(owner as AbstractMonster, AbstractDungeon.player))
-        AbstractDungeon.actionManager.addToBottom(ReducePowerAction(owner, owner, this, 1))
+        if ((owner as AbstractMonster).intent != FrozenIntentPatches.Enum.FrozenIntentEnum.FROZEN) {
+            AbstractDungeon.actionManager.addToBottom(FreezeMonsterAction(owner as AbstractMonster, AbstractDungeon.player))
+            AbstractDungeon.actionManager.addToBottom(ReducePowerAction(owner, owner, this, 1))
+        }
+
     }
 
     override fun updateDescription() {
@@ -56,7 +60,6 @@ class FreezeNextTurn(target: AbstractCreature, turns: Int) : CirnoPower() {
         )
         @JvmStatic
         fun Insert(__instance: GameActionManager) {
-            println("WLKJAFS")
             for (m in AbstractDungeon.getCurrRoom().monsters.monsters) {
                 m.getPower(makeID(FreezeNextTurn::class.java))?.onSpecificTrigger()
             }
