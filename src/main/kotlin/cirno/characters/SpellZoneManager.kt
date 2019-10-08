@@ -44,7 +44,7 @@ class SpellZoneManager : NotShittyTookDamage {
     override fun notShittyTookDamage(i: DamageInfo) {
         for (zone in zones) {
             if (zone.storedCard is TookDamageSpell) {
-                zone.triggerEffect()
+                zone.triggerEffect(i)
             }
         }
     }
