@@ -6,6 +6,9 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.vfx.SpeechBubble
+import reina.yui.Yui
+
 
 class SpellZoneManager {
     var zones = ArrayList<SpellZone>()
@@ -31,10 +34,38 @@ class SpellZoneManager {
             public fun Prefix(__instance: AbstractPlayer, sb: SpriteBatch) {
                 if (CardCrawlGame.dungeon != null && AbstractDungeon.player != null && AbstractDungeon.player.spellZones.zones.isNotEmpty()) {
                     for (zone in AbstractDungeon.player.spellZones.zones) {
+                        when (AbstractDungeon.player.spellZones.zones.indexOf(zone)) {
+                            0 -> Yui.autoPlaceSamePosition(AbstractDungeon.player.hb, zone, -AbstractDungeon.player.hb.width, 0f)
+                            1 -> Yui.autoPlaceVertically(AbstractDungeon.player.hb, zone)
+                            2 -> Yui.autoPlaceHorizontally(AbstractDungeon.player.hb, zone)
+                        }
                         zone.render(sb)
                         zone.update()
                     }
                 }
+            }
+        }
+    }
+
+    public fun addZone() {
+        if (zones.size < 3) {
+            zones.add(SpellZone())
+        } else {
+            AbstractDungeon.effectList.add(SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.0f, "TODO", true))
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractPlayer::class,
+            method = SpirePatch.CONSTRUCTOR
+    )
+    public class GiveSpellZones {
+        public companion object {
+            @JvmStatic
+            fun Postfix(__instance: AbstractPlayer) {
+                AbstractDungeon.player.spellZones.addZone()
+                AbstractDungeon.player.spellZones.addZone()
+                AbstractDungeon.player.spellZones.addZone()
             }
         }
     }

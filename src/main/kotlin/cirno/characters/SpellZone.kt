@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.megacrit.cardcrawl.cards.AbstractCard
 import reina.yui.YuiClickableObject
 
-class SpellZone(x: Float, y: Float) : YuiClickableObject(Cirno.textureLoader.getTexture("uwu"), x, y) {
+class SpellZone() : YuiClickableObject(Cirno.textureLoader.getTexture("uwu"), 0f, 0f) {
     lateinit var storedCard: AbstractCard
     private val scale = 0.25f
 
