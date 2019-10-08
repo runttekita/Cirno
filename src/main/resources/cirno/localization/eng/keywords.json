@@ -12,5 +12,10 @@
     ],
     "DESCRIPTION": "Upon reaching 3 #yCold, become #yFrozen."
   },
+  {
+    "NAMES": [
+      "spell"
+    ],
+    "DESCRIPTION": "Spell cards are put into your #ySpell #yZones on use and trigger on a certain condition."
  }
 ]
