@@ -63,7 +63,7 @@ then
   AND='and'
   SPELL_FREEZE='cirno:Freeze the attacker.'
   WHEN_ATTACKED='When you are attacked, '
-  DAMAGE_CLAUSE='deal !d! damage'
+  DAMAGE_CLAUSE='deal !D! damage'
 fi
 
 # Copy into production folder
