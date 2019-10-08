@@ -1,4 +1,4 @@
 package cirno.interfaces
 
-interface TookDamageSpell {
+interface TookDamageSpell : Spell {
 }
