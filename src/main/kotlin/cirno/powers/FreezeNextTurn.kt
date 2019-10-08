@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.PowerStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.rooms.AbstractRoom
 import javassist.CtBehavior
 
 class FreezeNextTurn(target: AbstractCreature, turns: Int) : CirnoPower() {
@@ -21,11 +22,10 @@ class FreezeNextTurn(target: AbstractCreature, turns: Int) : CirnoPower() {
     companion object {
         var NAME: String? = null
         var DESCRIPTIONS: Array<String>? = null
-        private const val PROC_AMOUNT = 3
     }
 
     init {
-        val POWER_ID : String = Cirno.makeID(this::class.java.simpleName)
+        val POWER_ID : String = Cirno.makeID(FreezeNextTurn::class.java.simpleName)
         val powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         ID = POWER_ID
         NAME = powerStrings.NAME
@@ -50,21 +50,17 @@ class FreezeNextTurn(target: AbstractCreature, turns: Int) : CirnoPower() {
             clz = GameActionManager::class,
             method = "getNextAction"
     )
-    public class ProcThisAtStartOfPlayerTurn {
-
-        public companion object {
-            @SpireInsertPatch(
-                    locator = Locator::class
-            )
-            fun Insert(__instance: GameActionManager) {
-                for (m in AbstractDungeon.getMonsters().monsters) {
-                    if (m.hasPower(makeID(FreezeNextTurn::class.java))) {
-                        m.getPower(makeID(FreezeNextTurn::class.java)).atStartOfTurn()
-                    }
-                }
+    object FreezeNextTurnPatch {
+        @SpireInsertPatch(
+                locator = Locator::class
+        )
+        @JvmStatic
+        fun Insert(__instance: GameActionManager) {
+            println("WLKJAFS")
+            for (m in AbstractDungeon.getCurrRoom().monsters.monsters) {
+                m.getPower(makeID(FreezeNextTurn::class.java))?.onSpecificTrigger()
             }
         }
-
     }
 
     public class Locator : SpireInsertLocator() {

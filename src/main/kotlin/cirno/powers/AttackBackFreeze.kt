@@ -43,12 +43,7 @@ class AttackBackFreeze(private val target: AbstractCreature, private val times: 
     }
 
     override fun atStartOfTurn() {
-        println("DAB")
-        for (m in AbstractDungeon.getCurrRoom().monsters.monsters) {
-            m.getPower(makeID(FreezeNextTurn::class.java))?.onSpecificTrigger()
-        }
         AbstractDungeon.actionManager.addToBottom(ReducePowerAction(owner, owner, this, 1))
-
     }
 
     override fun updateDescription() {
