@@ -24,5 +24,11 @@
     "DESCRIPTIONS": [
       "When you are attacked, #yFreeze the enemy."
     ]
+  },
+  "FreezeNextTurn": {
+    "NAME": "Freezing",
+    "DESCRIPTIONS": [
+      "This monster will be #yFrozen at the start of next turn."
+    ]
   }
 }

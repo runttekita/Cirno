@@ -1,25 +1,21 @@
 package cirno.powers
 
-import basemod.interfaces.CloneablePowerInterface
 import cirno.Cirno
-import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoPower
 import cirno.actions.FreezeMonsterAction
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction
-import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.PowerStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
-import com.megacrit.cardcrawl.powers.AbstractPower
 
-class AttackBackFreeze(private val target: AbstractCreature, private val times: Int) : CirnoPower(), CloneablePowerInterface {
+class FreezeNextTurn(target: AbstractCreature, turns: Int) : CirnoPower() {
 
     companion object {
         var NAME: String? = null
         var DESCRIPTIONS: Array<String>? = null
+        private const val PROC_AMOUNT = 3
     }
 
     init {
@@ -32,23 +28,16 @@ class AttackBackFreeze(private val target: AbstractCreature, private val times: 
         updateDescription()
         img = Cirno.textureLoader.getTexture(Cirno.makePowerPath(this.javaClass.simpleName))
         owner = target
-        amount = times
+        amount = turns
     }
 
-    override fun onAttacked(info: DamageInfo, damageAmount: Int): Int {
-        if (info.owner is AbstractMonster) {
-            AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(info.owner, AbstractDungeon.player, FreezeNextTurn(info.owner, 1), 1))
-            AbstractDungeon.actionManager.addToBottom(ReducePowerAction(owner, owner, this, 1))
-        }
-        return damageAmount
+    override fun atStartOfTurnPostDraw() {
+        AbstractDungeon.actionManager.addToBottom(FreezeMonsterAction(owner as AbstractMonster, owner, 1))
+        AbstractDungeon.actionManager.addToBottom(ReducePowerAction(owner, owner, this, 1))
     }
 
     override fun updateDescription() {
         description = DESCRIPTIONS!![0]
-    }
-
-    override fun makeCopy(): AbstractPower {
-        return AttackBackFreeze(target, times)
     }
 
 }
