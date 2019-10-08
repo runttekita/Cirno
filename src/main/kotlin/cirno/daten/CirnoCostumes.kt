@@ -21,7 +21,7 @@ import java.util.ArrayList
 
 
 
-class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -500f) {
+class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), Settings.WIDTH / 2f, Settings.HEIGHT / 2f) {
 
     var currentCostume = 1
     private var cirnoButton: CharacterOption? = null
@@ -39,7 +39,6 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), -500f, -50
                 }
             }
             if (cirnoButton != null) {
-                Yui.autoPlaceHorizontallyWithVerticalOffset(cirnoButton!!.hb, this, 200f)
                 image = getCurrentCostume()
                 super.render(sb)
                 //todo use ui strings
