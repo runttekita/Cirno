@@ -50,6 +50,6 @@
   },
   "SpellAttackedFreeze": {
     "NAME": "Counter",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "$spell $nl $whenattacked $damage $and $spellfreeze"
   }
 }

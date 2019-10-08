@@ -59,6 +59,10 @@ then
   RANDOM_COLD='Apply 1 cirno:Cold to a random enemy for each card discarded.'
   RETAIN='Retain.'
   MAGIC_DAMAGE='deal !M! damage.'
+  SPELL='cirno:Spell'
+  AND='and'
+  SPELL_FREEZE='Freeze the attacker.'
+  WHEN_ATTACKED='When you are attacked, '
 fi
 
 # Copy into production folder
@@ -71,6 +75,9 @@ cp ${DEV_STRINGS}stances.json ${PROD_STRINGS}stances.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$whenattacked/"${WHEN_ATTACKED}"/g ${PROD_JSON}
+sed -i s/\$spellfreeze/"${SPELL_FREEZE}"/g ${PROD_JSON}
+sed -i s/\$spell/"${SPELL}"/g ${PROD_JSON}
 sed -i s/\$magicdamage/"${MAGIC_DAMAGE}"/g ${PROD_JSON}
 sed -i s/\$retain/"${RETAIN}"/g ${PROD_JSON}
 sed -i s/\$randomcold/"${RANDOM_COLD}"/g ${PROD_JSON}
@@ -89,6 +96,7 @@ sed -i s/\$multidmg/"${DAMAGE_AOE}"/g ${PROD_JSON}
 sed -i s/\$aoecold/"${AOE_COLD}"/g ${PROD_JSON}
 sed -i s/\$conditionalcold/"${CONDITIONAL_COLD}"/g ${PROD_JSON}
 sed -i s/\$draw/"${DRAW}"/g ${PROD_JSON}
+sed -i s/\$and/"${AND}"/g ${PROD_JSON}
 sed -i s/'[[:alnum:]]*": {'/'Cirno:&'/g ${PROD_JSON}
 
 PROD_JSON=${PROD_STRINGS}powers.json
