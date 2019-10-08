@@ -2,7 +2,7 @@
   "StarterRelic": {
     "NAME": "Ice Danmaku",
     "DESCRIPTIONS": [
-      "#yFreeze the first enemy that attacks you."
+      "Enemies who attack you on the first turn become #Frozen."
     ],
     "FLAVOR": "Baka!"
   }
