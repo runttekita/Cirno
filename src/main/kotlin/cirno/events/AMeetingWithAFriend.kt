@@ -30,6 +30,11 @@ class AMeetingWithAFriend : AbstractImageEvent(eventStrings.NAME, eventStrings.D
         private val frostCards = arrayListOf(ColdSnap(), Coolheaded(), Chill(), Glacier())
     }
 
+    init  {
+        imageEventText.setDialogOption(OPTIONS[0])
+        imageEventText.setDialogOption(OPTIONS[1])
+    }
+
     override fun buttonEffect(i: Int) {
         when (screenNum) {
             0 -> {
