@@ -27,7 +27,6 @@ class AMeetingWithAFriend : AbstractImageEvent(eventStrings.NAME, eventStrings.D
         private val NAME = eventStrings.NAME
         private val DESCRIPTIONS = eventStrings.DESCRIPTIONS
         private val OPTIONS = eventStrings.OPTIONS
-        private val frostCards = arrayListOf(ColdSnap(), Coolheaded(), Chill(), Glacier())
     }
 
     init  {
@@ -40,12 +39,14 @@ class AMeetingWithAFriend : AbstractImageEvent(eventStrings.NAME, eventStrings.D
             0 -> {
                 when (i) {
                     0 -> {
+                        val frostCards = arrayListOf(ColdSnap(), Coolheaded(), Chill(), Glacier())
                         frostCards.removeAt(AbstractDungeon.cardRng.random(frostCards.size - 1))
-                        AbstractDungeon.getCurrRoom().rewards.clear()
                         val frostRewards = RewardItem()
                         frostRewards.cards = frostCards
+                        AbstractDungeon.getCurrRoom().rewards.clear()
                         AbstractDungeon.getCurrRoom().addCardReward(frostRewards)
                         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE
+                        AbstractDungeon.combatRewardScreen.rewards.removeAt(1) // Really bad hack
                         AbstractDungeon.combatRewardScreen.open()
                         imageEventText.updateBodyText(DESCRIPTIONS[1]);
                         imageEventText.updateDialogOption(0, OPTIONS[2])
