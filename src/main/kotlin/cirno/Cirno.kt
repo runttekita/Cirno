@@ -94,6 +94,7 @@ class Cirno() :
 
     override fun receivePostInitialize() {
         ReceivePostInitialize()
+        Events()
     }
 
     override fun receiveEditRelics() {
