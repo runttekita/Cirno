@@ -41,12 +41,12 @@ class SpellZone() : YuiClickableObject(Cirno.textureLoader.getTexture("uwu"), 0f
 
     public fun triggerEffect(info: DamageInfo? = null) {
         AbstractDungeon.effectList.add(CardFlashVfx(storedCard))
+        storedCard.drawScale = 1.0f
         if (info != null && info.owner is AbstractMonster) {
             (storedCard as CirnoCard).spellEffect(info)
         } else {
             (storedCard as CirnoCard).spellEffect()
         }
-        storedCard.moveToDiscardPile()
         AbstractDungeon.player.discardPile.addToBottom(storedCard)
         storeCard(BlankSpellZone())
     }
