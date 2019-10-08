@@ -63,9 +63,11 @@ class SpellZoneManager {
         public companion object {
             @JvmStatic
             fun Postfix(__instance: AbstractPlayer) {
-                AbstractDungeon.player.spellZones.addZone()
-                AbstractDungeon.player.spellZones.addZone()
-                AbstractDungeon.player.spellZones.addZone()
+                if (__instance is CirnoChar) {
+                    __instance.spellZones.addZone()
+                    __instance.spellZones.addZone()
+                    __instance.spellZones.addZone()
+                }
             }
         }
     }
