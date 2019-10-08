@@ -14,7 +14,7 @@ class SpellZone() : YuiClickableObject(Cirno.textureLoader.getTexture("uwu"), 0f
         storeCard(BlankSpellZone())
     }
 
-    fun storeCard(spellCard: AbstractCard) {
+    private fun storeCard(spellCard: AbstractCard) {
         spellCard.drawScale = scale
         storedCard = spellCard
     }
