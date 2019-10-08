@@ -20,7 +20,7 @@ class SummonColdDamage : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMA
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        act(SummonFrostGuy(upgraded))
+        act(SummonFrostGuy(magicNumber))
 
     }
 
