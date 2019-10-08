@@ -35,11 +35,11 @@ class DamageAndCold : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
     companion object {
         private val cardStrings = CardCrawlGame.languagePack.getCardStrings(
                 makeID(DamageAndCold::class.java))
-        private val COST = 2
+        private val COST = 1
         private val TYPE = AbstractCard.CardType.ATTACK
         private val RARITY = AbstractCard.CardRarity.BASIC
         private val TARGET = AbstractCard.CardTarget.ENEMY
-        private val DAMAGE = 12
+        private val DAMAGE = 9
         private val DAMAGE_UP = 3
         private val COLD_AMT = 1
         private val COLD_UP = 1
