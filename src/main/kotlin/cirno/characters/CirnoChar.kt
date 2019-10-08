@@ -33,10 +33,10 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
         SpineAnimation("cirno/images/char/defaultCharacter/cirno1/cirno1.atlas", "cirno/images/char/defaultCharacter/cirno1/cirno1.json", 1.0f)) {
     var orbPositionsX = floatArrayOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
     var orbPositionsY = floatArrayOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
-    var xStartOffset = Settings.WIDTH.toFloat() * 0.23f
+    var xStartOffset = Settings.WIDTH.toFloat() * 0.30f
     private val xSpaceBetweenSlots = 90 * Settings.scale
     private val xSpaceBottomAlternatingOffset = 0 * Settings.scale
-    private val yStartOffset = AbstractDungeon.floorY + 100 * Settings.scale
+    private val yStartOffset = AbstractDungeon.floorY + 370 * Settings.scale
     private val ySpaceBottomAlternatingOffset = -100 * Settings.scale
     private val ySpaceAlternatingOffset = -50 * Settings.scale
 
@@ -53,6 +53,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
 
         dialogX = drawX + 0.0f * Settings.scale
         dialogY = drawY + 220.0f * Settings.scale
+        initializeSlotPositions();
     }
 
     override fun getLoadout(): CharSelectInfo {
@@ -149,6 +150,10 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
 
     public fun loadSprite(costume: Int) {
         loadAnimation("cirno/images/char/defaultCharacter/cirno$costume/cirno$costume.atlas", "cirno/images/char/defaultCharacter/cirno$costume/cirno$costume.json", 1.0f)
+    }
+
+    override fun onVictory() {
+        initializeSlotPositions()
     }
 
     fun initializeSlotPositions() {
