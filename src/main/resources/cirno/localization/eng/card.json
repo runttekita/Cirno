@@ -1,6 +1,6 @@
 {
   "AoECold": {
-    "NAME": "common staff",
+    "NAME": "Hail",
     "DESCRIPTION": "$multidmg $nl $aoecold"
   },
   "AoEFreeze": {
@@ -9,11 +9,11 @@
     "UPGRADE_DESCRIPTION": "$lockyou $nl $retain"
   },
   "ColdBane": {
-    "NAME": "cold bane",
+    "NAME": "Frostbite",
     "DESCRIPTION": "$damage $nl $conditionalcold"
   },
   "ColdDraw": {
-    "NAME": "sora",
+    "NAME": "Icicle Machine Gun",
     "DESCRIPTION": "$conditionaldraw $colddraw"
   },
   "DamageAndCold": {
@@ -25,7 +25,7 @@
     "DESCRIPTION": "$block"
   },
   "FlameBarrierButCold": {
-    "NAME": "cold",
+    "NAME": "Ice Barrier",
     "DESCRIPTION": "$block $nl $icebarrier"
   },
   "FreezeEnemy": {
@@ -33,7 +33,7 @@
     "DESCRIPTION": "$freeze"
   },
   "SpreadCold": {
-    "NAME": "Achoo",
+    "NAME": "Little Iceberg",
     "DESCRIPTION": "$damage $nl $spreadcold"
   },
   "Strike": {
@@ -41,12 +41,12 @@
     "DESCRIPTION": "$damage"
   },
   "AttackBlock": {
-    "NAME": "aslfkajslfska",
+    "NAME": "Frost Bash",
     "DESCRIPTION": "$damage $nl $block"
   },
   "BlankSpellZone": {
     "NAME": "Spell Zone",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "An empty *Spell *Zone"
   },
   "SpellAttackedFreeze": {
     "NAME": "Frigid Atmosphere",
