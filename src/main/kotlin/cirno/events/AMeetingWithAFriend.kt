@@ -22,7 +22,7 @@ import javazoom.jl.decoder.LayerIIIDecoder.io
 class AMeetingWithAFriend : AbstractImageEvent(eventStrings.NAME, eventStrings.DESCRIPTIONS[0], "cirno/images/events/aFriend.png") {
 
     public companion object {
-        val ID = makeID("Friend")
+        val ID = makeID(AMeetingWithAFriend::class.java)
         private val eventStrings = CardCrawlGame.languagePack.getEventString(ID)
         private val NAME = eventStrings.NAME
         private val DESCRIPTIONS = eventStrings.DESCRIPTIONS
