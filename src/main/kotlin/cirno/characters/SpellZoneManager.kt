@@ -1,6 +1,7 @@
 package cirno.characters
 
 import cirno.abstracts.CirnoCard
+import cirno.cards.BlankSpellZone
 import cirno.interfaces.NotShittyTookDamage
 import cirno.interfaces.TookDamageSpell
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
@@ -15,6 +16,7 @@ import com.megacrit.cardcrawl.vfx.SpeechBubble
 import reina.yui.Yui
 import kotlin.reflect.KClass
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn
+import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.DamageInfo
 import java.nio.file.Files.move
 
@@ -23,6 +25,18 @@ import java.nio.file.Files.move
 
 class SpellZoneManager : NotShittyTookDamage {
     var zones = ArrayList<SpellZone>()
+
+    public fun setSpell(card: AbstractCard) {
+        for (zone in zones) {
+            if (zone.storedCard is BlankSpellZone) {
+                zone.storeCard(card)
+                return;
+            }
+        }
+        zones[2].storeCard(zones[1].storedCard)
+        zones[1].storeCard(zones[0].storedCard)
+        zones[0].storeCard(card)
+    }
 
     override fun notShittyTookDamage(i: DamageInfo) {
         for (zone in zones) {
