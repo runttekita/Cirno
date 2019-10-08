@@ -41,7 +41,7 @@ set -e
 if [ "$1" == "--eng" ] || [ "$2" == "--eng" ]
 then
   echo "Compiling English Jar"
-  DAMAGE='Deal !D! Damage.'
+  DAMAGE='Deal !D! damage.'
   BLOCK='Gain !B! Block.'
   DRAW='Draw !M! cards.'
   COLD='Apply !M! cirno:Cold.'
