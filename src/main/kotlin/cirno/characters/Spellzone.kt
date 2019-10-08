@@ -8,13 +8,21 @@ import reina.yui.YuiClickableObject
 
 class Spellzone(x: Float, y: Float) : YuiClickableObject(Cirno.textureLoader.getTexture("uwu"), x, y) {
     lateinit var storedCard: AbstractCard
+    private val scale = 0.25f
 
     init {
         val card = BlankSpellZone()
         card.current_x = x
         card.current_y = y
-        card.drawScale = 0.25f
+        card.drawScale = scale
         storedCard = card
+    }
+
+    fun storeCard(spellCard: AbstractCard) {
+        spellCard.current_x = x
+        spellCard.current_y = y
+        spellCard.drawScale = scale
+        storedCard = spellCard
     }
 
     override fun onUnhover() {
