@@ -83,7 +83,7 @@ object FrozenIntentPatches {
         @JvmStatic
         fun InsertImageStart(__instance: AbstractMonster, sb: SpriteBatch, atlas: TextureAtlas?) {
             if (atlas == null && __instance !is Hexaghost) {
-                val frozen = __instance.getPower(makeID(Frozen::class.java)) as Frozen
+                val frozen: Frozen? = __instance.getPower(makeID(Frozen::class.java)) as Frozen
                 if (frozen != null) {
                     shader.begin()
                     shader.setUniformf("shadeTimer", frozen.shaderTimer)
