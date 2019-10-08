@@ -141,7 +141,9 @@ public class Frozen : CirnoPower, CloneablePowerInterface, InvisiblePower {
                 @Throws(CannotCompileException::class)
                 override fun edit(m: MethodCall?) {
                     if (m!!.className == AbstractMonster::class.java.name && m.methodName == "takeTurn") {
-
+                        m.replace("if (!m.hasPower(\"Cirno:Frozen\")) {" +
+                                "\$_ = \$proceed($$);" +
+                                "}");
                     }
                 }
             }
