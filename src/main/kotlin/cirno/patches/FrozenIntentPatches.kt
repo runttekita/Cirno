@@ -74,8 +74,8 @@ object FrozenIntentPatches {
     @SpirePatch(clz = AbstractMonster::class, method = "render")
     object FrozenIntentShading {
         private val shader = ShaderProgram(
-                Gdx.files.internal("Piruru/shaders/frozen/vertexShader.vs"),
-                Gdx.files.internal("Piruru/shaders/frozen/fragShader.fs")
+                Gdx.files.internal("cirno/shaders/frozen/vertexShader.vs"),
+                Gdx.files.internal("cirno/shaders/frozen/fragShader.fs")
         )
 
 
