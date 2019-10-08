@@ -1,5 +1,7 @@
 package cirno.actions
 
+import cirno.Cirno.Statics.makeID
+import cirno.powers.FreezeNextTurn
 import cirno.powers.Frozen
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
@@ -20,6 +22,9 @@ class FreezeMonsterAction @JvmOverloads constructor(target: AbstractMonster, sou
 
     override fun update() {
         if (duration == Settings.ACTION_DUR_FAST) {
+            if (target.hasPower(makeID(Frozen::class.java))) {
+                AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(target, source, FreezeNextTurn(target, 1), 1))
+            }
             AbstractDungeon.actionManager.addToTop(ApplyPowerAction(target, source, Frozen(target as AbstractMonster)))
         }
         tickDuration()
