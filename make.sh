@@ -110,7 +110,7 @@ do
     sed -i "s|\/\/autoAddCards|BaseMod.addCard(${ADD}());\/\/delete\n\t\t\/\/autoAddCards|g" ./src/main/kotlin/cirno/daten/ReceiveEditCards.kt
 done
 
-Autoadd Relics
+# Autoadd Relics
 for f in ${RELICS}
 do
     ADD=$(echo $f | rev | cut -d"/" -f1 | rev | cut -d"." -f1)

@@ -10,6 +10,17 @@ import cirno.cards.*
 class ReceiveEditCards {
 
     init {
+		BaseMod.addCard(AoECold());//delete
+		BaseMod.addCard(AoEFreeze());//delete
+		BaseMod.addCard(AttackBlock());//delete
+		BaseMod.addCard(ColdBane());//delete
+		BaseMod.addCard(ColdDraw());//delete
+		BaseMod.addCard(DamageAndCold());//delete
+		BaseMod.addCard(Defend());//delete
+		BaseMod.addCard(FlameBarrierButCold());//delete
+		BaseMod.addCard(FreezeEnemy());//delete
+		BaseMod.addCard(SpreadCold());//delete
+		BaseMod.addCard(Strike());//delete
 		//autoAddCards
     }
 
