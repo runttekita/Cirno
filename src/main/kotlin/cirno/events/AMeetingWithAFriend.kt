@@ -4,10 +4,12 @@ import cirno.Cirno
 import cirno.Cirno.Statics.makeID
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.CardGroup
+import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.cards.blue.Chill
 import com.megacrit.cardcrawl.cards.blue.ColdSnap
 import com.megacrit.cardcrawl.cards.blue.Coolheaded
 import com.megacrit.cardcrawl.cards.blue.Glacier
+import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.events.AbstractImageEvent
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
@@ -45,6 +47,7 @@ class AMeetingWithAFriend : AbstractImageEvent(eventStrings.NAME, eventStrings.D
                         frostRewards.cards = frostCards
                         AbstractDungeon.getCurrRoom().rewards.clear()
                         AbstractDungeon.getCurrRoom().addCardReward(frostRewards)
+                        AbstractDungeon.player.damage(DamageInfo(null as AbstractCreature?, 10, DamageInfo.DamageType.HP_LOSS))
                         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE
                         AbstractDungeon.combatRewardScreen.open()
                         AbstractDungeon.combatRewardScreen.rewards.removeAt(1) //Gross hack
