@@ -19,6 +19,7 @@ import kotlin.reflect.KClass
 import com.megacrit.cardcrawl.actions.utility.UseCardAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.DamageInfo
+import com.megacrit.cardcrawl.helpers.Hitbox
 import javassist.CtBehavior
 import java.nio.file.Files.move
 
@@ -27,6 +28,14 @@ import java.nio.file.Files.move
 
 class SpellZoneManager : NotShittyTookDamage {
     var zones = ArrayList<SpellZone>()
+
+    public fun addZone() {
+        if (zones.size < 3) {
+            zones.add(SpellZone())
+        } else {
+            AbstractDungeon.effectList.add(SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.0f, "TODO", true))
+        }
+    }
 
     public fun setSpell(card: AbstractCard) {
         for (zone in zones) {
@@ -62,12 +71,15 @@ class SpellZoneManager : NotShittyTookDamage {
 
     @SpirePatch(
             clz = AbstractPlayer::class,
-            method = "renderHand"
+            method = "render"
     )
     public class RenderZones {
         public companion object {
             @JvmStatic
-            public fun Prefix(__instance: AbstractPlayer, sb: SpriteBatch) {
+            @SpireInsertPatch(
+                    locator = RenderLocator::class
+            )
+            public fun Insert(__instance: AbstractPlayer, sb: SpriteBatch) {
                 if (CardCrawlGame.dungeon != null && AbstractDungeon.player != null && AbstractDungeon.player.spellZones.zones.isNotEmpty()) {
                     for (zone in AbstractDungeon.player.spellZones.zones) {
                         when (AbstractDungeon.player.spellZones.zones.indexOf(zone)) {
@@ -83,12 +95,12 @@ class SpellZoneManager : NotShittyTookDamage {
         }
     }
 
-    public fun addZone() {
-        if (zones.size < 3) {
-            zones.add(SpellZone())
-        } else {
-            AbstractDungeon.effectList.add(SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.0f, "TODO", true))
+    public class RenderLocator : SpireInsertLocator() {
+        override fun Locate(ctMethodToPatch: CtBehavior): IntArray {
+            val matcher = Matcher.MethodCallMatcher(Hitbox::class.java, "render")
+            return LineFinder.findInOrder(ctMethodToPatch, matcher)
         }
+
     }
 
     @SpirePatch(
