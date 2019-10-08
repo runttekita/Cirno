@@ -17,7 +17,7 @@ class SummonFrostGuy(private val turns: Int) : AbstractGameAction() {
                 return
             }
         }
-        AbstractDungeon.getMonsters().add(FrostBoy(turns))
+        AbstractDungeon.getMonsters().addMonster(AbstractDungeon.getMonsters().monsters.size, FrostBoy(turns))
         isDone = true
     }
 

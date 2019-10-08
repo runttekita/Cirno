@@ -12,11 +12,15 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
-class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID, turns, -1250f, AbstractDungeon.player.drawY, 450f, 550f, "cirno/images/monsters/frostBoy.png") {
+class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID, turns, -8f, 105f, 200f, 250f, "cirno/images/monsters/frostBoy.png", -1250f, 100f) {
 
     init {
         damage.add(DamageInfo(this, damageAmt, DamageInfo.DamageType.NORMAL))
         setHp(turns)
+        init()
+        applyPowers()
+        showHealthBar()
+        createIntent()
     }
 
     public companion object {
@@ -30,7 +34,7 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
     }
 
     override fun getMove(move: Int) {
-        setMove(FrostBoy.MOVES.ATTACK.value, AbstractMonster.Intent.ATTACK_DEBUFF)
+        setMove(FrostBoy.MOVES.ATTACK.value, AbstractMonster.Intent.ATTACK_DEBUFF, damage[0].base)
     }
 
     override fun takeTurn() {
