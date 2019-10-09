@@ -59,5 +59,10 @@
   "ColdScalingAttack": {
     "NAME": "Icicle Machine Gun",
     "DESCRIPTION": "$damage $nl $increasedamagewithcold"
+  },
+  "XCostHitRandomCold": {
+    "NAME": "Icicle Shotgun",
+    "DESCRIPTION": "$icicleshotgun",
+    "UPGRADE_DESCRIPTION": "$icicleshotgunupgrade"
   }
 }

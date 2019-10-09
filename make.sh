@@ -68,6 +68,8 @@ then
   LOCK_YOU='cirno:Freeze ALL enemies.'
   FROST_KING='Deal !D! damage and apply 1 cirno:Cold to a random enemy at the end of your turn for !M! turns.'
   INCREASE_COLD='Increase this card'\''s damage by !M! when you apply cirno:Cold'
+  ICICLE_SHOTGUN='Deal !D! damage and apply 1 cirno:Cold X times to a random enemy.'
+  ICICLE_SHOTGUN_UPGRADE='Deal !D! damage and apply 1 cirno:Cold X+1 times to a random enemy.'
 fi
 
 # Copy into production folder
@@ -82,6 +84,8 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\icicleshotgunupgrade/"${ICICLE_SHOTGUN_UPGRADE}"/g ${PROD_JSON}
+sed -i s/\$icicleshotgun/"${ICICLE_SHOTGUN}"/g ${PROD_JSON}
 sed -i s/\$increasedamagewithcold/"${INCREASE_COLD}"/g ${PROD_JSON}
 sed -i s/\$frostking/"${FROST_KING}"/g ${PROD_JSON}
 sed -i s/\$lockyou/"${LOCK_YOU}"/g ${PROD_JSON}
