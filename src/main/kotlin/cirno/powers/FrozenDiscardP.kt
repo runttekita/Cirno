@@ -3,14 +3,18 @@ package cirno.powers
 import cirno.Cirno
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoPower
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
+import com.evacipated.cardcrawl.modthespire.lib.*
+import com.megacrit.cardcrawl.actions.common.DiscardAtEndOfTurnAction
 import com.megacrit.cardcrawl.actions.utility.UseCardAction
 import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.cards.CardGroup
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.daily.TimeLookup.isDone
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.PowerStrings
+import javassist.CtBehavior
 import javax.jws.soap.SOAPBinding
 
 class FrozenDiscardP() : CirnoPower() {
@@ -53,6 +57,38 @@ class FrozenDiscardP() : CirnoPower() {
                 }
             }
         }
+    }
+
+    @SpirePatch(
+            clz = DiscardAtEndOfTurnAction::class,
+            method = "update"
+    )
+    public class ShuffleBackIntoDeckAtEndOfTurn {
+        public companion object {
+            @JvmStatic
+            @SpireInsertPatch(
+                    locator = Locator::class
+            )
+            fun Insert(__instance: DiscardAtEndOfTurnAction) : SpireReturn<Any> {
+                if (AbstractDungeon.player.hasPower(makeID(FrozenDiscardP::class.java))) {
+                    for (card in AbstractDungeon.player.hand.group) {
+                        AbstractDungeon.player.hand.moveToDeck(card, true)
+                    }
+                    isDone = true
+                    return SpireReturn.Return(null)
+                } else {
+                    return SpireReturn.Continue()
+                }
+            }
+        }
+    }
+
+    public class Locator : SpireInsertLocator() {
+        override fun Locate(ctMethodToPatch: CtBehavior): IntArray {
+            val matcher = Matcher.MethodCallMatcher(CardGroup::class.java, "size")
+            return LineFinder.findInOrder(ctMethodToPatch, matcher)
+        }
+
     }
 
 }
