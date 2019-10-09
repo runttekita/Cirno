@@ -6,6 +6,7 @@ import cirno.characters.CirnoChar.Enums.enums.Cirno_Ice
 import cirno.interfaces.NotShittyTookDamage
 import cirno.powers.Cold
 import basemod.abstracts.CustomCard
+import cirno.characters.spellZones
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
@@ -56,6 +57,10 @@ abstract class CirnoCard
 
     fun power(target: AbstractCreature, source: AbstractCreature, p: AbstractPower, amount: Int): ApplyPowerAction {
         return ApplyPowerAction(target, source, p, amount)
+    }
+    
+    fun addSpell() {
+        AbstractDungeon.player.spellZones.setSpell(this)
     }
 
     override fun upgrade() {
