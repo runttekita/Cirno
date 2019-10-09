@@ -13,7 +13,7 @@
     "DESCRIPTION": "$damage $nl $conditionalcold"
   },
   "ColdDraw": {
-    "NAME": "Icicle Machine Gun",
+    "NAME": "Icicle Rise",
     "DESCRIPTION": "$conditionaldraw $colddraw"
   },
   "DamageAndCold": {
