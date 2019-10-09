@@ -2,12 +2,15 @@ package cirno.monsters
 
 import cirno.Cirno.Statics.makeID
 import cirno.powers.Cold
+import com.evacipated.cardcrawl.modthespire.lib.SpireField
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.animations.AnimateSlowAttackAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction
 import com.megacrit.cardcrawl.actions.common.DamageAction
 import com.megacrit.cardcrawl.cards.DamageInfo
+import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
@@ -50,4 +53,18 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
         rollMove()
     }
 
+    @SpirePatch(
+            clz = AbstractPlayer::class,
+            method = SpirePatch.CLASS
+    )
+    public class MonsterField {
+        public companion object {
+            var frostKing: SpireField<FrostBoy?> = SpireField{null}
+        }
+    }
+
 }
+
+var AbstractPlayer.frostKing: FrostBoy?
+    get() = FrostBoy.MonsterField.frostKing.get(this)
+    set(value) = FrostBoy.MonsterField.frostKing.set(this, value)
