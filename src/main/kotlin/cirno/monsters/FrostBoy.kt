@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom
 import javassist.CtBehavior
 
 class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID, turns, -8f, 105f, 200f, 250f, "cirno/images/monsters/frostBoy.png", -1250f, 100f) {
+    private val aniTarget = -300f
 
     init {
         damage.add(DamageInfo(this, damageAmt, DamageInfo.DamageType.NORMAL))
@@ -63,20 +64,32 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
 
     override fun updateFastAttackAnimation() {
         this.animationTimer -= Gdx.graphics.deltaTime
-        var targetPos = -300.0f * Settings.scale
-        if (!isPlayer) {
-            targetPos = -targetPos
-        }
+        var targetPos = 90.0f * Settings.scale
 
-        if (animationTimer > 0.5f) {
-            animX = Interpolation.exp5In.apply(0.0f, targetPos, (1.0f - animationTimer / 1.0f) * 2.0f)
-        } else if (animationTimer < 0.0f) {
-            animationTimer = 0.0f
-            animX = 0.0f
-        } else {
-            animX = Interpolation.fade.apply(0.0f, targetPos, animationTimer / 1.0f * 2.0f)
+        when {
+            animationTimer > 0.5f -> animX = Interpolation.exp5In.apply(0.0f, targetPos, (1.0f - animationTimer / 1.0f) * 2.0f)
+            animationTimer < 0.0f -> {
+                animationTimer = 0.0f
+                animX = 0.0f
+            }
+            else -> animX = Interpolation.fade.apply(0.0f, targetPos, animationTimer / 1.0f * 2.0f)
         }
     }
+
+    override fun updateSlowAttackAnimation() {
+        animationTimer -= Gdx.graphics.deltaTime
+        var targetPos = 90.0f * Settings.scale
+
+        when {
+            animationTimer > 0.5f -> animX = Interpolation.exp10In.apply(0.0f, targetPos, (1.0f - animationTimer / 1.0f) * 2.0f)
+            animationTimer < 0.0f -> {
+                animationTimer = 0.0f
+                animX = 0.0f
+            }
+            else -> animX = Interpolation.fade.apply(0.0f, targetPos, animationTimer / 1.0f * 2.0f)
+        }
+    }
+    
 
     @SpirePatch(
             clz = AbstractPlayer::class,
