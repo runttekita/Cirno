@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.monsters.MonsterGroup
 import com.megacrit.cardcrawl.rooms.AbstractRoom
 import javassist.CtBehavior
 
@@ -89,7 +90,7 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
 
     public class Locator : SpireInsertLocator() {
         override fun Locate(ctMethodToPatch: CtBehavior): IntArray {
-            val matcher = Matcher.MethodCallMatcher(AbstractMonster::class.java, "render")
+            val matcher = Matcher.MethodCallMatcher(MonsterGroup::class.java, "render")
             return LineFinder.findInOrder(ctMethodToPatch, matcher)
         }
     }
