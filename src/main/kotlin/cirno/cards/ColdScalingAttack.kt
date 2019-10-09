@@ -2,6 +2,7 @@ package cirno.cards
 
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoCard
+import cirno.interfaces.OnApplyCold
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
@@ -9,7 +10,7 @@ import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 
-class ColdScalingAttack : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, DMG_BONUS_UP, COST) {
+class ColdScalingAttack : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, DMG_BONUS_UP, COST), OnApplyCold {
 
     init {
         baseDamage = DAMAGE
@@ -22,6 +23,10 @@ class ColdScalingAttack : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAM
         damage(m!!)
     }
 
+    override fun onApplyCold(m: AbstractMonster) {
+        baseDamage += magicNumber
+    }
+
     companion object {
         private val cardStrings = CardCrawlGame.languagePack.getCardStrings(
                 makeID(ColdScalingAttack::class.java.simpleName))
@@ -29,7 +34,7 @@ class ColdScalingAttack : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAM
         private val TYPE = CardType.ATTACK
         private val RARITY = AbstractCard.CardRarity.UNCOMMON
         private val TARGET = AbstractCard.CardTarget.ENEMY
-        private val DAMAGE_UP = 0
+        private val DAMAGE_UP = 3
         private val BLOCK_UP = 0
         private val DMG_BONUS_UP = 3
         private val DAMAGE = 6
