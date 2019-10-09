@@ -66,6 +66,7 @@ then
   DAMAGE_CLAUSE='deal !D! damage'
   CONDITIONAL_DRAW='Draw !M! cards and if you draw a'
   LOCK_YOU='cirno:Freeze ALL enemies.'
+  FROST_KING='Deal !D! damage at the end of your turn for !M! turns.'
 fi
 
 # Copy into production folder
@@ -79,6 +80,7 @@ cp ${DEV_STRINGS}monsters.json ${PROD_STRINGS}monsters.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$frostking/"${FROST_KING}"/g ${PROD_JSON}
 sed -i s/\$lockyou/"${LOCK_YOU}"/g ${PROD_JSON}
 sed -i s/\$conditionaldraw/"${CONDITIONAL_DRAW}"/g ${PROD_JSON}
 sed -i s/\$damageclause/"${DAMAGE_CLAUSE}"/g ${PROD_JSON}
