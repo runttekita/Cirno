@@ -40,6 +40,9 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     private val yStartOffset = AbstractDungeon.floorY + 370 * Settings.scale
     private val ySpaceBottomAlternatingOffset = -100 * Settings.scale
     private val ySpaceAlternatingOffset = -50 * Settings.scale
+    private val characterStrings = CardCrawlGame.languagePack.getCharacterString(makeID(CirnoChar::class.java))
+    private val NAME = characterStrings.NAMES
+    private val TEXT = characterStrings.TEXT
 
     init {
         val shoulderOne = "cirno/images/char/defaultCharacter/shoulder.png"
@@ -58,7 +61,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getLoadout(): CharSelectInfo {
-        return CharSelectInfo("Cirno", "Cirno",
+        return CharSelectInfo(NAME[0], TEXT[0],
                 STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW,
                 this, startingRelics,
                 startingDeck, false)
@@ -115,7 +118,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getLocalizedCharacterName(): String {
-        return "Cirno"
+        return NAME[0]
     }
 
     override fun getStartCardForEvent(): AbstractCard {
@@ -123,11 +126,11 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getTitle(playerClass: AbstractPlayer.PlayerClass): String {
-        return "Cirno"
+        return NAME[1]
     }
 
     override fun newInstance(): AbstractPlayer {
-        return CirnoChar(name, chosenClass)
+        return CirnoChar(NAME[0], chosenClass)
     }
 
     override fun getCardRenderColor(): Color {
@@ -143,11 +146,11 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getSpireHeartText(): String {
-        return "Cirno"
+        return TEXT[1]
     }
 
     override fun getVampireText(): String {
-        return "Cirno"
+        return TEXT[2]
     }
 
     public fun loadSprite(costume: Int) {
