@@ -96,7 +96,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getAscensionMaxHPLoss(): Int {
-        return 0
+        return 4
     }
 
     override fun getCardColor(): AbstractCard.CardColor? {
