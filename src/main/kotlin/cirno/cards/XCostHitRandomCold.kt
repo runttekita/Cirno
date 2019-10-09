@@ -24,9 +24,19 @@ class XCostHitRandomCold : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DA
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        XCostAction(energyOnUse) {
-            val bitchToHit = AbstractDungeon.getRandomMonster()
-            act(ApplyPowerAction(bitchToHit, p, Cold(bitchToHit)))
+        when {
+            upgraded -> {
+                XCostAction(energyOnUse) {
+                    val bitchToHit = AbstractDungeon.getRandomMonster()
+                    act(ApplyPowerAction(bitchToHit, p, Cold(bitchToHit)))
+                }
+            }
+            else -> {
+                XCostAction(energyOnUse + 1) {
+                    val bitchToHit = AbstractDungeon.getRandomMonster()
+                    act(ApplyPowerAction(bitchToHit, p, Cold(bitchToHit)))
+                }
+            }
         }
     }
 
