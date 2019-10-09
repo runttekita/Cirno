@@ -131,7 +131,3 @@ fun getImg(id: String): String {
     val imgName = id.substring(id.indexOf(":") + 1).trim { it <= ' ' }
     return Cirno.makeCardPath("betaart.png")
 }
-
-var AbstractCard.alwaysRetain
-    get() = AlwaysRetainField.alwaysRetain.get(this)
-    set(value) = AlwaysRetainField.alwaysRetain.set(this, value)

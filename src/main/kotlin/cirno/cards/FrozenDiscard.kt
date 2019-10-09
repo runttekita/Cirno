@@ -28,7 +28,7 @@ class FrozenDiscard : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
     override fun upgrade() {
         if (!upgraded) {
             upgradeName()
-            alwaysRetain = true
+            selfRetain = true
             rawDescription = cardStrings.UPGRADE_DESCRIPTION
             initializeDescription()
         }
