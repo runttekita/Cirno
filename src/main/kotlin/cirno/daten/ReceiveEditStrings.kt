@@ -12,6 +12,7 @@ class ReceiveEditStrings {
         BaseMod.loadCustomStringsFile(RelicStrings::class.java, "cirno/localization/eng/prodStrings/relics.json")
         BaseMod.loadCustomStringsFile(MonsterStrings::class.java, "cirno/localization/eng/prodStrings/monsters.json")
         BaseMod.loadCustomStringsFile(EventStrings::class.java, "cirno/localization/eng/prodStrings/events.json")
+        BaseMod.loadCustomStringsFile(CharacterStrings::class.java, "cirno/localization/eng/prodStrings/character.json")
     }
 
 }
