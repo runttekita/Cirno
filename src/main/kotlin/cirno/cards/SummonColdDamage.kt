@@ -38,4 +38,11 @@ class SummonColdDamage : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMA
         private val BLOCK = 0
         private val MAGIC = 2
     }
+
+    override fun calculateCardDamage(mo: AbstractMonster) {
+    }
+
+    override fun applyPowers() {
+    }
+
 }
