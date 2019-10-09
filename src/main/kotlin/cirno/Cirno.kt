@@ -111,14 +111,12 @@ class Cirno() :
     }
 
     override fun receivePostRender(sb: SpriteBatch) {
-        if (cirnoCostumes != null) {
-            cirnoCostumes!!.render(sb)
-            cirnoCostumes!!.update()
-        }
+        cirnoCostumes?.render(sb)
+        cirnoCostumes?.update()
     }
 
     override fun receivePostDungeonInitialize() {
-        if (AbstractDungeon.player != null && AbstractDungeon.player.chosenClass == CirnoChar.Enums.enums.Cirno) {
+        if (AbstractDungeon.player.chosenClass == CirnoChar.Enums.enums.Cirno) {
             (AbstractDungeon.player as CirnoChar).loadSprite(cirnoCostumes!!.currentCostume)
         }
     }
