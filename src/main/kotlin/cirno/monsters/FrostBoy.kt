@@ -64,8 +64,8 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
     )
     public class MonsterField {
         public companion object {
-            @JvmStatic
-            var frostKing: SpireField<FrostBoy?> = SpireField{null}
+            @JvmField
+            public var frostKing: SpireField<FrostBoy?> = SpireField{null}
         }
     }
 
