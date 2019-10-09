@@ -81,6 +81,8 @@ class FrozenDiscardP() : CirnoPower() {
                 }
             }
         }
+
+        // TODO MAKE THIS WORK ON MANUAL DISCARD
     }
 
     public class Locator : SpireInsertLocator() {
