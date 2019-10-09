@@ -160,9 +160,7 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
         public companion object  {
             @JvmStatic
             fun Prefix(__instance: AbstractPlayer) {
-                if (__instance.frostKing != null) {
-                    __instance.frostKing = null
-                }
+                __instance.frostKing = null
             }
         }
     }

@@ -9,7 +9,7 @@ class SummonFrostGuy(private val turns: Int) : AbstractGameAction() {
 
     override fun update() {
         val monster = AbstractDungeon.player.frostKing
-        if (monster != null) {
+        monster?.let {
             if (monster.currentHealth + turns > monster.maxHealth) {
                 monster.maxHealth += turns
             }

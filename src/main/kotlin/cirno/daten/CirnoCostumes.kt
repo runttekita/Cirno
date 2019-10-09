@@ -39,7 +39,7 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), Settings.W
                     }
                 }
             }
-            if (cirnoButton != null) {
+            cirnoButton?.let {
                 image = getCurrentCostume()
                 super.render(sb)
                 FontHelper.renderFontCentered(sb, FontHelper.energyNumFontBlue, CardCrawlGame.languagePack.getCharacterString(makeID(CirnoChar::class.java)).TEXT[3], x + image.width * Settings.scale, y)

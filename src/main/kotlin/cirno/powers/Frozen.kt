@@ -81,8 +81,8 @@ public class Frozen : CirnoPower, CloneablePowerInterface, InvisiblePower {
             }
         }
 
-        if (owner is AbstractMonster && (owner as AbstractMonster).state != null) {
-            (owner as AbstractMonster).state.timeScale = 0f
+        if (owner is AbstractMonster) {
+            (owner as AbstractMonster).state?.timeScale = 0f
         }
     }
 
