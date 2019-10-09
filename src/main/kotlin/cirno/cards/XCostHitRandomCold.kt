@@ -2,9 +2,14 @@ package cirno.cards
 
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoCard
+import cirno.actions.XCostAction
+import cirno.powers.Cold
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.core.EnergyManager
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
@@ -19,7 +24,10 @@ class XCostHitRandomCold : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DA
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-
+        XCostAction(energyOnUse) {
+            val bitchToHit = AbstractDungeon.getRandomMonster()
+            act(ApplyPowerAction(bitchToHit, p, Cold(bitchToHit)))
+        }
     }
 
     companion object {
