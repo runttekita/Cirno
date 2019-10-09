@@ -2,6 +2,7 @@ package cirno.cards
 
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoCard
+import cirno.abstracts.alwaysRetain
 import cirno.powers.FrozenDiscardP
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.cards.AbstractCard
@@ -27,7 +28,7 @@ class FrozenDiscard : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
     override fun upgrade() {
         if (!upgraded) {
             upgradeName()
-            isInnate = true
+            alwaysRetain = true
             rawDescription = cardStrings.UPGRADE_DESCRIPTION
             initializeDescription()
         }

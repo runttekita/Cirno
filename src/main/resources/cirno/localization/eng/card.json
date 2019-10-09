@@ -88,6 +88,6 @@
   "FrozenDiscard": {
     "NAME": "Chilly Redirection",
     "DESCRIPTION": "$chillyredirection",
-    "UPGRADE_DESCRIPTION": "$chillyredirection $nl $innate"
+    "UPGRADE_DESCRIPTION": "$chillyredirection $nl $retain"
   }
 }

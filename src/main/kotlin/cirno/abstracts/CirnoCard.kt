@@ -7,6 +7,7 @@ import cirno.interfaces.NotShittyTookDamage
 import cirno.powers.Cold
 import basemod.abstracts.CustomCard
 import cirno.characters.spellZones
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
@@ -131,3 +132,6 @@ fun getImg(id: String): String {
     return Cirno.makeCardPath("betaart.png")
 }
 
+var AbstractCard.alwaysRetain
+    get() = AlwaysRetainField.alwaysRetain.get(this)
+    set(value) = AlwaysRetainField.alwaysRetain.set(this, value)
