@@ -66,7 +66,7 @@ then
   DAMAGE_CLAUSE='deal !D! damage'
   CONDITIONAL_DRAW='Draw !M! cards and if you draw a'
   LOCK_YOU='cirno:Freeze ALL enemies.'
-  FROST_KING='Deal !D! damage at the end of your turn for !M! turns.'
+  FROST_KING='Deal !D! damage and apply 1 cirno:Cold to a random enemy at the end of your turn for !M! turns.'
 fi
 
 # Copy into production folder
