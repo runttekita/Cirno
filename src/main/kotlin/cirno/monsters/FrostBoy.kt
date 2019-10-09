@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction
 import com.megacrit.cardcrawl.actions.common.DamageAction
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.characters.AbstractPlayer
+import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
@@ -87,7 +88,7 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
     }
 
     public class Locator : SpireInsertLocator() {
-        override fun Locate(ctMethodToPatch: CtBehavior?): IntArray {
+        override fun Locate(ctMethodToPatch: CtBehavior): IntArray {
             val matcher = Matcher.MethodCallMatcher(AbstractMonster::class.java, "render")
             return LineFinder.findInOrder(ctMethodToPatch, matcher)
         }
@@ -103,6 +104,21 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
             fun Prefix(__instance: GameActionManager) {
                 if (AbstractDungeon.player.frostKing != null) {
                     AbstractDungeon.player.frostKing!!.takeTurn()
+                }
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractCreature::class,
+            method = "applyStartOfTurnPowers"
+    )
+    public class MakeFrostBoyIntent {
+        public companion object {
+            @JvmStatic
+            fun Prefix(__instance: AbstractCreature) {
+                if (__instance is AbstractPlayer && AbstractDungeon.player.frostKing != null) {
+                    AbstractDungeon.player.frostKing!!.createIntent()
                 }
             }
         }
