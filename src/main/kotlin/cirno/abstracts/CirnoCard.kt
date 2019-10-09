@@ -70,7 +70,7 @@ abstract class CirnoCard
             upgradeBlock()
             upgradeMagic()
             upgradeCost()
-            strings.UPGRADE_DESCRIPTION?.let {
+            strings.UPGRADE_DESCRIPTION?.run {
                 rawDescription = strings.UPGRADE_DESCRIPTION
                 initializeDescription()
             }

@@ -88,7 +88,7 @@ object FrozenIntentPatches {
                 } else {
                     null
                 }
-                frozen?.let {
+                frozen?.run {
                     shader.begin()
                     shader.setUniformf("shadeTimer", frozen.shaderTimer)
                     sb.shader = shader
