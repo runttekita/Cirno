@@ -90,6 +90,10 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
         }
     }
     
+    override fun die() {
+        super.die()
+        AbstractDungeon.player.frostKing = null
+    }
 
     @SpirePatch(
             clz = AbstractPlayer::class,
