@@ -8,11 +8,11 @@
     "DESCRIPTION": "$lockyou",
     "UPGRADE_DESCRIPTION": "$lockyou $nl $retain"
   },
-  "AoeDamageToFrozenEnemies": {
+  "AoEDamageToFrozenEnemies": {
     "NAME": "Great Crusher",
     "DESCRIPTION": "$iffrozen $damageclause"
   },
-  "AoeSlow": {
+  "AoESlow": {
     "NAME": "Slippery Path",
     "DESCRIPTION": "$aoeslow"
   },
