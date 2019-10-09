@@ -8,6 +8,22 @@
     "DESCRIPTION": "$lockyou",
     "UPGRADE_DESCRIPTION": "$lockyou $nl $retain"
   },
+  "AoeDamageToFrozenEnemies": {
+    "NAME": "Great Crusher",
+    "DESCRIPTION": "$iffrozen $damageclause"
+  },
+  "AoeSlow": {
+    "NAME": "Slippery Path",
+    "DESCRIPTION": "$aoeslow"
+  },
+  "AttackBlock": {
+    "NAME": "Frost Bash",
+    "DESCRIPTION": "$damage $nl $block"
+  },
+  "BlankSpellZone": {
+    "NAME": "Spell Zone",
+    "DESCRIPTION": "An empty *Spell *Zone"
+  },
   "ColdBane": {
     "NAME": "Frostbite",
     "DESCRIPTION": "$damage $nl $conditionalcold"
@@ -15,6 +31,10 @@
   "ColdDraw": {
     "NAME": "Icicle Rise",
     "DESCRIPTION": "$conditionaldraw $colddraw"
+  },
+  "ColdScalingAttack": {
+    "NAME": "Icicle Machine Gun",
+    "DESCRIPTION": "$damage $nl $increasedamagewithcold"
   },
   "DamageAndCold": {
     "NAME": "Icicle Spear",
@@ -32,6 +52,22 @@
     "NAME": "Snow Halation",
     "DESCRIPTION": "$freeze"
   },
+  "FreezeSpell": {
+    "NAME": "Frozen Technique",
+    "DESCRIPTION": "$spell $nl $ifcold $freezefollowup"
+  },
+  "GlacialForm": {
+    "NAME": "Glacial Form",
+    "DESCRIPTION": "$glacialform"
+  },
+  "MultiTurnFreeze": {
+    "NAME": "Perfect Freeze",
+    "DESCRIPTION": "$multifreeze"
+  },
+  "SpellAttackedFreeze": {
+    "NAME": "Frigid Atmosphere",
+    "DESCRIPTION": "$spell $nl $whenattacked $damageclause $and $spellfreeze"
+  },
   "SpreadCold": {
     "NAME": "Little Iceberg",
     "DESCRIPTION": "$damage $nl $spreadcold"
@@ -40,49 +76,13 @@
     "NAME": "Strike",
     "DESCRIPTION": "$damage"
   },
-  "AttackBlock": {
-    "NAME": "Frost Bash",
-    "DESCRIPTION": "$damage $nl $block"
-  },
-  "BlankSpellZone": {
-    "NAME": "Spell Zone",
-    "DESCRIPTION": "An empty *Spell *Zone"
-  },
-  "SpellAttackedFreeze": {
-    "NAME": "Frigid Atmosphere",
-    "DESCRIPTION": "$spell $nl $whenattacked $damageclause $and $spellfreeze"
-  },
   "SummonColdDamage": {
     "NAME": "Frost King",
     "DESCRIPTION": "$frostking"
-  },
-  "ColdScalingAttack": {
-    "NAME": "Icicle Machine Gun",
-    "DESCRIPTION": "$damage $nl $increasedamagewithcold"
   },
   "XCostHitRandomCold": {
     "NAME": "Icicle Shotgun",
     "DESCRIPTION": "$icicleshotgun",
     "UPGRADE_DESCRIPTION": "$icicleshotgunupgrade"
-  },
-  "AoeDamageToFrozenEnemies": {
-    "NAME": "Great Crusher",
-    "DESCRIPTION": "$iffrozen $damageclause"
-  },
-  "AoeSlow": {
-    "NAME": "Slippery Path",
-    "DESCRIPTION": "$aoeslow"
-  },
-  "MultiTurnFreeze": {
-    "NAME": "Perfect Freeze",
-    "DESCRIPTION": "$multifreeze"
-  },
-  "GlacialForm": {
-    "NAME": "Glacial Form",
-    "DESCRIPTION": "$glacialform"
-  },
-  "FreezeSpell": {
-    "NAME": "Frozen Technique",
-    "DESCRIPTION": "$spell $nl $ifcold $freezefollowup"
   }
 }
