@@ -72,5 +72,9 @@
   "AoeSlow": {
     "NAME": "Slippery Path",
     "DESCRIPTION": "$aoeslow"
+  },
+  "MultiTurnFreeze": {
+    "NAME": "Perfect Freeze",
+    "DESCRIPTION": "$multifreeze"
   }
 }

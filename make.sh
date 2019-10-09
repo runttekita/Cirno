@@ -72,6 +72,7 @@ then
   ICICLE_SHOTGUN_UPGRADE='Deal !D! damage and apply 1 cirno:Cold X+1 times to a random enemy.'
   IF_FROZEN='If an enemy is cirno:Frozen, '
   AOE_SLOW='Apply Slow to all enemies.'
+  MULTI_FREEZE='cirno:Freeze an enemy for !M! turns.'
 fi
 
 # Copy into production folder
@@ -86,6 +87,7 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$multifreeze/"${MULTI_FREEZE}"/g ${PROD_JSON}
 sed -i s/\$aoeslow/"${AOE_SLOW}"/g ${PROD_JSON}
 sed -i s/\$iffrozen/"${IF_FROZEN}"/g ${PROD_JSON}
 sed -i s/\icicleshotgunupgrade/"${ICICLE_SHOTGUN_UPGRADE}"/g ${PROD_JSON}
