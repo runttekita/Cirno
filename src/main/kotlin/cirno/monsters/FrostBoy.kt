@@ -2,7 +2,9 @@ package cirno.monsters
 
 import cirno.Cirno.Statics.makeID
 import cirno.powers.Cold
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.badlogic.gdx.math.Interpolation
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.GameActionManager
@@ -14,6 +16,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.monsters.MonsterGroup
@@ -56,6 +59,23 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
             }
         }
         rollMove()
+    }
+
+    override fun updateFastAttackAnimation() {
+        this.animationTimer -= Gdx.graphics.deltaTime
+        var targetPos = -300.0f * Settings.scale
+        if (!isPlayer) {
+            targetPos = -targetPos
+        }
+
+        if (animationTimer > 0.5f) {
+            animX = Interpolation.exp5In.apply(0.0f, targetPos, (1.0f - animationTimer / 1.0f) * 2.0f)
+        } else if (animationTimer < 0.0f) {
+            animationTimer = 0.0f
+            animX = 0.0f
+        } else {
+            animX = Interpolation.fade.apply(0.0f, targetPos, animationTimer / 1.0f * 2.0f)
+        }
     }
 
     @SpirePatch(
