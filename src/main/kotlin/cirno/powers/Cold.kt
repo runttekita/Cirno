@@ -3,6 +3,7 @@ package cirno.powers
 import cirno.Cirno
 import cirno.abstracts.CirnoPower
 import basemod.interfaces.CloneablePowerInterface
+import cirno.interfaces.OnApplyCold
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.PowerStrings
+import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.AbstractPower
 
 class Cold : CirnoPower, CloneablePowerInterface {
@@ -50,11 +52,51 @@ class Cold : CirnoPower, CloneablePowerInterface {
             AbstractDungeon.actionManager.addToBottom(
                     ApplyPowerAction(owner, AbstractDungeon.player, Frozen(owner)))
         }
+        for (card in AbstractDungeon.player.drawPile.group) {
+            if (card is OnApplyCold && owner is AbstractMonster) {
+                card.onApplyCold(owner as AbstractMonster)
+            }
+        }
+        for (card in AbstractDungeon.player.discardPile.group) {
+            if (card is OnApplyCold && owner is AbstractMonster) {
+                card.onApplyCold(owner as AbstractMonster)
+            }
+        }
+        for (card in AbstractDungeon.player.exhaustPile.group) {
+            if (card is OnApplyCold && owner is AbstractMonster) {
+                card.onApplyCold(owner as AbstractMonster)
+            }
+        }
+        for (card in AbstractDungeon.player.hand.group) {
+            if (card is OnApplyCold && owner is AbstractMonster) {
+                card.onApplyCold(owner as AbstractMonster)
+            }
+        }
     }
 
     override fun stackPower(amount: Int) {
         fontScale = 8.0f
         this.amount += amount
+        for (card in AbstractDungeon.player.drawPile.group) {
+            if (card is OnApplyCold && owner is AbstractMonster) {
+                card.onApplyCold(owner as AbstractMonster)
+            }
+        }
+        for (card in AbstractDungeon.player.discardPile.group) {
+            if (card is OnApplyCold && owner is AbstractMonster) {
+                card.onApplyCold(owner as AbstractMonster)
+            }
+        }
+        for (card in AbstractDungeon.player.exhaustPile.group) {
+            if (card is OnApplyCold && owner is AbstractMonster) {
+                card.onApplyCold(owner as AbstractMonster)
+            }
+        }
+        for (card in AbstractDungeon.player.hand.group) {
+            if (card is OnApplyCold && owner is AbstractMonster) {
+                card.onApplyCold(owner as AbstractMonster)
+            }
+        }
         if (this.amount >= PROC_AMOUNT && amount - PROC_AMOUNT < 1) {
             AbstractDungeon.actionManager.addToBottom(
                     RemoveSpecificPowerAction(owner, owner, this))
