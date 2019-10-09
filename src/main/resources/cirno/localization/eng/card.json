@@ -55,5 +55,9 @@
   "SummonColdDamage": {
     "NAME": "Frost King",
     "DESCRIPTION": "$frostking"
+  },
+  "ColdScalingAttack": {
+    "NAME": "Icicle Machine Gun",
+    "DESCRIPTION": "$damage $nl $increasedamagewithcold"
   }
 }
