@@ -63,6 +63,10 @@
   "XCostHitRandomCold": {
     "NAME": "Icicle Shotgun",
     "DESCRIPTION": "$icicleshotgun",
-    "UPGRADE_DESCRIPTION": "$icicleshotgunupgrade"
+    "UPGRADE_DESCRIPTION": "$icicleshotgunupgrade",
+  },
+  "AoeDamageToFrozenEnemies": {
+    "NAME": "Great Crusher",
+    "DESCRIPTION": "$iffrozen $damageclause"
   }
 }
