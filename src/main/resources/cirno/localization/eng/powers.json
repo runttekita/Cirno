@@ -30,5 +30,11 @@
     "DESCRIPTIONS": [
       "This monster will be #yFrozen at the start of next turn."
     ]
+  },
+  "FrozenDiscardP": {
+    "NAME": "Chilly Redirection",
+    "DESCRIPTIONS": [
+      "Cards will be sent to the draw pile instead of the discard pile."
+    ]
   }
 }

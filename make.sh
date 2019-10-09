@@ -76,6 +76,8 @@ then
   GLACIAL_FORM='Enemies who attack you for the next !M! turns become cirno:Frozen.'
   IF_COLD='When you apply cirno:Cold to an enemy, '
   FREEZE_FOLLOW_UP='cirno:Freeze it.'
+  CHILLY_REDIRECTION='When a card would be sent to the discard pile, shuffle it into the draw pile instead.'
+  INNATE='Innate.'
 fi
 
 # Copy into production folder
@@ -90,6 +92,8 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$chillyredirection/"${CHILLY_REDIRECTION}"/g ${PROD_JSON}
+sed -i s/\$innate/"${INNATE}"/g ${PROD_JSON}
 sed -i s/\$ifcold/"${IF_COLD}"/g ${PROD_JSON}
 sed -i s/\$freezefollowup/"${FREEZE_FOLLOW_UP}"/g ${PROD_JSON}
 sed -i s/\$glacialform/"${GLACIAL_FORM}"/g ${PROD_JSON}

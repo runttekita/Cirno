@@ -84,5 +84,10 @@
     "NAME": "Icicle Shotgun",
     "DESCRIPTION": "$icicleshotgun",
     "UPGRADE_DESCRIPTION": "$icicleshotgunupgrade"
+  },
+  "FrozenDiscard": {
+    "NAME": "Chilly Redirection",
+    "DESCRIPTION": "$chillyredirection",
+    "UPGRADE_DESCRIPTION": "$chillyredirection $nl $innate"
   }
 }
