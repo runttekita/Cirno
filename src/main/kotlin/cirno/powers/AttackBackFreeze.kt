@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.AbstractPower
 
-class AttackBackFreeze(private val target: AbstractCreature, private val times: Int) : CirnoPower(), CloneablePowerInterface {
+class AttackBackFreeze(private val target: AbstractCreature, private val turns: Int) : CirnoPower(), CloneablePowerInterface {
 
     companion object {
         var NAME: String? = null
@@ -32,7 +32,7 @@ class AttackBackFreeze(private val target: AbstractCreature, private val times: 
         updateDescription()
         img = Cirno.textureLoader.getTexture(Cirno.makePowerPath(this.javaClass.simpleName))
         owner = target
-        amount = times
+        amount = turns
     }
 
     override fun onAttacked(info: DamageInfo, damageAmount: Int): Int {
@@ -51,7 +51,7 @@ class AttackBackFreeze(private val target: AbstractCreature, private val times: 
     }
 
     override fun makeCopy(): AbstractPower {
-        return AttackBackFreeze(target, times)
+        return AttackBackFreeze(owner, amount)
     }
 
 }

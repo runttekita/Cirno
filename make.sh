@@ -73,6 +73,7 @@ then
   IF_FROZEN='If an enemy is cirno:Frozen, '
   AOE_SLOW='Apply Slow to all enemies.'
   MULTI_FREEZE='cirno:Freeze an enemy for !M! turns.'
+  GLACIAL_FORM='Enemies who attack you for the next !M! turns become cirno:Frozen.'
 fi
 
 # Copy into production folder
@@ -87,6 +88,7 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$glacialform/"${GLACIAL_FORM}"/g ${PROD_JSON}
 sed -i s/\$multifreeze/"${MULTI_FREEZE}"/g ${PROD_JSON}
 sed -i s/\$aoeslow/"${AOE_SLOW}"/g ${PROD_JSON}
 sed -i s/\$iffrozen/"${IF_FROZEN}"/g ${PROD_JSON}

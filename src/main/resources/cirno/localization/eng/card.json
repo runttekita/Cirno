@@ -63,7 +63,7 @@
   "XCostHitRandomCold": {
     "NAME": "Icicle Shotgun",
     "DESCRIPTION": "$icicleshotgun",
-    "UPGRADE_DESCRIPTION": "$icicleshotgunupgrade",
+    "UPGRADE_DESCRIPTION": "$icicleshotgunupgrade"
   },
   "AoeDamageToFrozenEnemies": {
     "NAME": "Great Crusher",
@@ -76,5 +76,9 @@
   "MultiTurnFreeze": {
     "NAME": "Perfect Freeze",
     "DESCRIPTION": "$multifreeze"
+  },
+  "GlacialForm": {
+    "NAME": "Glacial Form",
+    "DESCRIPTION": "$glacialform"
   }
 }
