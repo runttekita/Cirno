@@ -34,9 +34,8 @@ class SummonColdDamage : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMA
         private val DAMAGE_UP = 0
         private val BLOCK_UP = 0
         private val MAGIC_UP = 1
-        private val DAMAGE = 0
+        private val DAMAGE = 12
         private val BLOCK = 0
-        private val MAGIC = 3
-        private val disgustingHardCodedMess = 12
+        private val MAGIC = 2
     }
 }
