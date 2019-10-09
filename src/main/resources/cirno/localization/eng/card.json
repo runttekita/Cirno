@@ -80,5 +80,9 @@
   "GlacialForm": {
     "NAME": "Glacial Form",
     "DESCRIPTION": "$glacialform"
+  },
+  "FreezeSpell": {
+    "NAME": "Frozen Technique",
+    "DESCRIPTION": "$spell $nl $ifcold $freezefollowup"
   }
 }
