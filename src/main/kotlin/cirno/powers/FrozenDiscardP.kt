@@ -3,11 +3,15 @@ package cirno.powers
 import cirno.Cirno
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoPower
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
+import com.megacrit.cardcrawl.actions.utility.UseCardAction
+import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.PowerStrings
+import javax.jws.soap.SOAPBinding
 
 class FrozenDiscardP() : CirnoPower() {
     var frozenDiscard = true
@@ -36,16 +40,19 @@ class FrozenDiscardP() : CirnoPower() {
     override fun stackPower(amount: Int) {
     }
 
-    override fun onInitialApplication() {
-        AbstractDungeon.player.frozenDiscard = true
-    }
-
-    override fun onVictory() {
-        AbstractDungeon.player.frozenDiscard = false
+    @SpirePatch(
+            clz = UseCardAction::class,
+            method = "update"
+    )
+    public class FrozenDiscardPile {
+        public companion object {
+            @JvmStatic
+            fun Prefix(__instance: UseCardAction, ___targetCard: AbstractCard) {
+                if (AbstractDungeon.player.hasPower(makeID(FrozenDiscardP::class.java))) {
+                    ___targetCard.shuffleBackIntoDrawPile = true
+                }
+            }
+        }
     }
 
 }
-
-var AbstractPlayer.frozenDiscard: Boolean
-    get() = (AbstractDungeon.player.getPower(makeID(FrozenDiscardP::class.java)) as FrozenDiscardP)?.frozenDiscard
-    set(value) {(AbstractDungeon.player.getPower(makeID(FrozenDiscardP::class.java)) as FrozenDiscardP)?.frozenDiscard = value}
