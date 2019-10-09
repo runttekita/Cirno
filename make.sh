@@ -67,7 +67,7 @@ then
   CONDITIONAL_DRAW='Draw !M! cards and if you draw a'
   LOCK_YOU='cirno:Freeze ALL enemies.'
   FROST_KING='Deal !D! damage and apply 1 cirno:Cold to a random enemy at the end of your turn for !M! turns.'
-  INCREASE_COLD='Increase this card'\''s damage by !M! when you apply cirno:Cold'
+  INCREASE_COLD='Increase this card'\''s damage by !M! when you apply cirno:Cold.'
   ICICLE_SHOTGUN='Deal !D! damage and apply 1 cirno:Cold X times to a random enemy.'
   ICICLE_SHOTGUN_UPGRADE='Deal !D! damage and apply 1 cirno:Cold X+1 times to a random enemy.'
   IF_FROZEN='If an enemy is cirno:Frozen, '
@@ -100,7 +100,7 @@ sed -i s/\$glacialform/"${GLACIAL_FORM}"/g ${PROD_JSON}
 sed -i s/\$multifreeze/"${MULTI_FREEZE}"/g ${PROD_JSON}
 sed -i s/\$aoeslow/"${AOE_SLOW}"/g ${PROD_JSON}
 sed -i s/\$iffrozen/"${IF_FROZEN}"/g ${PROD_JSON}
-sed -i s/\icicleshotgunupgrade/"${ICICLE_SHOTGUN_UPGRADE}"/g ${PROD_JSON}
+sed -i s/\$icicleshotgunupgrade/"${ICICLE_SHOTGUN_UPGRADE}"/g ${PROD_JSON}
 sed -i s/\$icicleshotgun/"${ICICLE_SHOTGUN}"/g ${PROD_JSON}
 sed -i s/\$increasedamagewithcold/"${INCREASE_COLD}"/g ${PROD_JSON}
 sed -i s/\$frostking/"${FROST_KING}"/g ${PROD_JSON}
