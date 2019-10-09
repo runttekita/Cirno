@@ -181,8 +181,8 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
 
     companion object statics {
         val ENERGY_PER_TURN = 3
-        val STARTING_HP = 75
-        val MAX_HP = 75
+        val STARTING_HP = 60
+        val MAX_HP = 60
         val STARTING_GOLD = 99
         val CARD_DRAW = 5
         val ORB_SLOTS = 0
