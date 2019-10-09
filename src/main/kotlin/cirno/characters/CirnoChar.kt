@@ -40,14 +40,12 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     private val yStartOffset = AbstractDungeon.floorY + 370 * Settings.scale
     private val ySpaceBottomAlternatingOffset = -100 * Settings.scale
     private val ySpaceAlternatingOffset = -50 * Settings.scale
-    private val characterStrings = CardCrawlGame.languagePack.getCharacterString(makeID(CirnoChar::class.java))
-    private val NAME = characterStrings.NAMES
-    private val TEXT = characterStrings.TEXT
 
     init {
         val shoulderOne = "cirno/images/char/defaultCharacter/shoulder.png"
         val shoulderTwo = "cirno/images/char/defaultCharacter/shoulder2.png"
         val corpse = "cirno/images/char/defaultCharacter/corpse.png"
+
         initializeClass(null,
                 shoulderOne,
                 shoulderTwo,
@@ -61,7 +59,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getLoadout(): CharSelectInfo {
-        return CharSelectInfo(NAME[0], TEXT[0],
+        return CharSelectInfo(NAME!![0], TEXT!![0],
                 STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW,
                 this, startingRelics,
                 startingDeck, false)
@@ -118,7 +116,7 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getLocalizedCharacterName(): String {
-        return NAME[0]
+        return NAME!![0]
     }
 
     override fun getStartCardForEvent(): AbstractCard {
@@ -126,11 +124,11 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getTitle(playerClass: AbstractPlayer.PlayerClass): String {
-        return NAME[1]
+        return NAME!![1]
     }
 
     override fun newInstance(): AbstractPlayer {
-        return CirnoChar(NAME[0], chosenClass)
+        return CirnoChar(NAME!![0], chosenClass)
     }
 
     override fun getCardRenderColor(): Color {
@@ -146,11 +144,11 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun getSpireHeartText(): String {
-        return TEXT[1]
+        return TEXT!![1]
     }
 
     override fun getVampireText(): String {
-        return TEXT[2]
+        return TEXT!![2]
     }
 
     public fun loadSprite(costume: Int) {
@@ -193,10 +191,9 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
         val CARD_DRAW = 5
         val ORB_SLOTS = 0
         val orbTextures = arrayOf("cirno/images/char/defaultCharacter/orb/layer1.png", "cirno/images/char/defaultCharacter/orb/layer2.png", "cirno/images/char/defaultCharacter/orb/layer3.png", "cirno/images/char/defaultCharacter/orb/layer4.png", "cirno/images/char/defaultCharacter/orb/layer5.png", "cirno/images/char/defaultCharacter/orb/layer6.png", "cirno/images/char/defaultCharacter/orb/layer1d.png", "cirno/images/char/defaultCharacter/orb/layer2d.png", "cirno/images/char/defaultCharacter/orb/layer3d.png", "cirno/images/char/defaultCharacter/orb/layer4d.png", "cirno/images/char/defaultCharacter/orb/layer5d.png")
-        private val ID = makeID("Cirno")
-        private val characterStrings = CardCrawlGame.languagePack.getCharacterString(ID)
-        private val NAMES = arrayOf("Cirno", "Cirno", "Cirno", "Cirno", "Cirno")
-        private val TEXT = arrayOf("Cirno", "Cirno", "Cirno", "Cirno", "Cirno")
+        val characterStrings = CardCrawlGame.languagePack.getCharacterString(makeID(CirnoChar::class.java))
+        val NAME = characterStrings!!.NAMES
+        val TEXT = characterStrings!!.TEXT
 
     }
 
