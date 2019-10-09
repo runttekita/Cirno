@@ -85,14 +85,14 @@ class CirnoChar(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlay
     }
 
     override fun doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("ATTACK_DAGGER_1", 1.25f)
+        CardCrawlGame.sound.playA("ICE_CRACK", 1.25f)
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW,
                 ScreenShake.ShakeDur.SHORT,
                 false)
     }
 
     override fun getCustomModeCharacterButtonSoundKey(): String {
-        return "ATTACK_DAGGER_1"
+        return "ICE_CRACK"
     }
 
     override fun getAscensionMaxHPLoss(): Int {
