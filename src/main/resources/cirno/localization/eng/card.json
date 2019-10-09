@@ -68,5 +68,9 @@
   "AoeDamageToFrozenEnemies": {
     "NAME": "Great Crusher",
     "DESCRIPTION": "$iffrozen $damageclause"
+  },
+  "AoeSlow": {
+    "NAME": "Slippery Path",
+    "DESCRIPTION": "$aoeslow"
   }
 }
