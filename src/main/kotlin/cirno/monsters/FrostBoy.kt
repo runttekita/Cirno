@@ -2,9 +2,10 @@ package cirno.monsters
 
 import cirno.Cirno.Statics.makeID
 import cirno.powers.Cold
-import com.evacipated.cardcrawl.modthespire.lib.SpireField
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
+import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.AbstractGameAction
+import com.megacrit.cardcrawl.actions.GameActionManager
 import com.megacrit.cardcrawl.actions.animations.AnimateSlowAttackAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction
@@ -14,6 +15,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.rooms.AbstractRoom
+import javassist.CtBehavior
 
 class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID, turns, -8f, 105f, 200f, 250f, "cirno/images/monsters/frostBoy.png", -1250f, 100f) {
 
@@ -59,7 +62,49 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
     )
     public class MonsterField {
         public companion object {
+            @JvmStatic
             var frostKing: SpireField<FrostBoy?> = SpireField{null}
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractRoom::class,
+            method = "render"
+    )
+    public class RenderFrostKing {
+        public companion object {
+            @SpireInsertPatch(
+                    locator = Locator::class
+            )
+            @JvmStatic
+            fun Insert(__instance: AbstractRoom, sb: SpriteBatch) {
+                if (AbstractDungeon.player.frostKing != null) {
+                    AbstractDungeon.player.frostKing!!.render(sb)
+                    AbstractDungeon.player.frostKing!!.update()
+                }
+            }
+        }
+    }
+
+    public class Locator : SpireInsertLocator() {
+        override fun Locate(ctMethodToPatch: CtBehavior?): IntArray {
+            val matcher = Matcher.MethodCallMatcher(AbstractMonster::class.java, "render")
+            return LineFinder.findInOrder(ctMethodToPatch, matcher)
+        }
+    }
+
+    @SpirePatch(
+            clz = GameActionManager::class,
+            method = "callEndOfTurnActions"
+    )
+    public class CallFrostBoyActions {
+        public companion object {
+            @JvmStatic
+            fun Prefix(__instance: GameActionManager) {
+                if (AbstractDungeon.player.frostKing != null) {
+                    AbstractDungeon.player.frostKing!!.takeTurn()
+                }
+            }
         }
     }
 
