@@ -58,7 +58,7 @@ abstract class CirnoCard
     fun power(target: AbstractCreature, source: AbstractCreature, p: AbstractPower, amount: Int): ApplyPowerAction {
         return ApplyPowerAction(target, source, p, amount)
     }
-    
+
     fun addSpell() {
         AbstractDungeon.player.spellZones.setSpell(this)
     }

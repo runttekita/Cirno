@@ -80,10 +80,8 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
             )
             @JvmStatic
             fun Insert(__instance: AbstractRoom, sb: SpriteBatch) {
-                if (AbstractDungeon.player.frostKing != null) {
-                    AbstractDungeon.player.frostKing!!.render(sb)
-                    AbstractDungeon.player.frostKing!!.update()
-                }
+                AbstractDungeon.player.frostKing?.render(sb)
+                AbstractDungeon.player.frostKing?.update()
             }
         }
     }
@@ -103,9 +101,7 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
         public companion object {
             @JvmStatic
             fun Prefix(__instance: GameActionManager) {
-                if (AbstractDungeon.player.frostKing != null) {
-                    AbstractDungeon.player.frostKing!!.takeTurn()
-                }
+                AbstractDungeon.player.frostKing?.takeTurn()
             }
         }
     }
@@ -118,9 +114,7 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
         public companion object {
             @JvmStatic
             fun Prefix(__instance: AbstractCreature) {
-                if (__instance is AbstractPlayer && AbstractDungeon.player.frostKing != null) {
-                    AbstractDungeon.player.frostKing!!.createIntent()
-                }
+                AbstractDungeon.player.frostKing?.createIntent()
             }
         }
     }
