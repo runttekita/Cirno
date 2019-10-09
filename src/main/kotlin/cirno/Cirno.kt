@@ -1,5 +1,6 @@
 package cirno
 
+import basemod.BaseMod
 import cirno.daten.*
 import basemod.BaseMod.*
 import basemod.interfaces.*
@@ -19,7 +20,8 @@ class Cirno() :
 		PostInitializeSubscriber,
         RenderSubscriber,
         PostRenderSubscriber,
-        PostDungeonInitializeSubscriber {
+        PostDungeonInitializeSubscriber,
+        AddAudioSubscriber {
 
     companion object Statics {
         var textureLoader = AssetLoader()
@@ -119,6 +121,10 @@ class Cirno() :
         if (AbstractDungeon.player != null && AbstractDungeon.player.chosenClass == CirnoChar.Enums.enums.Cirno) {
             (AbstractDungeon.player as CirnoChar).loadSprite(cirnoCostumes!!.currentCostume)
         }
+    }
+
+    override fun receiveAddAudio() {
+        BaseMod.addAudio("ICE_CRACK", "cirno/audio/cirnosound.ogg")
     }
 
 }
