@@ -21,7 +21,7 @@ import java.util.ArrayList
 
 
 
-class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), Settings.WIDTH / 2f, Settings.HEIGHT / 2f) {
+class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), Settings.WIDTH / 2f - 300f * Settings.scale, Settings.HEIGHT / 2f) {
 
     var currentCostume = 1
     private var cirnoButton: CharacterOption? = null
