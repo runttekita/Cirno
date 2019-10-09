@@ -3,6 +3,7 @@ package cirno.characters
 import cirno.abstracts.CirnoCard
 import cirno.cards.BlankSpellZone
 import cirno.interfaces.NotShittyTookDamage
+import cirno.interfaces.OnApplyColdSpell
 import cirno.interfaces.Spell
 import cirno.interfaces.TookDamageSpell
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
@@ -20,13 +21,14 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.helpers.Hitbox
+import com.megacrit.cardcrawl.monsters.AbstractMonster
 import javassist.CtBehavior
 import java.nio.file.Files.move
 
 
 
 
-class SpellZoneManager : NotShittyTookDamage {
+class SpellZoneManager : NotShittyTookDamage, OnApplyColdSpell {
     var zones = ArrayList<SpellZone>()
 
     public fun addZone() {
@@ -54,6 +56,14 @@ class SpellZoneManager : NotShittyTookDamage {
         for (zone in zones) {
             if (zone.storedCard is TookDamageSpell) {
                 zone.triggerEffect(i)
+            }
+        }
+    }
+
+    override fun onApplyCold(m: AbstractMonster) {
+        for (zone in zones) {
+            if (zone.storedCard is OnApplyColdSpell) {
+                zone.triggerEffect(null, m)
             }
         }
     }

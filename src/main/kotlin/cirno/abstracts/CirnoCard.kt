@@ -120,6 +120,10 @@ abstract class CirnoCard
 
     }
 
+    open fun spellEffect(m: AbstractMonster) {
+
+    }
+
 }
 
 fun getImg(id: String): String {

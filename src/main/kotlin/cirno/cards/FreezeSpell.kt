@@ -2,16 +2,21 @@ package cirno.cards
 
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoCard
+import cirno.actions.FreezeMonsterAction
 import cirno.interfaces.OnApplyCold
+import cirno.interfaces.OnApplyColdSpell
 import cirno.interfaces.Spell
+import cirno.powers.FreezeNextTurn
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 
-class FreezeSpell : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, MAGIC_UP, 1) {
+class FreezeSpell : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, MAGIC_UP, 1), OnApplyColdSpell {
 
     init {
         baseDamage = DAMAGE
@@ -22,6 +27,16 @@ class FreezeSpell : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
 
+    }
+
+    override fun onApplyCold(m: AbstractMonster) {
+    }
+
+    override fun spellEffect(m: AbstractMonster) {
+        when {
+            AbstractDungeon.actionManager.turnHasEnded -> act(ApplyPowerAction(m, AbstractDungeon.player, FreezeNextTurn(m, magicNumber)))
+            else -> act(FreezeMonsterAction(m, AbstractDungeon.player))
+        }
     }
 
     companion object {
@@ -36,6 +51,6 @@ class FreezeSpell : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP
         private val MAGIC_UP = 0
         private val DAMAGE = 0
         private val BLOCK = 0
-        private val MAGIC = 0
+        private val MAGIC = 1
     }
 }
