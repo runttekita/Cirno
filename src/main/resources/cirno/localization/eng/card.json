@@ -101,5 +101,13 @@
   "DamageForEachSpell": {
     "NAME": "Fairy Blast",
     "DESCRIPTION": "$fairyblast $nl $total"
+  },
+  "SpellEnergyFreeze": {
+    "NAME": "Respite",m
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "$spell $nl $literallyjusthewordgain",
+      "$literallyjustperiod"
+    ]
   }
 }

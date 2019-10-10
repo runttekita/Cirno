@@ -83,6 +83,8 @@ then
   DEAL_DAMAGE_ALL_CLAUSE="deal !D! damage to ALL enemies."
   FAIRY_BLAST='Deal !D! damage and deal !M! more damage for each set cirno:Spell.'
   TOTAL='(Total: !baka!)'
+  GAIN='Gain'
+  PERIOD='.'
 fi
 
 # Copy into production folder
@@ -97,6 +99,8 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$literallyjustthewordgain/"${GAIN}"/g ${PROD_JSON}
+sed -i s/\literallyjustperiod/"${PERIOD}"/g ${PROD_JSON}
 sed -i s/\$total/"${TOTAL}"/g ${PROD_JSON}
 sed -i s/\$fairyblast/"${FAIRY_BLAST}"/g ${PROD_JSON}
 sed -i s/\$iffullspell/"${IF_FULL_SPELL}"/g ${PROD_JSON}

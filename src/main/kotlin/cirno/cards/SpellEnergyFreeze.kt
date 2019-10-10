@@ -14,12 +14,18 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 
 
 class SpellEnergyFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, ENERGY_UP, COST), Helper, OnFreezeSpell {
+    var energyString = ""
 
     init {
         baseDamage = DAMAGE
         baseBlock = BLOCK
         magicNumber = ENERGY
         baseMagicNumber = magicNumber
+        for (i in 0 until magicNumber) {
+            energyString += "[E] "
+        }
+        rawDescription = "${cardStrings.EXTENDED_DESCRIPTION[0]}$energyString${cardStrings.EXTENDED_DESCRIPTION[1]}"
+        initializeDescription()
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
@@ -28,6 +34,18 @@ class SpellEnergyFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAM
 
     override fun spellEffect(m: AbstractMonster) {
         act(GainEnergyAction(magicNumber))
+    }
+
+    override fun upgrade() {
+        if (!upgraded) {
+            upgradeName()
+            upgradeMagicNumber(ENERGY_UP)
+            for (i in 0 until magicNumber) {
+                energyString += "[E] "
+            }
+            rawDescription = "${cardStrings.EXTENDED_DESCRIPTION[0]}$energyString${cardStrings.EXTENDED_DESCRIPTION[1]}"
+            initializeDescription()
+        }
     }
 
     companion object {
