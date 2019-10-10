@@ -1,5 +1,6 @@
 package cirno.interfaces
 
+import cirno.characters.spellZones
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.GameActionManager
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -85,6 +86,7 @@ interface Shiver {
                 if (__instance.isShivering) {
                     AbstractDungeon.player.shiveredCards++
                 }
+                AbstractDungeon.player.spellZones.onDraw()
             }
         }
     }
