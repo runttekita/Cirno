@@ -6,13 +6,10 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 
 import cirno.Cirno.Statics.textureLoader
+import cirno.interfaces.Helper
 import com.megacrit.cardcrawl.relics.AbstractRelic
 
-open class CirnoRelic(id: String, tier: AbstractRelic.RelicTier, sfx: AbstractRelic.LandingSound) : CustomRelic(id, getTexture(id), tier, sfx) {
-
-    fun act(a: AbstractGameAction) {
-        AbstractDungeon.actionManager.addToBottom(a)
-    }
+open class CirnoRelic(id: String, tier: AbstractRelic.RelicTier, sfx: AbstractRelic.LandingSound) : CustomRelic(id, getTexture(id), tier, sfx), Helper {
 
 }
 

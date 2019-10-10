@@ -4,6 +4,7 @@ import cirno.Cirno
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoPower
 import cirno.actions.FreezeMonsterAction
+import cirno.interfaces.Helper
 import cirno.patches.FrozenIntentPatches
 import com.badlogic.gdx.Game
 import com.evacipated.cardcrawl.modthespire.lib.*
@@ -18,7 +19,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.rooms.AbstractRoom
 import javassist.CtBehavior
 
-class FreezeNextTurn(target: AbstractCreature, turns: Int) : CirnoPower() {
+class FreezeNextTurn(target: AbstractCreature, turns: Int) : CirnoPower(), Helper {
 
     companion object {
         var NAME: String? = null
@@ -39,8 +40,8 @@ class FreezeNextTurn(target: AbstractCreature, turns: Int) : CirnoPower() {
     }
 
     override fun onSpecificTrigger() {
-        AbstractDungeon.actionManager.addToBottom(FreezeMonsterAction(owner as AbstractMonster, AbstractDungeon.player))
-        AbstractDungeon.actionManager.addToBottom(ReducePowerAction(owner, owner, this, 1))
+        act(FreezeMonsterAction(owner as AbstractMonster, AbstractDungeon.player))
+        act(ReducePowerAction(owner, owner, this, 1))
     }
 
     override fun updateDescription() {

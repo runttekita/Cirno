@@ -5,6 +5,7 @@ import cirno.Cirno
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoPower
 import cirno.actions.FreezeMonsterAction
+import cirno.interfaces.Helper
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction
 import com.megacrit.cardcrawl.cards.DamageInfo
@@ -15,7 +16,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.AbstractPower
 
-class AttackBackFreeze(private val target: AbstractCreature, private val turns: Int) : CirnoPower(), CloneablePowerInterface {
+class AttackBackFreeze(private val target: AbstractCreature, private val turns: Int) : CirnoPower(), Helper, CloneablePowerInterface {
 
     companion object {
         var NAME: String? = null
@@ -37,13 +38,13 @@ class AttackBackFreeze(private val target: AbstractCreature, private val turns: 
 
     override fun onAttacked(info: DamageInfo, damageAmount: Int): Int {
         if (info.owner is AbstractMonster) {
-            AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(info.owner, AbstractDungeon.player, FreezeNextTurn(info.owner, 1), 1))
+            act(ApplyPowerAction(info.owner, AbstractDungeon.player, FreezeNextTurn(info.owner, 1), 1))
         }
         return damageAmount
     }
 
     override fun atStartOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(ReducePowerAction(owner, owner, this, 1))
+        act(ReducePowerAction(owner, owner, this, 1))
     }
 
     override fun updateDescription() {

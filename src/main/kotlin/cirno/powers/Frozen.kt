@@ -5,6 +5,7 @@ import cirno.abstracts.CirnoPower
 import cirno.patches.FrozenIntentPatches.Enum.FrozenIntentEnum.FROZEN
 import basemod.ReflectionHacks
 import basemod.interfaces.CloneablePowerInterface
+import cirno.interfaces.Helper
 import com.badlogic.gdx.Gdx
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
@@ -27,7 +28,7 @@ import javassist.expr.MethodCall
  * Basically stolen from
  * @see com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower
  */
-public class Frozen : CirnoPower, CloneablePowerInterface, InvisiblePower {
+public class Frozen : CirnoPower, CloneablePowerInterface, InvisiblePower, Helper {
     public var shaderTimer: Float = 0.toFloat()
     private var moveByte: Byte = 0
     private var moveIntent: AbstractMonster.Intent? = null
@@ -68,7 +69,7 @@ public class Frozen : CirnoPower, CloneablePowerInterface, InvisiblePower {
     }
 
     override fun atEndOfRound() {
-        AbstractDungeon.actionManager.addToBottom(RemoveSpecificPowerAction(owner, owner, this))
+        act(RemoveSpecificPowerAction(owner, owner, this))
     }
 
     override fun update(slot: Int) {
@@ -88,7 +89,7 @@ public class Frozen : CirnoPower, CloneablePowerInterface, InvisiblePower {
 
     override fun onInitialApplication() {
         // Dumb action to delay grabbing monster's intent until after it's actually set
-        AbstractDungeon.actionManager.addToBottom(object : AbstractGameAction() {
+        act(object : AbstractGameAction() {
             override fun update() {
                 if (owner is AbstractMonster) {
                     moveByte = (owner as AbstractMonster).nextMove

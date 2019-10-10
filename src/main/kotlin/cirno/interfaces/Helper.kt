@@ -35,12 +35,12 @@ interface Helper {
         get() = TODO()
 
     fun act(a: AbstractGameAction) {
-        AbstractDungeon.actionManager.addToBottom(a)
+        act(a)
     }
 
     fun act(vararg a: AbstractGameAction) {
         for (action in a) {
-            AbstractDungeon.actionManager.addToBottom(action)
+            act(action)
         }
     }
 

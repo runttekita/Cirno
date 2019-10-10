@@ -7,6 +7,7 @@ import cirno.interfaces.NotShittyTookDamage
 import cirno.powers.Cold
 import basemod.abstracts.CustomCard
 import cirno.characters.spellZones
+import cirno.interfaces.Helper
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.AbstractGameAction
@@ -26,7 +27,7 @@ abstract class CirnoCard
 (private val strings: CardStrings, cost: Int, type: AbstractCard.CardType, rarity: AbstractCard.CardRarity,
  target: AbstractCard.CardTarget, private val upgradeDamage: Int, private val upgradeBlock: Int,
  private val upgradeMagic: Int, private val upgradeCost: Int)
-    : CustomCard(null, strings.NAME, getImg("Cirno:uwu"), cost, strings.DESCRIPTION, type, Cirno_Ice, rarity, target) {
+    : CustomCard(null, strings.NAME, getImg("Cirno:uwu"), cost, strings.DESCRIPTION, type, Cirno_Ice, rarity, target), Helper {
 
     init {
         cardID = makeID(this.javaClass.simpleName)
@@ -36,28 +37,8 @@ abstract class CirnoCard
         return Cirno.makeID(this.javaClass.simpleName)
     }
 
-    fun act(a: AbstractGameAction) {
-        AbstractDungeon.actionManager.addToBottom(a)
-    }
-
-    private fun dmgInfo(): DamageInfo {
-        return DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.NORMAL)
-    }
-
-    fun damage(m: AbstractCreature) {
-        act(DamageAction(m, dmgInfo()))
-    }
-
-    fun block() {
-        act(GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block))
-    }
-
     fun cold(m: AbstractMonster) {
         act(ApplyPowerAction(m, AbstractDungeon.player, Cold(m), 1))
-    }
-
-    fun power(target: AbstractCreature, source: AbstractCreature, p: AbstractPower, amount: Int): ApplyPowerAction {
-        return ApplyPowerAction(target, source, p, amount)
     }
 
     fun addSpell() {

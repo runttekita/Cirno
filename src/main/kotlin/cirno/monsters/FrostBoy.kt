@@ -1,6 +1,7 @@
 package cirno.monsters
 
 import cirno.Cirno.Statics.makeID
+import cirno.interfaces.Helper
 import cirno.powers.Cold
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
@@ -23,7 +24,7 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup
 import com.megacrit.cardcrawl.rooms.AbstractRoom
 import javassist.CtBehavior
 
-class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID, turns, -8f, 105f, 200f, 250f, "cirno/images/monsters/frostBoy.png", -1250f, 100f) {
+class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID, turns, -8f, 105f, 200f, 250f, "cirno/images/monsters/frostBoy.png", -1250f, 100f), Helper {
     private val aniTarget = -300f
 
     init {
@@ -53,10 +54,10 @@ class FrostBoy(private val turns: Int) : AbstractMonster(monsterStrings.NAME, ID
         when (nextMove) {
             0.toByte() -> {
                 val target = AbstractDungeon.getRandomMonster()
-                AbstractDungeon.actionManager.addToBottom(AnimateSlowAttackAction(this))
-                AbstractDungeon.actionManager.addToBottom(DamageAction(target, damage[FrostBoy.MOVES.ATTACK.value.toInt()], AbstractGameAction.AttackEffect.NONE))
-                AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(target, this, Cold(target), 1))
-                AbstractDungeon.actionManager.addToBottom(DamageAction(this, DamageInfo(this, 1, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE))
+                act(AnimateSlowAttackAction(this))
+                act(DamageAction(target, damage[FrostBoy.MOVES.ATTACK.value.toInt()], AbstractGameAction.AttackEffect.NONE))
+                act(ApplyPowerAction(target, this, Cold(target), 1))
+                act(DamageAction(this, DamageInfo(this, 1, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE))
             }
         }
         rollMove()

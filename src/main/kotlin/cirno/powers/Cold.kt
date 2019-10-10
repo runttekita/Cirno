@@ -3,6 +3,7 @@ package cirno.powers
 import cirno.Cirno
 import cirno.abstracts.CirnoPower
 import basemod.interfaces.CloneablePowerInterface
+import cirno.interfaces.Helper
 import cirno.interfaces.OnApplyCold
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction
@@ -14,7 +15,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.AbstractPower
 
-class Cold : CirnoPower, CloneablePowerInterface {
+class Cold : CirnoPower, CloneablePowerInterface, Helper {
 
     companion object {
         var NAME: String? = null
@@ -47,9 +48,9 @@ class Cold : CirnoPower, CloneablePowerInterface {
 
     override fun onInitialApplication() {
         if (amount >= PROC_AMOUNT) {
-            AbstractDungeon.actionManager.addToBottom(
+            act(
                     RemoveSpecificPowerAction(owner, owner, this))
-            AbstractDungeon.actionManager.addToBottom(
+            act(
                     ApplyPowerAction(owner, AbstractDungeon.player, Frozen(owner)))
         }
         for (card in AbstractDungeon.player.drawPile.group) {
@@ -98,14 +99,14 @@ class Cold : CirnoPower, CloneablePowerInterface {
             }
         }
         if (this.amount >= PROC_AMOUNT && amount - PROC_AMOUNT < 1) {
-            AbstractDungeon.actionManager.addToBottom(
+            act(
                     RemoveSpecificPowerAction(owner, owner, this))
-            AbstractDungeon.actionManager.addToBottom(
+            act(
                     ApplyPowerAction(owner, AbstractDungeon.player, Frozen(owner)))
         } else {
-            AbstractDungeon.actionManager.addToBottom(
+            act(
                     ReducePowerAction(owner, owner, this, PROC_AMOUNT))
-            AbstractDungeon.actionManager.addToBottom(
+            act(
                     ApplyPowerAction(owner, AbstractDungeon.player, Frozen(owner)))
         }
     }

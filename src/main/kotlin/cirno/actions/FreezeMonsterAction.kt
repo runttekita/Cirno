@@ -1,6 +1,7 @@
 package cirno.actions
 
 import cirno.Cirno.Statics.makeID
+import cirno.interfaces.Helper
 import cirno.powers.FreezeNextTurn
 import cirno.powers.Frozen
 import com.megacrit.cardcrawl.actions.AbstractGameAction
@@ -10,7 +11,7 @@ import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
-class FreezeMonsterAction @JvmOverloads constructor(target: AbstractMonster, source: AbstractCreature, amount: Int = 1) : AbstractGameAction() {
+class FreezeMonsterAction @JvmOverloads constructor(target: AbstractMonster, source: AbstractCreature, amount: Int = 1) : AbstractGameAction(), Helper {
 
     init {
         this.target = target
@@ -23,7 +24,7 @@ class FreezeMonsterAction @JvmOverloads constructor(target: AbstractMonster, sou
     override fun update() {
         if (duration == Settings.ACTION_DUR_FAST) {
             if (target.hasPower(makeID(Frozen::class.java))) {
-                AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(target, source, FreezeNextTurn(target, 1), 1))
+                act(ApplyPowerAction(target, source, FreezeNextTurn(target, 1), 1))
             }
             AbstractDungeon.actionManager.addToTop(ApplyPowerAction(target, source, Frozen(target as AbstractMonster)))
         }

@@ -3,6 +3,7 @@ package cirno.powers
 import cirno.Cirno
 import cirno.abstracts.CirnoPower
 import basemod.interfaces.CloneablePowerInterface
+import cirno.interfaces.Helper
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.PowerStrings
 import com.megacrit.cardcrawl.powers.AbstractPower
 
-class FlameBarrierButColdP(owner: AbstractCreature, amount: Int) : CirnoPower(), CloneablePowerInterface {
+class FlameBarrierButColdP(owner: AbstractCreature, amount: Int) : CirnoPower(), CloneablePowerInterface, Helper {
 
     companion object {
         var NAME: String? = null
@@ -35,16 +36,16 @@ class FlameBarrierButColdP(owner: AbstractCreature, amount: Int) : CirnoPower(),
     }
 
     override fun onAttacked(info: DamageInfo, damageAmount: Int): Int {
-        AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(info.owner, owner,
+        act(ApplyPowerAction(info.owner, owner,
                 Cold(info.owner), 1))
         return damageAmount
     }
 
     override fun atStartOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(
+        act(
                 ReducePowerAction(owner, owner, this, 1))
         if (amount == 0) {
-            AbstractDungeon.actionManager.addToBottom(RemoveSpecificPowerAction(AbstractDungeon.player,
+            act(RemoveSpecificPowerAction(AbstractDungeon.player,
                     AbstractDungeon.player, this))
         }
     }
