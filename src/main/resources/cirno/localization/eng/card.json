@@ -103,11 +103,16 @@
     "DESCRIPTION": "$fairyblast $nl $total"
   },
   "SpellEnergyFreeze": {
-    "NAME": "Respite",m
+    "NAME": "Respite",
     "DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       "$spell $nl $literallyjusthewordgain",
       "$literallyjustperiod"
     ]
+  },
+  "DrawXReduceX": {
+    "NAME": "Perfect Storm",
+    "DESCRIPTION": "$perfectstorm",
+    "UPGRADE_DESCRIPTION": "$perfectstormup"
   }
 }

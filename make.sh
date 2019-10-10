@@ -85,6 +85,8 @@ then
   TOTAL='(Total: !baka!)'
   GAIN='Gain'
   PERIOD='.'
+  PERFECT_STORM='Draw X cards. NL Reduce the cost of X random cards in your hand to 0 this turn.'
+  PERFECT_STORM_UP='Draw X+1 cards. NL Reduce the cost of X random cards in your hand to 0 this turn.'
 fi
 
 # Copy into production folder
@@ -99,8 +101,10 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$perfectstormup/"${PERFECT_STORM_UP}"/g ${PROD_JSON}
+sed -i s/\$perfectstorm/"${PERFECT_STORM}"/g ${PROD_JSON}
 sed -i s/\$literallyjustthewordgain/"${GAIN}"/g ${PROD_JSON}
-sed -i s/\literallyjustperiod/"${PERIOD}"/g ${PROD_JSON}
+sed -i s/\$literallyjustperiod/"${PERIOD}"/g ${PROD_JSON}
 sed -i s/\$total/"${TOTAL}"/g ${PROD_JSON}
 sed -i s/\$fairyblast/"${FAIRY_BLAST}"/g ${PROD_JSON}
 sed -i s/\$iffullspell/"${IF_FULL_SPELL}"/g ${PROD_JSON}
