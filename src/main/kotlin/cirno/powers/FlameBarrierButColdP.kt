@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings
 import com.megacrit.cardcrawl.powers.AbstractPower
 
 class FlameBarrierButColdP(owner: AbstractCreature, amount: Int) : CirnoPower(), CloneablePowerInterface, Helper {
+    override val defaultSource: AbstractCreature
+        get() = owner
 
     companion object {
         var NAME: String? = null
@@ -36,8 +38,7 @@ class FlameBarrierButColdP(owner: AbstractCreature, amount: Int) : CirnoPower(),
     }
 
     override fun onAttacked(info: DamageInfo, damageAmount: Int): Int {
-        act(ApplyPowerAction(info.owner, owner,
-                Cold(info.owner), 1))
+        power(Cold(info.owner))
         return damageAmount
     }
 
