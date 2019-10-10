@@ -143,5 +143,9 @@
   "DrawThenPutBack": {
     "NAME": "Icicle Rise",
     "DESCRIPTION": "$draw $nl $iciclerise"
+  },
+  "SpellCardDrawDamage": {
+    "NAME": "Hidden Genius",
+    "DESCRIPTION": "$spell $nl $hiddengenius"
   }
 }
