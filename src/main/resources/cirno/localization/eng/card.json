@@ -133,6 +133,7 @@
   },
   "ColdEchoForm": {
     "NAME": "Frozen Domain",
-    "DESCRIPTION": "$frozendomain $nl $ethereal"
+    "DESCRIPTION": "$frozendomain $nl $ethereal",
+    "UPGRADE_DESCRIPTION": "$frozendomain"
   }
 }
