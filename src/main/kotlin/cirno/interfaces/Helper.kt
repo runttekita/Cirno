@@ -63,7 +63,7 @@ interface Helper {
         act(DamageAction(target, DamageInfo(source, amount)))
     }
 
-    fun draw(amount: Int = defaultDrawAmount, callback: ((AbstractCard) -> Unit)? = null) {
+    fun draw(callback: ((AbstractCard) -> Unit)? = null, amount: Int = defaultDrawAmount) {
         act(DrawActionButWithACallback(amount, callback))
     }
 

@@ -36,6 +36,13 @@ class PlayCardNextTurnPower(private val card: AbstractCard) : CirnoPower(), Help
     }
 
     override fun atStartOfTurn() {
+        loopOverAllPiles {group -> group.forEach {
+            c ->
+            if (c == card) {
+                group.remove(c)
+                return@loopOverAllPiles
+            }
+        }}
         card.freeToPlayOnce = true
         limbo.addToBottom(card)
         val target = randomMonster()
