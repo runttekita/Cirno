@@ -63,9 +63,39 @@ interface Shiver {
             @JvmStatic
             fun Prefix(__instance: GameActionManager) {
                 AbstractDungeon.player.isShivering = false
+                AbstractDungeon.player.shiveredCards = 0
             }
         }
     }
+
+    @SpirePatch(
+            clz = AbstractPlayer::class,
+            method = "draw"
+    )
+    public class DrawPatch {
+        public companion object {
+            @SpireInsertPatch(
+                    locator = DrawLocator::class
+            )
+            @JvmStatic
+            fun Insert(__instance: AbstractPlayer, numCards: Int) {
+                if (__instance.isShivering) {
+                    AbstractDungeon.player.shiveredCards++
+                }
+            }
+        }
+    }
+
+    fun onShiver()
+
+    public class DrawLocator : SpireInsertLocator() {
+        override fun Locate(p0: CtBehavior?): IntArray {
+            val matcher = Matcher.MethodCallMatcher(AbstractCard::class.java, "triggerWhenDrawn")
+            return LineFinder.findInOrder(p0, matcher)
+        }
+
+    }
+
 
 }
 
