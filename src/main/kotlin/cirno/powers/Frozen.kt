@@ -6,6 +6,7 @@ import cirno.patches.FrozenIntentPatches.Enum.FrozenIntentEnum.FROZEN
 import basemod.ReflectionHacks
 import basemod.interfaces.CloneablePowerInterface
 import cirno.interfaces.Helper
+import cirno.interfaces.OnFreezeSpell
 import com.badlogic.gdx.Gdx
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
@@ -107,6 +108,11 @@ public class Frozen : CirnoPower, CloneablePowerInterface, InvisiblePower, Helpe
                     }
 
                 }
+                loopOverAllPiles { it -> it.forEach{
+                    if (it is OnFreezeSpell) {
+                        it.onFreeze(owner)
+                    }
+                } }
                 isDone = true
             }
         })
