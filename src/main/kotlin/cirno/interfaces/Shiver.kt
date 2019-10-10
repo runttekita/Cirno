@@ -70,7 +70,10 @@ interface Shiver {
 
     @SpirePatch(
             clz = AbstractPlayer::class,
-            method = "draw"
+            method = "draw",
+            paramtypez = [
+                Int::class
+            ]
     )
     public class DrawPatch {
         public companion object {
