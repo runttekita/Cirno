@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower
 class Cold : CirnoPower, CloneablePowerInterface, Helper {
     override val defaultSource: AbstractCreature
         get() = player
+    
     companion object {
         var NAME: String? = null
         var DESCRIPTIONS: Array<String>? = null
