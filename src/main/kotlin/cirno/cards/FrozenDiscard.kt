@@ -2,7 +2,6 @@ package cirno.cards
 
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoCard
-import cirno.abstracts.alwaysRetain
 import cirno.powers.FrozenDiscardP
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.cards.AbstractCard
