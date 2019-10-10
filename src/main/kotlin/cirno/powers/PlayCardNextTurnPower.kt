@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.localization.PowerStrings
 
-class PlayCardNextTurnAction(private val card: AbstractCard) : CirnoPower(), Helper, NonStackablePower {
+class PlayCardNextTurnPower(private val card: AbstractCard) : CirnoPower(), Helper, NonStackablePower {
 
     companion object {
         var NAME: String? = null
