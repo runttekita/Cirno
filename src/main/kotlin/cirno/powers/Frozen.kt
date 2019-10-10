@@ -5,6 +5,7 @@ import cirno.abstracts.CirnoPower
 import cirno.patches.FrozenIntentPatches.Enum.FrozenIntentEnum.FROZEN
 import basemod.ReflectionHacks
 import basemod.interfaces.CloneablePowerInterface
+import cirno.abstracts.CirnoCard
 import cirno.interfaces.Helper
 import cirno.interfaces.OnFreezeSpell
 import com.badlogic.gdx.Gdx
@@ -110,7 +111,7 @@ public class Frozen : CirnoPower, CloneablePowerInterface, InvisiblePower, Helpe
                 }
                 loopOverAllPiles { it -> it.forEach{
                     if (it is OnFreezeSpell) {
-                        it.onFreeze(owner)
+                        (it as CirnoCard).spellEffect(owner as AbstractMonster)
                     }
                 } }
                 isDone = true
