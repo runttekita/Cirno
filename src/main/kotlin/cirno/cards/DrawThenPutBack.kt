@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import cirno.interfaces.Helper
+import cirno.powers.PutBackCards
 
 
 class DrawThenPutBack : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, DRAW_UP, COST), Helper {
@@ -21,6 +22,7 @@ class DrawThenPutBack : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAG
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         draw()
+        power(PutBackCards())
     }
 
     companion object {

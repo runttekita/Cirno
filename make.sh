@@ -94,6 +94,7 @@ then
   FROZEN_DOMAIN='Cards that target cirno:Cold enemies are played twice and are free.'
   SHIVER='cirno:Shiver:'
   FAIRY_SPIN='Permanently increase this cards damage by !M!.'
+  ICICLE_RISE='Whenever you play a card this turn, put a random card in your hand to the bottom of your draw pile.'
 fi
 
 # Copy into production folder
@@ -108,6 +109,7 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$iciclerise/"${ICICLE_RISE}"/g ${PROD_JSON}
 sed -i s/\$shiver/"${SHIVER}"/g ${PROD_JSON}
 sed -i s/\$fairyspin/"${FAIRY_SPIN}"/g ${PROD_JSON}
 sed -i s/\$frozendomain/"${FROZEN_DOMAIN}"/g ${PROD_JSON}

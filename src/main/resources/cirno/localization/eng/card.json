@@ -139,5 +139,9 @@
   "ShiverScaling": {
     "NAME": "Fairy Spin",
     "DESCRIPTION": "$damage $nl $shiver $fairyspin $nl $exhaust"
+  },
+  "DrawThenPutBack": {
+    "NAME": "Icicle Rise",
+    "DESCRIPTION": "$draw $nl $iciclerise"
   }
 }
