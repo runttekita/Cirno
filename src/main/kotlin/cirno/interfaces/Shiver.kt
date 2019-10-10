@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import javassist.CtBehavior
 import com.megacrit.cardcrawl.actions.AbstractGameAction
+import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.relics.AbstractRelic
 
 interface Shiver {
 
@@ -56,12 +58,43 @@ interface Shiver {
             clz = GameActionManager::class,
             method = "endTurn"
     )
-    public companion object {
-        @JvmStatic
-        fun Prefix(__instance: GameActionManager) {
-            AbstractDungeon.player.isShivering = false
+    public class EndTurn {
+        public companion object {
+            @JvmStatic
+            fun Prefix(__instance: GameActionManager) {
+                AbstractDungeon.player.isShivering = false
+            }
         }
     }
+
+    @SpirePatch(
+            clz = AbstractPlayer::class,
+            method = "draw"
+    )
+    public class DrawPatch {
+        public companion object {
+            @SpireInsertPatch(
+                    locator = DrawLocator::class,
+                    localvars = ["c"]
+            )
+            @JvmStatic
+            fun Insert(__instance: AbstractPlayer, numCards: Int, c: AbstractCard) {
+                if (__instance.isShivering && c is Shiver) {
+                    c.onShiver()
+                }
+            }
+        }
+    }
+
+    fun onShiver()
+
+    public class DrawLocator : SpireInsertLocator() {
+        override fun Locate(p0: CtBehavior?): IntArray {
+            val matcher = Matcher.MethodCallMatcher(AbstractCard::class.java, "triggerWhenDrawn")
+        }
+
+    }
+
 
 }
 
