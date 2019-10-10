@@ -17,6 +17,8 @@ interface Shiver {
         public companion object {
             @JvmField
             public var isShivering =  SpireField<Boolean> {false}
+            @JvmField
+            public var amountOfShiveringCards = SpireField<Int> {0}
         }
     }
 
@@ -66,3 +68,7 @@ interface Shiver {
 var AbstractPlayer.isShivering: Boolean
     get() = Shiver.ShiverActive.isShivering.get(this)
     set(value) = Shiver.ShiverActive.isShivering.set(this, value)
+
+var AbstractPlayer.shiveredCards: Int
+    get() = Shiver.ShiverActive.amountOfShiveringCards.get(this)
+    set(value) = Shiver.ShiverActive.amountOfShiveringCards.set(this, value)
