@@ -26,12 +26,12 @@ class AttackPlaysItselfMaybe : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET
             run {
                 if (c.type == CardType.ATTACK) {
                     attacksDrawn++
+                    if (attacksDrawn == magicNumber) {
+                        power(PlayCardNextTurnPower(this))
+                    }
                 }
             }
         })
-        if (attacksDrawn == magicNumber) {
-            power(PlayCardNextTurnPower(this))
-        }
     }
 
     companion object {

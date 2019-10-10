@@ -118,5 +118,9 @@
   "CardDrawReduce": {
     "NAME": "Fairy Sprint",
     "DESCRIPTION": "$draw $nl $drawreduce"
+  },
+  "DrawFreezeAll": {
+    "NAME": "Diamond Blizzard",
+    "DESCRIPTION": "$draw $nl $diamondblizzard"
   }
 }

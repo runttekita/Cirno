@@ -88,6 +88,7 @@ then
   PERFECT_STORM='Draw X cards. NL Reduce the cost of X random cards in your hand to 0 this turn.'
   PERFECT_STORM_UP='Draw X+1 cards. NL Reduce the cost of X random cards in your hand to 0 this turn.'
   DRAW_REDUCE='Decrease the cards drawn by this card by 1 this combat.'
+  DIAMOND_BLIZZARD='If at least !D! cards drawn this way were skills, cirno:Freeze ALL enemies.'
 fi
 
 # Copy into production folder
@@ -102,6 +103,7 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$diamondblizzard/"${DIAMOND_BLIZZARD}"/g ${PROD_JSON}
 sed -i s/\$drawreduce/"${DRAW_REDUCE}"/g ${PROD_JSON}
 sed -i s/\$perfectstormup/"${PERFECT_STORM_UP}"/g ${PROD_JSON}
 sed -i s/\$perfectstorm/"${PERFECT_STORM}"/g ${PROD_JSON}

@@ -77,4 +77,8 @@ interface Helper {
     fun randomMonster(): AbstractMonster {
         return AbstractDungeon.getMonsters().getRandomMonster(true)
     }
+
+    fun loopOverMonsters(callback: (ArrayList<AbstractMonster>) -> Unit) {
+        callback(AbstractDungeon.getMonsters().monsters)
+    }
 }
