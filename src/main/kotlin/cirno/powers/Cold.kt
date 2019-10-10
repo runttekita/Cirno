@@ -17,7 +17,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.AbstractPower
 
 class Cold : CirnoPower, CloneablePowerInterface, Helper {
-
+    override val defaultSource: AbstractCreature
+        get() = player
     companion object {
         var NAME: String? = null
         var DESCRIPTIONS: Array<String>? = null
@@ -50,7 +51,7 @@ class Cold : CirnoPower, CloneablePowerInterface, Helper {
     override fun onInitialApplication() {
         if (amount >= PROC_AMOUNT) {
             act(RemoveSpecificPowerAction(owner, owner, this))
-            act(ApplyPowerAction(owner, AbstractDungeon.player, Frozen(owner)))
+            power(Frozen(owner))
         }
         loopOverAllPiles { it.forEach {
             c -> {
@@ -71,10 +72,10 @@ class Cold : CirnoPower, CloneablePowerInterface, Helper {
         }}}
         if (this.amount >= PROC_AMOUNT && amount - PROC_AMOUNT < 1) {
             act(RemoveSpecificPowerAction(owner, owner, this))
-            act(ApplyPowerAction(owner, AbstractDungeon.player, Frozen(owner)))
+            power(Frozen(owner))
         } else {
             act(ReducePowerAction(owner, owner, this, PROC_AMOUNT))
-            act(ApplyPowerAction(owner, AbstractDungeon.player, Frozen(owner)))
+            power(Frozen(owner))
         }
     }
 
