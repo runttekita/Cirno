@@ -70,15 +70,11 @@ class Cold : CirnoPower, CloneablePowerInterface, Helper {
             }
         }}}
         if (this.amount >= PROC_AMOUNT && amount - PROC_AMOUNT < 1) {
-            act(
-                    RemoveSpecificPowerAction(owner, owner, this))
-            act(
-                    ApplyPowerAction(owner, AbstractDungeon.player, Frozen(owner)))
+            act(RemoveSpecificPowerAction(owner, owner, this))
+            act(ApplyPowerAction(owner, AbstractDungeon.player, Frozen(owner)))
         } else {
-            act(
-                    ReducePowerAction(owner, owner, this, PROC_AMOUNT))
-            act(
-                    ApplyPowerAction(owner, AbstractDungeon.player, Frozen(owner)))
+            act(ReducePowerAction(owner, owner, this, PROC_AMOUNT))
+            act(ApplyPowerAction(owner, AbstractDungeon.player, Frozen(owner)))
         }
     }
 
