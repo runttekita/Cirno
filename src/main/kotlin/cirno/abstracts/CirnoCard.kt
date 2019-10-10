@@ -8,6 +8,7 @@ import cirno.powers.Cold
 import basemod.abstracts.CustomCard
 import cirno.characters.spellZones
 import cirno.interfaces.Helper
+import cirno.powers.ColdEchoFormP
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.AbstractGameAction
@@ -38,6 +39,7 @@ abstract class CirnoCard
         get() = damage
     var cirnoDynamicNumber: Int = -1
     var isDynamicUpgraded = false
+    var originalCost = 0
 
     init {
         cardID = makeID(this.javaClass.simpleName)
@@ -102,6 +104,18 @@ abstract class CirnoCard
                 costForTurn = 0
             }
             upgradedCost = true
+        }
+    }
+
+    override fun calculateCardDamage(mo: AbstractMonster?) {
+        super.calculateCardDamage(mo)
+        if (costForTurn != 0) {
+            originalCost = costForTurn
+        }
+        if (player.hasPower(makeID(ColdEchoFormP::class.java)) && mo!!.hasPower(makeID(Cold::class.java))) {
+            costForTurn = 0
+        } else {
+            costForTurn = originalCost
         }
     }
 
