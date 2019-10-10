@@ -55,22 +55,26 @@ class Cold : CirnoPower, CloneablePowerInterface, Helper {
             power(Frozen(owner))
         }
         loopOverAllPiles { it.forEach {
-            c -> {
-            if (c is OnApplyCold) {
-                c.onApplyCold(owner as AbstractMonster)
+            c ->
+            run {
+                if (c is OnApplyCold) {
+                    c.onApplyCold(owner as AbstractMonster)
+                }
             }
-        }}}
+        }}
     }
 
     override fun stackPower(amount: Int) {
         fontScale = 8.0f
         this.amount += amount
         loopOverAllPiles { it.forEach {
-            c -> {
-            if (c is OnApplyCold) {
-                c.onApplyCold(owner as AbstractMonster)
+            c ->
+            run {
+                if (c is OnApplyCold) {
+                    c.onApplyCold(owner as AbstractMonster)
+                }
             }
-        }}}
+        }}
         if (this.amount >= PROC_AMOUNT && amount - PROC_AMOUNT < 1) {
             act(RemoveSpecificPowerAction(owner, owner, this))
             power(Frozen(owner))
