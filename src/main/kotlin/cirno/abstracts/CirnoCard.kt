@@ -36,6 +36,8 @@ abstract class CirnoCard
         get() = block
     override val defaultDamage: Int
         get() = damage
+    var cirnoDynamicNumber: Int = -1
+    var isDynamicUpgraded = false
 
     init {
         cardID = makeID(this.javaClass.simpleName)
