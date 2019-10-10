@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.AbstractPower
 
 interface Helper {
@@ -25,6 +26,8 @@ interface Helper {
         get() = player.hand
     val exhaustPile: CardGroup
         get() = player.exhaustPile
+    val limbo: CardGroup
+        get() = player.limbo
     val defaultDrawAmount: Int
         get() = TODO()
     val defaultSource: AbstractCreature
@@ -35,13 +38,17 @@ interface Helper {
         get() = TODO()
 
     fun act(a: AbstractGameAction) {
-        act(a)
+        AbstractDungeon.actionManager.addToBottom(a)
     }
 
     fun act(vararg a: AbstractGameAction) {
         for (action in a) {
             act(action)
         }
+    }
+
+    fun actButProbablyAHack(a: AbstractGameAction) {
+        AbstractDungeon.actionManager.addToTop(a)
     }
 
     fun power(power: AbstractPower) {
@@ -67,4 +74,7 @@ interface Helper {
         callback(exhaustPile.group)
     }
 
+    fun randomMonster(): AbstractMonster {
+        return AbstractDungeon.getMonsters().getRandomMonster(true)
+    }
 }
