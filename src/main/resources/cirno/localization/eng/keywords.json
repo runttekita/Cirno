@@ -18,4 +18,10 @@
     ],
     "DESCRIPTION": "Spell cards are put into your #ySpell #yZones when used and trigger on a certain condition."
  }
+  {
+    "NAMES": [
+      "slow"
+    ],
+    "DESCRIPTION": "Gain a stack of #ySlow when a card is played. Take 10% more damage for every stack of #ySlow"
+  }
 ]
