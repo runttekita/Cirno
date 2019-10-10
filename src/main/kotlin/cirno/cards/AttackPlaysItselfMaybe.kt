@@ -37,7 +37,7 @@ class AttackPlaysItselfMaybe : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET
     companion object {
         private val cardStrings = CardCrawlGame.languagePack.getCardStrings(
                 makeID(AttackPlaysItselfMaybe::class.java.simpleName))
-        private val COST = 1
+        private val COST = 2
         private val TYPE = CardType.ATTACK
         private val RARITY = AbstractCard.CardRarity.UNCOMMON
         private val TARGET = AbstractCard.CardTarget.ENEMY
