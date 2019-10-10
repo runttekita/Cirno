@@ -27,11 +27,8 @@ class DrawFreezeAll : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
                 if (c.type == CardType.SKILL) {
                     skillsDrawn++
                     if (skillsDrawn == damage) {
-                        loopOverMonsters { monsters ->
-                            monsters.forEach { monster -> {
-                                    act(FreezeMonsterAction(monster, player))
-                                }
-                            }
+                        loopOverMonsters { monster ->
+                            act(FreezeMonsterAction(monster, player))
                         }
                     }
                 }

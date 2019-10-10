@@ -78,7 +78,7 @@ interface Helper {
         return AbstractDungeon.getMonsters().getRandomMonster(true)
     }
 
-    fun loopOverMonsters(callback: (ArrayList<AbstractMonster>) -> Unit) {
-        callback(AbstractDungeon.getMonsters().monsters)
+    fun loopOverMonsters(callback: (AbstractMonster) -> Unit) {
+        AbstractDungeon.getMonsters().monsters.forEach(callback)
     }
 }
