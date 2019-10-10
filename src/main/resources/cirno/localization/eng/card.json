@@ -114,5 +114,9 @@
     "NAME": "Perfect Storm",
     "DESCRIPTION": "$perfectstorm",
     "UPGRADE_DESCRIPTION": "$perfectstormup"
+  },
+  "CardDrawReduce": {
+    "NAME": "Fairy Sprint",
+    "DESCRIPTION": "$draw $nl $drawreduce"
   }
 }
