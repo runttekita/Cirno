@@ -39,6 +39,15 @@ class SpellZoneManager : NotShittyTookDamage, OnApplyColdSpell {
         }
     }
 
+    public fun isEmpty(): Boolean {
+        for (zone in zones) {
+            if (zone.storedCard is BlankSpellZone) {
+                return false
+            }
+        }
+        return true
+    }
+
     public fun setSpell(card: AbstractCard) {
         for (zone in zones) {
             if (zone.storedCard is BlankSpellZone) {

@@ -14,7 +14,8 @@
   },
   {
     "NAMES": [
-      "spell"
+      "spell",
+      "spells"
     ],
     "DESCRIPTION": "Spell cards are put into your #ySpell #yZones when used and trigger on a certain condition."
   },

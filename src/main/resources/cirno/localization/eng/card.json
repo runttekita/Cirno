@@ -93,5 +93,9 @@
   "AttackPlaysItselfMaybe": {
     "NAME": "Infinite Ice Works",
     "DESCRIPTION": "$damage $nl $draw $nl $infiniteiceworks"
+  },
+  "ClashForSpells": {
+    "NAME": "Spell Crash",
+    "DESCRIPTION": "$iffullspell $dealdamageallclause"
   }
 }
