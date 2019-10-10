@@ -78,7 +78,7 @@ then
   FREEZE_FOLLOW_UP='cirno:Freeze it.'
   CHILLY_REDIRECTION='When a card would be sent to the discard pile, shuffle it into the draw pile instead.'
   INNATE='Innate.'
-  INFINITE_ICE_WORKS='If you drew !M! Attacks, play this card next turn for free.'
+  INFINITE_ICE_WORKS='If you drew !M! Attacks, play this card at the start of your next turn.'
   IF_FULL_SPELL='If you have 3 cirno:Spells set,'
   DEAL_DAMAGE_ALL_CLAUSE="deal !D! damage to ALL enemies."
   FAIRY_BLAST='Deal !D! damage and deal !M! more damage for each set cirno:Spell.'
