@@ -130,5 +130,9 @@
   "SwapPilesGainBlock": {
     "NAME": "Frozen Technique",
     "DESCRIPTION": "$frozentechnique"
+  },
+  "ColdEchoForm": {
+    "NAME": "Frozen Domain",
+    "DESCRIPTION": "$frozendomain $nl $ethereal"
   }
 }

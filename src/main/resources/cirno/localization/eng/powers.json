@@ -36,5 +36,13 @@
     "DESCRIPTIONS": [
       "Cards will be sent to the draw pile instead of the discard pile."
     ]
+  },
+  "ColdEchoFormP": {
+    "NAME": "Frozen Domain",
+    "DESCRIPTIONS": [
+      "Cards that target #yCold enemies will be free and be played #b",
+      " extra time.",
+      " extra times."
+    ]
   }
 }
