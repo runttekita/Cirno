@@ -135,5 +135,9 @@
     "NAME": "Frozen Domain",
     "DESCRIPTION": "$frozendomain $nl $ethereal",
     "UPGRADE_DESCRIPTION": "$frozendomain"
+  },
+  "ShiverScaling": {
+    "NAME": "Fairy Spin",
+    "DESCRIPTION": "$damage $nl $shiver $fairyspin $nl $exhaust"
   }
 }

@@ -25,4 +25,10 @@
     ],
     "DESCRIPTION": "Gain a stack of #ySlow when a card is played. Take 10% more damage for every stack of #ySlow"
   }
+  {
+    "NAMES": [
+      "shiver"
+    ],
+    "DESCRIPTION": "Gain an additional effect if this card was drawn outside of the start of the turn."
+  }
 ]

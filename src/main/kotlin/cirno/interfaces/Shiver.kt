@@ -67,36 +67,6 @@ interface Shiver {
         }
     }
 
-    @SpirePatch(
-            clz = AbstractPlayer::class,
-            method = "draw"
-    )
-    public class DrawPatch {
-        public companion object {
-            @SpireInsertPatch(
-                    locator = DrawLocator::class,
-                    localvars = ["c"]
-            )
-            @JvmStatic
-            fun Insert(__instance: AbstractPlayer, numCards: Int, c: AbstractCard) {
-                if (__instance.isShivering && c is Shiver) {
-                    c.onShiver()
-                }
-            }
-        }
-    }
-
-    fun onShiver()
-
-    public class DrawLocator : SpireInsertLocator() {
-        override fun Locate(p0: CtBehavior?): IntArray {
-            val matcher = Matcher.MethodCallMatcher(AbstractCard::class.java, "triggerWhenDrawn")
-            return LineFinder.findInOrder(p0, matcher)
-        }
-
-    }
-
-
 }
 
 var AbstractPlayer.isShivering: Boolean
