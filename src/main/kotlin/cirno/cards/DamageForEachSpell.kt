@@ -2,6 +2,7 @@ package cirno.cards
 
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoCard
+import cirno.characters.spellZones
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
@@ -20,11 +21,17 @@ class DamageForEachSpell : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DA
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        damage(m!!)
+        damage(m!!, cirnoDynamicNumber)
     }
 
     override fun applyPowers() {
-
+        val placeHolderDamage = baseDamage
+        cirnoDynamicNumber = baseDamage + magicNumber * player.spellZones.storedCardsSize()
+        baseDamage = cirnoDynamicNumber
+        super.applyPowers()
+        cirnoDynamicNumber = damage
+        baseDamage = placeHolderDamage
+        isDamageModified = damage != baseDamage;
     }
 
     companion object {

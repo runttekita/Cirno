@@ -81,6 +81,8 @@ then
   INFINITE_ICE_WORKS='If you drew !M! Attacks, play this card next turn for free.'
   IF_FULL_SPELL='If you have 3 cirno:Spells set,'
   DEAL_DAMAGE_ALL_CLAUSE="deal !D! damage to ALL enemies."
+  FAIRY_BLAST='Deal !D! damage and deal !M! more damage for each set cirno:Spell.'
+  TOTAL='(Total: !baka!)'
 fi
 
 # Copy into production folder
@@ -95,6 +97,8 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$total/"${TOTAL}"/g ${PROD_JSON}
+sed -i s/\$fairyblast/"${FAIRY_BLAST}"/g ${PROD_JSON}
 sed -i s/\$iffullspell/"${IF_FULL_SPELL}"/g ${PROD_JSON}
 sed -i s/\$dealdamageallclause/"${DEAL_DAMAGE_ALL_CLAUSE}"/g ${PROD_JSON}
 sed -i s/\$chillyredirection/"${CHILLY_REDIRECTION}"/g ${PROD_JSON}

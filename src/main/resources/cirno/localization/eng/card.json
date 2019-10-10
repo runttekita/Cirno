@@ -97,5 +97,9 @@
   "ClashForSpells": {
     "NAME": "Spell Crash",
     "DESCRIPTION": "$iffullspell $dealdamageallclause"
+  },
+  "DamageForEachSpell": {
+    "NAME": "Fairy Blast",
+    "DESCRIPTION": "$fairyblast $nl $total"
   }
 }
