@@ -40,8 +40,7 @@ class PlayCardNextTurnPower(private val card: AbstractCard) : CirnoPower(), Help
         limbo.addToBottom(card)
         val target = randomMonster()
         card.applyPowers()
-        act(QueueCardAction(card, target))
-        act(UnlimboAction(card))
+        act(QueueCardAction(card, target), UnlimboAction(card))
         if (!Settings.FAST_MODE) {
             actButProbablyAHack(WaitAction(Settings.ACTION_DUR_MED));
         } else {
