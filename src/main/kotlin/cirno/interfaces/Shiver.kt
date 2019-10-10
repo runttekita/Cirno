@@ -91,6 +91,7 @@ interface Shiver {
     public class DrawLocator : SpireInsertLocator() {
         override fun Locate(p0: CtBehavior?): IntArray {
             val matcher = Matcher.MethodCallMatcher(AbstractCard::class.java, "triggerWhenDrawn")
+            return LineFinder.findInOrder(p0, matcher)
         }
 
     }
