@@ -17,6 +17,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.AbstractPower
 
 class AttackBackFreeze(private val target: AbstractCreature, private val turns: Int) : CirnoPower(), Helper, CloneablePowerInterface {
+    override val defaultSource: AbstractCreature
+        get() = owner
 
     companion object {
         var NAME: String? = null
@@ -38,7 +40,7 @@ class AttackBackFreeze(private val target: AbstractCreature, private val turns: 
 
     override fun onAttacked(info: DamageInfo, damageAmount: Int): Int {
         if (info.owner is AbstractMonster) {
-            act(ApplyPowerAction(info.owner, AbstractDungeon.player, FreezeNextTurn(info.owner, 1), 1))
+            power(FreezeNextTurn(info.owner, 1))
         }
         return damageAmount
     }
