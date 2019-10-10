@@ -27,11 +27,11 @@ interface Helper {
         get() = player.exhaustPile
     val defaultDrawAmount: Int
         get() = TODO()
-    val defaultTarget: AbstractCreature
-        get() = TODO()
     val defaultSource: AbstractCreature
         get() = TODO()
     val defaultBlock: Int
+        get() = TODO()
+    val defaultDamage: Int
         get() = TODO()
 
     fun act(a: AbstractGameAction) {
@@ -52,7 +52,7 @@ interface Helper {
         act(GainBlockAction(creature, creature, amt))
     }
 
-    fun damage(target: AbstractCreature = defaultTarget, amount: Int, source: AbstractCreature = defaultSource, type: DamageInfo.DamageType = DamageInfo.DamageType.NORMAL) {
+    fun damage(target: AbstractCreature, amount: Int = defaultDamage, source: AbstractCreature = defaultSource, type: DamageInfo.DamageType = DamageInfo.DamageType.NORMAL) {
         act(DamageAction(target, DamageInfo(source, amount)))
     }
 

@@ -28,6 +28,14 @@ abstract class CirnoCard
  target: AbstractCard.CardTarget, private val upgradeDamage: Int, private val upgradeBlock: Int,
  private val upgradeMagic: Int, private val upgradeCost: Int)
     : CustomCard(null, strings.NAME, getImg("Cirno:uwu"), cost, strings.DESCRIPTION, type, Cirno_Ice, rarity, target), Helper {
+    override val defaultDrawAmount: Int
+        get() = magicNumber
+    override val defaultSource: AbstractCreature
+        get() = player
+    override val defaultBlock: Int
+        get() = block
+    override val defaultDamage: Int
+        get() = damage
 
     init {
         cardID = makeID(this.javaClass.simpleName)
