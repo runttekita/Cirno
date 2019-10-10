@@ -78,6 +78,7 @@ then
   FREEZE_FOLLOW_UP='cirno:Freeze it.'
   CHILLY_REDIRECTION='When a card would be sent to the discard pile, shuffle it into the draw pile instead.'
   INNATE='Innate.'
+  INFINITE_ICE_WORKS='If you drew !M! Attacks, play this card next turn for free.'
 fi
 
 # Copy into production folder
@@ -93,6 +94,7 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
 sed -i s/\$chillyredirection/"${CHILLY_REDIRECTION}"/g ${PROD_JSON}
+sed -i s/\$infiniteiceworks/"${INFINITE_ICE_WORKS}"/g ${PROD_JSON}
 sed -i s/\$innate/"${INNATE}"/g ${PROD_JSON}
 sed -i s/\$ifcold/"${IF_COLD}"/g ${PROD_JSON}
 sed -i s/\$freezefollowup/"${FREEZE_FOLLOW_UP}"/g ${PROD_JSON}

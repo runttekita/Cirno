@@ -89,5 +89,9 @@
     "NAME": "Chilly Redirection",
     "DESCRIPTION": "$chillyredirection",
     "UPGRADE_DESCRIPTION": "$chillyredirection $nl $retain"
+  },
+  "AttackPlaysItselfMaybe": {
+    "NAME": "Infinite Ice Works",
+    "DESCRIPTION": "$damage $nl $draw $nl $infiniteiceworks"
   }
 }
