@@ -71,7 +71,7 @@ then
   ICICLE_SHOTGUN='Deal !D! damage and apply 1 cirno:Cold X times to a random enemy.'
   ICICLE_SHOTGUN_UPGRADE='Deal !D! damage and apply 1 cirno:Cold X+1 times to a random enemy.'
   IF_FROZEN='If an enemy is cirno:Frozen, '
-  AOE_SLOW='Apply Slow to all enemies.'
+  AOE_SLOW='Apply cirno:Slow to all enemies.'
   MULTI_FREEZE='cirno:Freeze an enemy for !M! turns.'
   GLACIAL_FORM='Enemies who attack you for the next !M! turns become cirno:Frozen.'
   IF_COLD='When you apply cirno:Cold to an enemy, '
