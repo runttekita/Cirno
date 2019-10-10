@@ -3,9 +3,11 @@ package cirno.interfaces
 import cirno.cards.Defend
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
+import com.megacrit.cardcrawl.actions.common.DamageAction
 import com.megacrit.cardcrawl.actions.common.GainBlockAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.CardGroup
+import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
@@ -33,6 +35,10 @@ interface Helper {
 
     fun block(creature: AbstractCreature, amt: Int) {
         act(GainBlockAction(creature, creature, amt))
+    }
+
+    fun damage(target: AbstractCreature, amount: Int, source: AbstractCreature = player, type: DamageInfo.DamageType = DamageInfo.DamageType.NORMAL) {
+        act(DamageAction(target, DamageInfo(source, amount)))
     }
 
     fun loopOverAllPiles(callback: (ArrayList<AbstractCard>) -> Unit) {
