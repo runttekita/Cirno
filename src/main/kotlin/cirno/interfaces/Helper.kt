@@ -38,6 +38,12 @@ interface Helper {
         AbstractDungeon.actionManager.addToBottom(a)
     }
 
+    fun act(vararg a: AbstractGameAction) {
+        for (action in a) {
+            AbstractDungeon.actionManager.addToBottom(action)
+        }
+    }
+
     fun power(power: AbstractPower) {
         act(ApplyPowerAction(power.owner, player, power))
     }
