@@ -126,5 +126,9 @@
   "DrawHeal": {
     "NAME": "Vitality Vacation",
     "DESCRIPTION": "$draw $nl $drawhealcost $nl $exhaust"
+  },
+  "SwapPilesGainBlock": {
+    "NAME": "Frozen Technique",
+    "DESCRIPTION": "$frozentechnique"
   }
 }

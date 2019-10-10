@@ -90,6 +90,7 @@ then
   DRAW_REDUCE='Decrease the cards drawn by this card by 1 this combat.'
   DIAMOND_BLIZZARD='If at least !D! cards drawn this way were skills, cirno:Freeze ALL enemies.'
   DRAW_HEAL_COST='Heal HP equal to their cost.'
+  FROZEN_TECHNIQUE='Gain Block equal to the number of cards in your discard pile. NL Then, switch your discard and draw piles.'
 fi
 
 # Copy into production folder
@@ -104,6 +105,7 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$frozentechnique/"${FROZEN_TECHNIQUE}"/g ${PROD_JSON}
 sed -i s/\$drawhealcost/"${DRAW_HEAL_COST}"/g ${PROD_JSON}
 sed -i s/\$diamondblizzard/"${DIAMOND_BLIZZARD}"/g ${PROD_JSON}
 sed -i s/\$drawreduce/"${DRAW_REDUCE}"/g ${PROD_JSON}
