@@ -51,8 +51,8 @@ interface Helper {
         AbstractDungeon.actionManager.addToTop(a)
     }
 
-    fun power(power: AbstractPower) {
-        act(ApplyPowerAction(power.owner, player, power))
+    fun power(power: AbstractPower, source: AbstractCreature = defaultSource) {
+        act(ApplyPowerAction(power.owner, defaultSource, power))
     }
 
     fun block(creature: AbstractCreature = defaultSource, amt: Int = defaultBlock) {

@@ -14,6 +14,7 @@ import cirno.relics.*
 class ReceiveEditRelics {
 
     init {
+		BaseMod.addRelicToCustomPool(StarterRelic(), CirnoChar.Enums.enums.Cirno_Ice);//delete
 		//autoAddRelics
         var count = 0
         var commonCount = 0

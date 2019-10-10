@@ -19,7 +19,7 @@ class FlameBarrierButCold : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, 0
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         block()
-        act(power(p, p, FlameBarrierButColdP(p, magicNumber), magicNumber))
+        power(FlameBarrierButColdP(p, magicNumber))
     }
 
     companion object {
