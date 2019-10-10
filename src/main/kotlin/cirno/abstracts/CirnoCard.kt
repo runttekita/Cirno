@@ -8,6 +8,8 @@ import cirno.powers.Cold
 import basemod.abstracts.CustomCard
 import cirno.characters.spellZones
 import cirno.interfaces.Helper
+import cirno.interfaces.Shiver
+import cirno.interfaces.isShivering
 import cirno.powers.ColdEchoFormP
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField
 import com.evacipated.cardcrawl.modthespire.lib.*
@@ -129,6 +131,17 @@ abstract class CirnoCard
     open fun spellEffect(m: AbstractMonster) {
 
     }
+
+    override fun triggerOnGlowCheck() {
+        if (this is Shiver) {
+            glowColor = if (player.isShivering) {
+                AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy()
+            } else {
+                AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy()
+            }
+        }
+    }
+
 
 }
 

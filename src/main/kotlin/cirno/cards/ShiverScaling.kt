@@ -36,12 +36,8 @@ class ShiverScaling : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
         initializeDescription()
     }
 
-    override fun triggerOnGlowCheck() {
-        glowColor = if (player.isShivering) {
-            AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy()
-        } else {
-            AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy()
-        }
+    override fun onShiver() {
+
     }
 
     companion object {
