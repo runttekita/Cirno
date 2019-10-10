@@ -34,7 +34,6 @@ class DrawFreezeAll : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
                 }
             }
         })
-
     }
 
     override fun applyPowers() {
