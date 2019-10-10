@@ -122,5 +122,9 @@
   "DrawFreezeAll": {
     "NAME": "Diamond Blizzard",
     "DESCRIPTION": "$draw $nl $diamondblizzard"
+  },
+  "DrawHeal": {
+    "NAME": "Vitality Vacation",
+    "DESCRIPTION": "$draw $nl $drawhealcost $nl $exhaust"
   }
 }
