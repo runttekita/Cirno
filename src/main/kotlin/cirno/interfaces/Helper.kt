@@ -60,7 +60,7 @@ interface Helper {
     }
 
     fun damage(target: AbstractCreature, amount: Int = defaultDamage, source: AbstractCreature = defaultSource, type: DamageInfo.DamageType = DamageInfo.DamageType.NORMAL) {
-        act(DamageAction(target, DamageInfo(source, amount)))
+        act(DamageAction(target, DamageInfo(source, amount), AbstractGameAction.AttackEffect.BLUNT_LIGHT))
     }
 
     fun draw(callback: ((AbstractCard) -> Unit)? = null, amount: Int = defaultDrawAmount) {
