@@ -2,6 +2,9 @@ package cirno.interfaces
 
 import cirno.characters.spellZones
 import com.badlogic.gdx.Game
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.badlogic.gdx.math.MathUtils
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.GameActionManager
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -10,8 +13,14 @@ import javassist.CtBehavior
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.relics.AbstractRelic
+import com.megacrit.cardcrawl.vfx.RarePotionParticleEffect
+import kotlin.random.Random
 
 interface Shiver {
+
+    companion object{
+        val shiverEffect = RarePotionParticleEffect(AbstractDungeon.player.hb)
+    }
 
     @SpirePatch(
             clz = AbstractPlayer::class,
@@ -152,6 +161,29 @@ interface Shiver {
         }
     }
 
+    @SpirePatch(
+            clz = AbstractPlayer::class,
+            method = "render"
+    )
+    public class RenderShiverEffect {
+        public companion object {
+            var sparkleTimer = 0f
+            var x = 0f
+            var y = 0f
+            @JvmStatic
+            fun Prefix(__instance: AbstractPlayer, sb: SpriteBatch) {
+                if (__instance.isShivering) {
+                    sparkleTimer -= Gdx.graphics.deltaTime
+                    if (sparkleTimer < 0.0f) {
+                        x = Random.nextFloat() * __instance.hb_w + __instance.hb_x
+                        y = Random.nextFloat() * __instance.hb_h + __instance.hb_y
+                        AbstractDungeon.topLevelEffects.add(RarePotionParticleEffect(x, y))
+                        this.sparkleTimer = MathUtils.random(0.35f, 0.5f)
+                    }
+                }
+            }
+        }
+    }
 
 }
 
