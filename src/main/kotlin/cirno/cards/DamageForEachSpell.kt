@@ -25,23 +25,27 @@ class DamageForEachSpell : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DA
     }
 
     override fun applyPowers() {
-        val placeHolderDamage = baseDamage
-        cirnoDynamicNumber = baseDamage + magicNumber * player.spellZones.storedCardsSize()
-        baseDamage = cirnoDynamicNumber
-        super.applyPowers()
-        cirnoDynamicNumber = damage
-        baseDamage = placeHolderDamage
-        isDamageModified = damage != baseDamage;
+        if (CardCrawlGame.dungeon != null) {
+            val placeHolderDamage = baseDamage
+            cirnoDynamicNumber = baseDamage + magicNumber * player.spellZones.storedCardsSize()
+            baseDamage = cirnoDynamicNumber
+            super.applyPowers()
+            cirnoDynamicNumber = damage
+            baseDamage = placeHolderDamage
+            isDamageModified = damage != baseDamage;
+        }
     }
 
     override fun calculateCardDamage(mo: AbstractMonster?) {
-        val placeHolderDamage = baseDamage
-        cirnoDynamicNumber = baseDamage + magicNumber * player.spellZones.storedCardsSize()
-        baseDamage = cirnoDynamicNumber
-        super.calculateCardDamage(mo)
-        cirnoDynamicNumber = damage
-        baseDamage = placeHolderDamage
-        isDamageModified = damage != baseDamage;
+        if (CardCrawlGame.dungeon != null) {
+            val placeHolderDamage = baseDamage
+            cirnoDynamicNumber = baseDamage + magicNumber * player.spellZones.storedCardsSize()
+            baseDamage = cirnoDynamicNumber
+            super.calculateCardDamage(mo)
+            cirnoDynamicNumber = damage
+            baseDamage = placeHolderDamage
+            isDamageModified = damage != baseDamage;
+        }
     }
 
     companion object {
