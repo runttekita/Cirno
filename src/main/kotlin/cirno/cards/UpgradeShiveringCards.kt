@@ -21,7 +21,7 @@ class UpgradeShiveringCards : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET,
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        power(UpgradeShiveringCardsP())
+        power(UpgradeShiveringCardsP(magicNumber))
     }
 
     override fun upgrade() {
@@ -45,6 +45,6 @@ class UpgradeShiveringCards : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET,
         private val MAGIC_UP = 0
         private val DAMAGE = 0
         private val BLOCK = 0
-        private val MAGIC = 0
+        private val MAGIC = 3
     }
 }
