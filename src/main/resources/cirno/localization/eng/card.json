@@ -164,5 +164,9 @@
   "ShiverAttackCold": {
     "NAME": "Ice Cubes",
     "DESCRIPTION": "$damage $nl $shiver $nl $damage $nl $cold"
+  },
+  "AttackDrawDamage": {
+    "NAME": "Kiss of Death",
+    "DESCRIPTION": "$damage $nl $kissofdeath"
   }
 }

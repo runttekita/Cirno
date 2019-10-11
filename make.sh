@@ -100,6 +100,7 @@ then
   FRUSTRATION='This deals damage equal to all cards drawn this combat.'
   STUDIOUS_EFFORTS='Upgrade the first !M! cards you draw outside of the start of the turn'
   SNOWMAN='If you drew !D! Attacks this way, ALL attacks gain !B! damage.'
+  KISS_OF_DEATH='This enemy takes !M! damage for every card drawn this turn.'
 fi
 
 # Copy into production folder
@@ -114,6 +115,7 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$kissofdeath/"${KISS_OF_DEATH}"/g ${PROD_JSON}
 sed -i s/\$snowman/"${SNOWMAN}"/g ${PROD_JSON}
 sed -i s/\$studiousefforts/"${STUDIOUS_EFFORTS}"/g ${PROD_JSON}
 sed -i s/\$frustration/"${FRUSTRATION}"/g ${PROD_JSON}

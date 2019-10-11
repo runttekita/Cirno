@@ -57,5 +57,12 @@
       "Upgrade the first #b",
       " cards drawn this turn outside the start of the turn."
     ]
+  },
+  "DealDamageOnDraw": {
+    "NAME": "Kiss of Death",
+    "DESCRIPTIONS": [
+      "When you draw a card deal #b",
+      " damage to this enemy."
+    ]
   }
 }
