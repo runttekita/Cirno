@@ -105,6 +105,7 @@ then
   CRYSTAL_VEIL='deal !D! damage for every cirno:Cold the attacker has and apply 1 cirno:Cold.'
   REMOVE_COLD='Remove cirno:Cold from ALL enemies.'
   FOR_EACH='for each.'
+  FROSTBURN='When you draw a card outside the start of the turn, deal !M! damage to ALL enemies with cirno:Cold.'
 fi
 
 # Copy into production folder
@@ -119,6 +120,7 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$frostburn/"${FROSTBURN}"/g ${PROD_JSON}
 sed -i s/\$shiveramount/"${SHIVER_AMT}"/g ${PROD_JSON}
 sed -i s/\$removecold/"${REMOVE_COLD}"/g ${PROD_JSON}
 sed -i s/\$foreach/"${FOR_EACH}"/g ${PROD_JSON}

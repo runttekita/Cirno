@@ -64,5 +64,12 @@
       "When you draw a card deal #b",
       " damage to this enemy."
     ]
+  },
+  "Frostburn": {
+    "NAME": "Frostburn",
+    "DESCRIPTIONS": [
+      "When you draw a card, deal #b",
+      " damage to ALL enemies with #yCold."
+    ]
   }
 }
