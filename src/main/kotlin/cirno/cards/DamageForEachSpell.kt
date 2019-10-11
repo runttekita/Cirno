@@ -34,6 +34,16 @@ class DamageForEachSpell : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DA
         isDamageModified = damage != baseDamage;
     }
 
+    override fun calculateCardDamage(mo: AbstractMonster?) {
+        val placeHolderDamage = baseDamage
+        cirnoDynamicNumber = baseDamage + magicNumber * player.spellZones.storedCardsSize()
+        baseDamage = cirnoDynamicNumber
+        super.calculateCardDamage(mo)
+        cirnoDynamicNumber = damage
+        baseDamage = placeHolderDamage
+        isDamageModified = damage != baseDamage;
+    }
+
     companion object {
         private val cardStrings = CardCrawlGame.languagePack.getCardStrings(
                 makeID(DamageForEachSpell::class.java.simpleName))
