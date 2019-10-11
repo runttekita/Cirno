@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import cirno.interfaces.Helper
+import com.megacrit.cardcrawl.actions.common.DrawCardAction
 
 
 class DrawFreezeAll : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, DRAW_UP, COST), Helper {
@@ -21,19 +22,16 @@ class DrawFreezeAll : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
+        act(DrawCardAction(p, magicNumber))
         var skillsDrawn = 0
-        draw({c ->
-            run {
-                if (c.type == CardType.SKILL) {
-                    skillsDrawn++
-                    if (skillsDrawn == damage) {
-                        loopOverMonsters { monster ->
-                            act(FreezeMonsterAction(monster, player))
-                        }
-                    }
-                }
+        for (i in 0 until magicNumber) {
+            if (drawPile.getNCardFromTop(i).type == CardType.SKILL) {
+                skillsDrawn++
             }
-        })
+        }
+        loopOverMonsters { monster -> {
+            act(FreezeMonsterAction(monster, p))
+        }}
     }
 
     override fun applyPowers() {

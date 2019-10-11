@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import cirno.interfaces.Helper
+import com.megacrit.cardcrawl.actions.common.DrawCardAction
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 
 
 class DrawXReduceX : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, DRAW_UP, COST), Helper {
@@ -24,16 +26,20 @@ class DrawXReduceX : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_U
         when {
             upgraded -> {
                 act(XCostAction(energyOnUse) {
-                    draw({
-                        p.hand.getRandomCard(true).costForTurn = 0
-                    })})
+                    act(DrawCardAction(p, magicNumber))
+                })
             }
             else -> {
                 act(XCostAction(energyOnUse + 1) {
-                    draw({
-                        p.hand.getRandomCard(true).costForTurn = 0
-                    })})
+                    act(DrawCardAction(p, magicNumber))
+                })
             }
+        }
+        val availableCards = ArrayList<AbstractCard>(hand.group)
+        for (i in 0 until magicNumber) {
+            val card = availableCards.get(AbstractDungeon.cardRng.random(availableCards.size - 1))
+            card.costForTurn = 0
+            availableCards.remove(card)
         }
     }
 

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import cirno.interfaces.Helper
+import com.megacrit.cardcrawl.actions.common.DrawCardAction
 import com.megacrit.cardcrawl.actions.common.HealAction
 
 
@@ -22,11 +23,11 @@ class DrawHeal : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, B
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        draw({
-            c -> run {
-                act(HealAction(p, p, c.cost))
-            }
-        })
+        act(DrawCardAction(p, magicNumber))
+        for (i in 0 until magicNumber) {
+            val card = drawPile.getNCardFromTop(i)
+            act(HealAction(p, p, card.cost))
+        }
     }
 
     companion object {

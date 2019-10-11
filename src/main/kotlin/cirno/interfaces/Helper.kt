@@ -1,6 +1,5 @@
 package cirno.interfaces
 
-import cirno.actions.DrawActionButWithACallback
 import cirno.cards.Defend
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
@@ -61,10 +60,6 @@ interface Helper {
 
     fun damage(target: AbstractCreature, amount: Int = defaultDamage, source: AbstractCreature = defaultSource, type: DamageInfo.DamageType = DamageInfo.DamageType.NORMAL) {
         act(DamageAction(target, DamageInfo(source, amount), AbstractGameAction.AttackEffect.BLUNT_LIGHT))
-    }
-
-    fun draw(callback: ((AbstractCard) -> Unit)? = null, amount: Int = defaultDrawAmount) {
-        act(DrawActionButWithACallback(amount, callback))
     }
 
     fun loopOverAllPiles(callback: (ArrayList<AbstractCard>) -> Unit) {
