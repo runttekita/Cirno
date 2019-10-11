@@ -218,7 +218,23 @@ class SpellZoneManager : NotShittyTookDamage, OnApplyColdSpell, OnCardDrawSpell,
             val matcher = Matcher.FieldAccessMatcher(UseCardAction::class.java, "reboundCard")
             return LineFinder.findInOrder(ctMethodToPatch, matcher)
         }
+    }
 
+    @SpirePatch(
+            clz = AbstractPlayer::class,
+            method = "onVictory"
+    )
+    public class ClearSpellsAtEndOfCombat {
+        public companion object {
+            @JvmStatic
+            fun Prefix(__instance: AbstractPlayer) {
+                for (zone in __instance.spellZones.zones) {
+                    __instance.spellZones.setSpell(BlankSpellZone())
+                    __instance.spellZones.setSpell(BlankSpellZone())
+                    __instance.spellZones.setSpell(BlankSpellZone())
+                }
+            }
+        }
     }
 
 }
