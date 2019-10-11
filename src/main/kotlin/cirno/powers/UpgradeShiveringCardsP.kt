@@ -43,6 +43,6 @@ class UpgradeShiveringCardsP(amount: Int) : CirnoPower() {
         cardsUpgradedThisTurn = 0
     }
     override fun updateDescription() {
-
+        description = "${DESCRIPTIONS!![0]}$amount${DESCRIPTIONS!![1]}"
     }
 }

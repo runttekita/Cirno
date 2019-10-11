@@ -50,5 +50,12 @@
     "DESCRIPTIONS": [
       "Whenever you play a card this turn, put a random card in your hand to the bottom of your draw pile."
     ]
+  },
+  "UpgradeShiveringCardsP": {
+    "NAME": "Studious Efforts",
+    "DESCRIPTIONS": [
+      "Upgrade the first #b",
+      " cards drawn this turn outside the start of the turn."
+    ]
   }
 }

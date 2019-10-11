@@ -150,6 +150,11 @@
   },
   "CardsDrawnThisCombat": {
     "NAME": "Pent Up Frustration",
-    "DESCRIPTION": "$shiver $damageall $nl $frustration $nl $exhaust"
+    "DESCRIPTION": "$shiver $damageall $nl $frustration $nl $exhaust",
+  },
+  "UpgradeShiveringCards": {
+    "NAME": "Studious Efforts",
+    "DESCRIPTION": "$studiousefforts",
+    "UPGRADE_DESCRIPTION": "studiousefforts $nl $innate"
   }
 }
