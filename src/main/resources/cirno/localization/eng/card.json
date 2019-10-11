@@ -156,5 +156,9 @@
     "NAME": "Studious Efforts",
     "DESCRIPTION": "$studiousefforts",
     "UPGRADE_DESCRIPTION": "studiousefforts $nl $innate"
+  },
+  "IncreaseAttackDamageDraw": {
+    "NAME": "Midsummer Snowman",
+    "DESCRIPTION": "$draw $nl $snowman"
   }
 }
