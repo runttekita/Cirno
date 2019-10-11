@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import cirno.interfaces.Helper
 import cirno.interfaces.Shiver
 import cirno.interfaces.isShivering
+import cirno.interfaces.shivered
 
 
 class ShiverScaling : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, BONUS_UP, COST), Helper, Shiver {
@@ -25,7 +26,7 @@ class ShiverScaling : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         damage(m!!)
-        if (p.isShivering) {
+        if (shivered) {
             misc += magicNumber
         }
     }

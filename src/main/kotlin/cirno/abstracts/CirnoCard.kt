@@ -3,13 +3,10 @@ package cirno.abstracts
 import cirno.Cirno
 import cirno.Cirno.Statics.makeID
 import cirno.characters.CirnoChar.Enums.enums.Cirno_Ice
-import cirno.interfaces.NotShittyTookDamage
 import cirno.powers.Cold
 import basemod.abstracts.CustomCard
 import cirno.characters.spellZones
-import cirno.interfaces.Helper
-import cirno.interfaces.Shiver
-import cirno.interfaces.isShivering
+import cirno.interfaces.*
 import cirno.powers.ColdEchoFormP
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField
 import com.evacipated.cardcrawl.modthespire.lib.*
@@ -134,7 +131,7 @@ abstract class CirnoCard
 
     override fun triggerOnGlowCheck() {
         if (this is Shiver) {
-            glowColor = if (player.isShivering) {
+            glowColor = if (shivered) {
                 AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy()
             } else {
                 AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy()

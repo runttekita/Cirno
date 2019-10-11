@@ -27,6 +27,17 @@ interface Shiver {
     }
 
     @SpirePatch(
+            clz = AbstractCard::class,
+            method = SpirePatch.CLASS
+    )
+    public class ShiverCard {
+        public companion object {
+            @JvmField
+            public var cardShivering = SpireField<Boolean> {false}
+        }
+    }
+
+    @SpirePatch(
             clz = GameActionManager::class,
             method = SpirePatch.CLASS
     )
@@ -77,6 +88,18 @@ interface Shiver {
             fun Prefix(__instance: GameActionManager) {
                 AbstractDungeon.player.isShivering = false
                 AbstractDungeon.player.shiveredCards = 0
+                for (card in AbstractDungeon.player.hand.group) {
+                    card.shivered = false
+                }
+                for (card in AbstractDungeon.player.drawPile.group) {
+                    card.shivered = false
+                }
+                for (card in AbstractDungeon.player.discardPile.group) {
+                    card.shivered = false
+                }
+                for (card in AbstractDungeon.player.exhaustPile.group) {
+                    card.shivered = false
+                }
             }
         }
     }
@@ -91,12 +114,16 @@ interface Shiver {
     public class DrawPatch {
         public companion object {
             @SpireInsertPatch(
-                    locator = DrawLocator::class
+                    locator = DrawLocator::class,
+                    localvars = [
+                        "c"
+                    ]
             )
             @JvmStatic
-            fun Insert(__instance: AbstractPlayer, numCards: Int) {
+            fun Insert(__instance: AbstractPlayer, numCards: Int, c: AbstractCard) {
                 if (__instance.isShivering) {
                     AbstractDungeon.player.shiveredCards++
+                    c.shivered = true
                 }
                 AbstractDungeon.player.spellZones.onDraw()
                 AbstractDungeon.actionManager.cardsDrawnThisCombat++
@@ -139,3 +166,7 @@ var AbstractPlayer.shiveredCards: Int
 var GameActionManager.cardsDrawnThisCombat
     get() = Shiver.CardsDrawnThisCombat.cardsDrawnThisCombat.get(this)
     set(value) = Shiver.CardsDrawnThisCombat.cardsDrawnThisCombat.set(this, value)
+
+var AbstractCard.shivered: Boolean
+    get() = Shiver.ShiverCard.cardShivering.get(this)
+    set(value) = Shiver.ShiverCard.cardShivering.set(this, value)
