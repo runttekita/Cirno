@@ -175,7 +175,7 @@
   },
   "SpellAttackedCold": {
     "NAME": "Crystal Veil",
-    "DESCRIPTION": "$spell $nl $whenattacked #crystalveil"
+    "DESCRIPTION": "$spell $nl $whenattacked $crystalveil"
   },
   "RemoveColdEnergy": {
     "NAME": "Ice Skating",

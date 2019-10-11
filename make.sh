@@ -62,7 +62,7 @@ then
   SPELL='cirno:Spell'
   AND='and'
   SPELL_FREEZE='cirno:Freeze the attacker.'
-  WHEN_ATTACKED='When you are attacked, '
+  WHEN_ATTACKED='When you are attacked,'
   DAMAGE_CLAUSE='deal !D! damage'
   CONDITIONAL_DRAW='Draw !M! cards and if you draw a'
   LOCK_YOU='cirno:Freeze ALL enemies.'
