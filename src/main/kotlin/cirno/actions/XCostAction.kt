@@ -13,6 +13,7 @@ class XCostAction(private var energy: Int, private val callback: () -> Unit): Ab
         for (i in 0 until energy) {
             callback
         }
+        AbstractDungeon.player.energy.energy = 0
         isDone = true
     }
 
