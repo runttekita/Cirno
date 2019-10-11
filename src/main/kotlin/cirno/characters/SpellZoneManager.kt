@@ -122,7 +122,7 @@ class SpellZoneManager : NotShittyTookDamage, OnApplyColdSpell, OnCardDrawSpell,
             @SpireInsertPatch(
                     locator = RenderLocator::class
             )
-            public fun Insert(__instance: AbstractPlayer, sb: SpriteBatch) {
+            public fun Insert(__instance: AbstractCreature, sb: SpriteBatch) {
                 if (CardCrawlGame.dungeon != null && AbstractDungeon.player != null && AbstractDungeon.player.spellZones.zones.isNotEmpty()) {
                     for (zone in AbstractDungeon.player.spellZones.zones) {
                         when (AbstractDungeon.player.spellZones.zones.indexOf(zone)) {
