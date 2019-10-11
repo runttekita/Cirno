@@ -25,7 +25,7 @@ import java.nio.file.Files.move
 
 
 
-class SpellZoneManager : NotShittyTookDamage, OnApplyColdSpell, OnCardDrawSpell {
+class SpellZoneManager : NotShittyTookDamage, OnApplyColdSpell, OnCardDrawSpell, NotShittyOnAttackedSpell {
     var zones = ArrayList<SpellZone>()
 
     public fun addZone() {
@@ -72,6 +72,14 @@ class SpellZoneManager : NotShittyTookDamage, OnApplyColdSpell, OnCardDrawSpell 
         for (zone in zones) {
             if (zone.storedCard is TookDamageSpell) {
                 zone.triggerEffect(i)
+            }
+        }
+    }
+
+    override fun notShittyOnAttacked(info: DamageInfo) {
+        for (zone in zones) {
+            if (zone.storedCard is NotShittyOnAttackedSpell) {
+                zone.triggerEffect(info)
             }
         }
     }

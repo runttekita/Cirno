@@ -17,12 +17,14 @@ interface NotShittyTookDamage {
         @SpireInsertPatch(locator = Locator::class)
         @JvmStatic
         fun Insert(__instance: AbstractPlayer, i: DamageInfo) {
-            for (c in AbstractDungeon.player.hand.group) {
-                if (c is NotShittyTookDamage) {
-                    (c as NotShittyTookDamage).notShittyTookDamage(i)
+            if (i.owner != null) {
+                for (c in AbstractDungeon.player.hand.group) {
+                    if (c is NotShittyTookDamage) {
+                        (c as NotShittyTookDamage).notShittyTookDamage(i)
+                    }
                 }
+                AbstractDungeon.player.spellZones.notShittyTookDamage(i)
             }
-            AbstractDungeon.player.spellZones.notShittyTookDamage(i)
         }
     }
 
