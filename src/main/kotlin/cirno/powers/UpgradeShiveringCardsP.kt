@@ -3,6 +3,7 @@ package cirno.powers
 import cirno.Cirno
 import cirno.abstracts.CirnoPower
 import cirno.interfaces.isShivering
+import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
@@ -26,6 +27,7 @@ class UpgradeShiveringCardsP(amount: Int) : CirnoPower() {
         name = NAME
         owner = AbstractDungeon.player
         this.amount = amount
+        amount2 = amount
         updateDescription()
         img = Cirno.textureLoader.getTexture(Cirno.makePowerPath(this.javaClass.simpleName))
     }
@@ -35,12 +37,14 @@ class UpgradeShiveringCardsP(amount: Int) : CirnoPower() {
             if (cardsUpgradedThisTurn < amount) {
                 card.upgrade()
                 cardsUpgradedThisTurn++
+                amount2--
             }
         }
     }
 
     override fun atEndOfTurn(isPlayer: Boolean) {
         cardsUpgradedThisTurn = 0
+        amount2 = amount
     }
     override fun updateDescription() {
         description = "${DESCRIPTIONS!![0]}$amount${DESCRIPTIONS!![1]}"

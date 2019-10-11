@@ -1,8 +1,9 @@
 package cirno.abstracts
 
+import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower
 import com.megacrit.cardcrawl.powers.AbstractPower
 
-abstract class CirnoPower : AbstractPower() {
+abstract class CirnoPower : TwoAmountPower() {
     init {
 
     }
