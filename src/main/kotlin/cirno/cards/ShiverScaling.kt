@@ -37,6 +37,12 @@ class ShiverScaling : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
         initializeDescription()
     }
 
+    override fun calculateCardDamage(mo: AbstractMonster?) {
+        baseBlock = misc
+        super.calculateCardDamage(mo)
+        initializeDescription()
+    }
+
     override fun onShiver() {
 
     }
