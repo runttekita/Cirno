@@ -27,7 +27,6 @@ class XCostHitRandomCold : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DA
         when {
             upgraded -> {
                 act(XCostAction(energyOnUse) {
-                    println("??")
                     val bitchToHit = AbstractDungeon.getRandomMonster()
                     damage(bitchToHit)
                     act(ApplyPowerAction(bitchToHit, p, Cold(bitchToHit)))

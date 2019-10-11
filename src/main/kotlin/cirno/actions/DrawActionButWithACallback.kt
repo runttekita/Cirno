@@ -83,5 +83,6 @@ class DrawActionButWithACallback(amount: Int, callback: ((AbstractCard) -> Unit)
                 }
             }
         }
+        isDone = true
     }
 }
