@@ -39,6 +39,7 @@ class SpellEnergyFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAM
     override fun upgrade() {
         if (!upgraded) {
             upgradeName()
+            energyString = ""
             upgradeMagicNumber(ENERGY_UP)
             for (i in 0 until magicNumber) {
                 energyString += "[E] "

@@ -106,7 +106,7 @@
     "NAME": "Respite",
     "DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
-      "$spell $nl $literallyjusthewordgain",
+      "$spell $nl $whenfreeze $literallyjustthewordgain",
       "$literallyjustperiod"
     ]
   },

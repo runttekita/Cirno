@@ -104,8 +104,9 @@ then
   SNOWFLAKE='Reduce the cost of ALL cards in your hand to 0 this combat.'
   CRYSTAL_VEIL='deal !D! damage for every cirno:Cold the attacker has and apply 1 cirno:Cold.'
   REMOVE_COLD='Remove cirno:Cold from ALL enemies.'
-  FOR_EACH='for each.'
+  FOR_EACH='for each stack of cirno:Cold.'
   FROSTBURN='When you draw a card outside the start of the turn, deal !M! damage to ALL enemies with cirno:Cold.'
+  WHEN_FREEZE='When you cirno:Freeze an enemy,'
 fi
 
 # Copy into production folder
@@ -120,6 +121,7 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$whenfreeze/"${WHEN_FREEZE}"/g ${PROD_JSON}
 sed -i s/\$frostburn/"${FROSTBURN}"/g ${PROD_JSON}
 sed -i s/\$shiveramount/"${SHIVER_AMT}"/g ${PROD_JSON}
 sed -i s/\$removecold/"${REMOVE_COLD}"/g ${PROD_JSON}
