@@ -21,7 +21,7 @@ class DealDamageToColdEnemiesOnDraw : CirnoCard(cardStrings, COST, TYPE, RARITY,
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        power(DealDamageToCold(magicNumber, m!!))
+        power(DealDamageToCold(magicNumber))
     }
 
     companion object {

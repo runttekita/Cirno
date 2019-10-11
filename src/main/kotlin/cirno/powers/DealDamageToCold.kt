@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.localization.PowerStrings
 
-class DealDamageToCold(amount: Int, owner: AbstractCreature) : CirnoPower(), Helper {
+class DealDamageToCold(amount: Int) : CirnoPower(), Helper {
     companion object {
         var NAME: String? = null
         var DESCRIPTIONS: Array<String>? = null
@@ -26,7 +26,7 @@ class DealDamageToCold(amount: Int, owner: AbstractCreature) : CirnoPower(), Hel
         name = NAME
         updateDescription()
         img = Cirno.textureLoader.getTexture(Cirno.makePowerPath(this.javaClass.simpleName))
-        this.owner = owner
+        this.owner = player
         this.amount = amount
         isTurnBased = true
     }
