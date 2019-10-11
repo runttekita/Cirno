@@ -36,9 +36,9 @@ class ColdScalingAttack : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAM
         private val TARGET = AbstractCard.CardTarget.ENEMY
         private val DAMAGE_UP = 3
         private val BLOCK_UP = 0
-        private val DMG_BONUS_UP = 3
+        private val DMG_BONUS_UP = 1
         private val DAMAGE = 6
         private val BLOCK = 0
-        private val DMG_BONUS = 4
+        private val DMG_BONUS = 2
     }
 }
