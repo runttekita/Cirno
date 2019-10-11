@@ -11,7 +11,7 @@ class XCostAction(private var energy: Int, private val callback: () -> Unit): Ab
             energy += ChemicalX.BOOST
         }
         for (i in 0 until energy) {
-            callback()
+            callback
         }
         isDone = true
     }
