@@ -3,14 +3,14 @@
     "NAME": "Hail",
     "DESCRIPTION": "$multidmg $nl $aoecold"
   },
+  "AoEDamageToFrozenEnemies": {
+    "NAME": "Great Crusher",
+    "DESCRIPTION": "$iffrozen $damageclause"
+  },
   "AoEFreeze": {
     "NAME": "Lock You",
     "DESCRIPTION": "$lockyou",
     "UPGRADE_DESCRIPTION": "$lockyou $nl $retain"
-  },
-  "AoEDamageToFrozenEnemies": {
-    "NAME": "Great Crusher",
-    "DESCRIPTION": "$iffrozen $damageclause"
   },
   "AoESlow": {
     "NAME": "Slippery Path",
@@ -20,9 +20,33 @@
     "NAME": "Frost Bash",
     "DESCRIPTION": "$damage $nl $block"
   },
+  "AttackDrawDamage": {
+    "NAME": "Kiss of Death",
+    "DESCRIPTION": "$damage $nl $kissofdeath"
+  },
+  "AttackPlaysItselfMaybe": {
+    "NAME": "Infinite Ice Works",
+    "DESCRIPTION": "$damage $nl $draw $nl $infiniteiceworks"
+  },
   "BlankSpellZone": {
     "NAME": "Spell Zone",
     "DESCRIPTION": "An empty *Spell *Zone"
+  },
+  "BlockReduceCost": {
+    "NAME": "Snowflake",
+    "DESCRIPTION": "$block $nl $shiver $nl $snowflake $nl $exhaust"
+  },
+  "CardDrawReduce": {
+    "NAME": "Fairy Sprint",
+    "DESCRIPTION": "$draw $nl $drawreduce"
+  },
+  "CardsDrawnThisCombat": {
+    "NAME": "Pent Up Frustration",
+    "DESCRIPTION": "$shiver $damageall $nl $frustration $nl $exhaust"
+  },
+  "ClashForSpells": {
+    "NAME": "Spell Crash",
+    "DESCRIPTION": "$iffullspell $dealdamageallclause"
   },
   "ColdBane": {
     "NAME": "Frostbite",
@@ -32,6 +56,11 @@
     "NAME": "Icicle Rise",
     "DESCRIPTION": "$conditionaldraw $colddraw"
   },
+  "ColdEchoForm": {
+    "NAME": "Frozen Domain",
+    "DESCRIPTION": "$frozendomain $nl $ethereal",
+    "UPGRADE_DESCRIPTION": "$frozendomain"
+  },
   "ColdScalingAttack": {
     "NAME": "Icicle Machine Gun",
     "DESCRIPTION": "$damage $nl $increasedamagewithcold"
@@ -40,9 +69,34 @@
     "NAME": "Icicle Spear",
     "DESCRIPTION": "$damage $nl $cold"
   },
+  "DamageForEachSpell": {
+    "NAME": "Fairy Blast",
+    "DESCRIPTION": "$fairyblast $nl $total"
+  },
+  "DealDamageToColdEnemiesOnDraw": {
+    "NAME": "Frostburn",
+    "DESCRIPTION": "$frostburn"
+  },
   "Defend": {
     "NAME": "Defend",
     "DESCRIPTION": "$block"
+  },
+  "DrawFreezeAll": {
+    "NAME": "Diamond Blizzard",
+    "DESCRIPTION": "$draw $nl $diamondblizzard"
+  },
+  "DrawHeal": {
+    "NAME": "Vitality Vacation",
+    "DESCRIPTION": "$draw $nl $drawhealcost $nl $exhaust"
+  },
+  "DrawThenPutBack": {
+    "NAME": "Icicle Rise",
+    "DESCRIPTION": "$draw $nl $iciclerise"
+  },
+  "DrawXReduceX": {
+    "NAME": "Perfect Storm",
+    "DESCRIPTION": "$perfectstorm",
+    "UPGRADE_DESCRIPTION": "$perfectstormup"
   },
   "FlameBarrierButCold": {
     "NAME": "Ice Barrier",
@@ -56,17 +110,58 @@
     "NAME": "Frozen Technique",
     "DESCRIPTION": "$spell $nl $ifcold $freezefollowup"
   },
+  "FrozenDiscard": {
+    "NAME": "Chilly Redirection",
+    "DESCRIPTION": "$chillyredirection",
+    "UPGRADE_DESCRIPTION": "$chillyredirection $nl $retain"
+  },
   "GlacialForm": {
     "NAME": "Glacial Form",
     "DESCRIPTION": "$glacialform"
+  },
+  "IncreaseAttackDamageDraw": {
+    "NAME": "Midsummer Snowman",
+    "DESCRIPTION": "$draw $nl $snowman"
   },
   "MultiTurnFreeze": {
     "NAME": "Perfect Freeze",
     "DESCRIPTION": "$multifreeze"
   },
+  "RemoveColdEnergy": {
+    "NAME": "Ice Skating",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "$removecold $nl $literallyjustthewordgain",
+      "$foreach"
+    ]
+  },
+  "ShiverAttackCold": {
+    "NAME": "Ice Cubes",
+    "DESCRIPTION": "$damage $nl $shiver $nl $damage $nl $cold"
+  },
+  "ShiverScaling": {
+    "NAME": "Fairy Spin",
+    "DESCRIPTION": "$damage $nl $shiver $fairyspin $nl $exhaust"
+  },
+  "SpellAttackedCold": {
+    "NAME": "Crystal Veil",
+    "DESCRIPTION": "$spell $nl $whenattacked $crystalveil"
+  },
   "SpellAttackedFreeze": {
     "NAME": "Frigid Atmosphere",
     "DESCRIPTION": "$spell $nl $whenattacked $damageclause $and $spellfreeze"
+  },
+  "SpellCardDrawDamage": {
+    "NAME": "Hidden Genius",
+    "DESCRIPTION": "$spell $nl $shiveramount $dealdamageallclause"
+  },
+  "SpellEnergyFreeze": {
+    "NAME": "Respite",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "$spell $nl $whenfreeze $literallyjustthewordgain",
+      "$literallyjustperiod"
+    ]
   },
   "SpreadCold": {
     "NAME": "Little Iceberg",
@@ -80,113 +175,18 @@
     "NAME": "Frost King",
     "DESCRIPTION": "$frostking"
   },
-  "XCostHitRandomCold": {
-    "NAME": "Icicle Shotgun",
-    "DESCRIPTION": "$icicleshotgun",
-    "UPGRADE_DESCRIPTION": "$icicleshotgunupgrade"
-  },
-  "FrozenDiscard": {
-    "NAME": "Chilly Redirection",
-    "DESCRIPTION": "$chillyredirection",
-    "UPGRADE_DESCRIPTION": "$chillyredirection $nl $retain"
-  },
-  "AttackPlaysItselfMaybe": {
-    "NAME": "Infinite Ice Works",
-    "DESCRIPTION": "$damage $nl $draw $nl $infiniteiceworks"
-  },
-  "ClashForSpells": {
-    "NAME": "Spell Crash",
-    "DESCRIPTION": "$iffullspell $dealdamageallclause"
-  },
-  "DamageForEachSpell": {
-    "NAME": "Fairy Blast",
-    "DESCRIPTION": "$fairyblast $nl $total"
-  },
-  "SpellEnergyFreeze": {
-    "NAME": "Respite",
-    "DESCRIPTION": "",
-    "EXTENDED_DESCRIPTION": [
-      "$spell $nl $whenfreeze $literallyjustthewordgain",
-      "$literallyjustperiod"
-    ]
-  },
-  "DrawXReduceX": {
-    "NAME": "Perfect Storm",
-    "DESCRIPTION": "$perfectstorm",
-    "UPGRADE_DESCRIPTION": "$perfectstormup"
-  },
-  "CardDrawReduce": {
-    "NAME": "Fairy Sprint",
-    "DESCRIPTION": "$draw $nl $drawreduce"
-  },
-  "DrawFreezeAll": {
-    "NAME": "Diamond Blizzard",
-    "DESCRIPTION": "$draw $nl $diamondblizzard"
-  },
-  "DrawHeal": {
-    "NAME": "Vitality Vacation",
-    "DESCRIPTION": "$draw $nl $drawhealcost $nl $exhaust"
-  },
   "SwapPilesGainBlock": {
     "NAME": "Frozen Technique",
     "DESCRIPTION": "$frozentechnique"
-  },
-  "ColdEchoForm": {
-    "NAME": "Frozen Domain",
-    "DESCRIPTION": "$frozendomain $nl $ethereal",
-    "UPGRADE_DESCRIPTION": "$frozendomain"
-  },
-  "ShiverScaling": {
-    "NAME": "Fairy Spin",
-    "DESCRIPTION": "$damage $nl $shiver $fairyspin $nl $exhaust"
-  },
-  "DrawThenPutBack": {
-    "NAME": "Icicle Rise",
-    "DESCRIPTION": "$draw $nl $iciclerise"
-  },
-  "SpellCardDrawDamage": {
-    "NAME": "Hidden Genius",
-    "DESCRIPTION": "$spell $nl $shiveramount $dealdamageallclause"
-  },
-  "CardsDrawnThisCombat": {
-    "NAME": "Pent Up Frustration",
-    "DESCRIPTION": "$shiver $damageall $nl $frustration $nl $exhaust"
   },
   "UpgradeShiveringCards": {
     "NAME": "Studious Efforts",
     "DESCRIPTION": "$studiousefforts",
     "UPGRADE_DESCRIPTION": "$studiousefforts $nl $innate"
   },
-  "IncreaseAttackDamageDraw": {
-    "NAME": "Midsummer Snowman",
-    "DESCRIPTION": "$draw $nl $snowman"
-  },
-  "ShiverAttackCold": {
-    "NAME": "Ice Cubes",
-    "DESCRIPTION": "$damage $nl $shiver $nl $damage $nl $cold"
-  },
-  "AttackDrawDamage": {
-    "NAME": "Kiss of Death",
-    "DESCRIPTION": "$damage $nl $kissofdeath"
-  },
-  "BlockReduceCost": {
-    "NAME": "Snowflake",
-    "DESCRIPTION": "$block $nl $shiver $nl $snowflake $nl $exhaust"
-  },
-  "SpellAttackedCold": {
-    "NAME": "Crystal Veil",
-    "DESCRIPTION": "$spell $nl $whenattacked $crystalveil"
-  },
-  "RemoveColdEnergy": {
-    "NAME": "Ice Skating",
-    "DESCRIPTION": "",
-    "EXTENDED_DESCRIPTION": [
-      "$removecold $nl $literallyjustthewordgain",
-      "$foreach"
-    ]
-  },
-  "DealDamageToColdEnemiesOnDraw": {
-    "NAME": "Frostburn",
-    "DESCRIPTION": "$frostburn"
+  "XCostHitRandomCold": {
+    "NAME": "Icicle Shotgun",
+    "DESCRIPTION": "$icicleshotgun",
+    "UPGRADE_DESCRIPTION": "$icicleshotgunupgrade"
   }
 }
