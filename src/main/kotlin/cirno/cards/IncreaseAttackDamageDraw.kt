@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import cirno.interfaces.Helper
+import com.megacrit.cardcrawl.actions.common.DrawCardAction
 
 
 class IncreaseAttackDamageDraw : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, DRAW_UP, 0), Helper {
@@ -21,22 +22,21 @@ class IncreaseAttackDamageDraw : CirnoCard(cardStrings, COST, TYPE, RARITY, TARG
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         var attacksDrawn = 0
-        draw({card ->
-            run {
-                if (card.type == CardType.ATTACK) {
-                    attacksDrawn++
-                    if (attacksDrawn == damage) {
-                        loopOverAllPiles { list ->
-                            list.forEach {
-                                if (it.type == CardType.ATTACK) {
-                                    it.baseDamage += block
-                                }
-                            }
-                        }
+        act(DrawCardAction(p, magicNumber))
+        for (i in 0 until magicNumber) {
+            if (drawPile.getNCardFromTop(i).type == CardType.ATTACK) {
+                attacksDrawn++
+            }
+        }
+        if (attacksDrawn == damage) {
+            loopOverAllPiles { list ->
+                list.forEach {
+                    if (it.type == CardType.ATTACK) {
+                        it.baseDamage += block
                     }
                 }
             }
-        })
+        }
     }
 
     override fun applyPowers() {

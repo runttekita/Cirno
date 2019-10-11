@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import cirno.interfaces.Helper
+import com.megacrit.cardcrawl.actions.common.DrawCardAction
 
 
 class CardDrawReduce : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, DRAW_UP, COST), Helper {
@@ -20,7 +21,7 @@ class CardDrawReduce : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        draw()
+        act(DrawCardAction(p, magicNumber))
         baseMagicNumber--
         magicNumber = baseMagicNumber
     }

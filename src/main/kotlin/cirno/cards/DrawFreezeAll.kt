@@ -29,9 +29,11 @@ class DrawFreezeAll : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_
                 skillsDrawn++
             }
         }
-        loopOverMonsters { monster -> {
-            act(FreezeMonsterAction(monster, p))
-        }}
+        if (skillsDrawn == damage) {
+            loopOverMonsters { monster -> {
+                act(FreezeMonsterAction(monster, p))
+            }}
+        }
     }
 
     override fun applyPowers() {

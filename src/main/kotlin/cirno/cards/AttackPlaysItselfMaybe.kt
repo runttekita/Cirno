@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import cirno.interfaces.Helper
 import cirno.powers.PlayCardNextTurnPower
+import com.megacrit.cardcrawl.actions.common.DrawCardAction
 
 
 class AttackPlaysItselfMaybe : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, DRAW_UP, COST), Helper {
@@ -21,17 +22,17 @@ class AttackPlaysItselfMaybe : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
+        damage(m!!)
         var attacksDrawn = 0
-        draw({c ->
-            run {
-                if (c.type == CardType.ATTACK) {
-                    attacksDrawn++
-                    if (attacksDrawn == magicNumber) {
-                        power(PlayCardNextTurnPower(this))
-                    }
-                }
+        act(DrawCardAction(p, magicNumber))
+        for (i in 0 until magicNumber) {
+            if (drawPile.getNCardFromTop(i).type == CardType.ATTACK) {
+                attacksDrawn++
             }
-        })
+        }
+        if (attacksDrawn == magicNumber) {
+            power(PlayCardNextTurnPower(this))
+        }
     }
 
     companion object {
