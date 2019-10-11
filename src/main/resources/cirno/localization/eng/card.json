@@ -168,5 +168,9 @@
   "AttackDrawDamage": {
     "NAME": "Kiss of Death",
     "DESCRIPTION": "$damage $nl $kissofdeath"
+  },
+  "BlockReduceCost": {
+    "NAME": "Snowflake",
+    "DESCRIPTION": "$block $nl $shiver $nl $snowflake $nl $exhaust"
   }
 }
