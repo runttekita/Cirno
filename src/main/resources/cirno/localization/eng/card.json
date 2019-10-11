@@ -146,7 +146,7 @@
   },
   "SpellCardDrawDamage": {
     "NAME": "Hidden Genius",
-    "DESCRIPTION": "$spell $nl $hiddengenius"
+    "DESCRIPTION": "$spell $nl $shiveramount $dealdamageallclause"
   },
   "CardsDrawnThisCombat": {
     "NAME": "Pent Up Frustration",

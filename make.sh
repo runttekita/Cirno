@@ -95,7 +95,7 @@ then
   SHIVER='cirno:Shiver:'
   FAIRY_SPIN='Permanently increase this cards damage by !M!.'
   ICICLE_RISE='Whenever you play a card this turn, put a random card in your hand to the bottom of your draw pile.'
-  HIDDEN_GENIUS='If you draw !M! cards outside of the start of your turn, deal !D! damage to ALL enemies.'
+  SHIVER_AMT='If you draw !M! cards outside of the start of your turn, '
   DAMAGE_ALL='Deal !D! damage to ALL enemies.'
   FRUSTRATION='This deals damage equal to all cards drawn this combat.'
   STUDIOUS_EFFORTS='Upgrade the first !M! cards you draw outside of the start of the turn'
@@ -119,6 +119,7 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$shiveramount/"${SHIVER_AMT}"/g ${PROD_JSON}
 sed -i s/\$removecold/"${REMOVE_COLD}"/g ${PROD_JSON}
 sed -i s/\$foreach/"${FOR_EACH}"/g ${PROD_JSON}
 sed -i s/\$crystalveil/"${CRYSTAL_VEIL}"/g ${PROD_JSON}
@@ -128,7 +129,6 @@ sed -i s/\$snowman/"${SNOWMAN}"/g ${PROD_JSON}
 sed -i s/\$studiousefforts/"${STUDIOUS_EFFORTS}"/g ${PROD_JSON}
 sed -i s/\$frustration/"${FRUSTRATION}"/g ${PROD_JSON}
 sed -i s/\$damageall/"${DAMAGE_ALL}"/g ${PROD_JSON}
-sed -i s/\$hiddengenius/"${HIDDEN_GENIUS}"/g ${PROD_JSON}
 sed -i s/\$iciclerise/"${ICICLE_RISE}"/g ${PROD_JSON}
 sed -i s/\$shiver/"${SHIVER}"/g ${PROD_JSON}
 sed -i s/\$fairyspin/"${FAIRY_SPIN}"/g ${PROD_JSON}
