@@ -29,13 +29,13 @@ abstract class CirnoCard
  private val upgradeMagic: Int, private val upgradeCost: Int)
     : CustomCard(null, strings.NAME, getImg("Cirno:uwu"), cost, strings.DESCRIPTION, type, Cirno_Ice, rarity, target), Helper {
     override val defaultDrawAmount: Int
-        get() = magicNumber
+        get() = this.magicNumber
     override val defaultSource: AbstractCreature
         get() = player
     override val defaultBlock: Int
-        get() = block
+        get() = this.block
     override val defaultDamage: Int
-        get() = damage
+        get() = this.damage
     var cirnoDynamicNumber: Int = -1
     var isDynamicUpgraded = false
     var originalCost = 0

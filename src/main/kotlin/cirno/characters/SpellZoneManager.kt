@@ -126,9 +126,9 @@ class SpellZoneManager : NotShittyTookDamage, OnApplyColdSpell, OnCardDrawSpell,
                 if (CardCrawlGame.dungeon != null && AbstractDungeon.player != null && AbstractDungeon.player.spellZones.zones.isNotEmpty()) {
                     for (zone in AbstractDungeon.player.spellZones.zones) {
                         when (AbstractDungeon.player.spellZones.zones.indexOf(zone)) {
-                            0 -> Yui.autoPlaceSamePosition(AbstractDungeon.player.hb, zone, AbstractDungeon.player.hb.width / 4f, AbstractDungeon.player.hb.height + 20 * Settings.scale)
-                            1 -> Yui.autoPlaceSamePosition(AbstractDungeon.player.hb, zone, -zone.getWidth() - 20 * Settings.scale, 0f)
-                            2 -> Yui.autoPlaceHorizontally(AbstractDungeon.player.hb, zone, 20 * Settings.scale)
+                            0 -> Yui.autoPlaceSamePosition(AbstractDungeon.player.hb, zone, AbstractDungeon.player.hb.width / 4f, AbstractDungeon.player.hb.height + 50 * Settings.scale)
+                            1 -> Yui.autoPlaceSamePosition(AbstractDungeon.player.hb, zone, -zone.getWidth() - 50 * Settings.scale, 0f)
+                            2 -> Yui.autoPlaceHorizontally(AbstractDungeon.player.hb, zone, 50 * Settings.scale)
                         }
                         zone.render(sb)
                         zone.update()
