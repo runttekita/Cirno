@@ -18,6 +18,7 @@ import basemod.abstracts.CustomSavable
 import cirno.Cirno.Statics.makeID
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.helpers.FontHelper
+import com.megacrit.cardcrawl.helpers.input.InputHelper
 import java.util.ArrayList
 
 
@@ -26,6 +27,10 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), Settings.W
 
     var currentCostume = 1
     private var cirnoButton: CharacterOption? = null
+
+    companion object {
+        var clickReleased = true
+    }
 
     init {
     }
@@ -65,8 +70,12 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), Settings.W
         public companion object {
             @JvmStatic
             fun Postfix(__instance: CharacterOption) {
+                if (!InputHelper.isMouseDown) {
+                    clickReleased = true
+                }
                 if (__instance.c is CirnoChar) {
-                    if (__instance.hb.clickStarted && __instance.selected) {
+                    if (__instance.hb.clickStarted && __instance.selected && clickReleased) {
+                        clickReleased = false
                         if (cirnoCostumes!!.currentCostume < 9) {
                             cirnoCostumes!!.currentCostume++
                         } else {
@@ -77,4 +86,5 @@ class CirnoCostumes: YuiClickableObject(textureLoader.getTexture(""), Settings.W
             }
         }
     }
+
 }
