@@ -155,7 +155,7 @@
   "UpgradeShiveringCards": {
     "NAME": "Studious Efforts",
     "DESCRIPTION": "$studiousefforts",
-    "UPGRADE_DESCRIPTION": "studiousefforts $nl $innate"
+    "UPGRADE_DESCRIPTION": "$studiousefforts $nl $innate"
   },
   "IncreaseAttackDamageDraw": {
     "NAME": "Midsummer Snowman",
