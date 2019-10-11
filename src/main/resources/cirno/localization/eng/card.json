@@ -150,7 +150,7 @@
   },
   "CardsDrawnThisCombat": {
     "NAME": "Pent Up Frustration",
-    "DESCRIPTION": "$shiver $damageall $nl $frustration $nl $exhaust",
+    "DESCRIPTION": "$shiver $damageall $nl $frustration $nl $exhaust"
   },
   "UpgradeShiveringCards": {
     "NAME": "Studious Efforts",
@@ -160,5 +160,9 @@
   "IncreaseAttackDamageDraw": {
     "NAME": "Midsummer Snowman",
     "DESCRIPTION": "$draw $nl $snowman"
+  },
+  "ShiverAttackCold": {
+    "NAME": "Ice Cubes",
+    "DESCRIPTION": "$damage $nl $shiver $nl $damage $nl $cold"
   }
 }
