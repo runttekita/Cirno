@@ -4,7 +4,9 @@ import basemod.BaseMod
 import cirno.daten.*
 import basemod.BaseMod.*
 import basemod.interfaces.*
+import cirno.abstracts.CirnoCard
 import cirno.characters.CirnoChar
+import cirno.variable.DisplayVariable
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
@@ -87,6 +89,7 @@ class Cirno() :
     }
 
     override fun receiveEditCards() {
+        BaseMod.addDynamicVariable(DisplayVariable())
         ReceiveEditCards()
     }
 
