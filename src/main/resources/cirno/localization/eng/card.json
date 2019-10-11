@@ -176,5 +176,13 @@
   "SpellAttackedCold": {
     "NAME": "Crystal Veil",
     "DESCRIPTION": "$spell $nl $whenattacked #crystalveil"
+  },
+  "RemoveColdEnergy": {
+    "NAME": "Ice Skating",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "$removecold $nl $literallyjustthewordgain",
+      "$foreach"
+    ]
   }
 }

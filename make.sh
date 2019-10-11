@@ -103,6 +103,8 @@ then
   KISS_OF_DEATH='This enemy takes !M! damage for every card drawn this turn.'
   SNOWFLAKE='Reduce the cost of ALL cards in your hand to 0 this combat.'
   CRYSTAL_VEIL='deal !D! damage for every cirno:Cold the attacker has and apply 1 cirno:Cold.'
+  REMOVE_COLD='Remove cirno:Cold from ALL enemies.'
+  FOR_EACH='for each.'
 fi
 
 # Copy into production folder
@@ -117,6 +119,8 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$removecold/"${REMOVE_COLD}"/g ${PROD_JSON}
+sed -i s/\$foreach/"${FOR_EACH}"/g ${PROD_JSON}
 sed -i s/\$crystalveil/"${CRYSTAL_VEIL}"/g ${PROD_JSON}
 sed -i s/\$snowflake/"${SNOWFLAKE}"/g ${PROD_JSON}
 sed -i s/\$kissofdeath/"${KISS_OF_DEATH}"/g ${PROD_JSON}
