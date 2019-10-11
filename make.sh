@@ -96,6 +96,8 @@ then
   FAIRY_SPIN='Permanently increase this cards damage by !M!.'
   ICICLE_RISE='Whenever you play a card this turn, put a random card in your hand to the bottom of your draw pile.'
   HIDDEN_GENIUS='If you draw !M! cards outside of the start of your turn, deal !D! damage to ALL enemies.'
+  DAMAGE_ALL='Deal !D! damage to ALL enemies.'
+  FRUSTRATION='This deals damage equal to all cards drawn this combat.'
 fi
 
 # Copy into production folder
@@ -110,6 +112,8 @@ cp ${DEV_STRINGS}character.json ${PROD_STRINGS}character.json
 
 # Replace strings
 PROD_JSON=${PROD_STRINGS}card.json
+sed -i s/\$frustration/"${FRUSTRATION}"/g ${PROD_JSON}
+sed -i s/\$damageall/"${DAMAGE_ALL}"/g ${PROD_JSON}
 sed -i s/\$hiddengenius/"${HIDDEN_GENIUS}"/g ${PROD_JSON}
 sed -i s/\$iciclerise/"${ICICLE_RISE}"/g ${PROD_JSON}
 sed -i s/\$shiver/"${SHIVER}"/g ${PROD_JSON}

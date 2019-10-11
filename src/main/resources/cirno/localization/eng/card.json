@@ -147,5 +147,9 @@
   "SpellCardDrawDamage": {
     "NAME": "Hidden Genius",
     "DESCRIPTION": "$spell $nl $hiddengenius"
+  },
+  "CardsDrawnThisCombat": {
+    "NAME": "Pent Up Frustration",
+    "DESCRIPTION": "$shiver $damageall $nl $frustration $nl $exhaust"
   }
 }
