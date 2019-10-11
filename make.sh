@@ -83,7 +83,7 @@ then
   DEAL_DAMAGE_ALL_CLAUSE="deal !D! damage to ALL enemies."
   FAIRY_BLAST='Deal !D! damage and deal !M! more damage for each set cirno:Spell.'
   TOTAL='(Total: !baka!)'
-  GAIN='Gain'
+  GAIN='Gain '
   PERIOD='.'
   PERFECT_STORM='Draw X cards. NL Reduce the cost of X random cards in your hand to 0 this turn.'
   PERFECT_STORM_UP='Draw X+1 cards. NL Reduce the cost of X random cards in your hand to 0 this turn.'
