@@ -125,7 +125,7 @@
   },
   "MultiTurnFreeze": {
     "NAME": "Perfect Freeze",
-    "DESCRIPTION": "$multifreeze"
+    "DESCRIPTION": "$multifreeze $nl $exhaust"
   },
   "RemoveColdEnergy": {
     "NAME": "Ice Skating",

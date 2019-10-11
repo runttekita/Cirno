@@ -17,6 +17,7 @@ class MultiTurnFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAG
         baseBlock = BLOCK
         magicNumber = TURNS
         baseMagicNumber = magicNumber
+        exhaust = true
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
@@ -26,7 +27,7 @@ class MultiTurnFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAG
     companion object {
         private val cardStrings = CardCrawlGame.languagePack.getCardStrings(
                 makeID(MultiTurnFreeze::class.java.simpleName))
-        private val COST = 3
+        private val COST = 1
         private val TYPE = CardType.SKILL
         private val RARITY = AbstractCard.CardRarity.RARE
         private val TARGET = AbstractCard.CardTarget.ENEMY
@@ -35,6 +36,6 @@ class MultiTurnFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAG
         private val TURNS_UP = 1
         private val DAMAGE = 0
         private val BLOCK = 0
-        private val TURNS = 2
+        private val TURNS = 3
     }
 }
