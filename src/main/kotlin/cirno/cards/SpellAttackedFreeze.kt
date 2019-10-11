@@ -3,6 +3,7 @@ package cirno.cards
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoCard
 import cirno.actions.FreezeMonsterAction
+import cirno.interfaces.NotShittyOnAttackedSpell
 import cirno.interfaces.TookDamageSpell
 import cirno.powers.FreezeNextTurn
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
@@ -15,7 +16,7 @@ import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 
 
-class SpellAttackedFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, MAGIC_UP, COST), TookDamageSpell {
+class SpellAttackedFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, BLOCK_UP, MAGIC_UP, COST), NotShittyOnAttackedSpell {
 
     init {
         baseDamage = DAMAGE
@@ -31,6 +32,9 @@ class SpellAttackedFreeze : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, D
     override fun spellEffect(info: DamageInfo) {
         damage(info.owner)
         act(ApplyPowerAction(info.owner, AbstractDungeon.player, FreezeNextTurn(info.owner, 1), 1))
+    }
+
+    override fun notShittyOnAttacked(info: DamageInfo) {
     }
 
     companion object {
