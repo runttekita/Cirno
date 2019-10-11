@@ -45,10 +45,10 @@ class SpellAttackedCold : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAM
         private val TYPE = CardType.SKILL
         private val RARITY = AbstractCard.CardRarity.COMMON
         private val TARGET = AbstractCard.CardTarget.SELF
-        private val DAMAGE_UP = 2
+        private val DAMAGE_UP = 3
         private val BLOCK_UP = 0
         private val MAGIC_UP = 0
-        private val DAMAGE = 5
+        private val DAMAGE = 9
         private val BLOCK = 0
         private val MAGIC = 0
     }
