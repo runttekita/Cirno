@@ -12,8 +12,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import javassist.CtBehavior
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.relics.AbstractRelic
 import com.megacrit.cardcrawl.vfx.RarePotionParticleEffect
+import com.megacrit.cardcrawl.vfx.UncommonPotionParticleEffect
 import kotlin.random.Random
 
 interface Shiver {
@@ -174,11 +176,15 @@ interface Shiver {
             fun Prefix(__instance: AbstractPlayer, sb: SpriteBatch) {
                 if (__instance.isShivering) {
                     sparkleTimer -= Gdx.graphics.deltaTime
+                    x = __instance.drawX + __instance.hb_w * Random.nextFloat()
+                    y =  __instance.drawY + __instance.hb_h * Random.nextFloat()
+                    if (sparkleTimer < 0.40f && Random.nextFloat() < 0.2f) {
+                        AbstractDungeon.effectList.add(UncommonPotionParticleEffect(x - 120f * Settings.scale, y - 30f * Settings.scale))
+                        sparkleTimer = MathUtils.random(0.30f, 0.50f)
+                    }
                     if (sparkleTimer < 0.0f) {
-                        x = Random.nextFloat() * __instance.hb_w + __instance.hb_x
-                        y = Random.nextFloat() * __instance.hb_h + __instance.hb_y
-                        AbstractDungeon.topLevelEffects.add(RarePotionParticleEffect(x, y))
-                        this.sparkleTimer = MathUtils.random(0.35f, 0.5f)
+                        AbstractDungeon.effectList.add(UncommonPotionParticleEffect(x - 40f * Settings.scale, y - 30f * Settings.scale))
+                        sparkleTimer = MathUtils.random(0.30f, 1.0f)
                     }
                 }
             }
