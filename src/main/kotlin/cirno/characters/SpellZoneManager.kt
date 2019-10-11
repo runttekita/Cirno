@@ -17,6 +17,7 @@ import kotlin.reflect.KClass
 import com.megacrit.cardcrawl.actions.utility.UseCardAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.DamageInfo
+import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.helpers.Hitbox
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import javassist.CtBehavior
@@ -112,8 +113,8 @@ class SpellZoneManager : NotShittyTookDamage, OnApplyColdSpell, OnCardDrawSpell,
     }
 
     @SpirePatch(
-            clz = AbstractPlayer::class,
-            method = "render"
+            clz = AbstractCreature::class,
+            method = "renderHealth"
     )
     public class RenderZones {
         public companion object {
@@ -139,7 +140,7 @@ class SpellZoneManager : NotShittyTookDamage, OnApplyColdSpell, OnCardDrawSpell,
 
     public class RenderLocator : SpireInsertLocator() {
         override fun Locate(ctMethodToPatch: CtBehavior): IntArray {
-            val matcher = Matcher.MethodCallMatcher(Hitbox::class.java, "render")
+            val matcher = Matcher.MethodCallMatcher(AbstractCreature::class.java, "renderHealthBg")
             return LineFinder.findInOrder(ctMethodToPatch, matcher)
         }
 
