@@ -129,6 +129,7 @@ public class Frozen : CirnoPower, CloneablePowerInterface, InvisiblePower, Helpe
             }
             m.createIntent()
             m.applyPowers()
+            owner.state?.timeScale = 0.1f
         }
     }
 
