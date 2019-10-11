@@ -40,7 +40,7 @@
     "NAME": "Fairy Sprint",
     "DESCRIPTION": "$draw $nl $drawreduce"
   },
-  "CardsDrawnThisCombat": {
+  "CardsDrawnThisCombatDamage": {
     "NAME": "Pent Up Frustration",
     "DESCRIPTION": "$shiver $damageall $nl $frustration $nl $exhaust"
   },
