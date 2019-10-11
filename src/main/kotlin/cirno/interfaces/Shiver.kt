@@ -1,6 +1,7 @@
 package cirno.interfaces
 
 import cirno.characters.spellZones
+import com.badlogic.gdx.Game
 import com.evacipated.cardcrawl.modthespire.lib.*
 import com.megacrit.cardcrawl.actions.GameActionManager
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -22,6 +23,17 @@ interface Shiver {
             public var isShivering =  SpireField<Boolean> {false}
             @JvmField
             public var amountOfShiveringCards = SpireField<Int> {0}
+        }
+    }
+
+    @SpirePatch(
+            clz = GameActionManager::class,
+            method = SpirePatch.CLASS
+    )
+    public class CardsDrawnThisCombat {
+        public companion object {
+            @JvmField
+            public var cardsDrawnThisCombat = SpireField<Int>{0}
         }
     }
 
@@ -87,6 +99,7 @@ interface Shiver {
                     AbstractDungeon.player.shiveredCards++
                 }
                 AbstractDungeon.player.spellZones.onDraw()
+                AbstractDungeon.actionManager.cardsDrawnThisCombat++
             }
         }
     }
@@ -98,7 +111,18 @@ interface Shiver {
             val matcher = Matcher.MethodCallMatcher(AbstractCard::class.java, "triggerWhenDrawn")
             return LineFinder.findInOrder(p0, matcher)
         }
+    }
 
+    @SpirePatch(
+            clz = GameActionManager::class,
+            method = "clear"
+    )
+    public class ClearCardsDrawn {
+        public companion object {
+            fun Postfix(__instance: GameActionManager) {
+                __instance.cardsDrawnThisCombat = 0
+            }
+        }
     }
 
 
@@ -111,3 +135,7 @@ var AbstractPlayer.isShivering: Boolean
 var AbstractPlayer.shiveredCards: Int
     get() = Shiver.ShiverActive.amountOfShiveringCards.get(this)
     set(value) = Shiver.ShiverActive.amountOfShiveringCards.set(this, value)
+
+var GameActionManager.cardsDrawnThisCombat
+    get() = Shiver.CardsDrawnThisCombat.cardsDrawnThisCombat.get(this)
+    set(value) = Shiver.CardsDrawnThisCombat.cardsDrawnThisCombat.set(this, value)
