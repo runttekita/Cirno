@@ -23,7 +23,7 @@ class Cold : CirnoPower, CloneablePowerInterface, Helper {
     companion object {
         var NAME: String? = null
         var DESCRIPTIONS: Array<String>? = null
-        private const val PROC_AMOUNT = 3
+        private const val PROC_AMOUNT = 6
     }
 
     init {
