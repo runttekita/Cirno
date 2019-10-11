@@ -12,8 +12,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import javassist.CtBehavior
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.core.OverlayMenu
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.relics.AbstractRelic
+import com.megacrit.cardcrawl.rooms.AbstractRoom
 import com.megacrit.cardcrawl.vfx.RarePotionParticleEffect
 import com.megacrit.cardcrawl.vfx.UncommonPotionParticleEffect
 import kotlin.random.Random
@@ -75,10 +77,38 @@ interface Shiver {
                         AbstractDungeon.player.isShivering = true
                         isDone = true
                     }
-
                 })
             }
         }
+    }
+
+    @SpirePatch(
+            clz = AbstractRoom::class,
+            method = "update"
+    )
+    public class ShiverAtStartOfCombat {
+        public companion object {
+            @SpireInsertPatch(
+                    locator = StartOfCombatShiverLocator::class
+            )
+            @JvmStatic
+            fun Insert(__instance: AbstractRoom) {
+                AbstractDungeon.actionManager.addToBottom(object : AbstractGameAction() {
+                    override fun update() {
+                        AbstractDungeon.player.isShivering = true
+                        isDone = true
+                    }
+                })
+            }
+        }
+    }
+
+    public class StartOfCombatShiverLocator : SpireInsertLocator() {
+        override fun Locate(p0: CtBehavior?): IntArray {
+            val matcher = Matcher.MethodCallMatcher(OverlayMenu::class.java, "showCombatPanels")
+            return LineFinder.findInOrder(p0, matcher)
+        }
+
     }
 
     public class Locator : SpireInsertLocator() {
