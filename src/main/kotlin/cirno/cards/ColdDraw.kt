@@ -2,7 +2,7 @@ package cirno.cards
 
 import cirno.Cirno.Statics.makeID
 import cirno.abstracts.CirnoCard
-import cirno.actions.DrawActionButWithACallback
+import com.megacrit.cardcrawl.actions.common.DrawCardAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
@@ -20,11 +20,12 @@ class ColdDraw : CirnoCard(cardStrings, COST, TYPE, RARITY, TARGET, DAMAGE_UP, B
     }
 
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
-        act(DrawActionButWithACallback(magicNumber) { c ->
-            if (c.type == AbstractCard.CardType.SKILL) {
+        act(DrawCardAction(p, magicNumber))
+        for (i in 0 until magicNumber) {
+            if (drawPile.getNCardFromTop(i).type == CardType.SKILL) {
                 cold(m!!)
             }
-        })
+        }
     }
 
     companion object {
