@@ -107,7 +107,7 @@
     "DESCRIPTION": "$freeze"
   },
   "FreezeSpell": {
-    "NAME": "Frozen Technique",
+    "NAME": "Minus K",
     "DESCRIPTION": "$spell $nl $ifcold $freezefollowup"
   },
   "FrozenDiscard": {
