@@ -22,6 +22,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.AbstractPower
+import com.evacipated.cardcrawl.modthespire.lib.LineFinder
+import com.evacipated.cardcrawl.modthespire.lib.Matcher.FieldAccessMatcher
+import javassist.CtBehavior
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch
+import javazoom.jl.decoder.LayerIIIDecoder.io
+
+
 
 abstract class CirnoCard
 (private val strings: CardStrings, cost: Int, type: AbstractCard.CardType, rarity: AbstractCard.CardRarity,
@@ -139,6 +149,25 @@ abstract class CirnoCard
         }
     }
 
+    @SpirePatch(clz = AbstractCard::class, method = "hasEnoughEnergy")
+    object PlayARTSOnEnemyTurnPatch {
+        @JvmStatic
+        @SpireInsertPatch(locator = Locator::class)
+        fun Insert(__instance: AbstractCard): SpireReturn<Any> {
+            if (__instance is CirnoCard && __instance is Spell) {
+                return SpireReturn.Return(false)
+            }
+            return SpireReturn.Continue()
+        }
+    }
+
+    class Locator : SpireInsertLocator() {
+        @Throws(Exception::class)
+        override fun Locate(ctMethodToPatch: CtBehavior): IntArray {
+            val finalMatcher = Matcher.FieldAccessMatcher(AbstractCard::class.java, "cantUseMessage")
+            return LineFinder.findInOrder(ctMethodToPatch, finalMatcher)
+        }
+    }
 
 }
 
